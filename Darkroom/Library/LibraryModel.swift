@@ -1,0 +1,377 @@
+//
+//  LibraryModel.swift
+//  Darkroom
+//
+//  The reference library's data model. Every fact that matters carries where it
+//  came from; a fact nobody has sourced is either absent or explicitly marked
+//  unverified, never filled in with a plausible guess.
+//
+
+import Foundation
+
+// MARK: - Provenance
+
+/// Where a documented fact came from.
+enum LibraryProvenanceKind: String, Codable, CaseIterable, Identifiable {
+    case datasheet
+    case community
+    case unverified
+
+    var id: String { rawValue }
+
+    var label: String {
+        switch self {
+        case .datasheet: return "Datasheet"
+        case .community: return "Community"
+        case .unverified: return "Verify"
+        }
+    }
+
+    var detail: String {
+        switch self {
+        case .datasheet: return "Manufacturer datasheet"
+        case .community: return "Community chart"
+        case .unverified: return "Not yet verified"
+        }
+    }
+
+    /// Higher wins when two records for the same key are merged.
+    var rank: Int {
+        switch self {
+        case .datasheet: return 3
+        case .community: return 2
+        case .unverified: return 1
+        }
+    }
+}
+
+struct LibraryProvenance: Codable, Hashable {
+    var kind: LibraryProvenanceKind
+    var source: String?
+    var note: String?
+
+    static let unverified = LibraryProvenance(kind: .unverified, source: nil, note: nil)
+}
+
+/// A document a fact can point at.
+struct LibrarySource: Codable, Identifiable, Hashable {
+    var key: String
+    var title: String
+    var publisher: String
+    var url: String
+    /// As printed by the source, so it is never re-formatted behind the reader's back.
+    var retrieved: String
+
+    var id: String { key }
+}
+
+/// One documented value with the provenance that earns it a place on screen.
+struct LibraryFact: Codable, Hashable {
+    var value: String
+    var unit: String?
+    var provenance: LibraryProvenance
+}
+
+// MARK: - Films
+
+enum FilmStatus: String, Codable, CaseIterable, Identifiable {
+    case current
+    case discontinued
+    case cinema
+    case specialty
+
+    var id: String { rawValue }
+
+    var label: String {
+        switch self {
+        case .current: return "Current"
+        case .discontinued: return "Discontinued"
+        case .cinema: return "Cinema"
+        case .specialty: return "Specialty"
+        }
+    }
+}
+
+struct LibraryFilm: Codable, Identifiable, Hashable {
+    var key: String
+    var manufacturer: String
+    var name: String
+    var iso: Int
+    var process: FilmProcess
+    var formats: [FilmFormat]
+    var status: FilmStatus
+    /// Stable identity of the emulsion itself, so two generations of one name stay apart.
+    var generation: String?
+    var generationLabel: String?
+    var latitude: LibraryFact?
+    var grain: LibraryFact?
+    var contrast: LibraryFact?
+    var reciprocity: LibraryFact?
+    var notes: String?
+
+    var id: String { key }
+
+    var displayName: String { "\(name) \(iso)" }
+
+    var fullName: String { "\(manufacturer) \(name) \(iso)" }
+
+    var formatSummary: String { formats.map(\.label).joined(separator: " · ") }
+
+    /// Used by the importer to deduplicate the same emulsion loaded twice.
+    var stableKey: String {
+        let base = "\(manufacturer.lowercased())|\(name.lowercased())|\(iso)"
+        guard let generation, !generation.isEmpty else { return base }
+        return "\(base)|\(generation.lowercased())"
+    }
+
+    func merged(with other: LibraryFilm) -> LibraryFilm {
+        var result = self
+        result.latitude = Self.pick(latitude, other.latitude)
+        result.grain = Self.pick(grain, other.grain)
+        result.contrast = Self.pick(contrast, other.contrast)
+        result.reciprocity = Self.pick(reciprocity, other.reciprocity)
+        result.notes = other.notes ?? notes
+        if !other.formats.isEmpty { result.formats = other.formats }
+        if other.generationLabel != nil { result.generationLabel = other.generationLabel }
+        return result
+    }
+
+    private static func pick(_ mine: LibraryFact?, _ theirs: LibraryFact?) -> LibraryFact? {
+        guard let theirs else { return mine }
+        guard let mine else { return theirs }
+        return theirs.provenance.kind.rank >= mine.provenance.kind.rank ? theirs : mine
+    }
+}
+
+// MARK: - Developers
+
+struct LibraryDilution: Codable, Identifiable, Hashable {
+    var id: String
+    var label: String
+    var stockParts: Double?
+    var waterParts: Double?
+    var provenance: LibraryProvenance?
+
+    var ratio: String? {
+        guard let stock = stockParts, let water = waterParts else { return nil }
+        if water == 0 { return "Stock" }
+        return "\(Dilution.number(stock))+\(Dilution.number(water))"
+    }
+}
+
+struct LibraryDeveloper: Codable, Identifiable, Hashable {
+    var key: String
+    var manufacturer: String
+    var name: String
+    var type: String?
+    var dilutions: [LibraryDilution]
+    var capacity: LibraryFact?
+    var reuse: LibraryFact?
+
+    var id: String { key }
+
+    var displayName: String { name }
+
+    var dilutionSummary: String { dilutions.map(\.label).joined(separator: " · ") }
+
+    /// Same stock loaded twice is one record, whatever it was keyed as.
+    var stableKey: String { "\(manufacturer.lowercased())|\(name.lowercased())" }
+
+    func dilution(id: String) -> LibraryDilution? {
+        dilutions.first { $0.id == id }
+    }
+
+    func merged(with other: LibraryDeveloper) -> LibraryDeveloper {
+        var result = self
+        result.type = other.type ?? type
+        result.capacity = Self.pick(capacity, other.capacity)
+        result.reuse = Self.pick(reuse, other.reuse)
+        if !other.dilutions.isEmpty {
+            var byID = Dictionary(uniqueKeysWithValues: dilutions.map { ($0.id, $0) })
+            var order = dilutions.map(\.id)
+            for dilution in other.dilutions {
+                if let existing = byID[dilution.id] {
+                    byID[dilution.id] = dilution.provenance == nil ? existing : dilution
+                } else {
+                    byID[dilution.id] = dilution
+                    order.append(dilution.id)
+                }
+            }
+            result.dilutions = order.compactMap { byID[$0] }
+        }
+        return result
+    }
+
+    private static func pick(_ mine: LibraryFact?, _ theirs: LibraryFact?) -> LibraryFact? {
+        guard let theirs else { return mine }
+        guard let mine else { return theirs }
+        return theirs.provenance.kind.rank >= mine.provenance.kind.rank ? theirs : mine
+    }
+}
+
+// MARK: - Times
+
+/// One film/developer/dilution at one temperature. `seconds` is nil when the
+/// pairing is known but no time has been sourced for it.
+struct LibraryTimeEntry: Codable, Identifiable, Hashable {
+    var film: String
+    var developer: String
+    var dilution: String
+    var celsius: Double
+    var seconds: Int?
+    var provenance: LibraryProvenance
+
+    var id: String { "\(film)|\(developer)|\(dilution)|\(celsius)" }
+
+    var mergeKey: String { "\(film.lowercased())|\(developer.lowercased())|\(dilution.lowercased())|\(celsius)" }
+}
+
+// MARK: - Cross-processing
+
+enum CrossProcessClass: String, Codable, CaseIterable, Identifiable {
+    case documentedAndTested
+    case communityTested
+    case experimental
+    case notRecommended
+    case incompatible
+
+    var id: String { rawValue }
+
+    var label: String {
+        switch self {
+        case .documentedAndTested: return "Documented"
+        case .communityTested: return "Community"
+        case .experimental: return "Experimental"
+        case .notRecommended: return "Not recommended"
+        case .incompatible: return "Incompatible"
+        }
+    }
+}
+
+struct LibraryCrossProcess: Codable, Identifiable, Hashable {
+    var film: String
+    var fromProcess: FilmProcess
+    var toProcess: FilmProcess
+    var classification: CrossProcessClass
+    var summary: String
+    var provenance: LibraryProvenance
+
+    var id: String { "\(film)|\(fromProcess.rawValue)|\(toProcess.rawValue)" }
+}
+
+// MARK: - Document
+
+/// The whole library as one importable, mergeable document.
+struct LibraryDocument: Codable {
+    var schema: Int
+    var sources: [LibrarySource]
+    var films: [LibraryFilm]
+    var developers: [LibraryDeveloper]
+    var times: [LibraryTimeEntry]
+    var crossProcess: [LibraryCrossProcess]
+
+    static let empty = LibraryDocument(
+        schema: 1,
+        sources: [],
+        films: [],
+        developers: [],
+        times: [],
+        crossProcess: []
+    )
+
+    init(
+        schema: Int = 1,
+        sources: [LibrarySource] = [],
+        films: [LibraryFilm] = [],
+        developers: [LibraryDeveloper] = [],
+        times: [LibraryTimeEntry] = [],
+        crossProcess: [LibraryCrossProcess] = []
+    ) {
+        self.schema = schema
+        self.sources = sources
+        self.films = films
+        self.developers = developers
+        self.times = times
+        self.crossProcess = crossProcess
+    }
+
+    /// Every section is optional on the way in, so a partial import is a merge
+    /// rather than a parse failure.
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        schema = try container.decodeIfPresent(Int.self, forKey: .schema) ?? 1
+        sources = try container.decodeIfPresent([LibrarySource].self, forKey: .sources) ?? []
+        films = try container.decodeIfPresent([LibraryFilm].self, forKey: .films) ?? []
+        developers = try container.decodeIfPresent([LibraryDeveloper].self, forKey: .developers) ?? []
+        times = try container.decodeIfPresent([LibraryTimeEntry].self, forKey: .times) ?? []
+        crossProcess = try container.decodeIfPresent([LibraryCrossProcess].self, forKey: .crossProcess) ?? []
+    }
+
+    var isEmpty: Bool {
+        films.isEmpty && developers.isEmpty && times.isEmpty && crossProcess.isEmpty
+    }
+
+    // MARK: Merge
+
+    /// Incoming records win on provenance, and never wipe a documented value
+    /// with an unsourced one.
+    func merged(with incoming: LibraryDocument) -> LibraryDocument {
+        var result = self
+
+        result.sources = Self.merge(sources, incoming.sources, key: \.key) { $1 }
+
+        result.films = Self.merge(films, incoming.films, key: \.stableKey) { existing, new in
+            existing.merged(with: new)
+        }
+
+        result.developers = Self.merge(developers, incoming.developers, key: \.stableKey) { existing, new in
+            existing.merged(with: new)
+        }
+
+        result.times = Self.merge(times, incoming.times, key: \.mergeKey) { existing, new in
+            let existingRank = existing.provenance.kind.rank
+            let newRank = new.provenance.kind.rank
+            if existing.seconds == nil && new.seconds != nil { return new }
+            if existing.seconds != nil && new.seconds == nil { return existing }
+            return newRank >= existingRank ? new : existing
+        }
+
+        result.crossProcess = Self.merge(crossProcess, incoming.crossProcess, key: \.id) { existing, new in
+            new.provenance.kind.rank >= existing.provenance.kind.rank ? new : existing
+        }
+
+        return result
+    }
+
+    private static func merge<T>(
+        _ base: [T],
+        _ incoming: [T],
+        key: (T) -> String,
+        combine: (T, T) -> T
+    ) -> [T] {
+        var order: [String] = []
+        var map: [String: T] = [:]
+
+        for item in base {
+            let identifier = key(item)
+            if map[identifier] == nil {
+                order.append(identifier)
+                map[identifier] = item
+            } else if let existing = map[identifier] {
+                map[identifier] = combine(existing, item)
+            }
+        }
+
+        for item in incoming {
+            let identifier = key(item)
+            if let existing = map[identifier] {
+                map[identifier] = combine(existing, item)
+            } else {
+                map[identifier] = item
+                order.append(identifier)
+            }
+        }
+
+        return order.compactMap { map[$0] }
+    }
+}

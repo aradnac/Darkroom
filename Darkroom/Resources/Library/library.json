@@ -1,0 +1,564 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "key": "ilford-film-datasheets",
+      "title": "Ilford technical datasheets",
+      "publisher": "Ilford Photo",
+      "url": "https://www.ilfordphoto.com",
+      "retrieved": "2026-02-11"
+    },
+    {
+      "key": "kodak-film-datasheets",
+      "title": "Kodak film technical publications",
+      "publisher": "Kodak",
+      "url": "https://www.kodak.com/en/photography",
+      "retrieved": "2026-02-11"
+    },
+    {
+      "key": "kodak-c41",
+      "title": "Kodak C-41 process specification",
+      "publisher": "Kodak",
+      "url": "https://www.kodak.com/en/photography",
+      "retrieved": "2026-02-11"
+    },
+    {
+      "key": "kodak-ecn2",
+      "title": "Kodak ECN-2 process specification",
+      "publisher": "Kodak",
+      "url": "https://www.kodak.com/en/motion",
+      "retrieved": "2026-02-11"
+    },
+    {
+      "key": "fujifilm-datasheets",
+      "title": "Fujifilm film datasheets",
+      "publisher": "Fujifilm",
+      "url": "https://www.fujifilm.com",
+      "retrieved": "2026-02-11"
+    },
+    {
+      "key": "foma-datasheets",
+      "title": "Foma Bohemia film datasheets",
+      "publisher": "Foma Bohemia",
+      "url": "https://www.foma.cz",
+      "retrieved": "2026-02-11"
+    },
+    {
+      "key": "adox-datasheets",
+      "title": "Adox chemistry datasheets",
+      "publisher": "Adox",
+      "url": "https://www.adox-photochemie.com",
+      "retrieved": "2026-02-11"
+    },
+    {
+      "key": "massive-dev-chart",
+      "title": "Massive Dev Chart",
+      "publisher": "Digitaltruth",
+      "url": "https://www.digitaltruth.com",
+      "retrieved": "2026-02-11"
+    }
+  ],
+  "films": [
+    {
+      "key": "ilford-hp5-plus",
+      "manufacturer": "Ilford",
+      "name": "HP5 Plus",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "hp5-plus",
+      "generationLabel": "HP5 Plus (from 1989)",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "The workhorse. Holds shadow detail well when rated at its box speed and forgiving of a stop either way."
+    },
+    {
+      "key": "ilford-fp4-plus",
+      "manufacturer": "Ilford",
+      "name": "FP4 Plus",
+      "iso": 125,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "fp4-plus",
+      "generationLabel": "FP4 Plus (from 1990)",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": null
+    },
+    {
+      "key": "ilford-delta-100",
+      "manufacturer": "Ilford",
+      "name": "Delta",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "delta-100",
+      "generationLabel": "Delta 100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": null
+    },
+    {
+      "key": "ilford-delta-400",
+      "manufacturer": "Ilford",
+      "name": "Delta",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "delta-400",
+      "generationLabel": "Delta 400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": null
+    },
+    {
+      "key": "ilford-delta-3200",
+      "manufacturer": "Ilford",
+      "name": "Delta",
+      "iso": 3200,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "delta-3200",
+      "generationLabel": "Delta 3200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "Its published ISO is a nominal figure; most workers rate it at 1600 and develop to suit."
+    },
+    {
+      "key": "ilford-pan-f-plus",
+      "manufacturer": "Ilford",
+      "name": "Pan F Plus",
+      "iso": 50,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "pan-f-plus",
+      "generationLabel": "Pan F Plus",
+      "latitude": null,
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "Latent image keeping is short — develop soon after exposure."
+    },
+    {
+      "key": "ilford-sfx-200",
+      "manufacturer": "Ilford",
+      "name": "SFX",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "specialty",
+      "generation": "sfx-200",
+      "generationLabel": "SFX 200",
+      "latitude": null,
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "Extended red sensitivity. Use a deep red filter for infrared-like skies."
+    },
+    {
+      "key": "ilford-xp2-super",
+      "manufacturer": "Ilford",
+      "name": "XP2 Super",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "xp2-super",
+      "generationLabel": "XP2 Super",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "A black-and-white film on a colour-negative base: it is developed in C-41."
+    },
+    {
+      "key": "kodak-tri-x-400",
+      "manufacturer": "Kodak",
+      "name": "Tri-X",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "tri-x-400",
+      "generationLabel": "Tri-X 400 (TX)",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": null
+    },
+    {
+      "key": "kodak-t-max-100",
+      "manufacturer": "Kodak",
+      "name": "T-Max",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "tmax-100",
+      "generationLabel": "T-Max 100 (TMX)",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": null
+    },
+    {
+      "key": "kodak-t-max-400",
+      "manufacturer": "Kodak",
+      "name": "T-Max",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "tmax-400",
+      "generationLabel": "T-Max 400 (TMY-2, from 2007)",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "The 2007 emulsion (TMY-2) is a different generation from the 1986 original. Times published for the older film do not transfer."
+    },
+    {
+      "key": "kodak-plus-x-125",
+      "manufacturer": "Kodak",
+      "name": "Plus-X",
+      "iso": 125,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "plus-x-125",
+      "generationLabel": "Plus-X 125 (PX)",
+      "latitude": null,
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "Discontinued. Times below come from community charts for the last emulsion."
+    },
+    {
+      "key": "kodak-portra-400",
+      "manufacturer": "Kodak",
+      "name": "Portra",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "portra-400",
+      "generationLabel": "Portra 400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": null
+    },
+    {
+      "key": "kodak-gold-200",
+      "manufacturer": "Kodak",
+      "name": "Gold",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "gold-200",
+      "generationLabel": "Gold 200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": null
+    },
+    {
+      "key": "kodak-ektar-100",
+      "manufacturer": "Kodak",
+      "name": "Ektar",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "ektar-100",
+      "generationLabel": "Ektar 100",
+      "latitude": { "value": "−0.5 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": null
+    },
+    {
+      "key": "fujifilm-velvia-50",
+      "manufacturer": "Fujifilm",
+      "name": "Velvia",
+      "iso": 50,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "velvia-50",
+      "generationLabel": "Velvia 50",
+      "latitude": { "value": "−0.5 / +0.5", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "Colour transparency. E-6 process, and unforgiving of exposure error."
+    },
+    {
+      "key": "fujifilm-acros-100-ii",
+      "manufacturer": "Fujifilm",
+      "name": "Acros",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "acros-100-ii",
+      "generationLabel": "Acros 100 II (from 2019)",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "The II is a different emulsion from the original Acros 100."
+    },
+    {
+      "key": "kodak-vision3-250d",
+      "manufacturer": "Kodak",
+      "name": "Vision3 250D",
+      "iso": 250,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "cinema",
+      "generation": "vision3-250d",
+      "generationLabel": "Vision3 250D (5207)",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "Cinema stock on a rem-jet base. Needs an ECN-2 pre-bath; C-41 kits will not remove the backing."
+    },
+    {
+      "key": "kodak-double-x-5222",
+      "manufacturer": "Kodak",
+      "name": "Double-X 5222",
+      "iso": 250,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "cinema",
+      "generation": "double-x-5222",
+      "generationLabel": "Double-X 5222",
+      "latitude": null,
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "A black-and-white cinema stock; often developed in ordinary B&W chemistry after the rem-jet is removed."
+    },
+    {
+      "key": "foma-fomapan-400",
+      "manufacturer": "Foma",
+      "name": "Fomapan",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "specialty",
+      "generation": "fomapan-400",
+      "generationLabel": "Fomapan 400",
+      "latitude": null,
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "notes": "Classic-grain emulsion. Rate closer to ISO 250 for finer results."
+    }
+  ],
+  "developers": [
+    {
+      "key": "ilford-id-11",
+      "manufacturer": "Ilford",
+      "name": "ID-11",
+      "type": "powder",
+      "dilutions": [
+        { "id": "stock", "label": "Stock", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } },
+        { "id": "1+1", "label": "1+1", "stockParts": 1, "waterParts": 1, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } },
+        { "id": "1+3", "label": "1+3", "stockParts": 1, "waterParts": 3, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } }
+      ],
+      "capacity": { "value": "1 litre stock: up to 10 rolls with replenishment; 300 ml per roll at 1+1", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Stock solution can be replenished and kept; 1+1 is one-shot. Do not top up a diluted working solution.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "kodak-d-76",
+      "manufacturer": "Kodak",
+      "name": "D-76",
+      "type": "powder",
+      "dilutions": [
+        { "id": "stock", "label": "Stock", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+        { "id": "1+1", "label": "1+1", "stockParts": 1, "waterParts": 1, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } }
+      ],
+      "capacity": { "value": "1 litre stock: up to 8 rolls; 250 ml per roll at 1+1", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Interleaved stock can be reused with time compensation; 1+1 is one-shot.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "kodak-hc-110",
+      "manufacturer": "Kodak",
+      "name": "HC-110",
+      "type": "syrup",
+      "dilutions": [
+        { "id": "a", "label": "A", "stockParts": null, "waterParts": null, "provenance": null },
+        { "id": "b", "label": "B", "stockParts": null, "waterParts": null, "provenance": null },
+        { "id": "h", "label": "H", "stockParts": null, "waterParts": null, "provenance": null }
+      ],
+      "capacity": null,
+      "reuse": null
+    },
+    {
+      "key": "adox-rodinal",
+      "manufacturer": "Adox",
+      "name": "Rodinal",
+      "type": "syrup",
+      "dilutions": [
+        { "id": "1+25", "label": "1+25", "stockParts": 1, "waterParts": 25, "provenance": { "kind": "community", "source": "adox-datasheets" } },
+        { "id": "1+50", "label": "1+50", "stockParts": 1, "waterParts": 50, "provenance": { "kind": "community", "source": "adox-datasheets" } },
+        { "id": "1+100", "label": "1+100", "stockParts": 1, "waterParts": 100, "provenance": { "kind": "community", "source": "adox-datasheets" } }
+      ],
+      "capacity": { "value": "500 ml of syrup makes roughly 50 rolls at 1+25", "provenance": { "kind": "community", "source": "adox-datasheets" } },
+      "reuse": { "value": "Always one-shot, even at 1+100. Keeps for years in a sealed bottle.", "provenance": { "kind": "community", "source": "adox-datasheets" } }
+    },
+    {
+      "key": "ilford-ilfosol-3",
+      "manufacturer": "Ilford",
+      "name": "Ilfosol 3",
+      "type": "liquid",
+      "dilutions": [
+        { "id": "1+9", "label": "1+9", "stockParts": 1, "waterParts": 9, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } },
+        { "id": "1+14", "label": "1+14", "stockParts": 1, "waterParts": 14, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } }
+      ],
+      "capacity": { "value": "One-shot at both dilutions; 1 litre of working solution per 135 roll", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Never reused.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "ilford-microphen",
+      "manufacturer": "Ilford",
+      "name": "Microphen",
+      "type": "powder",
+      "dilutions": [
+        { "id": "stock", "label": "Stock", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } },
+        { "id": "1+1", "label": "1+1", "stockParts": 1, "waterParts": 1, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } }
+      ],
+      "capacity": { "value": "1 litre stock: about 10 rolls with replenishment", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "A speed-increasing developer; reuse stock with replenishment only.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "ilford-perceptol",
+      "manufacturer": "Ilford",
+      "name": "Perceptol",
+      "type": "powder",
+      "dilutions": [
+        { "id": "stock", "label": "Stock", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } },
+        { "id": "1+1", "label": "1+1", "stockParts": 1, "waterParts": 1, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } },
+        { "id": "1+3", "label": "1+3", "stockParts": 1, "waterParts": 3, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } }
+      ],
+      "capacity": { "value": "1 litre stock: about 8 rolls", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "A fine-grain developer that costs about half a stop of speed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "kodak-xtol",
+      "manufacturer": "Kodak",
+      "name": "XTOL",
+      "type": "powder",
+      "dilutions": [
+        { "id": "stock", "label": "Stock", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+        { "id": "1+1", "label": "1+1", "stockParts": 1, "waterParts": 1, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+        { "id": "1+2", "label": "1+2", "stockParts": 1, "waterParts": 2, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } }
+      ],
+      "capacity": { "value": "1 litre stock: about 8 rolls; 1+1 uses 300 ml per roll", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Diluted solutions are one-shot. Stock loses activity once mixed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "c41-press-kit",
+      "manufacturer": "Kodak",
+      "name": "C-41 press kit",
+      "type": "kit",
+      "dilutions": [
+        { "id": "stock", "label": "Working solution", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "kodak-c41" } }
+      ],
+      "capacity": { "value": "1 litre working solution: about 8 rolls, or 4 with a two-bath reuse routine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "A three-bath kit at 38 °C. Developer is normally one-shot; bleach and fix are reusable.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "e6-kit",
+      "manufacturer": "Kodak",
+      "name": "E-6 kit",
+      "type": "kit",
+      "dilutions": [
+        { "id": "stock", "label": "Working solution", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } }
+      ],
+      "capacity": { "value": "1 litre working solution: about 8 rolls", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Six-bath process held at 38 °C with tight timing. First developer is one-shot.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "ecn-2-kit",
+      "manufacturer": "Kodak",
+      "name": "ECN-2 kit",
+      "type": "kit",
+      "dilutions": [
+        { "id": "stock", "label": "Working solution", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } }
+      ],
+      "capacity": { "value": "Per the ECN-2 process specification", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "reuse": { "value": "Includes the alkaline pre-bath that removes rem-jet backing. Not interchangeable with a C-41 kit.", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } }
+    }
+  ],
+  "times": [
+    { "film": "ilford-hp5-plus", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 780, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets", "note": "Continuous agitation for the first 30 seconds, then four inversions each minute." } },
+    { "film": "ilford-hp5-plus", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 450, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+    { "film": "ilford-hp5-plus", "developer": "adox-rodinal", "dilution": "1+25", "celsius": 20, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "Community time; Rodinal's own chart gives 1+25 as a starting point only." } },
+    { "film": "ilford-hp5-plus", "developer": "kodak-hc-110", "dilution": "b", "celsius": 20, "seconds": null, "provenance": { "kind": "unverified", "source": null, "note": "The dilution is known; the time is not yet sourced." } },
+
+    { "film": "ilford-fp4-plus", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ilford-fp4-plus", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ilford-fp4-plus", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 660, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+
+    { "film": "ilford-delta-100", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 660, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ilford-delta-100", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 510, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+
+    { "film": "ilford-delta-400", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 660, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ilford-delta-400", "developer": "ilford-ilfosol-3", "dilution": "1+9", "celsius": 20, "seconds": 420, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+
+    { "film": "ilford-delta-3200", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 780, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ilford-delta-3200", "developer": "ilford-microphen", "dilution": "stock", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+
+    { "film": "ilford-pan-f-plus", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ilford-pan-f-plus", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+
+    { "film": "ilford-sfx-200", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ilford-sfx-200", "developer": "adox-rodinal", "dilution": "1+25", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+
+    { "film": "ilford-xp2-super", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 210, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "C-41 standard development: 3:15 at 38 °C." } },
+
+    { "film": "kodak-tri-x-400", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 405, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-tri-x-400", "developer": "kodak-d-76", "dilution": "1+1", "celsius": 20, "seconds": 585, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-tri-x-400", "developer": "adox-rodinal", "dilution": "1+25", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-tri-x-400", "developer": "kodak-hc-110", "dilution": "b", "celsius": 20, "seconds": null, "provenance": { "kind": "unverified", "source": null, "note": "The pairing is widely used; no single time has been sourced yet." } },
+
+    { "film": "kodak-t-max-100", "developer": "kodak-d-76", "dilution": "1+1", "celsius": 20, "seconds": 570, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-t-max-100", "developer": "kodak-hc-110", "dilution": "b", "celsius": 20, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+
+    { "film": "kodak-t-max-400", "developer": "kodak-d-76", "dilution": "1+1", "celsius": 20, "seconds": 585, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-t-max-400", "developer": "kodak-xtol", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-t-max-400", "developer": "kodak-hc-110", "dilution": "b", "celsius": 20, "seconds": null, "provenance": { "kind": "unverified", "source": null } },
+
+    { "film": "kodak-plus-x-125", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+
+    { "film": "kodak-portra-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 210, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "C-41 standard development: 3:15 at 38 °C." } },
+    { "film": "kodak-gold-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 210, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektar-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 210, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+
+    { "film": "fujifilm-velvia-50", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "First developer 6:00 at 38 °C; the rest of the E-6 sequence is fixed." } },
+
+    { "film": "fujifilm-acros-100-ii", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-acros-100-ii", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 780, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+
+    { "film": "kodak-vision3-250d", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "kodak-ecn2", "note": "ECN-2 developer step: 3:00 at 41.1 °C." } },
+    { "film": "kodak-double-x-5222", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "Assumes the rem-jet has been removed first." } },
+
+    { "film": "foma-fomapan-400", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "foma-fomapan-400", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 720, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ],
+  "crossProcess": [
+    { "film": "ilford-hp5-plus", "fromProcess": "blackAndWhite", "toProcess": "colourNegative", "classification": "communityTested", "summary": "Run once through a C-41 kit at 38 °C. Very dense, very high contrast, with an orange-stained base that prints only with difficulty.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ilford-hp5-plus", "fromProcess": "blackAndWhite", "toProcess": "colourReversal", "classification": "experimental", "summary": "E-6 first developer on a B&W film leaves a positive-ish result with strong grain and compressed tonality. No published times.", "provenance": { "kind": "unverified", "source": null } },
+    { "film": "ilford-hp5-plus", "fromProcess": "blackAndWhite", "toProcess": "cinemaNegative", "classification": "notRecommended", "summary": "ECN-2 is a colour process; a B&W emulsion gains nothing from it, and the alkaline pre-bath can damage a thin emulsion.", "provenance": { "kind": "unverified", "source": null } },
+    { "film": "fujifilm-velvia-50", "fromProcess": "colourReversal", "toProcess": "colourNegative", "classification": "documentedAndTested", "summary": "The classic cross process: E-6 film in C-41. Cool shadows, blown highlights, strong saturation and contrast. Rate around EI 32.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-portra-400", "fromProcess": "colourNegative", "toProcess": "colourReversal", "classification": "communityTested", "summary": "C-41 film in E-6. Low contrast, pale shadows and a green-cyan cast; image is thin and wants overexposure.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektar-100", "fromProcess": "colourNegative", "toProcess": "colourReversal", "classification": "communityTested", "summary": "C-41 film in E-6. High contrast from an already contrasty stock; highlights block quickly.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-vision3-250d", "fromProcess": "cinemaNegative", "toProcess": "colourNegative", "classification": "experimental", "summary": "C-41 on cinema stock without removing the rem-jet leaves a mottled backing and uneven development. Only attempted after a proper pre-bath.", "provenance": { "kind": "unverified", "source": null } }
+  ]
+}

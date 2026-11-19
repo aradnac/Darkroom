@@ -5,7 +5,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.organizationName.Darkroom</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
@@ -14,6 +14,14 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Darkroom uses the camera to read the name and DX code on a film canister.</string>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Darkroom listens for short spoken commands during a development session.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Darkroom uses on-device speech recognition so a stage can be started and timed without touching the phone.</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>

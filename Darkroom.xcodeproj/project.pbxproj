@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		33514AE216C4A8019DDA3BBB /* DarkroomWidgetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5769CBC14AE009A20B522D14 /* DarkroomWidgetExtension.swift */; };
+		F77F6FBA1DF5ABE464E5B739 /* DarkroomWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9E50FAFCC175AC8FB8016379 /* DarkroomWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		0A0000000000000000000021 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,16 +26,42 @@
 			remoteGlobalIDString = 0A0000000000000000000006;
 			remoteInfo = Darkroom;
 		};
+		D33E138C8718CBB4F9812D12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84BC0E5D00DCB4B86444919F;
+			remoteInfo = DarkroomWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0EBC7A34471A589F0100C3DD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F77F6FBA1DF5ABE464E5B739 /* DarkroomWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A0000000000000000000003 /* Darkroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Darkroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0000000000000000000023 /* DarkroomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DarkroomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0000000000000000000033 /* DarkroomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DarkroomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		248C0C366AC47519BA233E0A /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; lastKnownFileType = text.plist.xml; name = Info.plist; path = Info.plist; sourceTree = "<group>"; };
+		5769CBC14AE009A20B522D14 /* DarkroomWidgetExtension.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = DarkroomWidgetExtension.swift; path = DarkroomWidgetExtension.swift; sourceTree = "<group>"; };
+		9E50FAFCC175AC8FB8016379 /* DarkroomWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; name = DarkroomWidgetExtension.appex; path = DarkroomWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8B4C142578BEB796A682328 /* Darkroom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Darkroom.entitlements; path = Darkroom/Darkroom.entitlements; sourceTree = "<group>"; };
+		FA5C3C8A5D095277A16131A1 /* DarkroomWidgetExtension.entitlements */ = {isa = PBXFileReference; explicitFileType = text.plist.entitlements; lastKnownFileType = text.plist.entitlements; name = DarkroomWidgetExtension.entitlements; path = DarkroomWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		0A0000000000000000000011 /* Exceptions for "Darkroom" folder in "Darkroom" target */ = {
+		0A0000000000000000000011 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -43,7 +74,7 @@
 		0A0000000000000000000005 /* Darkroom */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				0A0000000000000000000011 /* Exceptions for "Darkroom" folder in "Darkroom" target */,
+				0A0000000000000000000011 /* PBXFileSystemSynchronizedBuildFileExceptionSet */,
 			);
 			path = Darkroom;
 			sourceTree = "<group>";
@@ -82,6 +113,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D439B03C409893370D51C390 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -92,6 +130,8 @@
 				0A0000000000000000000025 /* DarkroomTests */,
 				0A0000000000000000000035 /* DarkroomUITests */,
 				0A0000000000000000000004 /* Products */,
+				BA7289676160A343436A25DF /* DarkroomWidgetExtension */,
+				D8B4C142578BEB796A682328 /* Darkroom.entitlements */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,8 +141,20 @@
 				0A0000000000000000000003 /* Darkroom.app */,
 				0A0000000000000000000023 /* DarkroomTests.xctest */,
 				0A0000000000000000000033 /* DarkroomUITests.xctest */,
+				9E50FAFCC175AC8FB8016379 /* DarkroomWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BA7289676160A343436A25DF /* DarkroomWidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5769CBC14AE009A20B522D14 /* DarkroomWidgetExtension.swift */,
+				248C0C366AC47519BA233E0A /* Info.plist */,
+				FA5C3C8A5D095277A16131A1 /* DarkroomWidgetExtension.entitlements */,
+			);
+			name = DarkroomWidgetExtension;
+			path = DarkroomWidgetExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,10 +167,12 @@
 				0A0000000000000000000007 /* Sources */,
 				0A0000000000000000000008 /* Frameworks */,
 				0A0000000000000000000009 /* Resources */,
+				0EBC7A34471A589F0100C3DD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				18837103BA7F53C92F346ABF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				0A0000000000000000000005 /* Darkroom */,
@@ -176,6 +230,25 @@
 			productReference = 0A0000000000000000000033 /* DarkroomUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		84BC0E5D00DCB4B86444919F /* DarkroomWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84AA4B4308CC3C79112734C7 /* Build configuration list for PBXNativeTarget "DarkroomWidgetExtension" */;
+			buildPhases = (
+				9049B225CABEF9C107A1DBD5 /* Sources */,
+				D439B03C409893370D51C390 /* Frameworks */,
+				DB25AEC536EF4B7A89F25FAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DarkroomWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = DarkroomWidgetExtension;
+			productReference = 9E50FAFCC175AC8FB8016379 /* DarkroomWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,6 +289,7 @@
 				0A0000000000000000000006 /* Darkroom */,
 				0A0000000000000000000026 /* DarkroomTests */,
 				0A0000000000000000000036 /* DarkroomUITests */,
+				84BC0E5D00DCB4B86444919F /* DarkroomWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +310,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0A0000000000000000000039 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB25AEC536EF4B7A89F25FAD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,6 +347,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9049B225CABEF9C107A1DBD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33514AE216C4A8019DDA3BBB /* DarkroomWidgetExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -278,6 +367,12 @@
 			isa = PBXTargetDependency;
 			target = 0A0000000000000000000006 /* Darkroom */;
 			targetProxy = 0A0000000000000000000031 /* PBXContainerItemProxy */;
+		};
+		18837103BA7F53C92F346ABF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DarkroomWidgetExtension;
+			target = 84BC0E5D00DCB4B86444919F /* DarkroomWidgetExtension */;
+			targetProxy = D33E138C8718CBB4F9812D12 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -406,6 +501,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Darkroom/Darkroom.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -439,6 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Darkroom/Darkroom.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -537,6 +634,66 @@
 			};
 			name = Release;
 		};
+		2BDFBBA4D4F7B4F039ED7DC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = DarkroomWidgetExtension/DarkroomWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_LANGUAGE = en;
+				EXECUTABLE_NAME = "$(PRODUCT_NAME)";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = DarkroomWidgetExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.organizationName.Darkroom.darkroomwidgetextension;
+				PRODUCT_BUNDLE_PACKAGE_TYPE = "XPC!";
+				PRODUCT_MODULE_NAME = DarkroomWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		653824BD7F25288434EE17D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = DarkroomWidgetExtension/DarkroomWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_LANGUAGE = en;
+				EXECUTABLE_NAME = "$(PRODUCT_NAME)";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = DarkroomWidgetExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.organizationName.Darkroom.darkroomwidgetextension;
+				PRODUCT_BUNDLE_PACKAGE_TYPE = "XPC!";
+				PRODUCT_MODULE_NAME = DarkroomWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -572,6 +729,15 @@
 			buildConfigurations = (
 				0A000000000000000000003F /* Debug */,
 				0A0000000000000000000040 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84AA4B4308CC3C79112734C7 /* Build configuration list for PBXNativeTarget "DarkroomWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				653824BD7F25288434EE17D3 /* Debug */,
+				2BDFBBA4D4F7B4F039ED7DC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
