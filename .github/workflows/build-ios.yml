@@ -18,13 +18,13 @@ jobs:
       - name: Resolve dependencies
         run: |
           xcodebuild -resolvePackageDependencies \
-            -workspace Darkroom.xcworkspace \
+            -project Darkroom.xcodeproj \
             -scheme Darkroom
 
       - name: Build iOS archive
         run: |
           xcodebuild archive \
-            -workspace Darkroom.xcworkspace \
+            -project Darkroom.xcodeproj \
             -scheme Darkroom \
             -configuration Release \
             -destination 'generic/platform=iOS' \
