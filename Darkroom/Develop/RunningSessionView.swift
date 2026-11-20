@@ -16,30 +16,32 @@ struct RunningSessionView: View {
 
     @Environment(\.scenePhase) private var scenePhase
     @State private var confirmingEnd = false
+    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+
+    /// One highlight that travels from stage card to stage card instead of one
+    /// card switching on and the other off.
+    @Namespace private var stageSelection
+
+    /// The running screen is presented in a full-screen cover, which does not
+    /// inherit the root's colour scheme: without this the frosted cards render
+    /// light while the ink stays white, and whole sections disappear.
+    private var preferredScheme: ColorScheme {
+        guard themeStore.isTheme13Active else { return .dark }
+        return themeStore.isDarkAppearance ? .dark : .light
+    }
 
     var body: some View {
         ZStack {
             LiquidBackdrop(tint: Theme.amber, intensity: engine.phase == .running ? 1 : 0.6)
 
-            VStack(spacing: 0) {
-                topBar
-                header
-                if let answer = engine.answer {
-                    answerCard(answer)
-                }
-                voiceLine
-                Spacer(minLength: 8)
-                timerDial
-                Spacer(minLength: 12)
-                nextCard
-                controls
-                stageStrip
+            if themeStore.isSoftGlassActive {
+                softBody
+            } else {
+                darkroomBody
             }
-            .padding(.horizontal, 20)
-            .padding(.top, 8)
-            .padding(.bottom, 10)
         }
         .contentShape(Rectangle())
+        .preferredColorScheme(preferredScheme)
         .onTapGesture {
             engine.goTapped()
         }
@@ -56,7 +58,7 @@ struct RunningSessionView: View {
             Button("Keep going", role: .cancel) {}
         }
         .onAppear {
-            UIApplication.shared.isIdleTimerDisabled = true
+            UIApplication.shared.isIdleTimerDisabled = Preferences.shared.keepAwake
             AgitationAlerts.requestPermission()
             engine.activateVoice()
             SessionActivityController.shared.start(engine: engine)
@@ -100,6 +102,304 @@ struct RunningSessionView: View {
         )
     }
 
+    // MARK: - Layout
+
+    private var darkroomBody: some View {
+        VStack(spacing: 0) {
+            topBar
+            header
+            if let answer = engine.answer {
+                answerCard(answer)
+            }
+            voiceLine
+            Spacer(minLength: 8)
+            timerDial
+            Spacer(minLength: 12)
+            nextCard
+            controls
+            stageStrip
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 8)
+        .padding(.bottom, 10)
+    }
+
+    // MARK: - Soft glass
+    //
+    // The same session in the second language: one radial card holding the
+    // figure, white capsules for the actions, and the stages as quiet chips.
+    // Every control and every value is the one the darkroom layout uses — only
+    // the dress changes.
+
+    private var softBody: some View {
+        VStack(spacing: 0) {
+            softTopBar
+
+            Text("\(engine.plan.film.fullName) · \(engine.plan.developer.name) \(engine.plan.dilution.label)")
+                .font(.system(size: 12))
+                .foregroundStyle(SoftGlassTheme.inkSoft)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+                .padding(.top, 10)
+
+            if let answer = engine.answer {
+                answerCard(answer)
+            }
+            voiceLine
+
+            Spacer(minLength: 10)
+            softHero
+            Spacer(minLength: 12)
+            nextCard
+            softControls
+            softStageStrip
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 8)
+        .padding(.bottom, 10)
+    }
+
+    private var softTopBar: some View {
+        HStack(spacing: 12) {
+            SoftGlassIconButton(systemImage: "xmark") {
+                closeTapped()
+            }
+            .accessibilityLabel("End this session")
+
+            Spacer(minLength: 0)
+
+            VStack(spacing: 1) {
+                Text(engine.currentStage.kind.title)
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(SoftGlassTheme.ink)
+                Text("Stage \(min(engine.stageIndex + 1, engine.stageCount)) of \(engine.stageCount)")
+                    .font(.system(size: 11))
+                    .foregroundStyle(SoftGlassTheme.inkFaint)
+            }
+            .cardMorph(engine.stageIndex)
+
+            Spacer(minLength: 0)
+
+            Text(Units.temperature(engine.plan.temperature))
+                .font(.system(size: 12, weight: .medium, design: .rounded))
+                .monospacedDigit()
+                .foregroundStyle(SoftGlassTheme.inkSoft)
+                .frame(minWidth: 40, alignment: .trailing)
+        }
+    }
+
+    private var softHero: some View {
+        SoftGlassRadialCard {
+            VStack(spacing: 12) {
+                Text(softHeroLabel)
+                    .font(.system(size: 15))
+                    .foregroundStyle(Color.white.opacity(0.92))
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 20)
+
+                if engine.phase == .ready {
+                    Button {
+                        engine.goTapped()
+                    } label: {
+                        SoftGlassActionLabel(
+                            title: "Start \(engine.currentStage.kind.title)",
+                            symbol: "play.fill"
+                        )
+                    }
+                    .buttonStyle(AmberCapsuleStyle(height: 54))
+                    .padding(.horizontal, 22)
+                    .padding(.top, 4)
+                } else {
+                    // The figure belongs to the stage, not to the second: it
+                    // rolls over when the card changes and ticks in place in
+                    // between.
+                    ZStack {
+                        DotMatrixDigits(text: softDialDigits, dot: softDot, spacing: 3, color: .white)
+                            .id(engine.stageIndex)
+                            .transition(.asymmetric(
+                                insertion: .move(edge: .bottom).combined(with: .opacity),
+                                removal: .move(edge: .top).combined(with: .opacity)
+                            ))
+                    }
+                    .padding(.vertical, 6)
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(softDialDigits)
+
+                    if let unit = softDialUnit {
+                        Text(unit)
+                            .font(.system(size: 16))
+                            .foregroundStyle(Color.white.opacity(0.90))
+                            .cardMorph(engine.stageIndex)
+                    }
+                }
+
+                HStack {
+                    Text("Total for this stage")
+                    Spacer()
+                    Text(durationText(engine.currentStage))
+                        .numericMorph(Int(engine.currentStage.duration.rounded()))
+                }
+                .font(.system(size: 12))
+                .foregroundStyle(Color.white.opacity(0.82))
+                .padding(.horizontal, 28)
+
+                SoftGlassTickStrip(needleAt: stageProgress)
+                    .padding(.horizontal, 28)
+
+                SoftGlassPageDots(
+                    count: max(engine.stageCount, 1),
+                    active: min(engine.stageIndex, max(engine.stageCount - 1, 0))
+                )
+            }
+            .padding(.vertical, 26)
+            .padding(.horizontal, 8)
+            .cardMorph(engine.stageIndex)
+        }
+    }
+
+    private var softHeroLabel: String {
+        switch engine.phase {
+        case .ready:
+            return engine.currentStage.kind.title
+        case .running:
+            return engine.currentPrompt.title
+        case .paused:
+            return "Paused · \(engine.currentPrompt.title)"
+        case .clearing:
+            return "Waiting for the leader"
+        case .finished:
+            return "Done"
+        }
+    }
+
+    private var softDialDigits: String {
+        switch engine.phase {
+        case .clearing:
+            return "--:--"
+        case .finished:
+            return "00:00"
+        default:
+            return Clock.mmssCeil(engine.stageRemaining)
+        }
+    }
+
+    private var softDialUnit: String? {
+        switch engine.phase {
+        case .clearing, .finished:
+            return nil
+        default:
+            return engine.stageRemaining < 60 ? "sec" : "min"
+        }
+    }
+
+    /// `Clock.mmss` grows a third pair of digits past an hour; the dot grid has
+    /// to grow smaller to keep them on one line.
+    private var softDot: CGFloat {
+        softDialDigits.count > 5 ? 5 : 7
+    }
+
+    private var softControls: some View {
+        VStack(spacing: 10) {
+            HStack(spacing: 10) {
+                Button {
+                    primaryAction()
+                } label: {
+                    SoftGlassActionLabel(title: primaryTitle, symbol: primaryIcon)
+                }
+                .buttonStyle(AmberCapsuleStyle(height: 58))
+                .disabled(controlsLocked)
+
+                Button {
+                    engine.skipStage()
+                } label: {
+                    Text("Skip")
+                        .font(.system(size: 17, weight: .semibold))
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(GlassCapsuleStyle(height: 58))
+                .frame(maxWidth: 124)
+                .disabled(controlsLocked)
+            }
+
+            HStack(spacing: 10) {
+                Button("+30 s") {
+                    engine.addTime(30)
+                }
+                .buttonStyle(GlassCapsuleStyle(height: 46))
+                .frame(maxWidth: .infinity)
+                .disabled(controlsLocked)
+
+                Button("+1 min") {
+                    engine.addTime(60)
+                }
+                .buttonStyle(GlassCapsuleStyle(height: 46))
+                .frame(maxWidth: .infinity)
+                .disabled(controlsLocked)
+            }
+        }
+        .padding(.top, 12)
+    }
+
+    private var softStageStrip: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(Array(engine.plan.stages.enumerated()), id: \.element.id) { index, stage in
+                    softStageChip(stage, index: index)
+                }
+            }
+            .padding(.horizontal, 2)
+            .animation(.snappy(duration: 0.42, extraBounce: 0.06), value: engine.stageIndex)
+        }
+        .scrollClipDisabled()
+        .padding(.top, 12)
+    }
+
+    private func softStageChip(_ stage: SessionStage, index: Int) -> some View {
+        let finished = engine.phase == .finished
+        let done = finished || index < engine.stageIndex
+        let current = !finished && index == engine.stageIndex
+
+        return VStack(spacing: 4) {
+            Text(stage.kind.title)
+                .font(.system(size: 11, weight: .semibold))
+                .foregroundStyle(current ? Color.black : Color.white.opacity(0.85))
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
+
+            Text(durationText(stage))
+                .font(.system(size: 12, weight: .semibold, design: .rounded))
+                .monospacedDigit()
+                .foregroundStyle(current ? Color.black.opacity(0.70) : Color.white.opacity(0.60))
+        }
+        .frame(width: 84)
+        .padding(.vertical, 9)
+        .background {
+            ZStack {
+                Capsule().fill(Color.white.opacity(0.08))
+                if current {
+                    // One white disc, matched by id, travelling from card to card.
+                    Capsule()
+                        .fill(Color.white)
+                        .matchedGeometryEffect(id: "softStageSelection", in: stageSelection)
+                }
+            }
+        }
+        .overlay {
+            if !current {
+                Capsule().strokeBorder(Color.white.opacity(0.12), lineWidth: 1)
+            }
+        }
+        .opacity(done ? 0.5 : 1)
+    }
+
+    private func closeTapped() {
+        if engine.phase == .finished {
+            onClose()
+        } else {
+            confirmingEnd = true
+        }
+    }
+
     // MARK: - Top bar and header
 
     private var topBar: some View {
@@ -111,6 +411,7 @@ struct RunningSessionView: View {
                 Text(engine.currentStage.kind.title)
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundStyle(Theme.ink)
+                    .cardMorph(engine.stageIndex)
             }
             .padding(.horizontal, 14)
             .padding(.vertical, 9)
@@ -118,7 +419,7 @@ struct RunningSessionView: View {
 
             Spacer(minLength: 0)
 
-            Text(String(format: "%.1f °C", engine.plan.temperature))
+            Text(Units.temperature(engine.plan.temperature))
                 .font(.system(size: 14, weight: .medium, design: .rounded))
                 .monospacedDigit()
                 .foregroundStyle(Theme.ink)
@@ -152,6 +453,7 @@ struct RunningSessionView: View {
                 .font(.system(size: 15))
                 .foregroundStyle(Theme.inkFaint)
         }
+        .cardMorph(engine.stageIndex)
         .padding(.top, 12)
     }
 
@@ -218,6 +520,7 @@ struct RunningSessionView: View {
                     .foregroundStyle(Theme.inkFaint)
             }
             .opacity(engine.phase == .ready ? 0 : 1)
+            .cardMorph(engine.stageIndex)
 
             if engine.phase == .ready {
                 goButton
@@ -309,6 +612,7 @@ struct RunningSessionView: View {
         }
         .padding(16)
         .glassCard(radius: 26)
+        .cardMorph(engine.stageIndex)
     }
 
     private var isTiming: Bool {
@@ -345,7 +649,7 @@ struct RunningSessionView: View {
     private var stageTemperatureNote: String {
         guard let target = engine.currentStage.targetTemperature,
               abs(target - engine.plan.temperature) > 0.05 else { return "" }
-        return String(format: " Target %.1f °C.", target)
+        return " Target \(Units.temperature(target))."
     }
 
     private var cardCountdown: String {
@@ -375,6 +679,7 @@ struct RunningSessionView: View {
                 } label: {
                     Label(primaryTitle, systemImage: primaryIcon)
                         .font(.system(size: 17, weight: .semibold))
+                        .foregroundStyle(Theme.amberInk)
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.glassProminent)
@@ -451,6 +756,7 @@ struct RunningSessionView: View {
                 }
             }
             .padding(.horizontal, 2)
+            .animation(.snappy(duration: 0.42, extraBounce: 0.06), value: engine.stageIndex)
         }
         .scrollClipDisabled()
         .padding(.top, 12)
@@ -479,7 +785,17 @@ struct RunningSessionView: View {
         }
         .frame(width: 84)
         .padding(.vertical, 9)
-        .glassCard(radius: 16, tint: current ? Theme.amber : nil)
+        .glassCard(radius: 16)
+        .overlay {
+            if current {
+                // The wash is the same view on every chip, matched by id, so it
+                // slides from the old card to the new one.
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(Theme.amber.opacity(0.14))
+                    .matchedGeometryEffect(id: "stageSelection", in: stageSelection)
+                    .allowsHitTesting(false)
+            }
+        }
         .overlay {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .strokeBorder(current ? Theme.amber.opacity(0.7) : Color.clear, lineWidth: 1)

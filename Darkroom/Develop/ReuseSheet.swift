@@ -81,6 +81,7 @@ struct ReuseSheet: View {
                     } label: {
                         Label("Start session", systemImage: "play.fill")
                             .font(.system(size: 17, weight: .semibold))
+                            .foregroundStyle(Theme.amberInk)
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.glassProminent)

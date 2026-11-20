@@ -18,6 +18,20 @@ struct ToolsView: View {
 
                     VStack(spacing: 10) {
                         ToolLaunchCard(
+                            title: "Film troubleshooter",
+                            subtitle: "What do your negatives show?",
+                            systemImage: "exclamationmark.triangle",
+                            accent: Theme.amber,
+                            destination: FilmTroubleshooterView()
+                        )
+                        ToolLaunchCard(
+                            title: "Times & temperature",
+                            subtitle: "Move a development time to another temperature",
+                            systemImage: "hourglass",
+                            accent: Color(red: 0.96, green: 0.78, blue: 0.43),
+                            destination: TimeTemperatureCalculatorView()
+                        )
+                        ToolLaunchCard(
                             title: "Temperature",
                             subtitle: "Convert °C and °F",
                             systemImage: "thermometer.medium",
@@ -148,6 +162,74 @@ private struct ToolCardBody: View {
     @ObservedObject private var themeStore = Theme13SettingsStore.shared
 
     var body: some View {
+        if themeStore.isSoftGlassActive {
+            softBody
+        } else {
+            glassBody
+        }
+    }
+
+    // The reference's tile: one of its card ramps, lit from a corner, the
+    // tool's name and its promise set in white on the gradient.
+    private var softBody: some View {
+        HStack(spacing: 14) {
+            Image(systemName: systemImage)
+                .font(.system(size: 20, weight: .medium))
+                .foregroundStyle(Color.white.opacity(0.95))
+                .frame(width: 46, height: 46)
+                .background {
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(Color.black.opacity(0.22))
+                }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(Color.white)
+                Text(subtitle)
+                    .font(.system(size: 13))
+                    .foregroundStyle(Color.white.opacity(0.75))
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Spacer(minLength: 4)
+
+            Image(systemName: "chevron.right")
+                .font(.system(size: 12, weight: .semibold))
+                .foregroundStyle(Color.white.opacity(0.80))
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background {
+            ZStack {
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(SoftGlassTheme.ramp(for: accent))
+
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(
+                        RadialGradient(
+                            colors: [Color.white.opacity(0.24), Color.clear],
+                            center: .topLeading,
+                            startRadius: 0,
+                            endRadius: 220
+                        )
+                    )
+                    .blendMode(.softLight)
+
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(
+                        LinearGradient(
+                            colors: [Color.clear, Color.black.opacity(0.24)],
+                            startPoint: .center,
+                            endPoint: .bottom
+                        )
+                    )
+            }
+        }
+        .contentShape(Rectangle())
+    }
+
+    private var glassBody: some View {
         HStack(spacing: 14) {
             ZStack {
                 RoundedRectangle(cornerRadius: themeStore.isTheme13Active ? 0 : 15, style: .continuous)

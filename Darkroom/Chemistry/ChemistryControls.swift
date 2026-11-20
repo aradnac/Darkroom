@@ -158,7 +158,7 @@ struct AmountSheet: View {
         NavigationStack {
             Picker(title, selection: selection) {
                 ForEach(Array(stride(from: 0, through: 2000, by: 10)), id: \.self) { value in
-                    Text("\(value) ml").tag(value)
+                    Text(Units.volume(millilitres: Double(value))).tag(value)
                 }
             }
             .pickerStyle(.wheel)

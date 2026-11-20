@@ -192,15 +192,56 @@ struct SessionPrompt {
 struct SessionStage: Identifiable {
     let id = UUID()
     let kind: StageKind
-    var duration: TimeInterval
+
+    /// Seconds in this stage. Changing it rebuilds `segments`, so it is done
+    /// through `addTime` or `setDuration` rather than by assignment.
+    private(set) var duration: TimeInterval
+
     let agitation: AgitationStyle
     let intensity: AgitationIntensity
     var needsClearing: Bool
     let instruction: String
     var targetTemperature: Double?
 
-    var segments: [AgitationSegment] {
-        AgitationSchedule.segments(style: agitation, intensity: intensity, duration: duration)
+    /// The agitation script, built once here rather than on every read. The
+    /// engine asks for it several times a second while a stage runs, and the
+    /// running screen asks again for the prompt it draws.
+    private(set) var segments: [AgitationSegment]
+
+    init(
+        kind: StageKind,
+        duration: TimeInterval,
+        agitation: AgitationStyle,
+        intensity: AgitationIntensity,
+        needsClearing: Bool,
+        instruction: String,
+        targetTemperature: Double?
+    ) {
+        self.kind = kind
+        self.duration = duration
+        self.agitation = agitation
+        self.intensity = intensity
+        self.needsClearing = needsClearing
+        self.instruction = instruction
+        self.targetTemperature = targetTemperature
+        self.segments = AgitationSchedule.segments(
+            style: agitation,
+            intensity: intensity,
+            duration: duration
+        )
+    }
+
+    mutating func addTime(_ seconds: TimeInterval) {
+        setDuration(duration + seconds)
+    }
+
+    mutating func setDuration(_ value: TimeInterval) {
+        duration = max(0, value)
+        segments = AgitationSchedule.segments(
+            style: agitation,
+            intensity: intensity,
+            duration: duration
+        )
     }
 
     func prompt(at elapsed: TimeInterval) -> SessionPrompt {
@@ -226,7 +267,8 @@ struct SessionStage: Identifiable {
 }
 
 struct SessionPlan {
-    static let finalRinseSeconds: TimeInterval = 30
+    /// Set in Settings; a session uses whatever it holds when the plan is made.
+    static var finalRinseSeconds: TimeInterval { Preferences.shared.finalRinseSeconds }
 
     let film: Film
     let developer: Developer
@@ -291,7 +333,7 @@ struct SessionPlan {
         stages.append(SessionStage(
             kind: .develop,
             duration: developmentTime,
-            agitation: .interval,
+            agitation: Preferences.shared.agitationScheme.style,
             intensity: intensity,
             needsClearing: false,
             instruction: "Developer is in. Agitate as shown.",

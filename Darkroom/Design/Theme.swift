@@ -94,32 +94,41 @@ enum Theme {
     static var amber: Color {
         if isPaper { return palette.accent }
         if isSoft { return SoftGlassTheme.amber }
-        return DarkroomThemeDefaults.amber
+        return Preferences.shared.accent.base
     }
 
     static var amberSoft: Color {
         if isPaper { return palette.accent2 }
         if isSoft { return SoftGlassTheme.amberSoft }
-        return DarkroomThemeDefaults.amberSoft
+        return Preferences.shared.accent.soft
     }
 
     static var amberDeep: Color {
         if isPaper { return palette.accentText }
         if isSoft { return SoftGlassTheme.amberDeep }
-        return DarkroomThemeDefaults.amberDeep
+        return Preferences.shared.accent.deep
     }
 
     /// Ink that sits on top of the accent block.
     static var amberInk: Color {
         if isPaper { return palette.accentInk }
         if isSoft { return SoftGlassTheme.amberInk }
-        return DarkroomThemeDefaults.amberInk
+        return Preferences.shared.accent.ink
     }
 
     static var accentWash: Color {
         if isPaper { return palette.accent.opacity(0.14) }
         if isSoft { return SoftGlassTheme.amber.opacity(0.14) }
         return amber.opacity(0.13)
+    }
+
+    /// The track a switch takes when it is on. White is the soft-glass signal
+    /// for *pressable*, not for *on*: a white track around a white knob reads
+    /// as one blank pill, so the switch takes a quieter grey there.
+    static var switchTint: Color {
+        if isPaper { return palette.accent }
+        if isSoft { return Color(white: 0.58) }
+        return Preferences.shared.accent.base
     }
 
     /// Decorative blooms — only the soft-glass language uses these.
@@ -143,8 +152,9 @@ enum Theme {
             )
         }
         if isSoft { return SoftGlassTheme.amberGradient }
+        let accent = Preferences.shared.accent
         return LinearGradient(
-            colors: [DarkroomThemeDefaults.amberSoft, DarkroomThemeDefaults.amber, Color(red: 0.929, green: 0.549, blue: 0.114)],
+            colors: [accent.soft, accent.base, accent.deep],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )

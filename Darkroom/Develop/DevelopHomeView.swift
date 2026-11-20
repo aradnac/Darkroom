@@ -79,12 +79,16 @@ struct DevelopHomeView: View {
         VStack(alignment: .leading, spacing: 18) {
             softHeading
                 .softReveal(revealed, delay: 0, reduceMotion: reduceMotion)
-            softSummary
-                .softReveal(revealed, delay: 0.06, reduceMotion: reduceMotion)
-            softMosaic
+            SoftGlassDayStrip()
+                .softReveal(revealed, delay: 0.04, reduceMotion: reduceMotion)
+            softHero
+                .softReveal(revealed, delay: 0.08, reduceMotion: reduceMotion)
+            softWideCard
                 .softReveal(revealed, delay: 0.12, reduceMotion: reduceMotion)
+            softStatGrid
+                .softReveal(revealed, delay: 0.16, reduceMotion: reduceMotion)
             softPlan
-                .softReveal(revealed, delay: 0.18, reduceMotion: reduceMotion)
+                .softReveal(revealed, delay: 0.20, reduceMotion: reduceMotion)
         }
         .task {
             guard !revealed else { return }
@@ -96,7 +100,7 @@ struct DevelopHomeView: View {
     private var softHeading: some View {
         HStack(alignment: .top, spacing: 12) {
             VStack(alignment: .leading, spacing: 8) {
-                SoftGlassCaption(text: "At the sink", color: SoftGlassTheme.pink)
+                SoftGlassCaption(text: "At the sink", color: SoftGlassTheme.accent)
                 Text("Ready when\nthe tank is.")
                     .font(.system(size: 32, weight: .semibold))
                     .foregroundStyle(SoftGlassTheme.ink)
@@ -112,28 +116,34 @@ struct DevelopHomeView: View {
         }
     }
 
-    private var softSummary: some View {
+    // The reference's hero figure sits straight on the black field: the metric
+    // name, the number in dots, its unit, and the wave with its marker.
+    private var softHero: some View {
         let featured = featuredTime
 
-        return VStack(alignment: .leading, spacing: 16) {
-            HStack(spacing: 10) {
-                SoftGlassCaption(text: "Suggested time")
-
-                Spacer(minLength: 0)
-
-                Text(featured?.pair ?? "From the library")
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundStyle(SoftGlassTheme.inkSoft)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.75)
-            }
+        return VStack(spacing: 4) {
+            Text(featured?.pair ?? "Development")
+                .font(.system(size: 20, weight: .medium))
+                .foregroundStyle(SoftGlassTheme.ink)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
 
             DotMatrixDigits(text: featured?.figure ?? "--:--", dot: 7, spacing: 3)
+                .padding(.vertical, 10)
+
+            Text("min")
+                .font(.system(size: 16))
+                .foregroundStyle(SoftGlassTheme.inkSoft)
+
+            SoftGlassWaveLine()
+                .padding(.top, 14)
 
             Text(featured?.note ?? "Add a film and a developer to the library and its published time appears here.")
                 .font(.system(size: 13))
                 .foregroundStyle(SoftGlassTheme.inkSoft)
+                .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
+                .padding(.top, 10)
 
             NavigationLink {
                 SessionSetupView()
@@ -141,15 +151,85 @@ struct DevelopHomeView: View {
                 SoftGlassActionLabel(title: "Start a session")
             }
             .buttonStyle(AmberCapsuleStyle(height: 58))
+            .padding(.top, 14)
         }
-        .padding(20)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .glassPanel(radius: SoftGlassTheme.cardRadius, glowing: true)
+        .frame(maxWidth: .infinity)
     }
 
-    private var softMosaic: some View {
+    // The wide salmon card: the featured time at its foot, the dotted ring
+    // gauge riding at its top-right.
+    private var softWideCard: some View {
+        let featured = featuredTime
+
+        return ZStack(alignment: .topTrailing) {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Featured time")
+                    .font(.system(size: 15))
+                    .foregroundStyle(Color.white.opacity(0.88))
+
+                Spacer(minLength: 10)
+
+                HStack(alignment: .firstTextBaseline, spacing: 6) {
+                    Text(featured?.figure ?? "--:--")
+                        .font(.system(size: 34, weight: .semibold, design: .rounded))
+                        .foregroundStyle(.white)
+
+                    Text(featured?.temperature ?? "—")
+                        .font(.system(size: 15))
+                        .foregroundStyle(Color.white.opacity(0.75))
+                }
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity, minHeight: 150, alignment: .leading)
+
+            SoftGlassRingGauge(
+                fraction: ringFraction(featured),
+                text: featured.map { String(Int((Double($0.seconds) / 60).rounded())) } ?? "--"
+            )
+            .padding(14)
+        }
+        .background {
+            ZStack {
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                Color(red: 0.90, green: 0.62, blue: 0.57),
+                                Color(red: 0.60, green: 0.29, blue: 0.42)
+                            ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(
+                        RadialGradient(
+                            colors: [Color.white.opacity(0.26), Color.clear],
+                            center: .topLeading,
+                            startRadius: 0,
+                            endRadius: 240
+                        )
+                    )
+                    .blendMode(.softLight)
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(
+                        LinearGradient(
+                            colors: [Color.clear, Color.black.opacity(0.24)],
+                            startPoint: .center,
+                            endPoint: .bottom
+                        )
+                    )
+            }
+        }
+        .accessibilityElement(children: .combine)
+    }
+
+    // The two-by-two grid, each tile wearing one of the reference's card
+    // decorations: a range bar, a dot row, a tick strip, a blurred pool.
+    private var softStatGrid: some View {
         let films = LibraryStore.shared.films.count
         let bottles = ChemistryStore.shared.batches.count
+        let featured = featuredTime
 
         return LazyVGrid(
             columns: [
@@ -158,35 +238,66 @@ struct DevelopHomeView: View {
             ],
             spacing: 12
         ) {
-            SoftGlassTile(
+            SoftStatCard(
                 label: "Films",
                 value: "\(films)",
-                caption: "in the library",
-                gradient: SoftGlassTheme.pinkGradient,
-                tint: SoftGlassTheme.pink
-            )
-            SoftGlassTile(
-                label: "At",
-                value: featuredTime?.temperature ?? "—",
-                caption: "published temperature",
-                gradient: SoftGlassTheme.orangeGradient,
-                tint: SoftGlassTheme.orange
-            )
-            SoftGlassTile(
+                unit: "in library",
+                gradient: LinearGradient(
+                    colors: [Color(red: 0.47, green: 0.60, blue: 0.55), Color(red: 0.06, green: 0.11, blue: 0.09)],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            ) {
+                SoftGlassRangeBar(fraction: 0.80)
+            }
+
+            SoftStatCard(
                 label: "Chemicals",
                 value: "\(bottles)",
-                caption: bottles == 1 ? "bottle at the bench" : "bottles at the bench",
-                gradient: SoftGlassTheme.mintGradient,
-                tint: SoftGlassTheme.mint
-            )
-            SoftGlassTile(
+                unit: bottles == 1 ? "bottle" : "bottles",
+                gradient: LinearGradient(
+                    colors: [Color(red: 0.88, green: 0.30, blue: 0.66), Color(red: 0.48, green: 0.06, blue: 0.38)],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            ) {
+                SoftGlassDotRow()
+            }
+
+            SoftStatCard(
+                label: "Published at",
+                value: featured?.temperature ?? "—",
+                unit: "",
+                gradient: LinearGradient(
+                    colors: [Color(red: 0.28, green: 0.40, blue: 0.80), Color(red: 0.05, green: 0.07, blue: 0.28)],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            ) {
+                SoftGlassTickStrip()
+            }
+
+            SoftStatCard(
                 label: "Stages",
                 value: "\(steps.count)",
-                caption: "pre-soak to rinse",
-                gradient: SoftGlassTheme.blueGradient,
-                tint: SoftGlassTheme.blue
-            )
+                unit: "in a session",
+                gradient: LinearGradient(
+                    colors: [Color(red: 0.82, green: 0.40, blue: 0.22), Color(red: 0.42, green: 0.12, blue: 0.09)],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            ) {
+                HStack {
+                    Spacer()
+                    SoftGlassBlob().offset(x: 12, y: 8)
+                }
+            }
         }
+    }
+
+    private func ringFraction(_ featured: FeaturedTime?) -> Double {
+        guard let featured else { return 0 }
+        return min(max(featured.seconds / (40 * 60), 0.05), 1)
     }
 
     private var softPlan: some View {
@@ -223,6 +334,7 @@ struct DevelopHomeView: View {
         let pair: String
         let temperature: String
         let note: String
+        let seconds: TimeInterval
     }
 
     /// The first film in the library that has a sourced development time, set as
@@ -250,7 +362,8 @@ struct DevelopHomeView: View {
                 figure: String(format: "%02d:%02d", minutes, remainder),
                 pair: "\(film.displayName) · \(developerName) \(dilution)",
                 temperature: temperature,
-                note: note
+                note: note,
+                seconds: TimeInterval(seconds)
             )
         }
 
@@ -283,6 +396,7 @@ struct DevelopHomeView: View {
             } label: {
                 Label("New session", systemImage: "plus")
                     .font(.system(size: 17, weight: .semibold))
+                    .foregroundStyle(Theme.amberInk)
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.glassProminent)
@@ -354,5 +468,78 @@ private struct SoftReveal: ViewModifier {
 extension View {
     fileprivate func softReveal(_ revealed: Bool, delay: Double, reduceMotion: Bool) -> some View {
         modifier(SoftReveal(revealed: revealed, delay: delay, reduceMotion: reduceMotion))
+    }
+}
+
+
+
+// MARK: - Stat card
+
+/// One of the reference's dashboard tiles: a sentence-case label, a decoration
+/// in the middle, and the big figure with its unit at the foot.
+private struct SoftStatCard<Decoration: View>: View {
+    let label: String
+    let value: String
+    var unit: String? = nil
+    let gradient: LinearGradient
+    var minHeight: CGFloat = 150
+    @ViewBuilder let decoration: () -> Decoration
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(label)
+                .font(.system(size: 15))
+                .foregroundStyle(Color.white.opacity(0.88))
+
+            decoration()
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            Spacer(minLength: 4)
+
+            HStack(alignment: .firstTextBaseline, spacing: 6) {
+                Text(value)
+                    .font(.system(size: 34, weight: .semibold, design: .rounded))
+                    .foregroundStyle(.white)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
+
+                if let unit, !unit.isEmpty {
+                    Text(unit)
+                        .font(.system(size: 15))
+                        .foregroundStyle(Color.white.opacity(0.75))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                }
+            }
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, minHeight: minHeight, alignment: .leading)
+        .background {
+            ZStack {
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(gradient)
+
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(
+                        RadialGradient(
+                            colors: [Color.white.opacity(0.26), Color.clear],
+                            center: .topLeading,
+                            startRadius: 0,
+                            endRadius: 210
+                        )
+                    )
+                    .blendMode(.softLight)
+
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(
+                        LinearGradient(
+                            colors: [Color.clear, Color.black.opacity(0.28)],
+                            startPoint: .center,
+                            endPoint: .bottom
+                        )
+                    )
+            }
+        }
+        .accessibilityElement(children: .combine)
     }
 }

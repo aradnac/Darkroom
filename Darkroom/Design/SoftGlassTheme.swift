@@ -4,14 +4,19 @@
 //
 //  THE SECOND DESIGN LANGUAGE — "SOFT GLASS".
 //
-//  A near-black field lit from behind by slow colour: magenta up top, violet off
-//  to the left, a cold blue pooling at the foot of the screen. On top of that
-//  sit two very different kinds of surface — white capsules with black ink for
-//  anything you can press, and saturated gradient tiles for anything you only
-//  need to read. Large figures are set as a grid of dots.
+//  The field is one continuous mesh gradient, built from the reference art:
+//  mint at the top-left, a warm grey along the top, olive at the right edge, a
+//  rose-magenta core through the middle, and lilac and rust pooling along the
+//  foot. The hue relationships are the reference's, not a hue of them is
+//  invented — what is changed is the luminance, because this language writes
+//  every word in white. Each stop is held below a relative luminance of about
+//  0.10, which keeps white ink at 7:1 or better wherever it lands.
 //
-//  The palette is deliberately narrow: white drives every control, and the four
-//  chroma values are decoration only. Nothing here is amber.
+//  On top of the field sit two very different kinds of surface — white capsules
+//  with black ink for anything you can press, and saturated gradient tiles for
+//  anything you only need to read. The tiles carry the reference cards' own
+//  ramps: hot pink into magenta, mint into forest, lilac into plum, orange into
+//  rust, each lit from one corner rather than shaded evenly.
 //
 
 import SwiftUI
@@ -19,8 +24,10 @@ import SwiftUI
 enum SoftGlassTheme {
     // MARK: Field
 
-    static let background = Color(red: 0.024, green: 0.022, blue: 0.031)
-    static let backgroundLift = Color(red: 0.055, green: 0.050, blue: 0.068)
+    /// The field is black, as the reference screens are: colour lives in the
+    /// cards and the control glows, never in the plane behind them.
+    static let background = Color(red: 0.023, green: 0.023, blue: 0.028)
+    static let backgroundLift = Color(red: 0.075, green: 0.075, blue: 0.086)
 
     // MARK: Ink
 
@@ -44,15 +51,22 @@ enum SoftGlassTheme {
     static let amberInk = Color.black
 
     // MARK: Chroma
+    //
+    // Sampled from the reference: the hot pink of its radial glow, the magenta
+    // at that glow's core, the mint wash over the first screen, the olive at
+    // the right of the field, the rust of its warmest card.
 
-    static let pink = Color(red: 0.980, green: 0.482, blue: 0.769)     // #FA7BC4
-    static let magenta = Color(red: 0.878, green: 0.337, blue: 0.678)  // #E056AD
-    static let violet = Color(red: 0.573, green: 0.451, blue: 0.961)   // #9273F5
-    static let blue = Color(red: 0.353, green: 0.529, blue: 0.992)     // #5A87FD
-    static let mint = Color(red: 0.373, green: 0.878, blue: 0.749)     // #5FE0BF
-    static let orange = Color(red: 0.965, green: 0.451, blue: 0.302)   // #F6734D
-    static let lime = Color(red: 0.776, green: 0.941, blue: 0.0)       // #C6F000
-    static let peach = Color(red: 1.0, green: 0.541, blue: 0.431)      // #FF8A6E
+    static let pink = Color(red: 0.941, green: 0.435, blue: 0.690)     // #F06FB0
+    static let magenta = Color(red: 0.878, green: 0.098, blue: 0.498)  // #E0197F
+    static let violet = Color(red: 0.784, green: 0.478, blue: 0.918)   // #C87AEA
+    static let lilac = Color(red: 0.780, green: 0.651, blue: 0.878)    // #C7A6E0
+    static let blue = Color(red: 0.290, green: 0.420, blue: 0.878)     // #4A6BE0
+    static let mint = Color(red: 0.608, green: 0.851, blue: 0.706)     // #9BD9B4
+    static let forest = Color(red: 0.212, green: 0.376, blue: 0.259)   // #366042
+    static let olive = Color(red: 0.604, green: 0.604, blue: 0.235)    // #9A9A3C
+    static let orange = Color(red: 0.851, green: 0.384, blue: 0.180)   // #D9622E
+    static let lime = Color(red: 0.776, green: 0.878, blue: 0.290)     // #C6E04A
+    static let peach = Color(red: 0.949, green: 0.639, blue: 0.478)    // #F2A37A
 
     // MARK: Shape
     //
@@ -82,116 +96,148 @@ enum SoftGlassTheme {
         endPoint: .bottom
     )
 
+    /// The reference's strongest card: hot pink at the top-left, magenta at the
+    /// foot. This is the tile the radial glow sits behind.
     static let pinkGradient = LinearGradient(
         colors: [pink, magenta],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
 
+    /// The "average" tile: lilac paper into plum violet.
     static let magentaGradient = LinearGradient(
-        colors: [peach, magenta],
+        colors: [lilac, Color(red: 0.408, green: 0.220, blue: 0.580)],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
 
+    /// The "vitamin" tile: violet into a deep indigo.
     static let violetGradient = LinearGradient(
-        colors: [violet, blue],
+        colors: [violet, Color(red: 0.310, green: 0.196, blue: 0.612)],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
 
+    /// The blue tile: a lit royal blue falling to navy.
     static let blueGradient = LinearGradient(
-        colors: [Color(red: 0.36, green: 0.58, blue: 1.0), violet],
+        colors: [Color(red: 0.420, green: 0.553, blue: 0.949), Color(red: 0.106, green: 0.157, blue: 0.518)],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
 
+    /// The cool tile: mint wash into forest, the green of the first reference screen.
     static let mintGradient = LinearGradient(
-        colors: [mint, blue],
+        colors: [mint, forest],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
 
+    /// The warm tile: amber orange into rust.
     static let orangeGradient = LinearGradient(
-        colors: [orange, pink],
+        colors: [Color(red: 0.894, green: 0.494, blue: 0.204), Color(red: 0.620, green: 0.192, blue: 0.110)],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
 
+    /// The olive tile: lime into the field's own olive.
     static let limeGradient = LinearGradient(
-        colors: [lime, mint],
+        colors: [lime, Color(red: 0.435, green: 0.541, blue: 0.157)],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
+    /// The quiet tile: deep forest into olive, for figures that are not the point.
+    static let forestGradient = LinearGradient(
+        colors: [Color(red: 0.157, green: 0.259, blue: 0.176), Color(red: 0.322, green: 0.435, blue: 0.196)],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
 
     // MARK: Ambient field
 
-    /// A near-black plane with four wide colour blooms bleeding across it. Low
-    /// opacity and heavy blur on purpose: they read as light in the room, never
-    /// as shapes sitting on the screen.
+    /// The lamp chosen in Appearance, brought into this language. Controls stay
+    /// white — that is the language — but the field is lit by the palette.
+    static var accent: Color { Preferences.shared.accent.base }
+
+    /// Black, with the chosen lamp bleeding in only at the very edges: a wash of
+    /// its soft light at the foot-left, its bloom at the foot-right, and its base
+    /// at the top. Everything on the screen still sits on near-black, the way the
+    /// reference screens do — only the light in the room changes with the palette.
     static func backdrop(intensity: Double = 1.0) -> some View {
-        ZStack {
-            background
+        let lamp = Preferences.shared.accent
 
-            Ellipse()
-                .fill(
-                    RadialGradient(
-                        colors: [magenta.opacity(0.40 * intensity), Color.clear],
-                        center: .center,
-                        startRadius: 0,
-                        endRadius: 300
-                    )
-                )
-                .frame(width: 660, height: 660)
-                .blur(radius: 40)
-                .offset(x: 160, y: -300)
+        return ZStack {
+            Rectangle()
+                .fill(Color(red: 0.020, green: 0.020, blue: 0.024))
 
-            Ellipse()
-                .fill(
-                    RadialGradient(
-                        colors: [violet.opacity(0.34 * intensity), Color.clear],
-                        center: .center,
-                        startRadius: 0,
-                        endRadius: 280
-                    )
-                )
-                .frame(width: 560, height: 560)
-                .blur(radius: 44)
-                .offset(x: -170, y: -60)
+            bloom(color: lamp.soft, opacity: 0.10 * intensity, size: 620, blur: 82)
+                .offset(x: -160, y: 390)
 
-            Ellipse()
-                .fill(
-                    RadialGradient(
-                        colors: [blue.opacity(0.28 * intensity), Color.clear],
-                        center: .center,
-                        startRadius: 0,
-                        endRadius: 320
-                    )
-                )
-                .frame(width: 680, height: 680)
-                .blur(radius: 52)
-                .offset(x: 40, y: 360)
+            bloom(color: lamp.bloom, opacity: 0.13 * intensity, size: 660, blur: 84)
+                .offset(x: 190, y: 410)
 
-            Ellipse()
-                .fill(
-                    RadialGradient(
-                        colors: [mint.opacity(0.14 * intensity), Color.clear],
-                        center: .center,
-                        startRadius: 0,
-                        endRadius: 220
-                    )
-                )
-                .frame(width: 460, height: 460)
-                .blur(radius: 48)
-                .offset(x: 190, y: 200)
+            bloom(color: lamp.base, opacity: 0.07 * intensity, size: 520, blur: 84)
+                .offset(x: 40, y: -380)
 
+            // A light hand at both ends so the chrome's own fades have somewhere
+            // to land — deep enough to settle the field, never a band.
             LinearGradient(
-                colors: [background.opacity(0.55), Color.clear, background.opacity(0.45)],
+                colors: [background.opacity(0.45), Color.clear, background.opacity(0.55)],
                 startPoint: .top,
                 endPoint: .bottom
             )
         }
         .ignoresSafeArea()
         .allowsHitTesting(false)
+    }
+
+    private static func bloom(color: Color, opacity: Double, size: CGFloat, blur: CGFloat) -> some View {
+        Ellipse()
+            .fill(
+                RadialGradient(
+                    colors: [
+                        color.opacity(opacity),
+                        color.opacity(opacity * 0.34),
+                        Color.clear
+                    ],
+                    center: .center,
+                    startRadius: 0,
+                    endRadius: size * 0.5
+                )
+            )
+            .frame(width: size, height: size)
+            .blur(radius: blur)
+    }
+
+    // MARK: Card ramps
+
+    /// A card ramp for any accent colour: the accent lit at its top-left, a
+    /// deepened shade of the same hue at the foot. The reference's tiles are
+    /// always two tones of one hue, lit from a corner.
+    static func ramp(for accent: Color) -> LinearGradient {
+        var hue: CGFloat = 0, saturation: CGFloat = 0, brightness: CGFloat = 0, alpha: CGFloat = 0
+        UIColor(accent).getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        let lit = Color(
+            hue: Double(hue),
+            saturation: Double(min(max(saturation, 0.35), 0.85)),
+            brightness: Double(min(max(brightness, 0.55), 0.85))
+        )
+        let deep = Color(
+            hue: Double(hue),
+            saturation: Double(min(saturation + 0.08, 1.0)),
+            brightness: Double(max(brightness * 0.42, 0.16))
+        )
+        return LinearGradient(colors: [lit, deep], startPoint: .topLeading, endPoint: .bottomTrailing)
+    }
+
+    /// The ramp a library row wears, picked from the reference's card colours
+    /// by the record's key, so a given film always wears the same tile.
+    static func rowGradient(for key: String) -> LinearGradient {
+        let ramps = [pinkGradient, mintGradient, blueGradient, orangeGradient, magentaGradient, violetGradient]
+        var hash: UInt64 = 5381
+        for scalar in key.unicodeScalars {
+            hash = (hash &* 33) &+ UInt64(scalar.value)
+        }
+        return ramps[Int(hash % UInt64(ramps.count))]
     }
 }

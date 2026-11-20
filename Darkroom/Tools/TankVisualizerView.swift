@@ -142,7 +142,7 @@ struct TankVisualizerView: View {
                 Text("Paterson Super System 4")
                     .font(.system(size: 15, weight: .medium))
                     .foregroundStyle(Theme.ink)
-                Text("\(Int(Self.capacity)) ml · \(Self.reelCount) reels")
+                Text("\(Units.volume(millilitres: Self.capacity)) · \(Self.reelCount) reels")
                     .font(.system(size: 12))
                     .foregroundStyle(Theme.inkFaint)
             }
@@ -207,7 +207,7 @@ struct TankVisualizerView: View {
         .gesture(rotateGesture)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(
-            "Tank with \(Self.reelCount) reels. \(Int(fillML)) millilitres of "
+            "Tank with \(Self.reelCount) reels. \(Units.volumePhrase(millilitres: fillML)) of "
                 + "\(chemistry.label.lowercased()); \(coveredCount) of \(Self.reelCount) reels covered."
         )
     }
@@ -310,7 +310,7 @@ struct TankVisualizerView: View {
     private var coverageWarning: String? {
         guard let uncovered = coveredReels.firstIndex(of: false) else { return nil }
         let shortfall = Int((neededVolume(forReel: uncovered) - fillML).rounded(.up))
-        return "Reel \(uncovered + 1) sits above the liquid. \(shortfall) ml more covers it."
+        return "Reel \(uncovered + 1) sits above the liquid. \(Units.volume(millilitres: Double(shortfall))) more covers it."
     }
 
     private func warningCard(_ text: String) -> some View {
@@ -370,10 +370,10 @@ struct TankVisualizerView: View {
     }
 
     private var fillValueText: Text {
-        Text("\(Int(fillML)) ")
+        Text(Units.volume(millilitres: fillML))
             .font(.figures(15, weight: .semibold))
             .foregroundColor(chemistry.color)
-        + Text("/ \(Int(Self.capacity)) ml")
+        + Text(" / \(Units.volume(millilitres: Self.capacity))")
             .font(.figures(15, weight: .medium))
             .foregroundColor(Theme.inkSoft)
     }
@@ -396,7 +396,7 @@ struct TankVisualizerView: View {
             HStack(alignment: .top, spacing: 0) {
                 summaryColumn(
                     label: chemistry.label,
-                    value: "\(Int(fillML)) ml",
+                    value: Units.volume(millilitres: fillML),
                     valueColor: chemistry.color
                 )
                 verticalDivider
@@ -421,7 +421,7 @@ struct TankVisualizerView: View {
             } label: {
                 if pourConfirmed {
                     Label(
-                        "\(Int(fillML)) ml of \(chemistry.label.lowercased()) — ready to pour",
+                        "\(Units.volume(millilitres: fillML)) of \(chemistry.label.lowercased()) — ready to pour",
                         systemImage: "checkmark.circle.fill"
                     )
                     .frame(maxWidth: .infinity)
@@ -467,7 +467,7 @@ struct TankVisualizerView: View {
     }
 
     private var waterToMake: String {
-        "\(Int((fillML * chemistry.waterFractionOfPour).rounded())) ml"
+        Units.volume(millilitres: (fillML * chemistry.waterFractionOfPour).rounded())
     }
 
     private var dilutionFootnote: some View {
@@ -613,7 +613,7 @@ struct TankVisualizerView: View {
                 surfaceAngle: surfaceAngle, ripple: ripple, time: time
             )
             if fillHeight > 42 {
-                let label = Text("\(Int(fillML)) ml")
+                let label = Text(Units.volume(millilitres: fillML))
                     .font(.system(size: 18, weight: .semibold, design: .rounded).monospacedDigit())
                     .foregroundColor(color)
                 interior.draw(label, at: CGPoint(x: surfacePoint.x, y: surfacePoint.y + 24), anchor: .center)

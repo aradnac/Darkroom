@@ -43,9 +43,17 @@ struct VerificationItem: Identifiable, Hashable {
 final class LibraryStore: ObservableObject {
     static let shared = LibraryStore()
 
-    @Published private(set) var document: LibraryDocument
+    @Published private(set) var document: LibraryDocument {
+        didSet { rebuildIndex() }
+    }
     @Published private(set) var favourites: Set<String>
     @Published var lastImportReport: String?
+
+    /// Everything the screens ask for that used to be recomputed on each call:
+    /// key lookups, a film's times already filtered and sorted, a developer's
+    /// film count, the search haystacks, and the verification queue. Built once
+    /// per document change and read from then on.
+    private var index = Index()
 
     private static let favouritesKey = "library.favourites"
     private static let persistedFileName = "imported-library.json"
@@ -59,6 +67,7 @@ final class LibraryStore: ObservableObject {
             self.document = bundled.merged(with: imported)
         }
         favourites = Set(UserDefaults.standard.stringArray(forKey: Self.favouritesKey) ?? [])
+        rebuildIndex()
     }
 
     // MARK: Reading
@@ -68,31 +77,29 @@ final class LibraryStore: ObservableObject {
     var developers: [LibraryDeveloper] { document.developers }
 
     func film(key: String) -> LibraryFilm? {
-        document.films.first { $0.key == key }
+        index.filmsByKey[key]
     }
 
     func developer(key: String) -> LibraryDeveloper? {
-        document.developers.first { $0.key == key }
+        index.developersByKey[key]
     }
 
     func source(key: String?) -> LibrarySource? {
         guard let key else { return nil }
-        return document.sources.first { $0.key == key }
+        return index.sourcesByKey[key]
     }
 
     func times(forFilm key: String) -> [LibraryTimeEntry] {
-        document.times
-            .filter { $0.film == key }
-            .sorted { left, right in
-                let leftName = developer(key: left.developer)?.name ?? left.developer
-                let rightName = developer(key: right.developer)?.name ?? right.developer
-                if leftName == rightName { return left.dilution < right.dilution }
-                return leftName.localizedCaseInsensitiveCompare(rightName) == .orderedAscending
-            }
+        index.timesByFilm[key] ?? []
     }
 
     func times(forDeveloper key: String) -> [LibraryTimeEntry] {
-        document.times.filter { $0.developer == key }
+        index.timesByDeveloper[key] ?? []
+    }
+
+    /// How many films have at least one documented time in this developer.
+    func filmCount(forDeveloper key: String) -> Int {
+        index.filmCountByDeveloper[key] ?? 0
     }
 
     func crossProcess(forFilm key: String) -> [LibraryCrossProcess] {
@@ -143,10 +150,7 @@ final class LibraryStore: ObservableObject {
     }
 
     func temperatureLabel(_ celsius: Double) -> String {
-        if abs(celsius - celsius.rounded()) < 0.05 {
-            return String(format: "%.0f °C", celsius)
-        }
-        return String(format: "%.1f °C", celsius)
+        Units.shortTemperature(celsius)
     }
 
     // MARK: Filtering
@@ -163,8 +167,7 @@ final class LibraryStore: ObservableObject {
             if let status, film.status != status { return false }
             guard !trimmed.isEmpty else { return true }
             if dxKeys.contains(film.key) { return true }
-            let haystack = [film.manufacturer, film.name, String(film.iso), film.formatSummary]
-                .joined(separator: " ")
+            guard let haystack = index.filmSearchKey[film.key] else { return false }
             return haystack.localizedCaseInsensitiveContains(trimmed)
         }
     }
@@ -176,15 +179,16 @@ final class LibraryStore: ObservableObject {
         let entryKey = FilmCatalog.normalize(entry.manufacturer + " " + entry.name)
         let numbers = FilmCatalog.numericRuns(entry.name)
 
-        return document.films.first { film in
-            let nameKey = FilmCatalog.normalize(film.name)
-            let makerKey = FilmCatalog.normalize(film.manufacturer)
-            guard !nameKey.isEmpty,
-                  entryKey.contains(nameKey),
-                  entryKey.contains(makerKey) else { return false }
-            if !numbers.isEmpty, !numbers.contains("\(film.iso)") { return false }
-            return true
+        // The names and makers were normalised once when the index was built, so
+        // matching an index entry no longer re-normalises every film it looks at.
+        for candidate in index.normalizedFilms {
+            guard !candidate.nameKey.isEmpty,
+                  entryKey.contains(candidate.nameKey),
+                  entryKey.contains(candidate.makerKey) else { continue }
+            if !numbers.isEmpty, !numbers.contains("\(candidate.film.iso)") { continue }
+            return candidate.film
         }
+        return nil
     }
 
     private func dxMatchedFilmKeys(for query: String) -> Set<String> {
@@ -208,8 +212,7 @@ final class LibraryStore: ObservableObject {
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return document.developers }
         return document.developers.filter { developer in
-            let haystack = [developer.manufacturer, developer.name, developer.dilutionSummary]
-                .joined(separator: " ")
+            guard let haystack = index.developerSearchKey[developer.key] else { return false }
             return haystack.localizedCaseInsensitiveContains(trimmed)
         }
     }
@@ -231,7 +234,21 @@ final class LibraryStore: ObservableObject {
 
     // MARK: Verification queue
 
+    /// Built once per document — and again only if the temperature scale the
+    /// subtitles are written in has changed since — rather than on every read.
     var verificationItems: [VerificationItem] {
+        let scale = Preferences.shared.temperatureScale
+        if index.verificationScale == scale {
+            return index.verification
+        }
+
+        let items = buildVerificationItems()
+        index.verification = items
+        index.verificationScale = scale
+        return items
+    }
+
+    private func buildVerificationItems() -> [VerificationItem] {
         var items: [VerificationItem] = []
 
         for time in document.times {
@@ -314,6 +331,86 @@ final class LibraryStore: ObservableObject {
         }
 
         return items.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
+    }
+
+    // MARK: Derived index
+
+    /// Everything the screens ask for repeatedly. Rebuilt once whenever the
+    /// document changes, so a list row no longer filters and sorts the whole
+    /// library to draw itself, and a keystroke no longer rebuilds a haystack per
+    /// film.
+    private struct Index {
+        var filmsByKey: [String: LibraryFilm] = [:]
+        var developersByKey: [String: LibraryDeveloper] = [:]
+        var sourcesByKey: [String: LibrarySource] = [:]
+
+        /// A film's times, already filtered and sorted by developer then
+        /// dilution — the exact order `times(forFilm:)` used to produce.
+        var timesByFilm: [String: [LibraryTimeEntry]] = [:]
+        var timesByDeveloper: [String: [LibraryTimeEntry]] = [:]
+        var filmCountByDeveloper: [String: Int] = [:]
+
+        var filmSearchKey: [String: String] = [:]
+        var developerSearchKey: [String: String] = [:]
+
+        /// Names and makers normalised once, in document order, so the DX match
+        /// keeps its first-match behaviour without re-normalising per candidate.
+        var normalizedFilms: [(film: LibraryFilm, nameKey: String, makerKey: String)] = []
+
+        var verification: [VerificationItem] = []
+        var verificationScale: TemperatureScale?
+    }
+
+    private func rebuildIndex() {
+        var built = Index()
+
+        // First entry wins, as the linear `first(where:)` lookups did.
+        for film in document.films where built.filmsByKey[film.key] == nil {
+            built.filmsByKey[film.key] = film
+            built.filmSearchKey[film.key] = [film.manufacturer, film.name, String(film.iso), film.formatSummary]
+                .joined(separator: " ")
+            built.normalizedFilms.append((
+                film: film,
+                nameKey: FilmCatalog.normalize(film.name),
+                makerKey: FilmCatalog.normalize(film.manufacturer)
+            ))
+        }
+
+        for developer in document.developers where built.developersByKey[developer.key] == nil {
+            built.developersByKey[developer.key] = developer
+            built.developerSearchKey[developer.key] = [developer.manufacturer, developer.name, developer.dilutionSummary]
+                .joined(separator: " ")
+        }
+
+        for source in document.sources where built.sourcesByKey[source.key] == nil {
+            built.sourcesByKey[source.key] = source
+        }
+
+        for time in document.times {
+            built.timesByFilm[time.film, default: []].append(time)
+            built.timesByDeveloper[time.developer, default: []].append(time)
+        }
+
+        // The one sort a film's times need, done here rather than on every row.
+        for (key, entries) in built.timesByFilm {
+            built.timesByFilm[key] = entries.sorted { left, right in
+                let leftName = built.developersByKey[left.developer]?.name ?? left.developer
+                let rightName = built.developersByKey[right.developer]?.name ?? right.developer
+                if leftName == rightName { return left.dilution < right.dilution }
+                return leftName.localizedCaseInsensitiveCompare(rightName) == .orderedAscending
+            }
+        }
+
+        for (key, entries) in built.timesByDeveloper {
+            built.filmCountByDeveloper[key] = Set(entries.map(\.film)).count
+        }
+
+        index = built
+
+        // The queue's subtitles carry a temperature in the user's scale, which is
+        // the one input it takes from outside the document.
+        index.verification = buildVerificationItems()
+        index.verificationScale = Preferences.shared.temperatureScale
     }
 
     // MARK: Import

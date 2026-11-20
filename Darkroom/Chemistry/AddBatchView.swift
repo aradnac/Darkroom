@@ -110,7 +110,7 @@ struct AddBatchView: View {
             DatePicker("Mixed on", selection: $mixedOn, displayedComponents: .date)
 
             Toggle("Has a shelf life", isOn: $hasShelfLife)
-                .tint(Theme.amber)
+                .tint(Theme.switchTint)
 
             if hasShelfLife {
                 Stepper(value: $shelfLifeMonths, in: 1...60, step: 1) {
@@ -134,7 +134,7 @@ struct AddBatchView: View {
             }
 
             Toggle("Can be reused", isOn: $isReusable)
-                .tint(Theme.amber)
+                .tint(Theme.switchTint)
 
             Text("Take the roll capacity from the developer's own datasheet. Each logged use is counted against it, and each reuse adds 10%, compounded, to the next development.")
                 .font(.system(size: 12))

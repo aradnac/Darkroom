@@ -9,8 +9,15 @@
 import Foundation
 
 enum CompensationRules {
-    /// Each prior use of a reusable developer compounds this much extra time.
-    static let reuseStep = 0.10
+    /// The step a fresh install starts from. Each prior use of a reusable
+    /// developer compounds this much extra time; Settings may change it.
+    static let defaultReuseStep = 0.10
+
+    static var reuseStep: Double { Preferences.shared.reuseStep }
+
+    /// How hard the app pushes past the published temperature range, as a
+    /// multiple of the slope between the nearest two published times.
+    static var extrapolationFactor: Double { Preferences.shared.extrapolationFactor }
 }
 
 enum PointOrigin: String, Hashable {
@@ -33,13 +40,16 @@ enum TemperatureEstimate: Equatable {
     case measured(celsius: Double, origin: PointOrigin)
     case interpolated(lower: Double, upper: Double)
     case extrapolated(lower: Double, upper: Double)
+    /// Worked out from a single time with the converter's exponential correction.
+    case calculated(from: Double)
 
-    /// True when the number had to be worked past the times the app holds.
+    /// True when the number was worked out rather than read from a chart.
     var isEstimate: Bool {
         switch self {
         case .measured: return false
         case .interpolated: return false
         case .extrapolated: return true
+        case .calculated: return true
         }
     }
 
@@ -52,11 +62,13 @@ enum TemperatureEstimate: Equatable {
             return "Interpolated between your \(TemperatureEstimate.label(lower)) and \(TemperatureEstimate.label(upper)) times."
         case let .extrapolated(lower, upper):
             return "Worked out past your \(TemperatureEstimate.label(lower)) to \(TemperatureEstimate.label(upper)) times — treat it as a starting point."
+        case let .calculated(from):
+            return "Estimated from your \(TemperatureEstimate.label(from)) time."
         }
     }
 
     static func label(_ celsius: Double) -> String {
-        String(format: "%.1f °C", celsius)
+        Units.temperature(celsius)
     }
 }
 
@@ -79,20 +91,27 @@ struct TemperatureCurve {
             return (exact.seconds, .measured(celsius: exact.celsius, origin: exact.origin))
         }
 
-        // A single time is not a curve. Rather than invent a rate of change, say so
-        // and ask for a second time at another temperature.
+        // A single time is not a curve, but it is all the converter needs: every
+        // other temperature is worked out from it exponentially.
         if points.count == 1 {
-            return nil
+            let only = points[0]
+            let outcome = DevelopmentTimeCalculator.calculate(
+                nominalSeconds: only.seconds,
+                nominalCelsius: only.celsius,
+                actualCelsius: celsius,
+                continuousAgitation: false
+            )
+            return (outcome.seconds, .calculated(from: only.celsius))
         }
 
         if celsius < first.celsius {
-            let seconds = interpolate(first, points[1], to: celsius)
+            let seconds = extrapolate(first, points[1], to: celsius)
             return (clamp(seconds), .extrapolated(lower: first.celsius, upper: points[1].celsius))
         }
 
         if celsius > last.celsius {
             let lower = points[points.count - 2]
-            let seconds = interpolate(lower, last, to: celsius)
+            let seconds = extrapolate(lower, last, to: celsius)
             return (clamp(seconds), .extrapolated(lower: lower.celsius, upper: last.celsius))
         }
 
@@ -106,6 +125,22 @@ struct TemperatureCurve {
         let span = high.celsius - low.celsius
         guard abs(span) > 0.0001 else { return low.seconds }
         let position = (celsius - low.celsius) / span
+        return blend(low, high, position: position)
+    }
+
+    /// Past the outermost published time the segment's slope is continued,
+    /// scaled by the extrapolation factor: below 1 softens the change, above
+    /// steepens it, and 1 keeps the published slope unchanged.
+    private func extrapolate(_ low: TemperaturePoint, _ high: TemperaturePoint, to celsius: Double) -> TimeInterval {
+        let span = high.celsius - low.celsius
+        guard abs(span) > 0.0001 else { return low.seconds }
+        let raw = (celsius - low.celsius) / span
+        let factor = CompensationRules.extrapolationFactor
+        let position = raw > 1 ? 1 + (raw - 1) * factor : raw * factor
+        return blend(low, high, position: position)
+    }
+
+    private func blend(_ low: TemperaturePoint, _ high: TemperaturePoint, position: Double) -> TimeInterval {
         let lowLog = log(max(1, low.seconds))
         let highLog = log(max(1, high.seconds))
         return exp(lowLog + (highLog - lowLog) * position)

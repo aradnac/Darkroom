@@ -32,66 +32,34 @@ struct StageRing: View {
 
     var body: some View {
         ZStack {
-            ticks
+            // The bezel and the arc are the two expensive layers — sixty stroked
+            // ticks, and a stroked circle with two shadows that animates. Both are
+            // value-driven subviews, so a parent pass that changes neither (a
+            // prompt caption, say) no longer re-strokes or re-times them.
+            StageRingTicks(count: count, index: index, diameter: diameter, accent: Theme.amber)
+                .equatable()
 
             ForEach(0..<count, id: \.self) { position in
                 segment(position)
             }
 
-            fill
+            StageRingFill(
+                index: index,
+                fraction: min(1, max(0, progress)),
+                start: startFraction(index) + gap,
+                span: max(0, step - gap * 2),
+                bandDiameter: bandDiameter,
+                lineWidth: lineWidth,
+                accent: Theme.amber
+            )
+            .equatable()
+
             innerRule
         }
         .frame(width: diameter, height: diameter)
         .animation(.easeOut(duration: 0.45), value: current)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(accessibilityText)
-    }
-
-    // MARK: Bezel
-
-    private var ticks: some View {
-        Canvas { context, size in
-            let centre = CGPoint(x: size.width / 2, y: size.height / 2)
-            let outer = min(size.width, size.height) / 2 - 2
-            let majorEvery = max(1, 60 / count)
-
-            for tick in 0..<60 {
-                let angle = Double(tick) / 60 * 2 * Double.pi - Double.pi / 2
-                let isMajor = tick % majorEvery == 0
-                let length: CGFloat = isMajor ? 6 : 2.5
-                let colour: Color
-                if isMajor {
-                    let boundary = min(tick / majorEvery, count)
-                    if boundary < index {
-                        colour = Theme.amber.opacity(0.45)
-                    } else if boundary == index {
-                        colour = Theme.amber.opacity(0.85)
-                    } else {
-                        colour = Color.white.opacity(0.18)
-                    }
-                } else {
-                    colour = Color.white.opacity(0.08)
-                }
-
-                var path = Path()
-                path.move(
-                    to: CGPoint(
-                        x: centre.x + CGFloat(cos(angle)) * outer,
-                        y: centre.y + CGFloat(sin(angle)) * outer
-                    )
-                )
-                path.addLine(
-                    to: CGPoint(
-                        x: centre.x + CGFloat(cos(angle)) * (outer - length),
-                        y: centre.y + CGFloat(sin(angle)) * (outer - length)
-                    )
-                )
-                context.stroke(path, with: .color(colour), lineWidth: isMajor ? 1.4 : 1)
-            }
-        }
-        .frame(width: diameter, height: diameter)
-        .allowsHitTesting(false)
-        .accessibilityHidden(true)
     }
 
     // MARK: Segments
@@ -105,24 +73,6 @@ struct StageRing: View {
             )
             .frame(width: bandDiameter, height: bandDiameter)
             .rotationEffect(.degrees(-90))
-    }
-
-    /// The part of the current stage that has already run.
-    private var fill: some View {
-        let fraction = min(1, max(0, progress))
-        let start = startFraction(index)
-        let span = max(0, step - gap * 2)
-
-        return Circle()
-            .trim(from: start + gap, to: start + gap + span * fraction)
-            .stroke(Theme.amber, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
-            .frame(width: bandDiameter, height: bandDiameter)
-            .rotationEffect(.degrees(-90))
-            .shadow(color: Theme.amber.opacity(0.50), radius: 9)
-            .shadow(color: Theme.amber.opacity(0.22), radius: 20)
-            .opacity(fraction > 0.001 ? 1 : 0)
-            .id(index)
-            .animation(.linear(duration: 0.12), value: fraction)
     }
 
     private var innerRule: some View {
@@ -161,5 +111,91 @@ struct StageRing: View {
     private var accessibilityText: String {
         guard stages.indices.contains(index) else { return "Stage timer" }
         return "\(stages[index].kind.title), stage \(index + 1) of \(count)"
+    }
+}
+
+
+// MARK: - Bezel
+
+/// The sixty-tick bezel. Its own view so it only re-strokes when the stage
+/// count, the active stage, the diameter or the accent actually change — not on
+/// every passing second of the stage.
+private struct StageRingTicks: View, Equatable {
+    let count: Int
+    let index: Int
+    let diameter: CGFloat
+    let accent: Color
+
+    var body: some View {
+        Canvas { context, size in
+            let centre = CGPoint(x: size.width / 2, y: size.height / 2)
+            let outer = min(size.width, size.height) / 2 - 2
+            let majorEvery = max(1, 60 / count)
+
+            for tick in 0..<60 {
+                let angle = Double(tick) / 60 * 2 * Double.pi - Double.pi / 2
+                let isMajor = tick % majorEvery == 0
+                let length: CGFloat = isMajor ? 6 : 2.5
+                let colour: Color
+                if isMajor {
+                    let boundary = min(tick / majorEvery, count)
+                    if boundary < index {
+                        colour = accent.opacity(0.45)
+                    } else if boundary == index {
+                        colour = accent.opacity(0.85)
+                    } else {
+                        colour = Color.white.opacity(0.18)
+                    }
+                } else {
+                    colour = Color.white.opacity(0.08)
+                }
+
+                var path = Path()
+                path.move(
+                    to: CGPoint(
+                        x: centre.x + CGFloat(cos(angle)) * outer,
+                        y: centre.y + CGFloat(sin(angle)) * outer
+                    )
+                )
+                path.addLine(
+                    to: CGPoint(
+                        x: centre.x + CGFloat(cos(angle)) * (outer - length),
+                        y: centre.y + CGFloat(sin(angle)) * (outer - length)
+                    )
+                )
+                context.stroke(path, with: .color(colour), lineWidth: isMajor ? 1.4 : 1)
+            }
+        }
+        .frame(width: diameter, height: diameter)
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
+    }
+}
+
+// MARK: - Progress arc
+
+/// The part of the current stage that has already run, with its glow. Split out
+/// so the arc only re-strokes — and only re-times its own animation — when the
+/// fraction it draws actually changes.
+private struct StageRingFill: View, Equatable {
+    let index: Int
+    let fraction: Double
+    let start: Double
+    let span: Double
+    let bandDiameter: CGFloat
+    let lineWidth: CGFloat
+    let accent: Color
+
+    var body: some View {
+        Circle()
+            .trim(from: start, to: start + span * fraction)
+            .stroke(accent, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+            .frame(width: bandDiameter, height: bandDiameter)
+            .rotationEffect(.degrees(-90))
+            .shadow(color: accent.opacity(0.50), radius: 9)
+            .shadow(color: accent.opacity(0.22), radius: 20)
+            .opacity(fraction > 0.001 ? 1 : 0)
+            .id(index)
+            .animation(.linear(duration: 0.12), value: fraction)
     }
 }

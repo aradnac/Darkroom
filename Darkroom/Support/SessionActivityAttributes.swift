@@ -40,7 +40,9 @@ struct SessionActivityAttributes: ActivityAttributes {
 
         var filmTitle: String
         var developerTitle: String
-        var temperature: Double
+        /// Already formatted in the unit the bench reads in, so the extension
+        /// never has to know the preference.
+        var temperatureText: String
     }
 
     var sessionID: String

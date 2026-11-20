@@ -49,7 +49,7 @@ struct StockMixingView: View {
                     Button {
                         bottleMl = preset
                     } label: {
-                        Text(preset >= 1000 ? "\(Int(preset / 1000)) L" : "\(Int(preset)) ml")
+                        Text(preset >= 1000 ? Units.litres(preset / 1000) : Units.volume(millilitres: preset))
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundStyle(abs(bottleMl - preset) < 0.5 ? Theme.amberInk : Theme.inkSoft)
                             .frame(maxWidth: .infinity)

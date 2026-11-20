@@ -47,14 +47,19 @@ struct LibraryBrowserView: View {
                 SegmentedPill(options: Mode.allCases, selection: $mode) { $0.label }
 
                 if mode == .films {
-                    filters
-                    filmList
+                    VStack(alignment: .leading, spacing: 14) {
+                        filters
+                        filmList
+                    }
+                    .transition(.opacity.combined(with: .move(edge: .leading)))
                 } else {
                     developerList
+                        .transition(.opacity.combined(with: .move(edge: .trailing)))
                 }
 
                 chartSources
             }
+            .animation(.snappy(duration: 0.32, extraBounce: 0.04), value: mode)
             .padding(.horizontal, 20)
             .padding(.top, 8)
             .padding(.bottom, 32)
@@ -352,7 +357,7 @@ struct LibraryBrowserView: View {
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .glassCard(radius: 20)
+        .softGlassRowSurface(key: film.key)
         .contentShape(Rectangle())
     }
 
@@ -375,7 +380,7 @@ struct LibraryBrowserView: View {
     }
 
     private func developerRow(_ developer: LibraryDeveloper) -> some View {
-        let films = Set(store.times(forDeveloper: developer.key).map(\.film)).count
+        let films = store.filmCount(forDeveloper: developer.key)
 
         return VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .firstTextBaseline, spacing: 8) {
@@ -413,7 +418,7 @@ struct LibraryBrowserView: View {
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .glassCard(radius: 20)
+        .softGlassRowSurface(key: developer.key)
         .contentShape(Rectangle())
     }
 

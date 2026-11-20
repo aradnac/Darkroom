@@ -7,6 +7,31 @@
 
 import SwiftUI
 
+// MARK: - Live read-out
+
+/// A read-out that refreshes on its own, so the screen and the list around it
+/// are not re-evaluated on every tick. Wrapping the whole `ScrollView` in a
+/// timeline (as these three timers used to) re-ran every row, card and button in
+/// it ten times a second for one changing number; this keeps the ticking inside
+/// the one `Text` that actually changes.
+private struct LiveTicker<Content: View>: View {
+    var running: Bool
+    var interval: TimeInterval
+    @ViewBuilder var content: (Date) -> Content
+
+    var body: some View {
+        if running {
+            TimelineView(.periodic(from: .now, by: interval)) { context in
+                content(context.date)
+            }
+        } else {
+            // Nothing is counting, so the reading only changes when something
+            // else changes the view.
+            content(Date())
+        }
+    }
+}
+
 private enum TemperatureDirection: String, CaseIterable, Identifiable {
     case celsiusToFahrenheit
     case fahrenheitToCelsius
@@ -105,12 +130,12 @@ struct StopwatchToolView: View {
     }
 
     var body: some View {
-        TimelineView(.periodic(from: .now, by: 0.1)) { context in
-            let current = elapsed(at: context.date)
-            ScrollView {
-                VStack(spacing: 18) {
-                    VStack(spacing: 10) {
-                        OverlineText(text: "Elapsed time", color: Theme.amber)
+        ScrollView {
+            VStack(spacing: 18) {
+                VStack(spacing: 10) {
+                    OverlineText(text: "Elapsed time", color: Theme.amber)
+                    LiveTicker(running: runningSince != nil, interval: 0.1) { date in
+                        let current = elapsed(at: date)
                         Text(Clock.mmss(current))
                             .font(.system(size: 58, weight: .medium, design: .rounded).monospacedDigit())
                             .foregroundStyle(Theme.ink)
@@ -119,96 +144,96 @@ struct StopwatchToolView: View {
                             .contentTransition(.numericText())
                             .accessibilityLabel("Elapsed \(Clock.mmss(current))")
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 30)
-                    .glassCard(radius: 28, tint: runningSince == nil ? nil : Theme.amber)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 30)
+                .glassCard(radius: 28, tint: runningSince == nil ? nil : Theme.amber)
 
-                    HStack(spacing: 12) {
-                        Button {
-                            if runningSince == nil {
-                                runningSince = Date()
-                            } else {
-                                accumulated = elapsed(at: Date())
-                                runningSince = nil
-                            }
-                        } label: {
-                            Label(runningSince == nil ? "Start" : "Pause", systemImage: runningSince == nil ? "play.fill" : "pause.fill")
-                                .frame(maxWidth: .infinity)
+                HStack(spacing: 12) {
+                    Button {
+                        if runningSince == nil {
+                            runningSince = Date()
+                        } else {
+                            accumulated = elapsed(at: Date())
+                            runningSince = nil
                         }
-                        .buttonStyle(AmberCapsuleStyle(height: 52))
-
-                        Button {
-                            if runningSince != nil {
-                                let split = elapsed(at: Date())
-                                laps.insert(split, at: 0)
-                            }
-                        } label: {
-                            Label("Lap", systemImage: "flag")
-                                .frame(maxWidth: .infinity)
-                        }
-                        .buttonStyle(GlassCapsuleStyle(height: 52))
-                        .disabled(runningSince == nil)
-                        .opacity(runningSince == nil ? 0.45 : 1)
+                    } label: {
+                        Label(runningSince == nil ? "Start" : "Pause", systemImage: runningSince == nil ? "play.fill" : "pause.fill")
+                            .frame(maxWidth: .infinity)
                     }
+                    .buttonStyle(AmberCapsuleStyle(height: 52))
 
-                    if !laps.isEmpty {
-                        VStack(alignment: .leading, spacing: 0) {
-                            HStack {
-                                Text("LAPS")
-                                Spacer()
-                                Button("Reset") {
-                                    accumulated = 0
-                                    runningSince = nil
-                                    laps.removeAll()
-                                }
-                                .foregroundStyle(Theme.amber)
+                    Button {
+                        if runningSince != nil {
+                            let split = elapsed(at: Date())
+                            laps.insert(split, at: 0)
+                        }
+                    } label: {
+                        Label("Lap", systemImage: "flag")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(GlassCapsuleStyle(height: 52))
+                    .disabled(runningSince == nil)
+                    .opacity(runningSince == nil ? 0.45 : 1)
+                }
+
+                if !laps.isEmpty {
+                    VStack(alignment: .leading, spacing: 0) {
+                        HStack {
+                            Text("LAPS")
+                            Spacer()
+                            Button("Reset") {
+                                accumulated = 0
+                                runningSince = nil
+                                laps.removeAll()
                             }
-                            .font(.system(size: 11, weight: .semibold))
-                            .tracking(1.8)
-                            .foregroundStyle(Theme.inkFaint)
-                            .padding(.bottom, 8)
+                            .foregroundStyle(Theme.amber)
+                        }
+                        .font(.system(size: 11, weight: .semibold))
+                        .tracking(1.8)
+                        .foregroundStyle(Theme.inkFaint)
+                        .padding(.bottom, 8)
 
-                            ForEach(Array(laps.enumerated()), id: \.offset) { index, lap in
-                                HStack {
-                                    Text(String(format: "Lap %02d", laps.count - index))
-                                        .foregroundStyle(Theme.inkSoft)
-                                    Spacer()
-                                    Text(Clock.mmss(lap))
-                                        .foregroundStyle(Theme.ink)
-                                    Text(Clock.mmss(lap - (index + 1 < laps.count ? laps[index + 1] : 0)))
-                                        .foregroundStyle(Theme.amber)
-                                        .frame(width: 72, alignment: .trailing)
-                                }
-                                .font(.system(size: 14, weight: .medium, design: .rounded).monospacedDigit())
-                                .padding(.vertical, 11)
-                                if index < laps.count - 1 {
-                                    Rectangle().fill(Theme.hairline).frame(height: 1)
-                                }
+                        ForEach(Array(laps.enumerated()), id: \.offset) { index, lap in
+                            HStack {
+                                Text(String(format: "Lap %02d", laps.count - index))
+                                    .foregroundStyle(Theme.inkSoft)
+                                Spacer()
+                                Text(Clock.mmss(lap))
+                                    .foregroundStyle(Theme.ink)
+                                Text(Clock.mmss(lap - (index + 1 < laps.count ? laps[index + 1] : 0)))
+                                    .foregroundStyle(Theme.amber)
+                                    .frame(width: 72, alignment: .trailing)
+                            }
+                            .font(.system(size: 14, weight: .medium, design: .rounded).monospacedDigit())
+                            .padding(.vertical, 11)
+                            if index < laps.count - 1 {
+                                Rectangle().fill(Theme.hairline).frame(height: 1)
                             }
                         }
+                    }
+                    .padding(18)
+                    .glassCard(radius: 22)
+                } else {
+                    Text("Lap splits appear here while the stopwatch is running.")
+                        .font(.system(size: 13))
+                        .foregroundStyle(Theme.inkFaint)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(18)
                         .glassCard(radius: 22)
-                    } else {
-                        Text("Lap splits appear here while the stopwatch is running.")
-                            .font(.system(size: 13))
-                            .foregroundStyle(Theme.inkFaint)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(18)
-                            .glassCard(radius: 22)
-                    }
-
-                    if laps.isEmpty && runningSince == nil && accumulated > 0 {
-                        Button("Reset stopwatch") {
-                            accumulated = 0
-                            laps.removeAll()
-                        }
-                        .font(.system(size: 14, weight: .medium))
-                        .foregroundStyle(Theme.inkSoft)
-                        .padding(.top, 2)
-                    }
                 }
-                .padding(20)
+
+                if laps.isEmpty && runningSince == nil && accumulated > 0 {
+                    Button("Reset stopwatch") {
+                        accumulated = 0
+                        laps.removeAll()
+                    }
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundStyle(Theme.inkSoft)
+                    .padding(.top, 2)
+                }
             }
+            .padding(20)
         }
         .background { LiquidBackdrop() }
         .navigationTitle("Stopwatch")
@@ -253,54 +278,57 @@ struct IntervalTimerView: View {
     private var editable: Bool { !isRunning && phase != .work && phase != .rest }
 
     var body: some View {
-        TimelineView(.periodic(from: .now, by: 0.2)) { context in
-            ScrollView {
-                VStack(spacing: 16) {
-                    countdownCard(at: context.date)
+        ScrollView {
+            VStack(spacing: 16) {
+                countdownCard
 
-                    if editable {
-                        settingsCard
-                    }
-
-                    HStack(spacing: 12) {
-                        Button {
-                            toggle(at: Date())
-                        } label: {
-                            Label(isRunning ? "Pause" : (phase == .finished ? "Again" : "Start"), systemImage: isRunning ? "pause.fill" : "play.fill")
-                                .frame(maxWidth: .infinity)
-                        }
-                        .buttonStyle(AmberCapsuleStyle(height: 54))
-
-                        Button {
-                            reset()
-                        } label: {
-                            Label("Reset", systemImage: "arrow.counterclockwise")
-                                .frame(maxWidth: .infinity)
-                        }
-                        .buttonStyle(GlassCapsuleStyle(height: 54))
-                    }
+                if editable {
+                    settingsCard
                 }
-                .padding(20)
-                .onChange(of: context.date) { _, date in
-                    advanceTimer(at: date)
+
+                HStack(spacing: 12) {
+                    Button {
+                        toggle(at: Date())
+                    } label: {
+                        Label(isRunning ? "Pause" : (phase == .finished ? "Again" : "Start"), systemImage: isRunning ? "pause.fill" : "play.fill")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(AmberCapsuleStyle(height: 54))
+
+                    Button {
+                        reset()
+                    } label: {
+                        Label("Reset", systemImage: "arrow.counterclockwise")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(GlassCapsuleStyle(height: 54))
                 }
             }
+            .padding(20)
+        }
+        // The countdown's logic still needs a steady beat — it is what moves the
+        // session from work to rest — but nothing on screen has to be rebuilt for
+        // it, so the tick lives here and only the digits subscribe to a timeline.
+        .onReceive(Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()) { date in
+            advanceTimer(at: date)
         }
         .background { LiquidBackdrop() }
         .navigationTitle("Interval timer")
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private func countdownCard(at date: Date) -> some View {
-        let value = isRunning ? max(0, (deadline ?? date).timeIntervalSince(date)) : remaining
-        return VStack(spacing: 12) {
+    private var countdownCard: some View {
+        VStack(spacing: 12) {
             OverlineText(text: phase.title, color: phase.color)
-            Text(Clock.mmssCeil(value))
-                .font(.system(size: 58, weight: .medium, design: .rounded).monospacedDigit())
-                .foregroundStyle(phase.color)
-                .contentTransition(.numericText())
-                .minimumScaleFactor(0.7)
-                .lineLimit(1)
+            LiveTicker(running: isRunning, interval: 0.2) { date in
+                let value = isRunning ? max(0, (deadline ?? date).timeIntervalSince(date)) : remaining
+                Text(Clock.mmssCeil(value))
+                    .font(.system(size: 58, weight: .medium, design: .rounded).monospacedDigit())
+                    .foregroundStyle(phase.color)
+                    .contentTransition(.numericText())
+                    .minimumScaleFactor(0.7)
+                    .lineLimit(1)
+            }
             Text(phase == .ready ? "Configure your intervals below." : "Round \(min(currentRound, rounds)) of \(rounds)")
                 .font(.system(size: 14))
                 .foregroundStyle(Theme.inkSoft)
@@ -450,30 +478,30 @@ struct WashRinseTimerView: View {
     private let inversionSchedule = [5, 10, 20]
 
     var body: some View {
-        TimelineView(.periodic(from: .now, by: 0.2)) { context in
-            ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    Picker("Stage", selection: $selection) {
-                        ForEach(WashRinseSelection.allCases) { option in
-                            Text(option.rawValue).tag(option)
-                        }
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                Picker("Stage", selection: $selection) {
+                    ForEach(WashRinseSelection.allCases) { option in
+                        Text(option.rawValue).tag(option)
                     }
-                    .pickerStyle(.segmented)
+                }
+                .pickerStyle(.segmented)
 
-                    if selection == .wash {
-                        washContent(at: context.date)
-                    } else {
-                        rinseContent(at: context.date)
-                    }
+                if selection == .wash {
+                    washContent
+                } else {
+                    rinseContent
                 }
-                .padding(20)
-                .onChange(of: context.date) { _, date in
-                    if rinseRunning, let rinseDeadline, date >= rinseDeadline {
-                        self.rinseRemaining = 0
-                        self.rinseDeadline = nil
-                        self.rinseRunning = false
-                    }
-                }
+            }
+            .padding(20)
+        }
+        // Only the end of the final-rinse countdown needs a steady beat; the
+        // readings themselves keep their own time inside `LiveTicker`.
+        .onReceive(Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()) { date in
+            if rinseRunning, let rinseDeadline, date >= rinseDeadline {
+                self.rinseRemaining = 0
+                self.rinseDeadline = nil
+                self.rinseRunning = false
             }
         }
         .background { LiquidBackdrop() }
@@ -481,9 +509,8 @@ struct WashRinseTimerView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private func washContent(at date: Date) -> some View {
-        let elapsed = washElapsedBeforeStart + (washStartedAt.map { date.timeIntervalSince($0) } ?? 0)
-        return VStack(alignment: .leading, spacing: 16) {
+    private var washContent: some View {
+        VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 8) {
                 OverlineText(text: "Film wash", color: Theme.amber)
                 Text("Wash the fixer away.")
@@ -571,10 +598,13 @@ struct WashRinseTimerView: View {
                         .font(.system(size: 15, weight: .semibold))
                         .foregroundStyle(Theme.ink)
                     Spacer()
-                    Text(Clock.mmss(elapsed))
-                        .font(.system(size: 22, weight: .medium, design: .rounded).monospacedDigit())
-                        .foregroundStyle(Theme.amber)
-                        .contentTransition(.numericText())
+                    LiveTicker(running: washStartedAt != nil, interval: 0.2) { date in
+                        let elapsed = washElapsedBeforeStart + (washStartedAt.map { date.timeIntervalSince($0) } ?? 0)
+                        Text(Clock.mmss(elapsed))
+                            .font(.system(size: 22, weight: .medium, design: .rounded).monospacedDigit())
+                            .foregroundStyle(Theme.amber)
+                            .contentTransition(.numericText())
+                    }
                 }
                 HStack(spacing: 10) {
                     Button {
@@ -629,9 +659,8 @@ struct WashRinseTimerView: View {
         }
     }
 
-    private func rinseContent(at date: Date) -> some View {
-        let timeLeft = rinseRunning ? max(0, (rinseDeadline ?? date).timeIntervalSince(date)) : rinseRemaining
-        return VStack(alignment: .leading, spacing: 16) {
+    private var rinseContent: some View {
+        VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 8) {
                 OverlineText(text: "Final rinse", color: Color(red: 0.53, green: 0.76, blue: 0.91))
                 Text("A clean finish.")
@@ -644,10 +673,13 @@ struct WashRinseTimerView: View {
             }
 
             VStack(spacing: 13) {
-                Text(Clock.mmssCeil(timeLeft))
-                    .font(.system(size: 56, weight: .medium, design: .rounded).monospacedDigit())
-                    .foregroundStyle(rinseRunning ? Theme.amber : Theme.ink)
-                    .contentTransition(.numericText())
+                LiveTicker(running: rinseRunning, interval: 0.2) { date in
+                    let timeLeft = rinseRunning ? max(0, (rinseDeadline ?? date).timeIntervalSince(date)) : rinseRemaining
+                    Text(Clock.mmssCeil(timeLeft))
+                        .font(.system(size: 56, weight: .medium, design: .rounded).monospacedDigit())
+                        .foregroundStyle(rinseRunning ? Theme.amber : Theme.ink)
+                        .contentTransition(.numericText())
+                }
                 if !rinseRunning {
                     Stepper(value: $rinseDuration, in: 10...180, step: 10) {
                         LabeledContent("Timer setting", value: Clock.mmss(TimeInterval(rinseDuration)))

@@ -63,3 +63,40 @@ struct ProgressiveBlur: View {
         }
     }
 }
+
+
+/// The edge treatment a screen wears above and below its content: a real
+/// variable blur with a scrim dying out inward, so what scrolls past the chrome
+/// softens instead of being cut by a hard line.
+///
+/// Place it as an overlay on the screen's own content, under the navigation and
+/// tab bars: drawn above them it would also dim their titles.
+struct ScreenEdgeFade: View {
+    let edge: ProgressiveBlur.Edge
+    var color: Color
+    var height: CGFloat
+    var maxBlurRadius: CGFloat = 18
+
+    private var isTop: Bool { edge == .top }
+
+    var body: some View {
+        ZStack {
+            ProgressiveBlur(edge: edge, height: height, maxBlurRadius: maxBlurRadius)
+            LinearGradient(
+                stops: [
+                    .init(color: color.opacity(0.62), location: 0),
+                    .init(color: color.opacity(0.44), location: 0.28),
+                    .init(color: color.opacity(0.22), location: 0.58),
+                    .init(color: color.opacity(0.07), location: 0.82),
+                    .init(color: .clear, location: 1)
+                ],
+                startPoint: isTop ? .top : .bottom,
+                endPoint: isTop ? .bottom : .top
+            )
+        }
+        .frame(height: height)
+        .frame(maxWidth: .infinity)
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
+    }
+}

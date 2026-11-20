@@ -19,12 +19,14 @@ private struct ThemesRowFrameKey: PreferenceKey {
 
 struct Theme13SettingsView: View {
     @ObservedObject private var store = Theme13SettingsStore.shared
+    @ObservedObject private var preferences = Preferences.shared
     @Environment(\.dismiss) private var dismiss
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.colorScheme) private var colorScheme
 
     @State private var showingUnlockReveal = false
     @State private var showingPreview = false
+    @State private var confirmingReset = false
     @State private var previewPalette: Theme13PaletteID = .rangefinder
     @State private var themesRowFrame: CGRect = .zero
 
@@ -38,13 +40,8 @@ struct Theme13SettingsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 26) {
                     header
-                    themesRow
-                    designLanguageSection
-                    if store.isTheme13Active {
-                        paletteSection
-                        appearanceSection
-                        motionSection
-                    }
+                    designSection
+                    preferencesSection
                     notesSection
 
                     #if DEBUG
@@ -168,11 +165,16 @@ struct Theme13SettingsView: View {
         }
     }
 
-    // MARK: Design language
+    // MARK: Design
 
-    private var designLanguageSection: some View {
+    /// Language, palette and appearance in one place: the three languages, the
+    /// nine lamps, the print palettes and the controls that adjust how much any
+    /// of them moves. These used to be two sections six rows apart.
+    private var designSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Theme13SectionHeader(index: "02", title: "Design language")
+            Theme13SectionHeader(index: "01", title: "Design")
+
+            themesRow
 
             themeRow(
                 identifier: "darkroom",
@@ -184,14 +186,177 @@ struct Theme13SettingsView: View {
             themeRow(
                 identifier: "softglass",
                 title: "Soft Glass",
-                detail: "White capsules, dot-matrix figures, colour tiles",
+                detail: "White capsules, dot-matrix figures, colour mesh",
                 systemImage: "circle.grid.2x2.fill"
             )
 
             if store.isUnlocked {
                 theme13Card
             }
+
+            if store.isTheme13Active {
+                paletteGrid
+            }
+
+            appearanceCards
         }
+    }
+
+    private var appearanceCards: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            SettingsCard {
+                SettingsCardHeading(
+                    title: "Brightness",
+                    detail: "The print language follows this. The darkroom language is always dark and the soft-glass language always light."
+                )
+
+                Picker("Brightness", selection: Binding(
+                    get: { store.appearanceMode },
+                    set: { store.selectAppearance($0) }
+                )) {
+                    ForEach(Theme13AppearanceMode.allCases) { mode in
+                        Text(mode.title).tag(mode)
+                    }
+                }
+                .pickerStyle(.segmented)
+            }
+
+            SettingsCard {
+                SettingsCardHeading(
+                    title: "Colour palette",
+                    detail: "Nine lamps. The darkroom is lit by one; the soft-glass field takes its bloom and the two lights behind it. The print language has its own nine below."
+                )
+
+                LazyVGrid(
+                    columns: [
+                        GridItem(.flexible(), spacing: 10),
+                        GridItem(.flexible(), spacing: 10),
+                        GridItem(.flexible(), spacing: 10)
+                    ],
+                    spacing: 14
+                ) {
+                    ForEach(AccentChoice.allCases) { choice in
+                        accentChip(choice)
+                    }
+                }
+            }
+
+            SettingsCard {
+                SettingsCardHeading(
+                    title: "Text size",
+                    detail: "The print language's type scale. The other languages follow the system text size."
+                )
+
+                Picker("Text size", selection: Binding(
+                    get: { store.textSize },
+                    set: { store.setTextSize($0) }
+                )) {
+                    ForEach(Theme13TextSize.allCases) { size in
+                        Text(size.title).tag(size)
+                    }
+                }
+                .pickerStyle(.segmented)
+
+                Toggle(isOn: Binding(
+                    get: { store.compactControls },
+                    set: { store.setCompactControls($0) }
+                )) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Compact controls")
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundStyle(Theme.ink)
+                        Text("Tighter rows and shorter buttons.")
+                            .font(.system(size: 12))
+                            .foregroundStyle(Theme.inkSoft)
+                    }
+                }
+                .tint(Theme.switchTint)
+            }
+
+            SettingsCard {
+                SettingsCardHeading(title: "Motion")
+
+                Picker("Animation intensity", selection: Binding(
+                    get: { store.motion },
+                    set: { store.setMotion($0) }
+                )) {
+                    ForEach(Theme13MotionIntensity.allCases) { intensity in
+                        Text(intensity.title).tag(intensity)
+                    }
+                }
+                .pickerStyle(.segmented)
+
+                Toggle(isOn: Binding(
+                    get: { store.stillMode },
+                    set: { store.setStillMode($0) }
+                )) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Still mode")
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundStyle(Theme.ink)
+                        Text("Freezes grain, wiggle and the print field.")
+                            .font(.system(size: 12))
+                            .foregroundStyle(Theme.inkSoft)
+                    }
+                }
+                .tint(Theme.switchTint)
+
+                SettingsNote(text: "Reduce Motion is always honoured, whatever is chosen here.")
+            }
+        }
+    }
+
+    private func accentChip(_ choice: AccentChoice) -> some View {
+        let selected = choice == preferences.accent
+
+        return Button {
+            preferences.setAccent(choice)
+        } label: {
+            VStack(spacing: 7) {
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [choice.soft, choice.base, choice.deep],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .frame(width: 40, height: 40)
+                    .overlay {
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    colors: [choice.bloom.opacity(0.85), .clear],
+                                    startPoint: .bottomTrailing,
+                                    endPoint: .center
+                                )
+                            )
+                    }
+                    .overlay {
+                        Circle()
+                            .strokeBorder(selected ? Theme.ink : Theme.hairline, lineWidth: selected ? 2 : 1)
+                    }
+                    .overlay {
+                        if selected {
+                            Image(systemName: "checkmark")
+                                .font(.system(size: 14, weight: .bold))
+                                .foregroundStyle(choice.ink)
+                        }
+                    }
+
+                Text(choice.title)
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundStyle(Theme.inkSoft)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+            }
+            .frame(maxWidth: .infinity)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(HapticButtonStyle())
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(choice.title) accent")
+        .accessibilityAddTraits(selected ? .isSelected : [])
     }
 
     private func themeRow(identifier: String, title: String, detail: String, systemImage: String) -> some View {
@@ -280,9 +445,13 @@ struct Theme13SettingsView: View {
 
     // MARK: Palettes
 
-    private var paletteSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Theme13SectionHeader(index: "03", title: "Print palettes")
+    private var paletteGrid: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("PRINT PALETTES")
+                .font(.system(size: 11, weight: .semibold))
+                .tracking(1.6)
+                .foregroundStyle(Theme.inkFaint)
+
             Text("Nine fields. One interruption each.")
                 .font(.system(size: 13))
                 .foregroundStyle(Theme.inkSoft)
@@ -347,107 +516,107 @@ struct Theme13SettingsView: View {
             .overlay(Rectangle().stroke(Color.black.opacity(0.12), lineWidth: 0.5))
     }
 
-    // MARK: Appearance
+    // MARK: Preferences
 
-    private var appearanceSection: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Theme13SectionHeader(index: "04", title: "Appearance")
+    private var preferencesSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Theme13SectionHeader(index: "02", title: "Preferences")
 
-            VStack(alignment: .leading, spacing: 14) {
-                Text("Brightness")
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundStyle(Theme.ink)
-                Picker("Brightness", selection: Binding(
-                    get: { store.appearanceMode },
-                    set: { store.selectAppearance($0) }
-                )) {
-                    ForEach(Theme13AppearanceMode.allCases) { mode in
-                        Text(mode.title).tag(mode)
-                    }
-                }
-                .pickerStyle(.segmented)
-
-                Text("Text size")
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundStyle(Theme.ink)
-                Picker("Text size", selection: Binding(
-                    get: { store.textSize },
-                    set: { store.setTextSize($0) }
-                )) {
-                    ForEach(Theme13TextSize.allCases) { size in
-                        Text(size.title).tag(size)
-                    }
-                }
-                .pickerStyle(.segmented)
-
-                Toggle(isOn: Binding(
-                    get: { store.compactControls },
-                    set: { store.setCompactControls($0) }
-                )) {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Compact controls")
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundStyle(Theme.ink)
-                        Text("Tighter rows and shorter buttons.")
-                            .font(.system(size: 12))
-                            .foregroundStyle(Theme.inkSoft)
-                    }
-                }
-                .tint(Theme.amber)
+            SettingsHubRow(
+                index: "03",
+                title: "Units",
+                detail: "\(preferences.temperatureScale.title) · \(preferences.volumeUnit.title)",
+                systemImage: "ruler"
+            ) {
+                UnitsSettingsView()
             }
-            .padding(16)
-            .modifier(Theme13PaperSurface(marked: false))
+
+            SettingsHubRow(
+                index: "04",
+                title: "Development defaults",
+                detail: developmentDetail,
+                systemImage: "slider.horizontal.below.rectangle"
+            ) {
+                DevelopmentDefaultsView()
+            }
+
+            SettingsHubRow(
+                index: "05",
+                title: "Alerts",
+                detail: "Sound and haptic for each prompt",
+                systemImage: "bell.badge"
+            ) {
+                AlertSettingsView()
+            }
+
+            resetRow
         }
     }
 
-    // MARK: Motion
+    private var developmentDetail: String {
+        let step = Int((preferences.reuseStep * 100).rounded())
+        return "\(preferences.agitationScheme.title) · \(step)% reuse · \(Clock.mmss(preferences.washSeconds)) wash"
+    }
 
-    private var motionSection: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Theme13SectionHeader(index: "05", title: "Motion")
+    private var resetRow: some View {
+        Button {
+            confirmingReset = true
+        } label: {
+            HStack(spacing: 14) {
+                Text("06")
+                    .font(.system(size: 11, weight: .bold, design: .monospaced))
+                    .foregroundStyle(Theme.amber)
 
-            VStack(alignment: .leading, spacing: 14) {
-                Picker("Animation intensity", selection: Binding(
-                    get: { store.motion },
-                    set: { store.setMotion($0) }
-                )) {
-                    ForEach(Theme13MotionIntensity.allCases) { intensity in
-                        Text(intensity.title).tag(intensity)
-                    }
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Reset preferences")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundStyle(Theme.ink)
+                    Text("Every stored preference returns to its default.")
+                        .font(.system(size: 13))
+                        .foregroundStyle(Theme.inkSoft)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
-                .pickerStyle(.segmented)
 
-                Toggle(isOn: Binding(
-                    get: { store.stillMode },
-                    set: { store.setStillMode($0) }
-                )) {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Still mode")
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundStyle(Theme.ink)
-                        Text("Freezes grain, wiggle and the print field.")
-                            .font(.system(size: 12))
-                            .foregroundStyle(Theme.inkSoft)
-                    }
-                }
-                .tint(Theme.amber)
+                Spacer(minLength: 0)
 
-                Text("Reduce Motion is always honoured, whatever is chosen here.")
-                    .font(.system(size: 11))
-                    .foregroundStyle(Theme.inkFaint)
-                    .fixedSize(horizontal: false, vertical: true)
+                Image(systemName: "arrow.counterclockwise")
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundStyle(Color.red.opacity(0.8))
             }
             .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .contentShape(Rectangle())
             .modifier(Theme13PaperSurface(marked: false))
         }
+        .buttonStyle(HapticButtonStyle())
+        .accessibilityLabel("Reset preferences")
+        .accessibilityHint("Every stored preference returns to its default")
+        .confirmationDialog(
+            "Reset every preference?",
+            isPresented: $confirmingReset,
+            titleVisibility: .visible
+        ) {
+            Button("Reset", role: .destructive) {
+                resetPreferences()
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("Units, development defaults, alerts, appearance, accent and the chosen design language return to their defaults. The hidden theme stays unlocked.")
+        }
+    }
+
+    private func resetPreferences() {
+        preferences.resetAll()
+        store.resetPreferences()
+        previewPalette = store.paletteID
     }
 
     // MARK: Notes
 
     private var notesSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Theme13SectionHeader(index: "06", title: "Notes")
-            Text("Display type, tracked labels and mono figures all scale with the text size above. Your choices are remembered on this device.")
+            Theme13SectionHeader(index: "07", title: "Notes")
+            Text("Every choice here is remembered on this device and used by the next session, calculation and prompt. Display type, tracked labels and mono figures scale with the print language's text size.")
                 .font(.system(size: 13))
                 .foregroundStyle(Theme.inkSoft)
                 .lineSpacing(3)

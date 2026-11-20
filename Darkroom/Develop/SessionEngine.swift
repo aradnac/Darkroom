@@ -34,6 +34,12 @@ final class SessionEngine {
     let voice = VoiceCommander()
     let speaker = PromptSpeaker()
 
+    /// The exact instant of the last tick. Deliberately not observed: the
+    /// engine's own boundary checks need a tenth of a second of resolution, but
+    /// nothing on screen changes that often, so publishing it would make every
+    /// view that reads the clock re-evaluate its body ten times a second.
+    @ObservationIgnored private var preciseNow = Date()
+
     @ObservationIgnored private var accumulated: TimeInterval = 0
     @ObservationIgnored private var runStartedAt: Date?
     @ObservationIgnored private var timer: Timer?
@@ -56,13 +62,10 @@ final class SessionEngine {
 
     var currentStage: SessionStage { plan.stages[stageIndex] }
 
-    /// Seconds spent in the current stage, not counting paused time.
+    /// Seconds spent in the current stage, not counting paused time, as the
+    /// display is currently showing it.
     var stageElapsed: TimeInterval {
-        var value = accumulated
-        if let start = runStartedAt {
-            value += now.timeIntervalSince(start)
-        }
-        return value
+        elapsed(at: now)
     }
 
     var stageRemaining: TimeInterval {
@@ -70,7 +73,43 @@ final class SessionEngine {
     }
 
     var currentPrompt: SessionPrompt {
-        currentStage.prompt(at: min(stageElapsed, currentStage.duration))
+        prompt(at: now)
+    }
+
+    private func elapsed(at date: Date) -> TimeInterval {
+        var value = accumulated
+        if let start = runStartedAt {
+            value += date.timeIntervalSince(start)
+        }
+        return value
+    }
+
+    private func prompt(at date: Date) -> SessionPrompt {
+        currentStage.prompt(at: min(elapsed(at: date), currentStage.duration))
+    }
+
+    /// The readings the running screen draws from the clock: the stage
+    /// countdown, the current agitation phase's countdown, and which phase it is.
+    /// When none of them changes, nothing on screen can change either.
+    private struct ShownClock: Equatable {
+        let stageSeconds: Int
+        let promptSeconds: Int
+        let segment: Int
+    }
+
+    private func shownClock(at date: Date) -> ShownClock {
+        let elapsedNow = elapsed(at: date)
+        let stageElapsed = min(elapsedNow, currentStage.duration)
+        let remaining = max(0, currentStage.duration - elapsedNow)
+        let prompt = currentStage.prompt(at: stageElapsed)
+
+        // Matches `Clock.mmssCeil`, which is what every countdown on the running
+        // screen is set in.
+        return ShownClock(
+            stageSeconds: Int(ceil(remaining - 0.001)),
+            promptSeconds: Int(ceil(prompt.remaining - 0.001)),
+            segment: prompt.segmentIndex
+        )
     }
 
     // MARK: - Lifecycle
@@ -99,6 +138,7 @@ final class SessionEngine {
         switch phase {
         case .running:
             now = Date()
+            preciseNow = now
             accumulated = stageElapsed
             runStartedAt = nil
             stopTimer()
@@ -106,6 +146,7 @@ final class SessionEngine {
             AgitationAlerts.cancel()
         case .paused:
             now = Date()
+            preciseNow = now
             runStartedAt = now
             phase = .running
             startTimer()
@@ -131,7 +172,7 @@ final class SessionEngine {
     func addTime(_ seconds: TimeInterval) {
         switch phase {
         case .ready, .running, .paused:
-            plan.stages[stageIndex].duration = max(0, plan.stages[stageIndex].duration + seconds)
+            plan.stages[stageIndex].addTime(seconds)
             Haptics.impact(.light)
             refreshAlerts()
         case .clearing, .finished:
@@ -142,7 +183,15 @@ final class SessionEngine {
     /// Sets the fixer time from the film leader's clearing time.
     func confirmClearing(seconds: TimeInterval, multiplier: Double) {
         guard phase == .clearing else { return }
-        plan.stages[stageIndex].duration = seconds * multiplier
+        plan.stages[stageIndex].setDuration(seconds * multiplier)
+        plan.stages[stageIndex].needsClearing = false
+        phase = .ready
+    }
+
+    /// Sets the fixer time directly, for when the leader is not being timed.
+    func useStandardFix(seconds: TimeInterval) {
+        guard phase == .clearing else { return }
+        plan.stages[stageIndex].setDuration(max(30, seconds))
         plan.stages[stageIndex].needsClearing = false
         phase = .ready
     }
@@ -158,12 +207,13 @@ final class SessionEngine {
 
     private func begin() {
         now = Date()
+        preciseNow = now
         accumulated = 0
         runStartedAt = now
         lastPromptKey = nil
         phase = .running
         if currentStage.segments.isEmpty {
-            FeedbackCenter.shared.play(.settle)
+            Preferences.shared.play(.rest)
         }
         Haptics.impact(.medium)
         startTimer()
@@ -171,13 +221,25 @@ final class SessionEngine {
     }
 
     private func tick() {
-        now = Date()
+        let instant = Date()
+        preciseNow = instant
         guard phase == .running else { return }
 
-        if stageElapsed >= currentStage.duration {
+        let precise = prompt(at: instant)
+
+        // Publishing `now` ten times a second makes every view that reads the
+        // clock re-evaluate its body ten times a second, for a display that
+        // moves once. Publish only when a reading the screen actually draws
+        // changes, which is roughly once a second — and at a prompt boundary, so
+        // the on-screen prompt is never a beat behind the chime that marks it.
+        if shownClock(at: instant) != shownClock(at: now) {
+            now = instant
+        }
+
+        if elapsed(at: instant) >= currentStage.duration {
             completeStage()
         } else {
-            announcePromptIfChanged()
+            announcePromptIfChanged(precise)
         }
     }
 
@@ -185,8 +247,7 @@ final class SessionEngine {
         if stageIndex + 1 >= stageCount {
             finish()
         } else {
-            FeedbackCenter.shared.play(.stageComplete)
-            Haptics.success()
+            Preferences.shared.play(.stageComplete)
             advance()
         }
     }
@@ -197,6 +258,7 @@ final class SessionEngine {
         runStartedAt = nil
         lastPromptKey = nil
         now = Date()
+        preciseNow = now
         stopTimer()
         AgitationAlerts.cancel()
         phase = currentStage.needsClearing ? .clearing : .ready
@@ -208,14 +270,12 @@ final class SessionEngine {
         stopTimer()
         AgitationAlerts.cancel()
         phase = .finished
-        FeedbackCenter.shared.play(.finished)
-        Haptics.success()
+        Preferences.shared.play(.finished)
     }
 
     /// The choreography: each change of prompt sounds, is spoken if asked for, and
     /// re-times the notifications for what is coming.
-    private func announcePromptIfChanged() {
-        let prompt = currentPrompt
+    private func announcePromptIfChanged(_ prompt: SessionPrompt) {
         let key = "\(stageIndex)-\(prompt.segmentIndex)"
         guard key != lastPromptKey else { return }
         lastPromptKey = key
@@ -238,16 +298,18 @@ final class SessionEngine {
             return
         }
 
-        let elapsed = stageElapsed
+        // The exact instant, not the published one: scheduling the next prompts
+        // from a reading up to a second old would fire them up to a second late.
+        let elapsedNow = elapsed(at: preciseNow)
         let inversion = plan.intensity.inversionSeconds
         var upcoming: [(title: String, detail: String, seconds: TimeInterval)] = []
 
-        for segment in currentStage.segments where segment.start > elapsed + 1 {
+        for segment in currentStage.segments where segment.start > elapsedNow + 1 {
             guard upcoming.count < 30 else { break }
             upcoming.append((
                 title: segment.kind.title,
                 detail: segment.kind.detail(inversionSeconds: inversion),
-                seconds: segment.start - elapsed
+                seconds: segment.start - elapsedNow
             ))
         }
 
@@ -313,6 +375,7 @@ final class SessionEngine {
         runStartedAt = nil
         lastPromptKey = nil
         now = Date()
+        preciseNow = now
         stopTimer()
         AgitationAlerts.cancel()
         phase = currentStage.needsClearing ? .clearing : .ready
@@ -358,18 +421,15 @@ final class SessionEngine {
 }
 
 private extension AgitationKind {
-    /// The sound and haptic that mark this prompt.
+    /// The sound and haptic that mark this prompt, as Settings sets them.
     func announce() {
         switch self {
         case .initial, .invert, .continuous:
-            FeedbackCenter.shared.play(.agitate)
-            Haptics.impact(.heavy)
+            Preferences.shared.play(.agitate)
         case .tap:
-            FeedbackCenter.shared.play(.settle)
-            Haptics.impact(.medium)
+            Preferences.shared.play(.tap)
         case .rest:
-            FeedbackCenter.shared.play(.settle)
-            Haptics.impact(.light)
+            Preferences.shared.play(.rest)
         }
     }
 }

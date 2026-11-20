@@ -25,8 +25,11 @@ than guessed. Film pages list every time at each dilution and temperature;
 developer pages cover dilution, capacity and reuse. A verification queue lists
 the records still waiting for a source.
 
-**Setup maths.** Temperature compensation interpolates between the published
-time/temperature points for the pair and labels anything extrapolated. Push and
+**Setup maths.** A session asks for one chart time and the temperature it was
+measured at; every other temperature comes from the time/temperature converter —
+the exponential correction the Massive Dev Chart's calculator uses, with the same
+10% reduction for continuous agitation. With two or more chart times entered the
+app interpolates between them instead and labels anything extrapolated. Push and
 pull set an exposure index and use a documented time where one exists. Reuse
 counts compound rather than add, with the arithmetic shown. Roll count, mixed
 emulsions, agitation intensity and a per-stage target temperature are all asked
@@ -36,9 +39,18 @@ before the chemistry is poured.
 inventory with capacity and expiry, and a reuse ledger that answers how many
 rolls a batch has developed and what penalty the next use carries.
 
-**Tools.** Temperature conversion, stopwatch with laps, interval timer, wash and
-final-rinse timers, a tank liquid visualizer drawn to scale, a film leader
-retrieval guide, tank capacities and a chemical safety sheet.
+**Tools.** A time/temperature converter in either direction — the time for the
+water you have, or the water for the time you want — Celsius and Fahrenheit
+conversion, stopwatch with laps, interval timer, wash and final-rinse timers, a
+tank liquid visualizer drawn to scale, a film leader retrieval guide, tank
+capacities and a chemical safety sheet.
+
+**Settings.** Units and temperature scale, the default agitation scheme and its
+intensity, the reuse penalty used for compounded increases, the factor that
+scales extrapolation past a published temperature range, a sound and a haptic for
+each prompt, voice prompts, keep-awake, the default stop, fix, wash and
+final-rinse times, appearance and accent, and a reset for every stored
+preference. `docs/settings.md` records what each one changes.
 
 ## Design languages
 
@@ -46,7 +58,19 @@ Two complete alternates sit behind the dark Liquid Glass default: **Soft Glass**
 (white for anything you can press, colour only where it decorates or reports)
 and a hidden **13th theme**, unlocked by tapping the Themes row nine times in
 Settings, rendered as a print-media collage language with nine palettes.
+The darkroom itself is lit by nine colour palettes — a lamp and a second light
+behind it, so the backdrop carries a gradient — and fades its content into the
+chrome at the top and bottom of every screen.
 `docs/soft-glass-theme.md` and `docs/theme13-log.md` record the decisions.
+
+## Performance notes
+
+`docs/agent-skills/` holds three vendored review guides — profiling, SwiftUI
+update cost, Swift concurrency — from
+[Livsy90/iOS-Performance-Agent-Skills](https://github.com/Livsy90/iOS-Performance-Agent-Skills)
+(MIT). They are the standard for how performance claims are made here: a
+finding stays a code reading until a measurement backs it, and Simulator builds
+are never presented as evidence for launch, scrolling, memory or power.
 
 ## Building
 

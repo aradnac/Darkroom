@@ -17,6 +17,12 @@ struct DevelopmentSetup {
     private(set) var dilution: Dilution
 
     var temperature: Double = 20
+    /// The temperature the chart's time was measured at — what the base readout
+    /// and every correction are measured from.
+    private(set) var nominalCelsius: Double = 20
+    /// The converter's continuous-agitation reduction, applied on top of the
+    /// temperature correction.
+    private(set) var continuousAgitation = false
     var intensity: AgitationIntensity = .normal
     private(set) var reuseCount: Int = 1
     private(set) var rolls: [Film]
@@ -37,10 +43,17 @@ struct DevelopmentSetup {
     private(set) var adjustments: [TimeAdjustment] = []
 
     init(film: Film, developer: Developer, dilution: Dilution) {
+        let preferences = Preferences.shared
         self.film = film
         self.developer = developer
         self.dilution = dilution
         self.rolls = [film]
+        self.intensity = preferences.agitationIntensity
+        self.continuousAgitation = preferences.agitationScheme == .continuous
+        self.stopSeconds = preferences.stopSeconds
+        self.washSeconds = preferences.washSeconds
+        self.spokenPrompts = preferences.spokenPrompts
+        self.voiceCommands = preferences.voiceCommands
     }
 
     // MARK: - Derived values
@@ -68,26 +81,52 @@ struct DevelopmentSetup {
     }
 
     var compensation: (seconds: TimeInterval, estimate: TemperatureEstimate)? {
-        curve.estimate(at: temperature)
+        guard let found = curve.estimate(at: temperature) else { return nil }
+        guard continuousAgitation else { return found }
+        let reduced = found.seconds * (1 - DevelopmentTimeCalculator.continuousAgitationReduction)
+        return (max(1, reduced.rounded()), found.estimate)
     }
 
     var compensatedSeconds: TimeInterval? { compensation?.seconds }
 
     var compensationIsEstimate: Bool { compensation?.estimate.isEstimate ?? true }
 
-    var compensationNote: String {
-        if let estimate = compensation?.estimate {
-            return estimate.note
-        }
-        if points.count == 1 {
-            return "One time so far. Add a second at another temperature and the app will interpolate between them."
-        }
-        return "No time for this film and developer yet. Tap the base time to enter yours."
+    /// A calculated time is worth flagging, but only an extrapolation is worked
+    /// past the times the app holds, so only that one reads as a warning.
+    var compensationIsWarning: Bool {
+        guard let estimate = compensation?.estimate else { return false }
+        if case .extrapolated = estimate { return true }
+        return false
     }
 
-    /// The time at 20 °C, which is the reference every other temperature is measured from.
+    var compensationNote: String {
+        guard let estimate = compensation?.estimate else {
+            return "No time yet. Tap the time from your sheet to enter it."
+        }
+        if case .calculated = estimate,
+           abs(nominalCelsius - temperature) >= DevelopmentTimeCalculator.wideDifference {
+            return "That is a long way from your sheet's temperature, so treat this as a starting point."
+        }
+        return estimate.note
+    }
+
+    /// The time at the chart's temperature, which is what every other
+    /// temperature is worked out from.
     var referenceSeconds: TimeInterval? {
-        points.first { abs($0.celsius - 20) < 0.005 }?.seconds
+        pointSeconds(at: nominalCelsius)
+    }
+
+    /// The water temperature that would make the development take `seconds`,
+    /// from the one time from the sheet the app holds. Nil with none, or with
+    /// several: a set of published points is not inverted here.
+    func temperature(forSeconds seconds: TimeInterval) -> Double? {
+        guard points.count == 1, let base = referenceSeconds else { return nil }
+        return DevelopmentTimeCalculator.temperature(
+            forSeconds: seconds,
+            nominalSeconds: base,
+            nominalCelsius: nominalCelsius,
+            continuousAgitation: continuousAgitation
+        )
     }
 
     var baseText: String {
@@ -196,8 +235,9 @@ struct DevelopmentSetup {
         record("Dilution", from: old, to: newDilution.label, before: before)
     }
 
-    mutating func setTemperature(_ value: Double) {
-        let clamped = min(24, max(18, (value * 2).rounded() / 2))
+    mutating func setTemperature(_ value: Double, step: Double = 0.5) {
+        let granularity = max(0.05, step)
+        let clamped = min(24, max(18, (value / granularity).rounded() * granularity))
         guard abs(clamped - temperature) > 0.001 else { return }
         let before = developmentSeconds
         let old = developmentSeconds == nil ? nil : temperature
@@ -255,6 +295,45 @@ struct DevelopmentSetup {
         list.removeAll { abs($0.celsius - celsius) < 0.005 }
         pointsByStops[pushStops] = list
         record("Removed \(Self.temperatureLabel(celsius))", from: Self.temperatureLabel(celsius), to: "removed", before: before)
+    }
+
+    /// Moving the chart's temperature carries the entered time with it: the
+    /// number belongs to the temperature it was measured at.
+    mutating func setNominalCelsius(_ value: Double) {
+        let clamped = min(35, max(15, (value * 2).rounded() / 2))
+        guard abs(clamped - nominalCelsius) > 0.001 else { return }
+        let before = developmentSeconds
+        let old = nominalCelsius
+        let carried = pointSeconds(at: old)
+        nominalCelsius = clamped
+        if let carried {
+            var list = pointsByStops[pushStops] ?? []
+            list.removeAll { abs($0.celsius - old) < 0.005 }
+            if let index = list.firstIndex(where: { abs($0.celsius - clamped) < 0.005 }) {
+                list[index].seconds = carried
+            } else {
+                list.append(TemperaturePoint(celsius: clamped, seconds: carried, origin: .user))
+            }
+            pointsByStops[pushStops] = list
+        }
+        record(
+            "Chart temperature",
+            from: Self.temperatureLabel(old),
+            to: Self.temperatureLabel(clamped),
+            before: before
+        )
+    }
+
+    mutating func setContinuousAgitation(_ value: Bool) {
+        guard value != continuousAgitation else { return }
+        let before = developmentSeconds
+        continuousAgitation = value
+        record(
+            "Continuous agitation",
+            from: value ? "interval" : "continuous",
+            to: value ? "continuous" : "interval",
+            before: before
+        )
     }
 
     mutating func setRollCount(_ count: Int) {
@@ -325,7 +404,7 @@ struct DevelopmentSetup {
     }
 
     static func temperatureLabel(_ value: Double) -> String {
-        String(format: "%.1f °C", value)
+        Units.temperature(value)
     }
 
     static func exposureLabel(film: Film, stops: Int) -> String {

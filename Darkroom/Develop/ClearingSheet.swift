@@ -71,11 +71,30 @@ struct ClearingSheet: View {
                     } label: {
                         Label("Start fixing", systemImage: "play.fill")
                             .font(.system(size: 17, weight: .semibold))
+                            .foregroundStyle(Theme.amberInk)
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.glassProminent)
                     .tint(Theme.amber)
                     .controlSize(.large)
+
+                    VStack(spacing: 8) {
+                        Button {
+                            engine.useStandardFix(seconds: Preferences.shared.fixSeconds)
+                        } label: {
+                            Text("Fix for \(Clock.mmss(Preferences.shared.fixSeconds)) instead")
+                                .font(.system(size: 16, weight: .semibold))
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.glass)
+                        .controlSize(.large)
+
+                        Text("Your default fix time from Settings, for when you would rather not time the leader.")
+                            .font(.system(size: 12))
+                            .foregroundStyle(Theme.inkFaint)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
                 .padding(20)
             }

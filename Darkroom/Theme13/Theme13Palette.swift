@@ -633,6 +633,34 @@ final class Theme13SettingsStore: ObservableObject {
         defaults.set(intensity.rawValue, forKey: Keys.motion)
     }
 
+    /// Re-dresses the app root without changing a preference of this store's
+    /// own — used by the settings that live in `Preferences`.
+    func bumpRevision() {
+        revision &+= 1
+        Theme13Chrome.apply(self)
+    }
+
+    /// Returns this store's preferences to their defaults. The hidden theme's
+    /// unlock is not a preference and is deliberately kept.
+    func resetPreferences() {
+        for key in [
+            Keys.theme, Keys.legacyTheme, Keys.palette, Keys.appearance,
+            Keys.still, Keys.density, Keys.textSize, Keys.motion
+        ] {
+            defaults.removeObject(forKey: key)
+        }
+
+        selectedThemeIdentifier = "darkroom"
+        paletteID = .rangefinder
+        appearanceMode = .system
+        stillMode = false
+        compactControls = false
+        textSize = .standard
+        motion = .standard
+
+        bumpRevision()
+    }
+
     func updateSystemAppearance(isDark: Bool) {
         guard systemIsDark != isDark else { return }
         systemIsDark = isDark

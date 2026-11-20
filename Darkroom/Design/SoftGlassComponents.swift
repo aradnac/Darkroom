@@ -52,6 +52,20 @@ struct SoftGlassTile: View {
             ZStack {
                 RoundedRectangle(cornerRadius: SoftGlassTheme.tileRadius, style: .continuous)
                     .fill(gradient)
+
+                // The reference's cards are lit from one corner: a soft, wide
+                // glow rather than an even shade across the ramp.
+                RoundedRectangle(cornerRadius: SoftGlassTheme.tileRadius, style: .continuous)
+                    .fill(
+                        RadialGradient(
+                            colors: [Color.white.opacity(0.30), Color.clear],
+                            center: .topLeading,
+                            startRadius: 0,
+                            endRadius: 190
+                        )
+                    )
+                    .blendMode(.softLight)
+
                 RoundedRectangle(cornerRadius: SoftGlassTheme.tileRadius, style: .continuous)
                     .fill(
                         LinearGradient(
@@ -61,6 +75,18 @@ struct SoftGlassTile: View {
                         )
                     )
                     .blendMode(.softLight)
+
+                // The figure and its caption sit on the lower half of every
+                // card, so the foot is deepened just enough to hold them at
+                // contrast on the brightest ramps.
+                RoundedRectangle(cornerRadius: SoftGlassTheme.tileRadius, style: .continuous)
+                    .fill(
+                        LinearGradient(
+                            colors: [Color.clear, Color.black.opacity(0.30)],
+                            startPoint: .center,
+                            endPoint: .bottom
+                        )
+                    )
             }
         }
         .overlay {
@@ -241,5 +267,435 @@ struct SoftGlassRow: View {
             }
         }
         .accessibilityElement(children: .combine)
+    }
+}
+
+
+// MARK: - Weekday strip
+
+/// The circle row across the top of the reference's dashboard: short weekday
+/// letters in thin rings, today's filled white with black ink.
+struct SoftGlassDayStrip: View {
+    var body: some View {
+        let calendar = Calendar.current
+        let today = calendar.component(.weekday, from: Date())
+        let symbols = calendar.veryShortWeekdaySymbols
+        // Monday-first order, as the reference lays its week out.
+        let order = [2, 3, 4, 5, 6, 7, 1]
+
+        HStack(spacing: 10) {
+            ForEach(order, id: \.self) { weekday in
+                let isToday = weekday == today
+                Text(symbols[weekday - 1])
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(isToday ? Color.black : Color.white.opacity(0.85))
+                    .frame(width: 42, height: 42)
+                    .background {
+                        Circle().fill(isToday ? Color.white : Color.white.opacity(0.03))
+                    }
+                    .overlay {
+                        Circle().strokeBorder(Color.white.opacity(isToday ? 0 : 0.20), lineWidth: 1.5)
+                    }
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Today is \(symbols[today - 1])")
+    }
+}
+
+// MARK: - Wave line
+
+/// The wave the reference draws under its hero figure, settling flat to the
+/// right where a small triangle marker sits on the baseline. Decorative.
+struct SoftGlassWaveLine: View {
+    var stroke: Color = Color(red: 0.82, green: 0.74, blue: 0.30)
+    var markerAt: Double = 0.60
+
+    var body: some View {
+        Canvas { context, size in
+            let midY = size.height * 0.5
+            var wave = Path()
+            let steps = 140
+            for step in 0...steps {
+                let t = Double(step) / Double(steps)
+                let x = t * size.width
+                let amplitude = size.height * 0.36 * (t < markerAt ? 1.0 : max(0, 1.0 - (t - markerAt) * 2.4))
+                let y = midY + sin(t * 5.6 * .pi) * amplitude
+                if step == 0 {
+                    wave.move(to: CGPoint(x: x, y: y))
+                } else {
+                    wave.addLine(to: CGPoint(x: x, y: y))
+                }
+            }
+            context.stroke(
+                wave,
+                with: .color(stroke.opacity(0.9)),
+                style: StrokeStyle(lineWidth: 1.6, lineCap: .round)
+            )
+
+            var baseline = Path()
+            baseline.move(to: CGPoint(x: 0, y: midY))
+            baseline.addLine(to: CGPoint(x: size.width, y: midY))
+            context.stroke(baseline, with: .color(Color.white.opacity(0.30)), lineWidth: 1)
+
+            let markerX = markerAt * size.width
+            var triangle = Path()
+            triangle.move(to: CGPoint(x: markerX - 6, y: midY - 11))
+            triangle.addLine(to: CGPoint(x: markerX + 6, y: midY - 11))
+            triangle.addLine(to: CGPoint(x: markerX, y: midY - 1))
+            triangle.closeSubpath()
+            context.fill(triangle, with: .color(stroke))
+        }
+        .frame(height: 46)
+        .accessibilityHidden(true)
+    }
+}
+
+// MARK: - Ring gauge
+
+/// The dotted ring the reference sets into its wide card, the value inside set
+/// as dots as well. The arc fills clockwise from the top.
+struct SoftGlassRingGauge: View {
+    var fraction: Double
+    var text: String
+    var size: CGFloat = 92
+    var dot: CGFloat = 3.0
+
+    var body: some View {
+        Canvas { context, canvasSize in
+            let centre = CGPoint(x: canvasSize.width / 2, y: canvasSize.height / 2)
+            let radius = min(canvasSize.width, canvasSize.height) / 2 - dot * 1.5
+            let count = 56
+            let clamped = min(max(fraction, 0), 1)
+            for index in 0..<count {
+                let angle = Double(index) / Double(count) * 2 * .pi - .pi / 2
+                let position = CGPoint(
+                    x: centre.x + cos(angle) * radius,
+                    y: centre.y + sin(angle) * radius
+                )
+                let lit = Double(index) / Double(count) <= clamped
+                let rect = CGRect(x: position.x - dot / 2, y: position.y - dot / 2, width: dot, height: dot)
+                context.fill(
+                    Path(ellipseIn: rect),
+                    with: .color(lit ? Color.white.opacity(0.92) : Color.white.opacity(0.20))
+                )
+            }
+        }
+        .frame(width: size, height: size)
+        .overlay {
+            DotMatrixDigits(text: text, dot: 2.6, spacing: 1.4)
+        }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(text), \(Int(fraction * 100)) percent of the dial")
+    }
+}
+
+// MARK: - Range bar
+
+/// The gradient bar with a triangle riding on it, the way the reference shows
+/// where a value sits in its range.
+struct SoftGlassRangeBar: View {
+    var fraction: Double
+    var barHeight: CGFloat = 7
+
+    var body: some View {
+        GeometryReader { geometry in
+            let width = geometry.size.width
+            let markerX = min(max(fraction, 0), 1) * width
+            ZStack(alignment: .leading) {
+                Capsule()
+                    .fill(
+                        LinearGradient(
+                            colors: [Color.white.opacity(0.30), Color(red: 0.92, green: 0.32, blue: 0.28)],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
+                    .frame(height: barHeight)
+                    .frame(maxHeight: .infinity, alignment: .center)
+
+                SoftGlassTriangle()
+                    .frame(width: 13, height: 9)
+                    .offset(x: markerX - 6.5)
+            }
+        }
+        .frame(height: 22)
+        .accessibilityHidden(true)
+    }
+}
+
+/// The small solid triangle the reference rides on its bars and waves.
+struct SoftGlassTriangle: View {
+    var color: Color = Color(red: 0.98, green: 0.86, blue: 0.40)
+
+    var body: some View {
+        Path { path in
+            path.move(to: CGPoint(x: 0, y: 0))
+            path.addLine(to: CGPoint(x: 13, y: 0))
+            path.addLine(to: CGPoint(x: 6.5, y: 9))
+            path.closeSubpath()
+        }
+        .fill(color)
+    }
+}
+
+// MARK: - Dot row
+
+/// The row of round marks the reference spreads across its variability card.
+struct SoftGlassDotRow: View {
+    var count: Int = 9
+    var dot: CGFloat = 7
+
+    private let pattern: [Double] = [0.45, 1.0, 1.0, 0.55, 0.35, 1.0, 1.0, 0.7, 1.0]
+
+    var body: some View {
+        HStack(spacing: 9) {
+            ForEach(0..<count, id: \.self) { index in
+                Circle()
+                    .fill(Color.white.opacity(pattern[index % pattern.count]))
+                    .frame(width: dot, height: dot)
+            }
+        }
+        .accessibilityHidden(true)
+    }
+}
+
+// MARK: - Tick strip
+
+/// The strip of fine ticks the reference sets into its blue card, with one
+/// amber needle standing tall.
+struct SoftGlassTickStrip: View {
+    var count: Int = 22
+    var needleAt: Double = 0.72
+
+    var body: some View {
+        GeometryReader { geometry in
+            let width = geometry.size.width
+            let needleX = min(max(needleAt, 0), 1) * width
+            ZStack(alignment: .leading) {
+                Canvas { context, size in
+                    let pitch = size.width / CGFloat(max(count - 1, 1))
+                    for index in 0..<count {
+                        let x = CGFloat(index) * pitch
+                        var tick = Path()
+                        tick.move(to: CGPoint(x: x, y: size.height))
+                        tick.addLine(to: CGPoint(x: x, y: size.height - 11))
+                        context.stroke(tick, with: .color(Color.white.opacity(0.28)), lineWidth: 1.4)
+                    }
+                }
+                VStack(spacing: 2) {
+                    SoftGlassTriangle()
+                    Rectangle()
+                        .fill(Color(red: 0.98, green: 0.86, blue: 0.40))
+                        .frame(width: 1.6)
+                }
+                .offset(x: needleX - 6.5)
+            }
+        }
+        .frame(height: 26)
+        .accessibilityHidden(true)
+    }
+}
+
+// MARK: - Blurred blob
+
+/// The soft coloured pool the reference drops into the corner of a card.
+struct SoftGlassBlob: View {
+    var color: Color = Color(red: 0.25, green: 0.30, blue: 0.95)
+    var size: CGFloat = 120
+
+    var body: some View {
+        Ellipse()
+            .fill(
+                RadialGradient(
+                    colors: [color.opacity(0.95), color.opacity(0.35), Color.clear],
+                    center: .center,
+                    startRadius: 0,
+                    endRadius: size / 2
+                )
+            )
+            .frame(width: size, height: size * 0.62)
+            .blur(radius: 10)
+            .accessibilityHidden(true)
+    }
+}
+
+// MARK: - Page dots
+
+/// The four-dot pagination the reference sets under its ruler.
+struct SoftGlassPageDots: View {
+    var count: Int = 4
+    var active: Int = 0
+
+    var body: some View {
+        HStack(spacing: 8) {
+            ForEach(0..<count, id: \.self) { index in
+                Circle()
+                    .fill(index == active ? Color.white : Color.white.opacity(0.28))
+                    .frame(width: 5, height: 5)
+            }
+        }
+        .accessibilityHidden(true)
+    }
+}
+
+// MARK: - Radial hero card
+
+/// The "Complete setup" card from the reference: a pale pink field with a deep
+/// magenta-to-black radial glow pooling behind the figure at its centre.
+struct SoftGlassRadialCard<Content: View>: View {
+    var cornerRadius: CGFloat = 36
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        content()
+            .frame(maxWidth: .infinity)
+            .background {
+                GeometryReader { geometry in
+                    ZStack {
+                        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                            .fill(
+                                LinearGradient(
+                                    colors: [
+                                        Color(red: 0.80, green: 0.55, blue: 0.68),
+                                        Color(red: 0.66, green: 0.41, blue: 0.57)
+                                    ],
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                            )
+
+                        Ellipse()
+                            .fill(
+                                RadialGradient(
+                                    colors: [
+                                        Color(red: 0.13, green: 0.02, blue: 0.11),
+                                        Color(red: 0.89, green: 0.10, blue: 0.50).opacity(0.72),
+                                        Color(red: 0.89, green: 0.10, blue: 0.50).opacity(0.0)
+                                    ],
+                                    center: .center,
+                                    startRadius: 0,
+                                    endRadius: geometry.size.width * 0.60
+                                )
+                            )
+                            .frame(width: geometry.size.width * 1.15, height: geometry.size.width * 1.15)
+                            .position(x: geometry.size.width / 2, y: geometry.size.height * 0.50)
+                            .blur(radius: 16)
+                    }
+                }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+    }
+}
+
+// MARK: - Tick ruler
+
+/// The ruler under the reference's figure: a row of fine ticks, the current
+/// one amber and tall. Dragging across the ruler steps the bound value, with
+/// a light tick haptic at every step so the hand feels the notches.
+struct SoftGlassTickRuler: View {
+    let range: ClosedRange<Double>
+    let step: Double
+    @Binding var value: Double
+    var tickColor: Color = Color(red: 0.98, green: 0.80, blue: 0.35)
+
+    private var steps: Int {
+        Int(((range.upperBound - range.lowerBound) / step).rounded())
+    }
+
+    var body: some View {
+        GeometryReader { geometry in
+            let width = geometry.size.width
+            let fraction = min(max((value - range.lowerBound) / (range.upperBound - range.lowerBound), 0), 1)
+            let currentStep = Int(((value - range.lowerBound) / step).rounded())
+
+            ZStack {
+                HStack(alignment: .center, spacing: 0) {
+                    ForEach(0...max(steps, 1), id: \.self) { index in
+                        let isCurrent = index == currentStep
+                        Capsule()
+                            .fill(isCurrent ? tickColor : Color.white.opacity(0.26))
+                            .frame(width: 1.6, height: isCurrent ? 26 : 13)
+                        if index < steps {
+                            Spacer(minLength: 0)
+                        }
+                    }
+                }
+
+                Color.clear
+                    .contentShape(Rectangle())
+                    .gesture(
+                        DragGesture(minimumDistance: 0)
+                            .onChanged { gesture in
+                                let raw = range.lowerBound
+                                    + min(max(gesture.location.x / width, 0), 1)
+                                    * (range.upperBound - range.lowerBound)
+                                let stepped = (raw / step).rounded() * step
+                                let clamped = min(max(range.lowerBound, stepped), range.upperBound)
+                                if abs(clamped - value) >= step / 2 {
+                                    value = clamped
+                                    Haptics.impact(.light)
+                                }
+                            }
+                    )
+            }
+        }
+        .frame(height: 30)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Ruler")
+        .accessibilityValue("\(value)")
+        .accessibilityAdjustableAction { direction in
+            let adjusted = direction == .increment ? value + step : value - step
+            value = min(max(range.lowerBound, adjusted), range.upperBound)
+        }
+    }
+}
+
+// MARK: - Row surface
+
+/// List rows wear the reference's card language in this language: one of its
+/// tile ramps, lit from a corner, instead of a frosted panel.
+struct SoftGlassRowSurface: ViewModifier {
+    let key: String
+    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+
+    func body(content: Content) -> some View {
+        if themeStore.isSoftGlassActive {
+            content
+                .background {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 24, style: .continuous)
+                            .fill(SoftGlassTheme.rowGradient(for: key))
+                        RoundedRectangle(cornerRadius: 24, style: .continuous)
+                            .fill(
+                                RadialGradient(
+                                    colors: [Color.white.opacity(0.24), Color.clear],
+                                    center: .topLeading,
+                                    startRadius: 0,
+                                    endRadius: 230
+                                )
+                            )
+                            .blendMode(.softLight)
+                        RoundedRectangle(cornerRadius: 24, style: .continuous)
+                            .fill(
+                                LinearGradient(
+                                    colors: [Color.clear, Color.black.opacity(0.26)],
+                                    startPoint: .center,
+                                    endPoint: .bottom
+                                )
+                            )
+                    }
+                }
+        } else {
+            content
+                .glassCard(radius: 20)
+        }
+    }
+}
+
+extension View {
+    func softGlassRowSurface(key: String) -> some View {
+        modifier(SoftGlassRowSurface(key: key))
     }
 }

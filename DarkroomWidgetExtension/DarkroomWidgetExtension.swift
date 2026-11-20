@@ -42,7 +42,7 @@ struct SessionActivityAttributes: ActivityAttributes {
 
         var filmTitle: String
         var developerTitle: String
-        var temperature: Double
+        var temperatureText: String
     }
 
     var sessionID: String
@@ -80,7 +80,7 @@ struct DarkroomSessionLiveActivity: Widget {
                             .font(.caption2)
                             .foregroundStyle(.white.opacity(0.55))
 
-                        Text(String(format: "%.0f °C", context.state.temperature))
+                        Text(context.state.temperatureText)
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(.white.opacity(0.8))
                     }
@@ -159,7 +159,7 @@ private struct SessionActivityLockScreenView: View {
 
                 Spacer()
 
-                Text(String(format: "%.0f °C", state.temperature))
+                Text(state.temperatureText)
                     .font(.callout.weight(.medium))
                     .foregroundStyle(.white.opacity(0.75))
             }

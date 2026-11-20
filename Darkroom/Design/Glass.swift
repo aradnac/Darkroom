@@ -32,6 +32,11 @@ struct GlassPanel: ViewModifier {
         return content
             .background {
                 ZStack {
+                    // The field is pinned under the frost: a card presented
+                    // outside the root's dark scheme would otherwise pick up a
+                    // light material and vanish under the language's white ink.
+                    RoundedRectangle(cornerRadius: shapeRadius, style: .continuous)
+                        .fill(SoftGlassTheme.background.opacity(0.72))
                     RoundedRectangle(cornerRadius: shapeRadius, style: .continuous)
                         .fill(.ultraThinMaterial)
                     RoundedRectangle(cornerRadius: shapeRadius, style: .continuous)

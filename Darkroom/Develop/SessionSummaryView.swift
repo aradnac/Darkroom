@@ -31,7 +31,7 @@ struct SessionSummaryView: View {
             rows.append(("Developer reuse", "use \(plan.reuseCount)"))
         }
         rows.append(("Agitation", plan.intensity.label))
-        rows.append(("Temperature", String(format: "%.1f °C", plan.temperature)))
+        rows.append(("Temperature", Units.temperature(plan.temperature)))
         rows.append(("Wash", plan.washMethod.label))
         rows.append(("Total session", Clock.mmss(totalSeconds)))
         return rows
@@ -125,6 +125,7 @@ struct SessionSummaryView: View {
                 } label: {
                     Label("Done", systemImage: "checkmark")
                         .font(.system(size: 17, weight: .semibold))
+                        .foregroundStyle(Theme.amberInk)
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.glassProminent)

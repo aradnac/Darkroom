@@ -122,7 +122,7 @@ final class SessionActivityController {
             nextActionDate: nextDate,
             filmTitle: plan.film.displayName,
             developerTitle: "\(plan.developer.name) \(plan.dilution.label)",
-            temperature: plan.temperature
+            temperatureText: Units.temperature(plan.temperature, decimals: 0)
         )
     }
 }

@@ -11,18 +11,27 @@ choice persists across launches (`theme13.theme = softglass`).
 
 Three ideas, applied everywhere:
 
-1. **A near-black field lit by colour.** `SoftGlassTheme.backdrop()` draws four
-   wide blurred blooms — magenta above, violet at the left, blue below, a little
-   mint at the foot — on `#060608`. Nothing is a hard shape; the colour reads as
-   light in the room. `LiquidBackdrop` swaps to it while the language is active,
-   so every screen that already uses the backdrop adopts it without changes.
+1. **A black field lit by the chosen lamp.** `SoftGlassTheme.backdrop()` draws a
+   near-black plane and bleeds colour in only at the very edges, the way the
+   reference screens sit on black: a wash of the lamp's soft light at the
+   foot-left, its bloom at the foot-right, its base at the top, each blurred far
+   past its own edge so no shape is visible. The colour is whichever lamp
+   Appearance has chosen, so the room changes with the palette; the controls
+   stay white, because white is what "pressable" means in this language.
+   `LiquidBackdrop` swaps to it while the language is active, so every screen that
+   already uses the backdrop adopts it without changes. The mesh gradient that
+   seeded the palette is still in `SoftGlassTheme` for reference, but the field is
+   the flat plane.
 2. **White for anything you can press.** There is no coloured accent on a
    control. `SoftGlassTheme.amber` *is* white, `amberInk` is black, so
    `AmberCapsuleStyle` renders a solid white capsule with black ink and a black
    shadow. Small actions are outlined circles (`SoftGlassIconButton`).
 3. **Colour only where it decorates or reports.** Saturated gradient tiles
    (`SoftGlassTile`) carry one figure each, and big numbers are set as a grid of
-   round dots (`DotMatrixDigits`).
+   round dots (`DotMatrixDigits`). Each tile takes the ramp of a reference card —
+   hot pink into magenta, mint into forest, lilac into plum, violet into indigo,
+   royal blue into navy, orange into rust — lit from the top-left corner and
+   deepened at the foot so the figure keeps its contrast.
 
 ## Files
 
@@ -63,6 +72,23 @@ Three ideas, applied everywhere:
 No figure on that screen is invented: with no documented time the hero shows
 `--:--` and says why.
 
+
+## The running session
+
+`RunningSessionView` keeps one engine and two dresses. In this language the
+stage ring gives way to the reference's radial card: the phase or agitation
+prompt as its label, the countdown as dot-matrix digits with `min` / `sec`
+beneath, the stage's own total on a quiet left/right row, a tick strip whose
+needle follows progress, and one page dot per stage. Waiting to start, the
+digits are replaced by the white capsule — "Start Developer" — which is the
+hands-free target the darkroom's GO circle provides.
+
+The header is the reference's own: an outlined close circle, a centred stage
+name with "Stage 2 of 6" beneath, and the working temperature at the right. The
+next-action card, the voice line, the spoken answer and the summary sheet are the
+same views in both languages; only the chrome and the figure change. No
+behaviour differs between the two: the tap-anywhere start, the controls and the
+stage strip are the same actions.
 
 ## Edges and motion
 
@@ -115,3 +141,34 @@ Motion:
 - `SoftGlassTopBar` no longer calls `ignoresSafeArea` from inside a
   `safeAreaInset`; that was pushing the bar off-screen and letting content run
   under the status bar.
+
+- `SoftGlassTopBar` no longer calls `ignoresSafeArea` from inside a
+  `safeAreaInset`; that was pushing the bar off-screen and letting content run
+  under the status bar.
+
+The Veri redesign (copying the supplied dashboard screenshots):
+
+- The field is now black, as the reference screens are. Colour lives in the
+  cards and controls, not in the plane behind them; only faint mint, magenta
+  and violet blooms bleed in at the screen's foot and top.
+- The component vocabulary is the reference's: the weekday circle strip with
+  today filled white, the hero figure set in dot-matrix numerals straight on
+  black with the wave and marker beneath it, the wide salmon card with a dotted
+  ring gauge, and the two-by-two tiles wearing a range bar, a dot row, a tick
+  strip and a blurred pool respectively.
+- Develop's Soft Glass home is that dashboard: the featured published time is
+  the hero figure, and the tiles carry real counts (films, bottles, the
+  published temperature, the stage count).
+- Session setup's time chooser is the reference's "Complete setup" card: a pale
+  pink field with the deep magenta-to-black radial glow pooling behind the
+  figure, the development time (or the wanted time) in dots, and a draggable
+  tick ruler beneath — the water temperature in "find the time", the wanted
+  time in "find the temperature", whose range is the times the 18–24 °C water
+  window can actually produce. Every notch answers with a light haptic.
+- Tools launch cards and library rows wear the same card language: a ramp in
+  the accent's hue lit from its top-left, library rows picking their ramp by
+  the record's key so a film always wears the same tile.
+- The earlier dark mesh-gradient field was replaced, not extended: it fought
+  the reference's black screens. Its card ramps (pink/magenta, mint/forest,
+  blue/navy, orange/rust, and the rest) remain and are reused by the tiles and
+  row surfaces.

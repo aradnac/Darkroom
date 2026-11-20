@@ -71,16 +71,10 @@ enum ChemistryMath {
 
 enum Amount {
     static func ml(_ value: Double) -> String {
-        if value < 10 && abs(value - value.rounded()) > 0.05 {
-            return String(format: "%.1f ml", value)
-        }
-        return "\(Int(value.rounded())) ml"
+        Units.volume(millilitres: value)
     }
 
     static func litres(_ value: Double) -> String {
-        if abs(value - value.rounded()) < 0.001 {
-            return "\(Int(value.rounded())) L"
-        }
-        return String(format: "%.2f L", value)
+        Units.litres(value)
     }
 }

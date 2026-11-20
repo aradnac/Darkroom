@@ -17,6 +17,7 @@ enum Chime {
     case settle
     case stageComplete
     case finished
+    case tick
 }
 
 /// One place that decides how the app talks to the audio session, so the chimes and
@@ -119,6 +120,10 @@ final class FeedbackCenter {
                 Tone(frequency: 659, start: 0, duration: 0.26, amplitude: 0.44),
                 Tone(frequency: 988, start: 0.17, duration: 0.30, amplitude: 0.40),
                 Tone(frequency: 1319, start: 0.36, duration: 0.60, amplitude: 0.38)
+            ]
+        case .tick:
+            return [
+                Tone(frequency: 1319, start: 0, duration: 0.07, amplitude: 0.34)
             ]
         }
     }

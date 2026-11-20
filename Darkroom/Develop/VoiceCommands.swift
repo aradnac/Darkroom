@@ -138,6 +138,10 @@ final class VoiceCommander {
     @ObservationIgnored private var starting = false
     @ObservationIgnored private var suppressed = false
     @ObservationIgnored private var consecutiveFailures = 0
+    /// Set when the recogniser is opened: true when this device can work on board.
+    @ObservationIgnored private var requiresOnDevice = true
+    /// The last transcript acted on, so a settling partial is heard once.
+    @ObservationIgnored private var lastHandledText = ""
 
     func start() {
         guard !running, !starting else { return }
@@ -207,6 +211,14 @@ final class VoiceCommander {
 
     // MARK: - Private
 
+    /// Asks for the microphone and the speech permission now. The setup screen
+    /// calls this when voice commands are switched on, so the system prompt
+    /// appears at the moment the user asks for the feature rather than at the
+    /// start of the first session.
+    static func requestAccess() async -> Bool {
+        await requestPermissions()
+    }
+
     private static func requestPermissions() async -> Bool {
         let microphone = await withCheckedContinuation { continuation in
             AVAudioApplication.requestRecordPermission { granted in
@@ -229,19 +241,21 @@ final class VoiceCommander {
             status = .unavailable("Speech recognition is not available here")
             return
         }
-        guard recogniser.supportsOnDeviceRecognition else {
-            status = .unavailable("This device cannot recognise speech on board")
-            return
-        }
+
+        // On-board recognition is preferred because a darkroom usually has no
+        // network, but a device without the model still works through the
+        // recogniser's own service rather than refusing to listen at all.
+        requiresOnDevice = recogniser.supportsOnDeviceRecognition
 
         do {
             AudioRoute.setListening(true)
+            AudioRoute.activate()
             let engine = AVAudioEngine()
             let input = engine.inputNode
             let format = input.outputFormat(forBus: 0)
             let request = SFSpeechAudioBufferRecognitionRequest()
             request.shouldReportPartialResults = true
-            request.requiresOnDeviceRecognition = true
+            request.requiresOnDeviceRecognition = requiresOnDevice
             request.taskHint = .dictation
 
             let box = RequestBox(request)
@@ -274,9 +288,18 @@ final class VoiceCommander {
 
     private func handle(text: String?, isFinal: Bool, failed: Bool) {
         if let text, !suppressed {
-            if let command = VoiceCommand.parse(text, isFinal: isFinal) {
-                Haptics.impact(.light)
-                onCommand?(command)
+            // A partial transcript keeps reporting the same words as it settles;
+            // acting on each one would add thirty seconds three times over.
+            let cleaned = text.lowercased()
+            if cleaned != lastHandledText {
+                if let command = VoiceCommand.parse(text, isFinal: isFinal) {
+                    lastHandledText = cleaned
+                    Haptics.impact(.light)
+                    onCommand?(command)
+                }
+            }
+            if isFinal {
+                lastHandledText = ""
             }
         }
 
@@ -323,7 +346,7 @@ final class VoiceCommander {
         let format = input.outputFormat(forBus: 0)
         let request = SFSpeechAudioBufferRecognitionRequest()
         request.shouldReportPartialResults = true
-        request.requiresOnDeviceRecognition = true
+        request.requiresOnDeviceRecognition = requiresOnDevice
         request.taskHint = .dictation
 
         let box = RequestBox(request)

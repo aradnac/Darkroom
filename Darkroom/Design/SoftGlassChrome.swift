@@ -190,6 +190,12 @@ struct AppNavigationChrome<Accessory: View>: ViewModifier {
 
     @ObservedObject private var store = Theme13SettingsStore.shared
 
+    /// How far the content's bottom sits above the physical bottom of the
+    /// display. The bottom fade has to start from the edge of the glass, not
+    /// from the edge of the safe area, or the home-indicator strip below it
+    /// stays sharp.
+    @State private var bottomInset: CGFloat = 0
+
     @ViewBuilder
     func body(content: Content) -> some View {
         if store.isTheme13Active {
@@ -197,7 +203,40 @@ struct AppNavigationChrome<Accessory: View>: ViewModifier {
         } else if store.isSoftGlassActive {
             content.softGlassNavigationChrome(title: title) { accessory }
         } else {
-            content.navigationTitle(title)
+            content
+                .navigationTitle(title)
+                .background {
+                    GeometryReader { proxy in
+                        Color.clear
+                            .onAppear { bottomInset = proxy.safeAreaInsets.bottom }
+                            .onChange(of: proxy.safeAreaInsets.bottom) { _, inset in
+                                bottomInset = inset
+                            }
+                    }
+                }
+                .overlay(alignment: .top) {
+                    ScreenEdgeFade(
+                        edge: .top,
+                        color: Theme.base,
+                        height: ScreenInsets.top + 96
+                    )
+                    .ignoresSafeArea(edges: .top)
+                }
+                // Bottom-aligned inside the safe area, the band's extra height
+                // grew upward: its opaque end sat at the safe-area edge, above
+                // the home indicator, leaving an unfaded strip under it. Shifting
+                // it down by that inset puts the opaque end on the glass, and the
+                // height is measured from there so the fade reads as long as it
+                // did before.
+                .overlay(alignment: .bottom) {
+                    ScreenEdgeFade(
+                        edge: .bottom,
+                        color: Theme.base,
+                        height: bottomInset + 120
+                    )
+                    .offset(y: bottomInset)
+                    .ignoresSafeArea(edges: .bottom)
+                }
         }
     }
 }

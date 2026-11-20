@@ -11,59 +11,103 @@ struct LiquidBackdrop: View {
     var tint: Color = Theme.amber
     var intensity: Double = 1.0
     @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.scenePhase) private var scenePhase
+
+    /// The backdrop drifts continuously, so it is the one thing in the app that
+    /// would keep redrawing while the screen is covered or in the background.
+    /// Tracked here so the liquid can stop when nobody is looking at it.
+    @State private var isVisible = true
+
+    /// Reduce Motion asks for no movement at all; a covered screen and a
+    /// backgrounded app have nothing to animate. In every one of those cases the
+    /// liquid is drawn once and held, which looks the same and costs nothing.
+    private var isDrifting: Bool {
+        isVisible && !reduceMotion && scenePhase == .active
+    }
 
     var body: some View {
-        Group {
-            if themeStore.isTheme13Active {
-                Theme13Backdrop()
-            } else if themeStore.isSoftGlassActive {
-                SoftGlassTheme.backdrop(intensity: intensity)
-            } else {
-                darkroomBackdrop
+        // A flexible filler reports the size it is offered; the blooms and the
+        // bleeding liquid layers are drawn in an overlay, which never takes part
+        // in layout. Hosted as ordinary children they reported their own canvas
+        // — roughly 940 × 1330 pt — and every screen that hosts the backdrop as
+        // a child laid its content out on it and was cut off on all four edges.
+        Color.clear
+            .overlay {
+                Group {
+                    if themeStore.isTheme13Active {
+                        Theme13Backdrop()
+                    } else if themeStore.isSoftGlassActive {
+                        SoftGlassTheme.backdrop(intensity: intensity)
+                    } else {
+                        darkroomBackdrop
+                    }
+                }
+                .ignoresSafeArea()
+                .allowsHitTesting(false)
+                .accessibilityHidden(true)
             }
-        }
-        // The backdrop must always take the size it is offered, never report
-        // its own. The blooms are fixed-size layers that overflow this frame on
-        // purpose; without it the soft-glass backdrop reports the union of those
-        // frames (~940 × 1330 pt) as its own size, and any screen that hosts it
-        // as a child instead of a background lays its content out on that
-        // canvas — cut off on every edge of the phone.
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .allowsHitTesting(false)
+            .allowsHitTesting(false)
+            .accessibilityHidden(true)
+            .onAppear { isVisible = true }
+            .onDisappear { isVisible = false }
     }
 
     private var darkroomBackdrop: some View {
-        TimelineView(.animation(minimumInterval: 1.0 / 24.0)) { timeline in
+        ZStack {
+            DarkroomThemeDefaults.base
+
+            // Two lights in the room, not one: the chosen lamp and its
+            // companion, wide enough and soft enough to read as light falling
+            // across the bench rather than as a shape on the screen.
+            let lamp = Preferences.shared.accent
+            bloom(color: tint, opacity: 0.46 * intensity, size: 620, blur: 66)
+                .offset(x: 140, y: -300)
+            bloom(color: lamp.bloom, opacity: 0.32 * intensity, size: 560, blur: 74)
+                .offset(x: -160, y: 30)
+            bloom(color: lamp.deep, opacity: 0.24 * intensity, size: 520, blur: 64)
+                .offset(x: 70, y: 340)
+
+            liquidLayers(tint: tint)
+
+            LinearGradient(
+                colors: [
+                    DarkroomThemeDefaults.base.opacity(0.40),
+                    Color.clear,
+                    DarkroomThemeDefaults.base.opacity(0.55)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        }
+        .ignoresSafeArea()
+        .allowsHitTesting(false)
+    }
+
+    private func bloom(color: Color, opacity: Double, size: CGFloat, blur: CGFloat) -> some View {
+        Ellipse()
+            .fill(
+                RadialGradient(
+                    colors: [
+                        color.opacity(opacity),
+                        color.opacity(opacity * 0.32),
+                        Color.clear
+                    ],
+                    center: .center,
+                    startRadius: 0,
+                    endRadius: size * 0.5
+                )
+            )
+            .frame(width: size, height: size)
+            .blur(radius: blur)
+    }
+
+    private func liquidLayers(tint: Color) -> some View {
+        TimelineView(.animation(minimumInterval: 1.0 / 24.0, paused: !isDrifting)) { timeline in
             Canvas { context, size in
                 let time = timeline.date.timeIntervalSinceReferenceDate
                 let width = Double(size.width)
                 let height = Double(size.height)
-
-                context.fill(
-                    Path(CGRect(origin: .zero, size: size)),
-                    with: .color(DarkroomThemeDefaults.base)
-                )
-
-                let horizon = height * 0.96
-                let glowRect = CGRect(
-                    x: -width * 0.35,
-                    y: horizon - height * 0.34,
-                    width: width * 1.7,
-                    height: height * 0.68
-                )
-                context.fill(
-                    Path(ellipseIn: glowRect),
-                    with: .radialGradient(
-                        Gradient(colors: [
-                            tint.opacity(0.40 * intensity),
-                            tint.opacity(0.14 * intensity),
-                            tint.opacity(0.0)
-                        ]),
-                        center: CGPoint(x: width * 0.5, y: horizon),
-                        startRadius: 0,
-                        endRadius: width * 0.95
-                    )
-                )
 
                 for band in 0..<3 {
                     let progress = Double(band)
@@ -95,8 +139,8 @@ struct LiquidBackdrop: View {
                             path,
                             with: .linearGradient(
                                 Gradient(colors: [
-                                    tint.opacity(max(0, 0.20 * intensity - 0.045 * progress)),
-                                    tint.opacity(0.04 * intensity)
+                                    tint.opacity(max(0, 0.16 * intensity - 0.04 * progress)),
+                                    tint.opacity(0.03 * intensity)
                                 ]),
                                 startPoint: CGPoint(x: 0, y: baseY - amplitude),
                                 endPoint: CGPoint(x: 0, y: height)
@@ -106,7 +150,6 @@ struct LiquidBackdrop: View {
                 }
             }
         }
-        .background(DarkroomThemeDefaults.base)
         .ignoresSafeArea()
         .allowsHitTesting(false)
     }
