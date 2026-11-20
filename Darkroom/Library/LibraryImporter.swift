@@ -57,8 +57,10 @@ enum LibraryImporter {
 
     // MARK: CSV
 
-    /// The CSV carries a `kind` column so one file can add films, developers and
-    /// times alike. Blank facts stay blank: nothing is inferred.
+    /// The CSV carries a `kind` column so one file can add films, developers,
+    /// times and cross-processing profiles alike. Blank facts stay blank: nothing
+    /// is inferred, and a cross-processing row without a classification is
+    /// skipped rather than given a safer one.
     static func document(fromCSV text: String) throws -> LibraryDocument {
         let rows = parseCSV(text)
         guard let headerRow = rows.first else { throw ImportError.empty }
@@ -73,6 +75,7 @@ enum LibraryImporter {
         var films: [LibraryFilm] = []
         var developers: [LibraryDeveloper] = []
         var times: [LibraryTimeEntry] = []
+        var crossProcess: [LibraryCrossProcess] = []
         var sources: [String: LibrarySource] = [:]
 
         for row in rows.dropFirst() {
@@ -158,6 +161,31 @@ enum LibraryImporter {
                     )
                 )
 
+            case "crossprocess", "cross-process", "cross_process":
+                guard let film = column(row, "film"),
+                      let from = process(column(row, "fromprocess") ?? column(row, "from")),
+                      let to = process(column(row, "toprocess") ?? column(row, "to")),
+                      let classification = classification(column(row, "classification")),
+                      let summary = column(row, "summary") else { continue }
+                crossProcess.append(
+                    LibraryCrossProcess(
+                        film: film,
+                        fromProcess: from,
+                        toProcess: to,
+                        classification: classification,
+                        summary: summary,
+                        provenance: provenance,
+                        colourShifts: column(row, "colourshifts") ?? column(row, "color shifts"),
+                        contrastChange: column(row, "contrastchange") ?? column(row, "contrast"),
+                        grainChange: column(row, "grainchange") ?? column(row, "grain"),
+                        exposureNotes: column(row, "exposurenotes") ?? column(row, "exposure"),
+                        expectedResult: column(row, "expectedresult") ?? column(row, "expected result"),
+                        limitations: column(row, "limitations"),
+                        examples: list(column(row, "examples")),
+                        references: list(column(row, "references"))
+                    )
+                )
+
             default:
                 guard let film = column(row, "film"),
                       let developer = column(row, "developer"),
@@ -181,10 +209,69 @@ enum LibraryImporter {
             sources: Array(sources.values),
             films: films,
             developers: developers,
-            times: times
+            times: times,
+            crossProcess: crossProcess
         )
         guard !document.isEmpty else { throw ImportError.empty }
         return document
+    }
+
+    // MARK: Cross-processing columns
+
+    /// Accepts the stored raw value and the ways a person writes it in a sheet:
+    /// "colour negative", "C-41", "b&w", "E-6", "ECN-2".
+    private static func process(_ raw: String?) -> FilmProcess? {
+        guard let raw else { return nil }
+        let normalised = raw
+            .lowercased()
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: "-", with: "")
+            .replacingOccurrences(of: "_", with: "")
+        switch normalised {
+        case "blackandwhite", "bw":
+            return .blackAndWhite
+        case "colournegative", "colornegative", "c41":
+            return .colourNegative
+        case "colourreversal", "colorreversal", "e6":
+            return .colourReversal
+        case "cinemanegative", "ecn2":
+            return .cinemaNegative
+        default:
+            return FilmProcess(rawValue: raw)
+        }
+    }
+
+    private static func classification(_ raw: String?) -> CrossProcessClass? {
+        guard let raw else { return nil }
+        let normalised = raw
+            .lowercased()
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: "-", with: "")
+            .replacingOccurrences(of: "_", with: "")
+        switch normalised {
+        case "documented", "documentedandtested", "tested":
+            return .documentedAndTested
+        case "community", "communitytested":
+            return .communityTested
+        case "experimental":
+            return .experimental
+        case "notrecommended", "discouraged":
+            return .notRecommended
+        case "incompatible", "unsafe", "chemicallyincompatible":
+            return .incompatible
+        default:
+            return CrossProcessClass(rawValue: raw)
+        }
+    }
+
+    /// Pipe-separated lists in a single cell; an empty cell stays absent.
+    private static func list(_ raw: String?) -> [String]? {
+        guard let raw else { return nil }
+        let items = raw
+            .split(separator: "|")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+        return items.isEmpty ? nil : items
     }
 
     private static func slug(_ text: String) -> String {

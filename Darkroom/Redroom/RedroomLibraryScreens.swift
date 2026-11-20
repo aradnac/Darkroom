@@ -648,43 +648,65 @@ struct RedroomFilmDetail: View {
 
     // MARK: Cross-process
 
-    @ViewBuilder
+    /// Every film carries this section, whether or not a combination is known for
+    /// it, and an unsafe combination is called out before the sheet opens.
     private func crossProcessSection(_ film: LibraryFilm) -> some View {
-        let entries = store.crossProcess(forFilm: film.key)
+        let entries = LibraryCrossProcess.sorted(store.crossProcess(forFilm: film.key))
         let classes = CrossProcessClass.allCases.filter { item in
             entries.contains { $0.classification == item }
         }
+        let unsafe = entries.contains { $0.isUnsafe }
 
-        if !entries.isEmpty {
-            Button {
-                showingCrossProcess = true
-            } label: {
-                HStack(spacing: 8) {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Cross-processing")
-                            .font(Redroom.body(13, weight: .semibold))
-                            .foregroundStyle(Redroom.text)
-                        Text("\(entries.count) documented option\(entries.count == 1 ? "" : "s")")
-                            .font(Redroom.body(11))
+        return VStack(alignment: .leading, spacing: 10) {
+            RedroomLabel("Cross-processing")
+
+            if entries.isEmpty {
+                RedroomEmptyState(
+                    title: "No cross-process documented",
+                    detail: "Combinations arrive through the library import as documentation appears.",
+                    symbol: "flask"
+                )
+            } else {
+                Button {
+                    showingCrossProcess = true
+                } label: {
+                    HStack(spacing: 8) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Cross-processing")
+                                .font(Redroom.body(13, weight: .semibold))
+                                .foregroundStyle(Redroom.text)
+                            Text("\(entries.count) documented option\(entries.count == 1 ? "" : "s")")
+                                .font(Redroom.body(11))
+                                .foregroundStyle(Redroom.textMuted)
+                        }
+
+                        Spacer(minLength: 4)
+
+                        ForEach(classes.prefix(3)) { item in
+                            RedroomChip(
+                                text: item == .incompatible ? "Unsafe" : item.label,
+                                emphasised: item == .incompatible
+                            )
+                        }
+
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 10, weight: .semibold))
                             .foregroundStyle(Redroom.textMuted)
                     }
-
-                    Spacer(minLength: 4)
-
-                    ForEach(classes.prefix(3)) { item in
-                        RedroomChip(text: item.label)
-                    }
-
-                    Image(systemName: "chevron.right")
-                        .font(.system(size: 10, weight: .semibold))
-                        .foregroundStyle(Redroom.textMuted)
+                    .padding(14)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .redroomGlass(variant: .smoked, cornerRadius: 18)
+                    .contentShape(Rectangle())
                 }
-                .padding(14)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .redroomGlass(variant: .smoked, cornerRadius: 18)
-                .contentShape(Rectangle())
+                .buttonStyle(HapticButtonStyle())
+
+                if unsafe {
+                    RedroomWarning(
+                        title: "One combination is unsafe",
+                        detail: "It is chemically incompatible. The sheet shows it as a warning, never as a recipe."
+                    )
+                }
             }
-            .buttonStyle(HapticButtonStyle())
         }
     }
 
@@ -1004,39 +1026,123 @@ private struct RedroomCrossProcessSheet: View {
     let filmKey: String
 
     @ObservedObject private var store = LibraryStore.shared
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         RedroomSheetBody(
             kicker: "Recipes",
             title: "Cross-processing",
-            detail: "What each classification means is decided by who tested it, not by how it looks."
+            detail: "Each classification is decided by who tested it. A chemically incompatible combination is shown as a warning, never as a recipe."
         ) {
-            ForEach(store.crossProcess(forFilm: filmKey)) { entry in
-                VStack(alignment: .leading, spacing: 6) {
-                    HStack(spacing: 8) {
-                        Text("\(entry.fromProcess.label) → \(entry.toProcess.label)")
-                            .font(Redroom.body(14, weight: .semibold))
-                            .foregroundStyle(Redroom.text)
-                        Spacer(minLength: 4)
-                        RedroomProvenanceBadge(kind: entry.provenance.kind)
-                    }
-
-                    Text(entry.classification.label.uppercased())
-                        .font(Redroom.label(9))
-                        .tracking(0.8)
-                        .foregroundStyle(Redroom.safelight)
-
-                    Text(entry.summary)
-                        .font(Redroom.body(12))
-                        .foregroundStyle(Redroom.textMuted)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-                .padding(14)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .redroomGlass(variant: .smoked, cornerRadius: 18)
+            ForEach(LibraryCrossProcess.sorted(store.crossProcess(forFilm: filmKey))) { entry in
+                entryPanel(entry)
             }
         }
         .presentationDetents([.medium, .large])
+    }
+
+    private func entryPanel(_ entry: LibraryCrossProcess) -> some View {
+        let fields = entry.profileFields
+
+        return RedroomPanel(variant: entry.isUnsafe ? .wet : .smoked) {
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                Text("\(entry.fromProcess.label) → \(entry.toProcess.label)")
+                    .font(Redroom.body(14, weight: .semibold))
+                    .foregroundStyle(Redroom.text)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Spacer(minLength: 4)
+
+                RedroomProvenanceBadge(kind: entry.provenance.kind)
+            }
+
+            if entry.isUnsafe {
+                RedroomWarning(
+                    title: "Unsafe — chemically incompatible",
+                    detail: "Do not attempt this combination. The notes below describe what goes wrong."
+                )
+            } else {
+                Text(entry.classification.safetyTitle.uppercased())
+                    .font(Redroom.label(9))
+                    .tracking(0.8)
+                    .foregroundStyle(Redroom.textMuted)
+            }
+
+            Text(entry.summary)
+                .font(Redroom.body(12))
+                .foregroundStyle(Redroom.textMuted)
+                .fixedSize(horizontal: false, vertical: true)
+
+            ForEach(Array(fields.enumerated()), id: \.offset) { index, field in
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack(spacing: 5) {
+                        if field.isWarning {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .font(.system(size: 10, weight: .semibold))
+                                .foregroundStyle(Redroom.safelight)
+                        }
+                        Text(field.label.uppercased())
+                            .font(Redroom.label(8))
+                            .tracking(1)
+                            .foregroundStyle(field.isWarning ? Redroom.safelight : Redroom.textMuted)
+                    }
+
+                    Text(field.value)
+                        .font(Redroom.body(12))
+                        .foregroundStyle(field.isWarning ? Redroom.text : Redroom.textMuted)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding(.vertical, 5)
+
+                if index < fields.count - 1 {
+                    RedroomLitRule(thickness: 0.5)
+                }
+            }
+
+            if let examples = entry.examples, !examples.isEmpty {
+                RedroomLabel("Seen in")
+                ForEach(examples, id: \.self) { example in
+                    Text("· \(example)")
+                        .font(Redroom.body(11))
+                        .foregroundStyle(Redroom.textMuted)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
+            if let references = entry.references, !references.isEmpty {
+                RedroomLabel("References")
+                ForEach(references, id: \.self) { reference in
+                    Button {
+                        open(reference)
+                    } label: {
+                        HStack(spacing: 5) {
+                            Text(reference)
+                                .font(Redroom.body(11))
+                                .foregroundStyle(Redroom.textMuted)
+                                .multilineTextAlignment(.leading)
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            if reference.contains("http") {
+                                Image(systemName: "arrow.up.forward")
+                                    .font(.system(size: 9, weight: .semibold))
+                                    .foregroundStyle(Redroom.textMuted)
+                            }
+
+                            Spacer(minLength: 0)
+                        }
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(HapticButtonStyle())
+                }
+            }
+        }
+    }
+
+    private func open(_ reference: String) {
+        guard let range = reference.range(of: "http") else { return }
+        let text = String(reference[range.lowerBound...])
+        guard let url = URL(string: text.trimmingCharacters(in: .whitespacesAndNewlines)) else { return }
+        openURL(url)
     }
 }
 

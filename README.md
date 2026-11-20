@@ -23,7 +23,13 @@ manufacturer datasheet, community chart, or unverified — with a source URL and
 a retrieval date, and anything undocumented is shown as not documented rather
 than guessed. Film pages list every time at each dilution and temperature;
 developer pages cover dilution, capacity and reuse. A verification queue lists
-the records still waiting for a source.
+the records still waiting for a source. Every film also carries a
+cross-processing section: each documented combination gives its original and
+alternative processes, the expected colour, contrast, grain and exposure
+changes, the result and its limitations, examples and references, and a
+classification — documented, community-tested, experimental, not recommended, or
+chemically incompatible. An incompatible combination is shown as a warning, never
+as a recipe, and more combinations arrive through the same import pipeline.
 
 **Setup maths.** A session asks for one chart time and the temperature it was
 measured at; every other temperature comes from the time/temperature converter —

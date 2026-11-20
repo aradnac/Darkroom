@@ -268,17 +268,27 @@ struct FilmDetailView: View {
 
     // MARK: Cross-processing
 
-    @ViewBuilder
+    /// Every film carries this section, whether or not a combination is known
+    /// for it. An unsafe combination is called out here, before the sheet opens.
     private func crossProcessSection(_ film: LibraryFilm) -> some View {
-        let entries = store.crossProcess(forFilm: film.key)
+        let entries = LibraryCrossProcess.sorted(store.crossProcess(forFilm: film.key))
         let classes = CrossProcessClass.allCases.filter { item in
             entries.contains { $0.classification == item }
         }
+        let unsafe = entries.contains { $0.isUnsafe }
 
-        if !entries.isEmpty {
-            VStack(alignment: .leading, spacing: 10) {
-                LibrarySectionTitle(text: "Cross-processing")
+        return VStack(alignment: .leading, spacing: 10) {
+            LibrarySectionTitle(text: "Cross-processing")
 
+            if entries.isEmpty {
+                Text("No cross-process is documented for this film yet. Combinations are added through the library import as documentation appears.")
+                    .font(.system(size: 13))
+                    .foregroundStyle(Theme.inkSoft)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(16)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .glassCard(radius: 20)
+            } else {
                 Button {
                     showingCrossProcess = true
                 } label: {
@@ -306,16 +316,38 @@ struct FilmDetailView: View {
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(HapticButtonStyle())
+
+                if unsafe {
+                    HStack(alignment: .top, spacing: 8) {
+                        Image(systemName: "exclamationmark.octagon.fill")
+                            .font(.system(size: 13, weight: .semibold))
+                            .foregroundStyle(.red)
+                            .padding(.top, 1)
+
+                        Text("One combination is chemically incompatible and unsafe. It is listed as a warning, never as a recipe.")
+                            .font(.system(size: 12))
+                            .foregroundStyle(Theme.inkSoft)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel("Warning. One cross-processing combination is chemically incompatible and unsafe.")
+                }
             }
         }
     }
 
     private func classificationPill(_ item: CrossProcessClass) -> some View {
         HStack(spacing: 4) {
-            Circle()
-                .fill(colour(for: item))
-                .frame(width: 6, height: 6)
-            Text(item.label)
+            if item == .incompatible {
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .font(.system(size: 8, weight: .bold))
+                    .foregroundStyle(colour(for: item))
+            } else {
+                Circle()
+                    .fill(colour(for: item))
+                    .frame(width: 6, height: 6)
+            }
+            Text(item == .incompatible ? "Unsafe" : item.label)
                 .font(.system(size: 10, weight: .medium))
                 .foregroundStyle(Theme.inkSoft)
                 .lineLimit(1)
@@ -673,35 +705,14 @@ private struct CrossProcessSheet: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("What each classification means is decided by who tested it, not by how it looks.")
+                VStack(alignment: .leading, spacing: 14) {
+                    Text("Each classification is decided by who tested it, not by how it looks. A chemically incompatible combination is shown as a warning, never as a recipe.")
                         .font(.system(size: 13))
                         .foregroundStyle(Theme.inkSoft)
                         .fixedSize(horizontal: false, vertical: true)
 
-                    ForEach(store.crossProcess(forFilm: filmKey)) { entry in
-                        VStack(alignment: .leading, spacing: 6) {
-                            HStack(spacing: 8) {
-                                Text("\(entry.fromProcess.label) → \(entry.toProcess.label)")
-                                    .font(.system(size: 15, weight: .semibold))
-                                    .foregroundStyle(Theme.ink)
-                                Spacer(minLength: 4)
-                                LibraryBadge(kind: entry.provenance.kind)
-                            }
-
-                            Text(entry.classification.label.uppercased())
-                                .font(.system(size: 10, weight: .semibold))
-                                .tracking(0.9)
-                                .foregroundStyle(Theme.amber)
-
-                            Text(entry.summary)
-                                .font(.system(size: 13))
-                                .foregroundStyle(Theme.inkSoft)
-                                .fixedSize(horizontal: false, vertical: true)
-                        }
-                        .padding(16)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .glassCard(radius: 20)
+                    ForEach(LibraryCrossProcess.sorted(store.crossProcess(forFilm: filmKey))) { entry in
+                        CrossProcessProfileCard(entry: entry)
                     }
                 }
                 .padding(20)
@@ -716,5 +727,179 @@ private struct CrossProcessSheet: View {
             }
         }
         .presentationDetents([.medium, .large])
+    }
+}
+
+private struct CrossProcessProfileCard: View {
+    let entry: LibraryCrossProcess
+
+    @Environment(\.openURL) private var openURL
+
+    var body: some View {
+        let fields = entry.profileFields
+
+        return VStack(alignment: .leading, spacing: 12) {
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("\(entry.fromProcess.label) → \(entry.toProcess.label)")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(Theme.ink)
+
+                    Text(entry.summary)
+                        .font(.system(size: 13))
+                        .foregroundStyle(Theme.inkSoft)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                Spacer(minLength: 4)
+
+                LibraryBadge(kind: entry.provenance.kind)
+            }
+
+            if entry.isUnsafe {
+                unsafeBanner
+            } else {
+                Text(entry.classification.safetyTitle.uppercased())
+                    .font(.system(size: 10, weight: .semibold))
+                    .tracking(0.9)
+                    .foregroundStyle(colour(for: entry.classification))
+            }
+
+            if !fields.isEmpty {
+                VStack(spacing: 0) {
+                    ForEach(Array(fields.enumerated()), id: \.offset) { index, field in
+                        fieldRow(field)
+                        if index < fields.count - 1 {
+                            Rectangle()
+                                .fill(Theme.hairline)
+                                .frame(height: 1)
+                        }
+                    }
+                }
+            }
+
+            if let examples = entry.examples, !examples.isEmpty {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("SEEN IN")
+                        .font(.system(size: 9, weight: .semibold))
+                        .tracking(1.1)
+                        .foregroundStyle(Theme.inkFaint)
+
+                    ForEach(examples, id: \.self) { example in
+                        Text("· \(example)")
+                            .font(.system(size: 12))
+                            .foregroundStyle(Theme.inkSoft)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+            }
+
+            if let references = entry.references, !references.isEmpty {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("REFERENCES")
+                        .font(.system(size: 9, weight: .semibold))
+                        .tracking(1.1)
+                        .foregroundStyle(Theme.inkFaint)
+
+                    ForEach(references, id: \.self) { reference in
+                        Button {
+                            open(reference)
+                        } label: {
+                            HStack(spacing: 5) {
+                                Text(reference)
+                                    .font(.system(size: 12))
+                                    .foregroundStyle(Theme.inkSoft)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                if reference.contains("http") {
+                                    Image(systemName: "arrow.up.forward")
+                                        .font(.system(size: 9, weight: .semibold))
+                                        .foregroundStyle(Theme.inkFaint)
+                                }
+                                Spacer(minLength: 0)
+                            }
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(HapticButtonStyle())
+                    }
+                }
+            }
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .glassCard(radius: 20, tint: entry.isUnsafe ? .red : nil)
+    }
+
+    private var unsafeBanner: some View {
+        HStack(alignment: .top, spacing: 8) {
+            Image(systemName: "exclamationmark.octagon.fill")
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundStyle(.red)
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text("UNSAFE — CHEMICALLY INCOMPATIBLE")
+                    .font(.system(size: 11, weight: .bold))
+                    .tracking(0.8)
+                    .foregroundStyle(Theme.ink)
+
+                Text("Do not attempt this combination. The notes below say what goes wrong, not how to do it.")
+                    .font(.system(size: 12))
+                    .foregroundStyle(Theme.inkSoft)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background {
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(Color.red.opacity(0.12))
+        }
+        .overlay {
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .strokeBorder(Color.red.opacity(0.45), lineWidth: 1)
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Unsafe. Chemically incompatible. Do not attempt this combination.")
+    }
+
+    private func fieldRow(_ field: (label: String, value: String, isWarning: Bool)) -> some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text(field.label.uppercased())
+                .font(.system(size: 9, weight: .semibold))
+                .tracking(1.1)
+                .foregroundStyle(field.isWarning ? .red : Theme.inkFaint)
+
+            HStack(alignment: .top, spacing: 5) {
+                if field.isWarning {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .font(.system(size: 10, weight: .semibold))
+                        .foregroundStyle(.red)
+                        .padding(.top, 1)
+                }
+
+                Text(field.value)
+                    .font(.system(size: 13))
+                    .foregroundStyle(field.isWarning ? Theme.ink : Theme.inkSoft)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(.vertical, 8)
+        .accessibilityElement(children: .combine)
+    }
+
+    private func colour(for item: CrossProcessClass) -> Color {
+        switch item {
+        case .documentedAndTested: return .green
+        case .communityTested: return .blue
+        case .experimental: return Theme.amber
+        case .notRecommended, .incompatible: return .red
+        }
+    }
+
+    private func open(_ reference: String) {
+        guard let range = reference.range(of: "http") else { return }
+        let text = String(reference[range.lowerBound...])
+        guard let url = URL(string: text.trimmingCharacters(in: .whitespacesAndNewlines)) else { return }
+        openURL(url)
     }
 }

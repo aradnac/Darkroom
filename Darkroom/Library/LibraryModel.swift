@@ -246,6 +246,32 @@ enum CrossProcessClass: String, Codable, CaseIterable, Identifiable {
         case .incompatible: return "Incompatible"
         }
     }
+
+    /// Only one class says the combination must not be attempted at all.
+    var isSafe: Bool { self != .incompatible }
+
+    /// The wording the profile uses for this class. An incompatible entry is
+    /// never described as experimental, however thin its documentation is.
+    var safetyTitle: String {
+        switch self {
+        case .incompatible: return "Unsafe — chemically incompatible"
+        case .documentedAndTested: return "Documented and tested"
+        case .communityTested: return "Community-tested"
+        case .experimental: return "Experimental"
+        case .notRecommended: return "Not recommended"
+        }
+    }
+
+    /// Documented first, experimentally thin later, and anything unsafe last.
+    var rank: Int {
+        switch self {
+        case .documentedAndTested: return 0
+        case .communityTested: return 1
+        case .experimental: return 2
+        case .notRecommended: return 3
+        case .incompatible: return 4
+        }
+    }
 }
 
 struct LibraryCrossProcess: Codable, Identifiable, Hashable {
@@ -256,7 +282,59 @@ struct LibraryCrossProcess: Codable, Identifiable, Hashable {
     var summary: String
     var provenance: LibraryProvenance
 
+    // The rest of the profile. Every field is optional: an entry says only what
+    // its source actually documents.
+    var colourShifts: String?
+    var contrastChange: String?
+    var grainChange: String?
+    var exposureNotes: String?
+    var expectedResult: String?
+    var limitations: String?
+    var examples: [String]?
+    var references: [String]?
+
     var id: String { "\(film)|\(fromProcess.rawValue)|\(toProcess.rawValue)" }
+
+    /// True only for the one class that must not be attempted.
+    var isUnsafe: Bool { !classification.isSafe }
+
+    /// The profile as labelled rows, in a fixed order, with the limitations row
+    /// flagged whenever the combination is unsafe.
+    var profileFields: [(label: String, value: String, isWarning: Bool)] {
+        var rows: [(label: String, value: String, isWarning: Bool)] = []
+        if let colourShifts, !colourShifts.isEmpty {
+            rows.append(("Colour shifts", colourShifts, false))
+        }
+        if let contrastChange, !contrastChange.isEmpty {
+            rows.append(("Contrast", contrastChange, false))
+        }
+        if let grainChange, !grainChange.isEmpty {
+            rows.append(("Grain", grainChange, false))
+        }
+        if let exposureNotes, !exposureNotes.isEmpty {
+            rows.append(("Exposure", exposureNotes, false))
+        }
+        if let expectedResult, !expectedResult.isEmpty {
+            rows.append(("Expected result", expectedResult, false))
+        }
+        if let limitations, !limitations.isEmpty {
+            rows.append(("Limitations", limitations, isUnsafe))
+        }
+        return rows
+    }
+
+    /// Profiles in the order the sheet shows them: safest first, unsafe last.
+    static func sorted(_ entries: [LibraryCrossProcess]) -> [LibraryCrossProcess] {
+        entries.sorted { left, right in
+            if left.classification.rank != right.classification.rank {
+                return left.classification.rank < right.classification.rank
+            }
+            if left.fromProcess.label != right.fromProcess.label {
+                return left.fromProcess.label < right.fromProcess.label
+            }
+            return left.toProcess.label < right.toProcess.label
+        }
+    }
 }
 
 // MARK: - Document
