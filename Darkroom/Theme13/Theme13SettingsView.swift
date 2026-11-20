@@ -190,6 +190,28 @@ struct Theme13SettingsView: View {
                 systemImage: "circle.grid.2x2.fill"
             )
 
+            #if DEBUG
+            // Build-time preview for REDROOM. It becomes a normal theme row in
+            // the selector once every screen has its own presentation; this row
+            // is never compiled into a release build.
+            Button {
+                store.previewRedroom()
+            } label: {
+                HStack(spacing: 10) {
+                    RedroomIndicator()
+                    Text("REDROOM preview")
+                        .font(.system(size: 13))
+                        .foregroundStyle(Theme.inkSoft)
+                    Spacer(minLength: 0)
+                }
+                .padding(15)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
+                .modifier(Theme13PaperSurface(marked: false))
+            }
+            .buttonStyle(HapticButtonStyle())
+            #endif
+
             if store.isUnlocked {
                 theme13Card
             }

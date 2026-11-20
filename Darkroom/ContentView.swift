@@ -64,55 +64,61 @@ struct ContentView: View {
     }
 
     var body: some View {
-        ZStack {
-            TabView(selection: $selection) {
-                Tab("Develop", systemImage: "timer", value: 0) {
-                    DevelopHomeView()
-                        .appHidesSystemTabBar()
-                }
+        Group {
+            if themeStore.isRedroomActive {
+                RedroomRootView()
+            } else {
+                ZStack {
+                    TabView(selection: $selection) {
+                        Tab("Develop", systemImage: "timer", value: 0) {
+                            DevelopHomeView()
+                                .appHidesSystemTabBar()
+                        }
 
-                Tab("Recipes", systemImage: "books.vertical", value: 1) {
-                    RecipesView()
-                        .appHidesSystemTabBar()
-                }
+                        Tab("Recipes", systemImage: "books.vertical", value: 1) {
+                            RecipesView()
+                                .appHidesSystemTabBar()
+                        }
 
-                Tab("Chemistry", systemImage: "flask", value: 2) {
-                    ChemistryView()
-                        .appHidesSystemTabBar()
-                }
+                        Tab("Chemistry", systemImage: "flask", value: 2) {
+                            ChemistryView()
+                                .appHidesSystemTabBar()
+                        }
 
-                Tab("Journal", systemImage: "book.closed", value: 3) {
-                    JournalView()
-                        .appHidesSystemTabBar()
-                }
+                        Tab("Journal", systemImage: "book.closed", value: 3) {
+                            JournalView()
+                                .appHidesSystemTabBar()
+                        }
 
-                Tab("Tools", systemImage: "wrench.and.screwdriver", value: 4) {
-                    ToolsView()
-                        .appHidesSystemTabBar()
-                }
-            }
-            .tint(Theme.amber)
-            .environment(\.controlSize, themeStore.compactControls ? .small : .regular)
-            .safeAreaInset(edge: .bottom, spacing: 0) {
-                if themeStore.isTheme13Active {
-                    Theme13TabBar(selection: $selection)
-                } else if themeStore.isSoftGlassActive {
-                    // The fade and the capsule share one full-width layer. A
-                    // background on the capsule alone would inherit the
-                    // capsule's own width and leave the edges of the screen
-                    // uncovered — the bug this replaced.
-                    ZStack(alignment: .bottom) {
-                        dockBand
-                        SoftGlassTabBar(selection: $selection)
+                        Tab("Tools", systemImage: "wrench.and.screwdriver", value: 4) {
+                            ToolsView()
+                                .appHidesSystemTabBar()
+                        }
                     }
-                    .frame(height: SoftGlassTabBar.height)
-                    .frame(maxWidth: .infinity)
+                    .tint(Theme.amber)
+                    .environment(\.controlSize, themeStore.compactControls ? .small : .regular)
+                    .safeAreaInset(edge: .bottom, spacing: 0) {
+                        if themeStore.isTheme13Active {
+                            Theme13TabBar(selection: $selection)
+                        } else if themeStore.isSoftGlassActive {
+                            // The fade and the capsule share one full-width layer. A
+                            // background on the capsule alone would inherit the
+                            // capsule's own width and leave the edges of the screen
+                            // uncovered — the bug this replaced.
+                            ZStack(alignment: .bottom) {
+                                dockBand
+                                SoftGlassTabBar(selection: $selection)
+                            }
+                            .frame(height: SoftGlassTabBar.height)
+                            .frame(maxWidth: .infinity)
+                        }
+                    }
+                    .id(themeStore.revision)
                 }
+                .buttonStyle(HapticButtonStyle())
+                .preferredColorScheme(preferredScheme)
             }
-            .id(themeStore.revision)
         }
-        .buttonStyle(HapticButtonStyle())
-        .preferredColorScheme(preferredScheme)
         .sheet(isPresented: settingsBinding) {
             Theme13SettingsView()
         }

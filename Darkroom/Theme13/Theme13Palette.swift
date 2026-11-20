@@ -527,7 +527,15 @@ final class Theme13SettingsStore: ObservableObject {
             ?? "darkroom"
 
         isUnlocked = unlocked
-        selectedThemeIdentifier = (!unlocked && storedTheme == "theme13") ? "darkroom" : storedTheme
+        var initialTheme = storedTheme
+        if storedTheme == "theme13" && !unlocked {
+            initialTheme = "darkroom"
+        }
+        if storedTheme == Redroom.themeIdentifier,
+           !defaults.bool(forKey: Redroom.availabilityKey) {
+            initialTheme = "darkroom"
+        }
+        selectedThemeIdentifier = initialTheme
         paletteID = Theme13PaletteID(rawValue: defaults.string(forKey: Keys.palette) ?? "") ?? .rangefinder
         appearanceMode = Theme13AppearanceMode(rawValue: defaults.string(forKey: Keys.appearance) ?? "") ?? .system
         stillMode = defaults.bool(forKey: Keys.still)
@@ -591,7 +599,14 @@ final class Theme13SettingsStore: ObservableObject {
 
     func selectTheme(_ identifier: String) {
         resetUnlockSequence()
-        let resolved = (identifier == "theme13" && !isUnlocked) ? "darkroom" : identifier
+        var resolved = identifier
+        if identifier == "theme13" && !isUnlocked {
+            resolved = "darkroom"
+        }
+        // REDROOM stays unreachable until every screen has its own presentation.
+        if identifier == Redroom.themeIdentifier && !isRedroomAvailable {
+            resolved = "darkroom"
+        }
         guard resolved != selectedThemeIdentifier else { return }
         selectedThemeIdentifier = resolved
         defaults.set(resolved, forKey: Keys.theme)
@@ -681,6 +696,28 @@ final class Theme13SettingsStore: ObservableObject {
         }
         resetUnlockSequence()
         revision &+= 1
+    }
+    #endif
+}
+
+// MARK: - REDROOM
+
+extension Theme13SettingsStore {
+    /// True while the third design language owns the interface.
+    var isRedroomActive: Bool {
+        selectedThemeIdentifier == Redroom.themeIdentifier
+    }
+
+    /// REDROOM is offered in the selector only once it covers the whole app.
+    var isRedroomAvailable: Bool {
+        UserDefaults.standard.bool(forKey: Redroom.availabilityKey)
+    }
+
+    #if DEBUG
+    /// Preview hook for building the theme. Never compiled into a release build.
+    func previewRedroom() {
+        UserDefaults.standard.set(true, forKey: Redroom.availabilityKey)
+        selectTheme(Redroom.themeIdentifier)
     }
     #endif
 }
