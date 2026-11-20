@@ -70,8 +70,10 @@ enum Redroom {
     /// `#65000A`
     static let deepRed = color(0x65000A)
 
-    /// `#A99A9A`
-    static let textMuted = color(0xA99A9A)
+    /// `#A99A9A` → `#C4B6B6`. Lifted so the room's quiet text still clears 4.5:1
+    /// on glass at the extreme safelight, which is the brightest a label is ever
+    /// asked to sit on.
+    static let textMuted = color(0xC4B6B6)
     /// `#F4EAEA`
     static let text = color(0xF4EAEA)
     /// `#594747`

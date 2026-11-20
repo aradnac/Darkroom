@@ -708,9 +708,13 @@ extension Theme13SettingsStore {
         selectedThemeIdentifier == Redroom.themeIdentifier
     }
 
-    /// REDROOM is offered in the selector only once it covers the whole app.
+    /// REDROOM is offered in the selector now that every screen has its own
+    /// presentation. The key is kept so a build under test can take it away
+    /// again by writing false; with nothing written, it is on.
     var isRedroomAvailable: Bool {
-        UserDefaults.standard.bool(forKey: Redroom.availabilityKey)
+        let defaults = UserDefaults.standard
+        guard defaults.object(forKey: Redroom.availabilityKey) != nil else { return true }
+        return defaults.bool(forKey: Redroom.availabilityKey)
     }
 
     #if DEBUG

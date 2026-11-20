@@ -43,6 +43,10 @@ struct SessionActivityAttributes: ActivityAttributes {
         /// Already formatted in the unit the bench reads in, so the extension
         /// never has to know the preference.
         var temperatureText: String
+
+        /// Which design language is running the session, so the card on the Lock
+        /// Screen speaks in the same one. Nil for the app's default language.
+        var themeIdentifier: String?
     }
 
     var sessionID: String

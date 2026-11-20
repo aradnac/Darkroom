@@ -16,10 +16,12 @@ import SwiftUI
 // MARK: - Buttons
 
 struct RedroomPrimaryButtonStyle: ButtonStyle {
+    @Environment(\.isEnabled) private var isEnabled
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(Redroom.body(15, weight: .semibold))
-            .foregroundStyle(Redroom.text)
+            .foregroundStyle(isEnabled ? Redroom.text : Redroom.textMuted)
             .frame(maxWidth: .infinity)
             .frame(minHeight: 52)
             .background {
@@ -45,20 +47,24 @@ struct RedroomPrimaryButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.98 : 1)
             .animation(.snappy(duration: 0.22), value: configuration.isPressed)
             .hapticFeedbackOnPress(isPressed: configuration.isPressed)
+            .opacity(isEnabled ? 1 : 0.5)
     }
 }
 
 struct RedroomSecondaryButtonStyle: ButtonStyle {
+    @Environment(\.isEnabled) private var isEnabled
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(Redroom.body(15, weight: .medium))
-            .foregroundStyle(Redroom.text)
+            .foregroundStyle(isEnabled ? Redroom.text : Redroom.textMuted)
             .frame(maxWidth: .infinity)
             .frame(minHeight: 52)
             .redroomGlass(variant: .transparent, cornerRadius: 16)
             .scaleEffect(configuration.isPressed ? 0.98 : 1)
             .animation(.snappy(duration: 0.22), value: configuration.isPressed)
             .hapticFeedbackOnPress(isPressed: configuration.isPressed)
+            .opacity(isEnabled ? 1 : 0.5)
     }
 }
 

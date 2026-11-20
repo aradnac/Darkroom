@@ -56,7 +56,6 @@ struct RedroomDevelopHome: View {
                 Text("Start a session")
             }
             .buttonStyle(RedroomPrimaryButtonStyle())
-            .disabled(featured == nil)
 
             stagePanel
         }

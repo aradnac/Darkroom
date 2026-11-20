@@ -200,8 +200,7 @@ struct RedroomChemistryHome: View {
 
     /// The bottle is as full as the rolls it can still develop.
     private func level(for batch: ChemicalBatch) -> Double {
-        guard batch.capacityRolls > 0 else { return 0 }
-        return Double(batch.remainingRolls) / Double(batch.capacityRolls)
+        RedroomQuantities.bottleLevel(remaining: batch.remainingRolls, capacity: batch.capacityRolls)
     }
 }
 
@@ -696,8 +695,7 @@ struct RedroomBatchDetail: View {
     }
 
     private func level(_ batch: ChemicalBatch) -> Double {
-        guard batch.capacityRolls > 0 else { return 0 }
-        return Double(batch.remainingRolls) / Double(batch.capacityRolls)
+        RedroomQuantities.bottleLevel(remaining: batch.remainingRolls, capacity: batch.capacityRolls)
     }
 
     // MARK: Next use

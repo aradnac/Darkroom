@@ -67,9 +67,10 @@ enum RedroomContrast {
         let body = components(0x0C0404)
         let red = components(0xFF1018)
 
-        // 0.20 lit edge + 0.22 specular pool, both scaled by the sample's direct
-        // light and therefore by the intensity, and both clamped at full.
-        let overlay = min(0.42, 0.20 * factor + 0.22 * factor)
+        // The lit edge and the specular pool together, as one wash over the
+        // body: 0.21 of red at NORMAL, scaled by the safelight and clamped at
+        // the 0.42 a pane can hold before it stops reading as glass.
+        let overlay = min(0.42, 0.21 * factor)
         let r = body.r + (red.r - body.r) * overlay
         let g = body.g + (red.g - body.g) * overlay
         let b = body.b + (red.b - body.b) * overlay
@@ -157,6 +158,6 @@ extension Redroom {
     static let safelightSecondaryHex: UInt32 = 0xC90012
     static let deepRedHex: UInt32 = 0x65000A
     static let textHex: UInt32 = 0xF4EAEA
-    static let textMutedHex: UInt32 = 0xA99A9A
+    static let textMutedHex: UInt32 = 0xC4B6B6
     static let textDisabledHex: UInt32 = 0x594747
 }

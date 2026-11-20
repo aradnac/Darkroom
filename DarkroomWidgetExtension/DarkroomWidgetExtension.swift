@@ -43,6 +43,10 @@ struct SessionActivityAttributes: ActivityAttributes {
         var filmTitle: String
         var developerTitle: String
         var temperatureText: String
+
+        /// Which design language is running the session, so the card on the Lock
+        /// Screen speaks in the same one. Nil for the app's default language.
+        var themeIdentifier: String?
     }
 
     var sessionID: String
@@ -53,13 +57,17 @@ struct SessionActivityAttributes: ActivityAttributes {
 struct DarkroomSessionLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: SessionActivityAttributes.self) { context in
-            SessionActivityLockScreenView(state: context.state)
-                .activityBackgroundTint(
-                    Color(red: 0.043, green: 0.047, blue: 0.055)
-                )
-                .activitySystemActionForegroundColor(.white)
+            SessionActivityLockScreenView(
+                state: context.state,
+                accent: SessionActivityPalette.accent(for: context.state),
+                quiet: SessionActivityPalette.quiet(for: context.state)
+            )
+            .activityBackgroundTint(SessionActivityPalette.background(for: context.state))
+            .activitySystemActionForegroundColor(.white)
         } dynamicIsland: { context in
-            DynamicIsland {
+            let accent = SessionActivityPalette.accent(for: context.state)
+
+            return DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
                     VStack(alignment: .leading, spacing: 2) {
                         Text(context.state.stageTitle.uppercased())
@@ -98,11 +106,11 @@ struct DarkroomSessionLiveActivity: Widget {
                         }
                     }
                     .font(.footnote)
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(accent)
                 }
             } compactLeading: {
                 Image(systemName: symbol(for: context.state.stageTitle))
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(accent)
             } compactTrailing: {
                 SessionActivityTimer(state: context.state)
                     .font(.caption2)
@@ -114,7 +122,7 @@ struct DarkroomSessionLiveActivity: Widget {
                     .monospacedDigit()
                     .foregroundStyle(.white)
             }
-            .keylineTint(.orange)
+            .keylineTint(accent)
         }
     }
 
@@ -131,10 +139,41 @@ struct DarkroomSessionLiveActivity: Widget {
     }
 }
 
+// MARK: - Palette
+
+/// The card speaks the app's language. REDROOM gets the safelight's own red and
+/// a near-black card; every other language keeps the app's amber. The Dynamic
+/// Island's layout is Apple's — only the tint and the content change.
+enum SessionActivityPalette {
+    static func isRedroom(_ state: SessionActivityAttributes.ContentState) -> Bool {
+        state.themeIdentifier == "redroom"
+    }
+
+    static func accent(for state: SessionActivityAttributes.ContentState) -> Color {
+        isRedroom(state)
+            ? Color(red: 1.0, green: 0.063, blue: 0.094)
+            : .orange
+    }
+
+    static func quiet(for state: SessionActivityAttributes.ContentState) -> Color {
+        isRedroom(state)
+            ? Color(red: 0.663, green: 0.604, blue: 0.604)
+            : .white.opacity(0.65)
+    }
+
+    static func background(for state: SessionActivityAttributes.ContentState) -> Color {
+        isRedroom(state)
+            ? Color(red: 0.012, green: 0.008, blue: 0.008)
+            : Color(red: 0.043, green: 0.047, blue: 0.055)
+    }
+}
+
 // MARK: - Lock Screen
 
 private struct SessionActivityLockScreenView: View {
     let state: SessionActivityAttributes.ContentState
+    var accent: Color = .orange
+    var quiet: Color = .white.opacity(0.65)
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -175,11 +214,11 @@ private struct SessionActivityLockScreenView: View {
                     }
                 }
                 .font(.footnote)
-                .foregroundStyle(.orange)
+                .foregroundStyle(accent)
             } else {
                 Text("\(state.filmTitle) · \(state.developerTitle)")
                     .font(.footnote)
-                    .foregroundStyle(.white.opacity(0.5))
+                    .foregroundStyle(quiet)
                     .lineLimit(1)
             }
         }

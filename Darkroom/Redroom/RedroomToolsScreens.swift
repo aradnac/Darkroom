@@ -889,6 +889,12 @@ struct RedroomWashRinse: View {
 
             RedroomPanel(title: "Wash elapsed") {
                 HStack(alignment: .firstTextBaseline) {
+                    Text("Elapsed")
+                        .font(Redroom.body(12))
+                        .foregroundStyle(Redroom.textMuted)
+
+                    Spacer(minLength: 6)
+
                     RedroomTicker(running: washStartedAt != nil, interval: 0.2) { date in
                         let elapsed = washElapsedBeforeStart + (washStartedAt.map { date.timeIntervalSince($0) } ?? 0)
                         Text(Clock.mmss(elapsed))
@@ -896,11 +902,6 @@ struct RedroomWashRinse: View {
                             .foregroundStyle(Redroom.text)
                             .contentTransition(.numericText())
                     }
-                    Spacer(minLength: 6)
-                    Text(Clock.mmss(washElapsedBeforeStart))
-                        .font(Redroom.body(10))
-                        .foregroundStyle(Redroom.textMuted)
-                        .opacity(0)
                 }
 
                 HStack(spacing: 8) {
