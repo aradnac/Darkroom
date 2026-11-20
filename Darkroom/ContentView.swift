@@ -120,7 +120,11 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: settingsBinding) {
-            Theme13SettingsView()
+            if themeStore.isRedroomActive {
+                RedroomSettingsView()
+            } else {
+                Theme13SettingsView()
+            }
         }
         .onAppear {
             themeStore.updateSystemAppearance(isDark: colorScheme == .dark)
