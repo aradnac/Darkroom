@@ -93,6 +93,7 @@ final class FeedbackCenter {
 
     /// The route changed, so tear the graph down; it is rebuilt on the next play.
     func reconfigure() {
+        guard prepared else { return }
         player.stop()
         if engine.isRunning {
             engine.stop()

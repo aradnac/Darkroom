@@ -114,10 +114,27 @@ final class SessionEngine {
 
     // MARK: - Lifecycle
 
+    /// Opens the microphone, or reopens it if an earlier attempt failed. Safe to
+    /// call repeatedly: the commander ignores a start while it is already
+    /// listening, and a denied permission is reported rather than prompted again.
     func activateVoice() {
         guard plan.voiceCommands else { return }
-        if case .unavailable = voice.status { return }
         voice.start()
+    }
+
+    /// Called when the app returns to the foreground: a route change or a call
+    /// can leave the recogniser closed, and the reader should not have to leave
+    /// the session to get it back.
+    func recheckVoice() {
+        guard plan.voiceCommands else { return }
+        switch voice.status {
+        case .off, .starting:
+            voice.start()
+        case .listening:
+            break
+        case .unavailable:
+            voice.restart()
+        }
     }
 
     func stop() {

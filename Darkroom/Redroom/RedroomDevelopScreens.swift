@@ -962,6 +962,7 @@ struct RedroomRunningSession: View {
         .onChange(of: scenePhase) { _, newPhase in
             if newPhase == .active {
                 engine.refresh()
+                engine.recheckVoice()
                 SessionActivityController.shared.update(engine: engine)
             }
         }
