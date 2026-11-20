@@ -27,6 +27,7 @@ struct RedroomRootView: View {
                 VStack(alignment: .leading, spacing: 22) {
                     header
                     intensityCard
+                    calculatorSection
                     glassGallery
                     lightTest
                 }
@@ -77,6 +78,13 @@ struct RedroomRootView: View {
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
         .redroomGlass(variant: .smoked)
+    }
+
+    private var calculatorSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            RedroomSectionHeader(title: "Calculate")
+            RedroomCalculatorView()
+        }
     }
 
     private var glassGallery: some View {

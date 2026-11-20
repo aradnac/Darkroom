@@ -55,8 +55,33 @@ enablement.
 
 **Known limits**
 
-- The liquid surface is not built yet; when it is, it will be a Canvas/SwiftUI
-  liquid rather than true refraction unless a Metal shader is verified in the
-  build.
+- The liquid surface is a stylised Canvas liquid: ripples, a meniscus and a
+  surface highlight that answers the safelight, but not true refraction. A Metal
+  shader was not written; `layerEffect`/`distortionEffect` are available at iOS 26
+  if a later phase wants them.
 - No device was available, so nothing in this phase was seen rendering. The
   build is the only verification.
+
+## Phase 2 — signature liquid tray (done)
+
+**Added**
+
+- `Redroom/RedroomLiquid.swift` — `DarkroomLiquidTray`. A black tray with a thick
+  rim, holding a shallow dark red chemical drawn in one Canvas clipped to the
+  tray: a wave surface, the lamp caught along the meniscus, and expanding rings
+  from each touch. Content sits beneath the liquid. The Canvas is
+  `allowsHitTesting(false)` and the ripples are fed by a `simultaneousGesture`
+  Drag gesture on the tray, so steppers, fields and buttons inside keep working.
+  The resting surface is one static frame: the TimelineView is paused unless a
+  ripple is alive, and Reduce Motion disables ripples entirely.
+- `Redroom/RedroomCalculator.swift` — the development time calculator inside a
+  tray. Sheet time, sheet temperature, water temperature and continuous
+  agitation, computing through the app's own `DevelopmentTimeCalculator` and
+  showing its warnings. No maths of its own.
+- `RedroomRootView` gained the calculator section.
+
+**Lighting compliance**
+
+The tray rim is drawn from the safelight deep red; the liquid's surface line is
+the safelight at low opacity. No component-level angles or colours.
+
