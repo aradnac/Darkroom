@@ -274,6 +274,10 @@ struct SessionPlan {
     let developer: Developer
     let dilution: Dilution
     let temperature: Double
+    /// The time the app worked out for that temperature before the reuse
+    /// penalty, when it had one. Kept so the journal can measure the time used
+    /// against the published time rather than guessing later.
+    let publishedSeconds: TimeInterval?
     let exposureIndex: Int
     let reuseCount: Int
     let intensity: AgitationIntensity
@@ -301,6 +305,7 @@ struct SessionPlan {
         dilution: Dilution,
         temperature: Double,
         developmentTime: TimeInterval,
+        publishedSeconds: TimeInterval? = nil,
         exposureIndex: Int,
         reuseCount: Int,
         intensity: AgitationIntensity,
@@ -386,6 +391,7 @@ struct SessionPlan {
             developer: developer,
             dilution: dilution,
             temperature: temperature,
+            publishedSeconds: publishedSeconds,
             exposureIndex: exposureIndex,
             reuseCount: reuseCount,
             intensity: intensity,

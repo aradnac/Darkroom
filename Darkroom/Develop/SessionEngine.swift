@@ -28,6 +28,9 @@ final class SessionEngine {
     private(set) var stageIndex = 0
     private(set) var phase: Phase = .ready
     private(set) var now = Date()
+    /// The journal entry this session wrote when it finished, so the summary can
+    /// edit the same record and "Discard" can take it away.
+    private(set) var journalRecordID: UUID?
     /// A spoken question that has been answered, shown for a few seconds.
     private(set) var answer: String?
 
@@ -286,6 +289,11 @@ final class SessionEngine {
         runStartedAt = nil
         stopTimer()
         AgitationAlerts.cancel()
+        // Written before the phase changes, so the summary's sheet can never
+        // appear before its record exists.
+        if journalRecordID == nil {
+            journalRecordID = JournalStore.shared.log(plan)
+        }
         phase = .finished
         Preferences.shared.play(.finished)
     }

@@ -2,17 +2,28 @@
 //  SessionSummaryView.swift
 //  Darkroom
 //
-//  Shown when the last stage is done. Nothing is kept yet; the summary can be
-//  discarded.
+//  Shown when the last stage is done. The session has already been written to
+//  the journal; this screen is where the negatives get their notes and an
+//  optional photograph, and where the record can be discarded if the session was
+//  not worth keeping.
 //
 
+import PhotosUI
 import SwiftUI
+import UIKit
 
 struct SessionSummaryView: View {
     let plan: SessionPlan
+    /// The journal entry the engine wrote when this session finished.
+    var recordID: UUID?
     let onDone: () -> Void
 
     @ObservedObject private var themeStore = Theme13SettingsStore.shared
+
+    @State private var notes = ""
+    @State private var photo: UIImage?
+    @State private var photoItem: PhotosPickerItem?
+    @State private var showingPhotoPicker = false
 
     private var totalSeconds: TimeInterval {
         plan.stages.reduce(0) { $0 + $1.duration }
@@ -27,6 +38,9 @@ struct SessionSummaryView: View {
             rows.append(("Exposure index", "EI \(plan.exposureIndex)"))
         }
         rows.append(("Developer time", Clock.mmss(plan.developmentTime)))
+        if let published = plan.publishedSeconds {
+            rows.append(("Published at temp", Clock.mmss(published)))
+        }
         if plan.reuseCount > 1 {
             rows.append(("Developer reuse", "use \(plan.reuseCount)"))
         }
@@ -47,6 +61,8 @@ struct SessionSummaryView: View {
                         glassSummary
                     }
 
+                    journalSection
+
                     actions
                 }
                 .padding(20)
@@ -58,6 +74,12 @@ struct SessionSummaryView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .interactiveDismissDisabled()
+        .onAppear(perform: loadRecord)
+        .onChange(of: photoItem) { _, item in
+            guard let item else { return }
+            Task { await load(item) }
+        }
+        .photosPicker(isPresented: $showingPhotoPicker, selection: $photoItem, matching: .images)
     }
 
     // MARK: Print theme
@@ -101,6 +123,91 @@ struct SessionSummaryView: View {
         }
     }
 
+    // MARK: Journal
+
+    private var journalSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 8) {
+                Image(systemName: "book.closed")
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundStyle(Theme.amber)
+                Text("Logged to the journal")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
+                Spacer(minLength: 0)
+            }
+
+            Text("The numbers above are saved. Add what the negatives turn out like — thin or dense, grain, scratches — and a photograph if you take one.")
+                .font(.system(size: 12))
+                .foregroundStyle(Theme.inkFaint)
+                .fixedSize(horizontal: false, vertical: true)
+
+            TextField("Notes on the negatives", text: $notes, axis: .vertical)
+                .textFieldStyle(.plain)
+                .font(.system(size: 16))
+                .foregroundStyle(Theme.ink)
+                .tint(Theme.amber)
+                .lineLimit(3...8)
+                .padding(12)
+                .background {
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .fill(Theme.surfaceRaised)
+                }
+                .overlay {
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .strokeBorder(Theme.border, lineWidth: 1)
+                }
+                .onChange(of: notes) { _, value in
+                    guard let recordID else { return }
+                    JournalStore.shared.setNotes(value, for: recordID)
+                }
+                .accessibilityLabel("Notes on the negatives")
+
+            if let photo {
+                Image(uiImage: photo)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
+                    .frame(maxHeight: 220)
+                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .accessibilityLabel("Photograph of the negatives")
+
+                HStack(spacing: 10) {
+                    Button {
+                        showingPhotoPicker = true
+                    } label: {
+                        Text("Change photo")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(GlassCapsuleStyle(height: 44))
+
+                    Button("Remove", role: .destructive) {
+                        self.photo = nil
+                        photoItem = nil
+                        if let recordID {
+                            JournalStore.shared.setPhoto(nil, for: recordID)
+                        }
+                    }
+                    .buttonStyle(GlassCapsuleStyle(height: 44))
+                }
+            } else {
+                Button {
+                    showingPhotoPicker = true
+                } label: {
+                    Label("Add a photo of the negatives", systemImage: "photo")
+                        .font(.system(size: 15, weight: .semibold))
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(GlassCapsuleStyle(height: 48))
+            }
+        }
+        .padding(18)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .glassCard(radius: 26)
+    }
+
+    // MARK: Actions
+
     @ViewBuilder
     private var actions: some View {
         if themeStore.isTheme13Active {
@@ -113,8 +220,8 @@ struct SessionSummaryView: View {
                 }
                 .buttonStyle(AmberCapsuleStyle(height: 52))
 
-                Button("Discard", role: .destructive) {
-                    onDone()
+                Button("Discard session", role: .destructive) {
+                    discard()
                 }
                 .buttonStyle(GlassCapsuleStyle(height: 48))
             }
@@ -132,13 +239,41 @@ struct SessionSummaryView: View {
                 .tint(Theme.amber)
                 .controlSize(.large)
 
-                Button("Discard", role: .destructive) {
-                    onDone()
+                Button("Discard session", role: .destructive) {
+                    discard()
                 }
                 .buttonStyle(.glass)
                 .controlSize(.large)
             }
         }
+    }
+
+    // MARK: Actions
+
+    private func loadRecord() {
+        guard let recordID, let record = JournalStore.shared.record(recordID) else { return }
+        notes = record.negativeNotes
+        if let data = JournalStore.shared.photoData(for: record) {
+            photo = UIImage(data: data)
+        }
+    }
+
+    private func load(_ item: PhotosPickerItem) async {
+        defer { photoItem = nil }
+        guard let data = try? await item.loadTransferable(type: Data.self),
+              let image = UIImage(data: data),
+              let jpeg = image.jpegData(compressionQuality: 0.8) else { return }
+        if let recordID {
+            JournalStore.shared.setPhoto(jpeg, for: recordID)
+        }
+        photo = image
+    }
+
+    private func discard() {
+        if let recordID {
+            JournalStore.shared.discard(recordID)
+        }
+        onDone()
     }
 
     private func summaryRow(_ label: String, _ value: String) -> some View {

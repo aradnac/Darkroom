@@ -373,6 +373,7 @@ struct DevelopmentSetup {
             dilution: dilution,
             temperature: temperature,
             developmentTime: seconds,
+            publishedSeconds: compensation?.seconds,
             exposureIndex: exposureIndex,
             reuseCount: reuseCount,
             intensity: intensity,

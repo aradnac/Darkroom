@@ -12,7 +12,9 @@
 //  SessionPlan and SessionEngine, exactly as the other themes' screens get it.
 //
 
+import PhotosUI
 import SwiftUI
+import UIKit
 
 // MARK: - Tab
 
@@ -301,17 +303,36 @@ struct RedroomSessionSetup: View {
         let celsius: Double
     }
 
-    init(film: Film? = nil, developer: Developer? = nil, dilution: Dilution? = nil) {
+    init(
+        film: Film? = nil,
+        developer: Developer? = nil,
+        dilution: Dilution? = nil,
+        temperature: Double? = nil,
+        pushStops: Int? = nil,
+        reuseCount: Int? = nil
+    ) {
         let films = StarterLibrary.films
         let developers = StarterLibrary.developers
         let resolvedFilm = film ?? films[0]
         let resolvedDeveloper = developer ?? developers[0]
         let resolvedDilution = dilution ?? resolvedDeveloper.dilutions[0]
-        _setup = State(initialValue: DevelopmentSetup(
+
+        var drafted = DevelopmentSetup(
             film: resolvedFilm,
             developer: resolvedDeveloper,
             dilution: resolvedDilution
-        ))
+        )
+        if let temperature {
+            drafted.setTemperature(temperature)
+        }
+        if let pushStops {
+            drafted.setPushStops(pushStops)
+        }
+        if let reuseCount {
+            drafted.setReuseCount(reuseCount)
+        }
+
+        _setup = State(initialValue: drafted)
     }
 
     var body: some View {
@@ -940,7 +961,7 @@ struct RedroomRunningSession: View {
             RedroomClearingSheet(engine: engine)
         }
         .sheet(isPresented: finishedBinding) {
-            RedroomSessionSummary(plan: engine.plan, onDone: onClose)
+            RedroomSessionSummary(plan: engine.plan, recordID: engine.journalRecordID, onDone: onClose)
         }
         .confirmationDialog("End this session?", isPresented: $confirmingEnd, titleVisibility: .visible) {
             Button("End session", role: .destructive) {
@@ -1390,7 +1411,14 @@ struct RedroomRunningSession: View {
 
 struct RedroomSessionSummary: View {
     let plan: SessionPlan
+    /// The journal entry the engine wrote when this session finished.
+    var recordID: UUID?
     let onDone: () -> Void
+
+    @State private var notes = ""
+    @State private var photo: UIImage?
+    @State private var photoItem: PhotosPickerItem?
+    @State private var showingPhotoPicker = false
 
     private var totalSeconds: TimeInterval {
         plan.stages.reduce(0) { $0 + $1.duration }
@@ -1402,6 +1430,9 @@ struct RedroomSessionSummary: View {
             rows.append(("Exposure index", "EI \(plan.exposureIndex)"))
         }
         rows.append(("Developer time", Clock.mmss(plan.developmentTime)))
+        if let published = plan.publishedSeconds {
+            rows.append(("Published at temp", Clock.mmss(published)))
+        }
         if plan.reuseCount > 1 {
             rows.append(("Developer reuse", "use \(plan.reuseCount)"))
         }
@@ -1445,6 +1476,8 @@ struct RedroomSessionSummary: View {
                     }
                 }
 
+                journalPanel
+
                 RedroomNote(text: "Rinse, then hang the film to dry in a dust-free place.", symbol: "wind")
 
                 VStack(spacing: 10) {
@@ -1455,14 +1488,116 @@ struct RedroomSessionSummary: View {
                     }
                     .buttonStyle(RedroomPrimaryButtonStyle())
 
-                    Button("Discard", role: .destructive) {
-                        onDone()
+                    Button("Discard session", role: .destructive) {
+                        discard()
                     }
                     .buttonStyle(RedroomSecondaryButtonStyle())
                 }
             }
         }
         .interactiveDismissDisabled()
+        .onAppear(perform: loadRecord)
+        .onChange(of: photoItem) { _, item in
+            guard let item else { return }
+            Task { await load(item) }
+        }
+        .photosPicker(isPresented: $showingPhotoPicker, selection: $photoItem, matching: .images)
+    }
+
+    // MARK: Journal
+
+    private var journalPanel: some View {
+        RedroomPanel(
+            title: "The negatives",
+            detail: "The numbers above are saved to the journal. Add what the roll looks like, and a photograph if you take one."
+        ) {
+            TextField("Thin, dense, grain, scratches…", text: $notes, axis: .vertical)
+                .textFieldStyle(.plain)
+                .font(Redroom.body(14))
+                .foregroundStyle(Redroom.text)
+                .tint(Redroom.safelight)
+                .lineLimit(3...8)
+                .padding(11)
+                .background {
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .fill(Redroom.color(0x0D0505))
+                }
+                .overlay {
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .strokeBorder(Redroom.textDisabled.opacity(0.5), lineWidth: 1)
+                }
+                .onChange(of: notes) { _, value in
+                    guard let recordID else { return }
+                    JournalStore.shared.setNotes(value, for: recordID)
+                }
+                .accessibilityLabel("Notes on the negatives")
+
+            if let photo {
+                Image(uiImage: photo)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
+                    .frame(maxHeight: 220)
+                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    .accessibilityLabel("Photograph of the negatives")
+
+                HStack(spacing: 8) {
+                    Button {
+                        showingPhotoPicker = true
+                    } label: {
+                        Text("Change photo")
+                    }
+                    .buttonStyle(RedroomSecondaryButtonStyle())
+                    .frame(minHeight: 44)
+
+                    Button("Remove", role: .destructive) {
+                        self.photo = nil
+                        photoItem = nil
+                        if let recordID {
+                            JournalStore.shared.setPhoto(nil, for: recordID)
+                        }
+                    }
+                    .buttonStyle(RedroomSecondaryButtonStyle())
+                    .frame(minHeight: 44)
+                }
+            } else {
+                Button {
+                    showingPhotoPicker = true
+                } label: {
+                    Text("Add a photo of the negatives")
+                }
+                .buttonStyle(RedroomSecondaryButtonStyle())
+                .frame(minHeight: 48)
+            }
+        }
+    }
+
+    // MARK: Actions
+
+    private func loadRecord() {
+        guard let recordID, let record = JournalStore.shared.record(recordID) else { return }
+        notes = record.negativeNotes
+        if let data = JournalStore.shared.photoData(for: record) {
+            photo = UIImage(data: data)
+        }
+    }
+
+    private func load(_ item: PhotosPickerItem) async {
+        defer { photoItem = nil }
+        guard let data = try? await item.loadTransferable(type: Data.self),
+              let image = UIImage(data: data),
+              let jpeg = image.jpegData(compressionQuality: 0.8) else { return }
+        if let recordID {
+            JournalStore.shared.setPhoto(jpeg, for: recordID)
+        }
+        photo = image
+    }
+
+    private func discard() {
+        if let recordID {
+            JournalStore.shared.discard(recordID)
+        }
+        onDone()
     }
 }
 

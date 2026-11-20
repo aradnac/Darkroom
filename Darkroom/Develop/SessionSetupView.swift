@@ -39,20 +39,38 @@ struct SessionSetupView: View {
     }
 
     /// The setup can be opened with a film already chosen — the film detail
-    /// screen hands one over — and falls back to the library's first entry.
-    init(film: Film? = nil, developer: Developer? = nil, dilution: Dilution? = nil) {
+    /// screen hands one over, and a journal entry hands back every number it can
+    /// — and falls back to the library's first entry.
+    init(
+        film: Film? = nil,
+        developer: Developer? = nil,
+        dilution: Dilution? = nil,
+        temperature: Double? = nil,
+        pushStops: Int? = nil,
+        reuseCount: Int? = nil
+    ) {
         let films = StarterLibrary.films
         let developers = StarterLibrary.developers
         let resolvedFilm = film ?? films[0]
         let resolvedDeveloper = developer ?? developers[0]
         let resolvedDilution = dilution ?? resolvedDeveloper.dilutions[0]
-        _setup = State(
-            initialValue: DevelopmentSetup(
-                film: resolvedFilm,
-                developer: resolvedDeveloper,
-                dilution: resolvedDilution
-            )
+
+        var drafted = DevelopmentSetup(
+            film: resolvedFilm,
+            developer: resolvedDeveloper,
+            dilution: resolvedDilution
         )
+        if let temperature {
+            drafted.setTemperature(temperature)
+        }
+        if let pushStops {
+            drafted.setPushStops(pushStops)
+        }
+        if let reuseCount {
+            drafted.setReuseCount(reuseCount)
+        }
+
+        _setup = State(initialValue: drafted)
     }
 
     private struct RollEditor: Identifiable {

@@ -49,7 +49,7 @@ struct RunningSessionView: View {
             ClearingSheet(engine: engine)
         }
         .sheet(isPresented: finishedBinding) {
-            SessionSummaryView(plan: engine.plan, onDone: onClose)
+            SessionSummaryView(plan: engine.plan, recordID: engine.journalRecordID, onDone: onClose)
         }
         .confirmationDialog("End this session?", isPresented: $confirmingEnd, titleVisibility: .visible) {
             Button("End session", role: .destructive) {

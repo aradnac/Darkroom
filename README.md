@@ -35,6 +35,16 @@ counts compound rather than add, with the arithmetic shown. Roll count, mixed
 emulsions, agitation intensity and a per-stage target temperature are all asked
 before the chemistry is poured.
 
+**Journal.** Every finished session is logged automatically with its film,
+developer, dilution, temperature, time, reuse count, agitation and wash, and can
+be given notes about the negatives and an optional photograph of them. Entries
+are searchable and filterable by film and developer, and any of them opens a new
+session setup carrying the same film, developer, dilution, temperature, exposure
+index and developer use. The statistics sum rolls by film, by developer and by
+month, the average deviation between the time used and the published time at
+that temperature, and per-chemical totals with each bottle's own ledger beside
+them.
+
 **Chemistry.** Dilution and volume calculators, stock-solution mixing, a batch
 inventory with capacity and expiry, and a reuse ledger that answers how many
 rolls a batch has developed and what penalty the next use carries.
