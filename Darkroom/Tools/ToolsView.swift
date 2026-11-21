@@ -8,7 +8,15 @@
 import SwiftUI
 
 struct ToolsView: View {
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
+    @ObservedObject private var preferences = Preferences.shared
+
+    /// The four lights of the chosen palette. Every tool card takes one, so the
+    /// cards follow the palette rather than a fixed set of hues.
+    private var lamp: [Color] {
+        let chosen = preferences.accent
+        return [chosen.base, chosen.bloom, chosen.soft, chosen.deep]
+    }
 
     var body: some View {
         NavigationStack {
@@ -21,50 +29,64 @@ struct ToolsView: View {
                             title: "Film troubleshooter",
                             subtitle: "What do your negatives show?",
                             systemImage: "exclamationmark.triangle",
-                            accent: Theme.amber,
+                            accent: lamp[0],
                             destination: FilmTroubleshooterView()
+                        )
+                        ToolLaunchCard(
+                            title: "Expired film EI",
+                            subtitle: "Rate an out-of-date roll by its storage",
+                            systemImage: "calendar.badge.clock",
+                            accent: lamp[1],
+                            destination: ExpiryCalculatorView()
                         )
                         ToolLaunchCard(
                             title: "Times & temperature",
                             subtitle: "Move a development time to another temperature",
                             systemImage: "hourglass",
-                            accent: Color(red: 0.96, green: 0.78, blue: 0.43),
+                            accent: lamp[2],
                             destination: TimeTemperatureCalculatorView()
                         )
                         ToolLaunchCard(
                             title: "Temperature",
                             subtitle: "Convert °C and °F",
                             systemImage: "thermometer.medium",
-                            accent: Theme.amber,
+                            accent: lamp[3],
                             destination: TemperatureConverterView()
                         )
                         ToolLaunchCard(
                             title: "Stopwatch",
                             subtitle: "Elapsed time with lap splits",
                             systemImage: "stopwatch",
-                            accent: Color(red: 0.72, green: 0.77, blue: 0.95),
+                            accent: lamp[0],
                             destination: StopwatchToolView()
                         )
                         ToolLaunchCard(
                             title: "Interval timer",
                             subtitle: "Set work, rest, and rounds",
                             systemImage: "repeat",
-                            accent: Color(red: 0.70, green: 0.83, blue: 0.75),
+                            accent: lamp[1],
                             destination: IntervalTimerView()
                         )
                         ToolLaunchCard(
                             title: "Wash & final rinse",
                             subtitle: "Fill-and-dump guide and timers",
                             systemImage: "drop",
-                            accent: Color(red: 0.53, green: 0.76, blue: 0.91),
+                            accent: lamp[2],
                             destination: WashRinseTimerView()
                         )
                         ToolLaunchCard(
                             title: "Tank visualizer",
                             subtitle: "See how far a pour reaches",
                             systemImage: "cylinder.fill",
-                            accent: Color(red: 0.98, green: 0.66, blue: 0.18),
+                            accent: lamp[3],
                             destination: TankVisualizerView()
+                        )
+                        ToolLaunchCard(
+                            title: "Development simulator",
+                            subtitle: "See a choice before the chemistry is mixed",
+                            systemImage: "slider.horizontal.3",
+                            accent: lamp[0],
+                            destination: DevelopmentSimulatorView()
                         )
                     }
 
@@ -76,33 +98,33 @@ struct ToolsView: View {
                             title: "Film leader retrieval",
                             subtitle: "A documented 35 mm retriever method",
                             systemImage: "film",
-                            accent: Color(red: 0.90, green: 0.69, blue: 0.48),
+                            accent: lamp[0],
                             destination: FilmLeaderGuideView()
                         )
                         ToolLaunchCard(
                             title: "Tank capacities",
                             subtitle: "Film load and reference volumes",
                             systemImage: "cylinder.split.1x2",
-                            accent: Color(red: 0.63, green: 0.79, blue: 0.75),
+                            accent: lamp[1],
                             destination: TankCapacityReferenceView()
                         )
                         ToolLaunchCard(
                             title: "Chemical safety",
                             subtitle: "Handling, ventilation, and disposal",
                             systemImage: "hand.raised",
-                            accent: Color(red: 0.94, green: 0.59, blue: 0.45),
+                            accent: lamp[2],
                             destination: ChemicalSafetyView()
                         )
                     }
 
                     Button {
-                        themeStore.isShowingSettings = true
+                        appearance.isShowingSettings = true
                     } label: {
                         ToolCardBody(
                             title: "Settings",
-                            subtitle: "Appearance, motion and themes",
+                            subtitle: "Appearance, motion and design languages",
                             systemImage: "slider.horizontal.3",
-                            accent: Theme.amber
+                            accent: lamp[3]
                         )
                     }
                     .buttonStyle(HapticButtonStyle())
@@ -113,7 +135,7 @@ struct ToolsView: View {
             .background {
                 LiquidBackdrop()
             }
-            .appNavigationChrome(index: "05", title: "Tools")
+            .appNavigationChrome(title: "Tools")
         }
     }
 
@@ -121,11 +143,7 @@ struct ToolsView: View {
         VStack(alignment: .leading, spacing: 9) {
             OverlineText(text: "At the sink", color: Theme.amber)
             Text("Small tools.\nSteady hands.")
-                .font(
-                    themeStore.isTheme13Active
-                        ? Theme13Type.headline(30)
-                        : .system(size: 30, weight: .semibold, design: .rounded)
-                )
+                .font(.system(size: 30, weight: .semibold, design: .rounded))
                 .foregroundStyle(Theme.ink)
                 .fixedSize(horizontal: false, vertical: true)
             Text("Quick conversions, dependable timing, and references for the work in front of you.")
@@ -159,10 +177,10 @@ private struct ToolCardBody: View {
     let subtitle: String
     let systemImage: String
     let accent: Color
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
 
     var body: some View {
-        if themeStore.isSoftGlassActive {
+        if appearance.isSoftGlassActive {
             softBody
         } else {
             glassBody
@@ -232,10 +250,10 @@ private struct ToolCardBody: View {
     private var glassBody: some View {
         HStack(spacing: 14) {
             ZStack {
-                RoundedRectangle(cornerRadius: themeStore.isTheme13Active ? 0 : 15, style: .continuous)
+                RoundedRectangle(cornerRadius: 15, style: .continuous)
                     .fill(accent.opacity(0.13))
                     .frame(width: 48, height: 48)
-                RoundedRectangle(cornerRadius: themeStore.isTheme13Active ? 0 : 15, style: .continuous)
+                RoundedRectangle(cornerRadius: 15, style: .continuous)
                     .strokeBorder(accent.opacity(0.22), lineWidth: 1)
                     .frame(width: 48, height: 48)
                 Image(systemName: systemImage)

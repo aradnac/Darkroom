@@ -1,0 +1,208 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "kodak-eastman-5247",
+      "manufacturer": "Kodak",
+      "name": "Eastman 5247",
+      "iso": 100,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "eastman-5247",
+      "generationLabel": "Eastman Color Negative II 5247",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain of the 1980s Eastman colour negative generation, on a rem-jet backing.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Eastman Color Negative II 5247 was Kodak's tungsten-balanced 100-speed cinema stock of the early 1980s, the film behind a great many features and television productions of the period. Short ends and recans were respooled for still cameras in the 2000s, and 'the 5247 look' — soft, warm, low-contrast, with a gentle grain — became a shorthand for a certain 1980s cinema image. It carries the rem-jet backing of every cinema negative and needs an ECN-2 pre-bath.",
+      "characteristics": [
+        { "label": "Look", "value": "Soft and warm, with low contrast and a gentle highlight roll-off. The opposite of a modern stock.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Balance", "value": "Tungsten 3200 K; daylight needs an 85 filter.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Backing", "value": "Rem-jet; ECN-2 pre-bath required.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Now decades old. Expect fog and colour shift; rate slower and develop cleanly.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-eastman-5293",
+      "manufacturer": "Kodak",
+      "name": "Eastman 5293",
+      "iso": 400,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "eastman-5293",
+      "generationLabel": "Eastman Color High Speed Negative 5293",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Dye-cloud grain, coarser than 5247's but still modest for a 400-speed film of its era.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Eastman Color High Speed Negative 5293 was Kodak's 400-speed tungsten cinema stock of the 1980s, the film that made available-light cinema practical before the Vision series. It was grainy and soft, with an amber shadow cast that reads as period. Short ends are still respooled and sold to still photographers, usually expired.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm, grainy and low-contrast, with heavy amber shadows.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Balance", "value": "Tungsten 3200 K.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vision-5279",
+      "manufacturer": "Kodak",
+      "name": "Vision 500T 5279",
+      "iso": 500,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "vision-5279",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud, tabular", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "The first Vision tabular emulsion, noticeably coarser than Vision3 but far finer than the Eastman stocks it replaced.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vision 500T 5279 arrived in 1996 as Kodak's first Vision stock, a tungsten-balanced 500-speed negative with tabular grain that reset what a fast cinema film could look like. It shot a large share of late-1990s cinema and was replaced by Vision2 500T. Expired short ends give a warm, slightly grainy, very filmic negative.",
+      "characteristics": [
+        { "label": "Balance", "value": "Tungsten 3200 K.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Compared with Vision3", "value": "Coarser, warmer and softer, with less shadow detail.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vision-5274",
+      "manufacturer": "Kodak",
+      "name": "Vision 200T 5274",
+      "iso": 200,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "vision-5274",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "dye cloud, tabular", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "First-generation Vision tabular grain, fine and even.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vision 200T 5274 was the mid-speed tungsten stock of Kodak's 1996 Vision range, used for interiors where 500T was too fast. It was replaced by Vision2 200T and then by Vision3. Expired short ends are rarer than the 500T but share its warm, soft look.",
+      "characteristics": [
+        { "label": "Balance", "value": "Tungsten 3200 K.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-eastman-5366",
+      "manufacturer": "Kodak",
+      "name": "Eastman 5366",
+      "iso": 1000,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "eastman-5366",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extreme", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Enormous clumped grain, typical of a high-speed instrumentation emulsion rather than a pictorial one.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Eastman 5366 is one of Kodak's high-speed black-and-white instrumentation stocks, a film intended to record fast events and low light rather than to make pictures. It has been respooled and sold to still photographers for its extreme grain and hard contrast. Documentation for it is thin — Kodak's own data is technical rather than photographic — so treat any figures here as a starting point, not a datasheet. Surviving stock is long expired.",
+      "characteristics": [
+        { "label": "Documentation", "value": "Sparse. This is an instrumentation film, not a pictorial one, and its published data is technical.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Extreme grain and high contrast; the negative looks like a photocopy of a photograph.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Backing", "value": "Cinema-style rem-jet on some runs; check before developing and pre-bath if present.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-f-64d",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor F-64D",
+      "iso": 64,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "f-64d",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, the finest of Fujifilm's pre-Eterna cinema range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fujicolor Negative F-64D was Fujifilm's daylight-balanced 64-speed cinema stock, part of the F-series that preceded Eterna. It was slow, fine-grained and cool, and it was used for exterior work on Japanese productions. It has been out of production for decades and survives only as expired short ends.",
+      "characteristics": [
+        { "label": "Balance", "value": "Daylight 5500 K.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Cool, clean and very fine-grained, with Fuji's green-leaning palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-f-250t",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor F-250T",
+      "iso": 250,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "f-250t",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on the pre-Eterna Fuji cinema emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fujicolor F-250T was the tungsten-balanced mid-speed stock of Fujifilm's F-series cinema negative, used for interiors before Eterna replaced the line. It shares the F-series look: cool, green-leaning and gentle. Expired stock is rare outside Japan.",
+      "characteristics": [
+        { "label": "Balance", "value": "Tungsten 3200 K.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-f-500t",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor F-500T",
+      "iso": 500,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "f-500t",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Dye-cloud grain, coarser than the 250T but still restrained.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fujicolor F-500T was the fast tungsten stock of Fujifilm's pre-Eterna cinema line, the Fuji answer to Kodak's 5293 and then Vision. It has a softer, greener cast than Kodak's stocks, and expired short ends produce a gentle, low-contrast negative.",
+      "characteristics": [
+        { "label": "Look", "value": "Soft, green-leaning and low-contrast.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-xt-320",
+      "manufacturer": "Agfa",
+      "name": "XT 320",
+      "iso": 320,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "agfa-xt-320",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a rem-jet backing, with the warm European colour of the Agfa cinema stocks.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfa XT 320 was the tungsten-balanced 320-speed cinema negative from Agfa-Gevaert's motion-picture range, used on European productions in the 1980s and 1990s. It was withdrawn when Agfa collapsed in 2005. Its palette is warmer and less green than Fuji's, and expired short ends are now a niche respool.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm, soft and European — less green than Fuji, less neutral than Kodak.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Backing", "value": "Rem-jet; ECN-2 pre-bath required.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-xt-100",
+      "manufacturer": "Agfa",
+      "name": "XT 100",
+      "iso": 100,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "agfa-xt-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, the slowest of the Agfa cinema range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfa XT 100 was the daylight-balanced slow stock of Agfa's cinema negative range, used for exteriors and studio work. It was discontinued with the rest of the line in 2005. Its fine grain and warm palette make expired rolls interesting for scanning, though consistency is a lottery.",
+      "characteristics": [
+        { "label": "Balance", "value": "Daylight 5500 K.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "kodak-eastman-5247", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-eastman-5293", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-vision-5279", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-vision-5274", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-f-64d", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-f-250t", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-f-500t", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-xt-320", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-xt-100", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-eastman-5366", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "Instrumentation stock; this is a starting point, not a published pictorial time." } }
+  ]
+}

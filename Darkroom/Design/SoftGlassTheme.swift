@@ -230,10 +230,11 @@ enum SoftGlassTheme {
         return LinearGradient(colors: [lit, deep], startPoint: .topLeading, endPoint: .bottomTrailing)
     }
 
-    /// The ramp a library row wears, picked from the reference's card colours
-    /// by the record's key, so a given film always wears the same tile.
+    /// The ramp a library row wears, picked from the chosen palette by the
+    /// record's key, so a given film always wears the same tile.
     static func rowGradient(for key: String) -> LinearGradient {
-        let ramps = [pinkGradient, mintGradient, blueGradient, orangeGradient, magentaGradient, violetGradient]
+        let lamp = Preferences.shared.accent
+        let ramps = [ramp(for: lamp.base), ramp(for: lamp.bloom), ramp(for: lamp.soft), ramp(for: lamp.deep)]
         var hash: UInt64 = 5381
         for scalar in key.unicodeScalars {
             hash = (hash &* 33) &+ UInt64(scalar.value)

@@ -16,32 +16,24 @@ struct RunningSessionView: View {
 
     @Environment(\.scenePhase) private var scenePhase
     @State private var confirmingEnd = false
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
 
     /// One highlight that travels from stage card to stage card instead of one
     /// card switching on and the other off.
     @Namespace private var stageSelection
 
-    /// The running screen is presented in a full-screen cover, which does not
-    /// inherit the root's colour scheme: without this the frosted cards render
-    /// light while the ink stays white, and whole sections disappear.
-    private var preferredScheme: ColorScheme {
-        guard themeStore.isTheme13Active else { return .dark }
-        return themeStore.isDarkAppearance ? .dark : .light
-    }
-
     var body: some View {
         ZStack {
             LiquidBackdrop(tint: Theme.amber, intensity: engine.phase == .running ? 1 : 0.6)
 
-            if themeStore.isSoftGlassActive {
+            if appearance.isSoftGlassActive {
                 softBody
             } else {
                 darkroomBody
             }
         }
         .contentShape(Rectangle())
-        .preferredColorScheme(preferredScheme)
+        .preferredColorScheme(.dark)
         .onTapGesture {
             engine.goTapped()
         }

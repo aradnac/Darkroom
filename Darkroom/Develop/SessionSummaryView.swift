@@ -18,8 +18,6 @@ struct SessionSummaryView: View {
     var recordID: UUID?
     let onDone: () -> Void
 
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
-
     @State private var notes = ""
     @State private var photo: UIImage?
     @State private var photoItem: PhotosPickerItem?
@@ -55,14 +53,8 @@ struct SessionSummaryView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 22) {
-                    if themeStore.isTheme13Active {
-                        paperSummary
-                    } else {
-                        glassSummary
-                    }
-
+                    glassSummary
                     journalSection
-
                     actions
                 }
                 .padding(20)
@@ -80,17 +72,6 @@ struct SessionSummaryView: View {
             Task { await load(item) }
         }
         .photosPicker(isPresented: $showingPhotoPicker, selection: $photoItem, matching: .images)
-    }
-
-    // MARK: Print theme
-
-    private var paperSummary: some View {
-        Theme13ReceiptPlate(
-            index: "03",
-            title: "Developed",
-            subtitle: "\(plan.film.fullName) · \(plan.developer.name) \(plan.dilution.label)",
-            rows: details
-        )
     }
 
     // MARK: Darkroom
@@ -208,47 +189,29 @@ struct SessionSummaryView: View {
 
     // MARK: Actions
 
-    @ViewBuilder
     private var actions: some View {
-        if themeStore.isTheme13Active {
-            VStack(spacing: 12) {
-                Button {
-                    onDone()
-                } label: {
-                    Text("Done")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(AmberCapsuleStyle(height: 52))
-
-                Button("Discard session", role: .destructive) {
-                    discard()
-                }
-                .buttonStyle(GlassCapsuleStyle(height: 48))
+        VStack(spacing: 12) {
+            Button {
+                onDone()
+            } label: {
+                Label("Done", systemImage: "checkmark")
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundStyle(Theme.amberInk)
+                    .frame(maxWidth: .infinity)
             }
-        } else {
-            VStack(spacing: 12) {
-                Button {
-                    onDone()
-                } label: {
-                    Label("Done", systemImage: "checkmark")
-                        .font(.system(size: 17, weight: .semibold))
-                        .foregroundStyle(Theme.amberInk)
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.glassProminent)
-                .tint(Theme.amber)
-                .controlSize(.large)
+            .buttonStyle(.glassProminent)
+            .tint(Theme.amber)
+            .controlSize(.large)
 
-                Button("Discard session", role: .destructive) {
-                    discard()
-                }
-                .buttonStyle(.glass)
-                .controlSize(.large)
+            Button("Discard session", role: .destructive) {
+                discard()
             }
+            .buttonStyle(.glass)
+            .controlSize(.large)
         }
     }
 
-    // MARK: Actions
+    // MARK: Record
 
     private func loadRecord() {
         guard let recordID, let record = JournalStore.shared.record(recordID) else { return }

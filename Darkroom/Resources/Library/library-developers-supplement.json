@@ -1,0 +1,96 @@
+{
+  "schema": 2,
+  "developers": [
+    {
+      "key": "pyrocat-hd",
+      "manufacturer": "Photographers' Formulary",
+      "name": "Pyrocat-HD",
+      "type": "two-part liquid",
+      "dilutions": [
+        { "id": "1+1+100", "label": "1+1+100", "stockParts": null, "waterParts": null, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "id": "2+2+100", "label": "2+2+100", "stockParts": null, "waterParts": null, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "id": "5+5+100", "label": "5+5+100", "stockParts": null, "waterParts": null, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "capacity": { "value": "One-shot at every dilution; a litre of working solution per roll", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Never reused. A staining, compensating pyro developer mixed from two concentrates: it gives a long scale, fine grain and a stain that helps alt-process printing. It is mixed by ratio of A + B + water, so the parts fields are left blank deliberately.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "pmk-pyro",
+      "manufacturer": "Photographers' Formulary",
+      "name": "PMK Pyro",
+      "type": "two-part liquid",
+      "dilutions": [
+        { "id": "1+2+100", "label": "1+2+100", "stockParts": null, "waterParts": null, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "capacity": { "value": "One-shot; 1 litre per roll", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Never reused. PMK is the classic pyrogallol staining developer: it tans the emulsion, gives edge sharpness and a stain that is useful for platinum and other alt processes. It is toxic and stains everything it touches, including skin and trays.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "diafine",
+      "manufacturer": "Acufine",
+      "name": "Diafine",
+      "type": "two-bath powder",
+      "dilutions": [
+        { "id": "stock", "label": "Bath A + B, stock", "stockParts": null, "waterParts": null, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "capacity": { "value": "1 US gallon of each bath: dozens of rolls, replenished by topping up and replacing when exhausted", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Two baths, reused and topped up. Development is by absorption in Bath A and activation in Bath B, so it is largely time- and temperature-tolerant; the published routine is a fixed time in each bath rather than a single developing time. It is the classic push developer for Tri-X.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "acufine",
+      "manufacturer": "Acufine",
+      "name": "Acufine",
+      "type": "powder",
+      "dilutions": [
+        { "id": "stock", "label": "Stock", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "capacity": { "value": "1 US quart stock: about 8–10 rolls with replenishment", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Reusable with an Acufine replenisher. A high-acutance speed-increasing developer from the 1950s, still used for pushing and for its crisp, slightly grainy look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "tetenal-ultrafin",
+      "manufacturer": "Tetenal",
+      "name": "Ultrafin",
+      "type": "liquid",
+      "dilutions": [
+        { "id": "1+10", "label": "1+10", "stockParts": 1, "waterParts": 10, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "capacity": { "value": "One-shot at 1+10; 1 litre of working solution per roll", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Never reused. A fine-grain liquid developer with good keeping qualities, popular in Europe as an alternative to ID-11.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "foma-fomadon-excel",
+      "manufacturer": "Foma",
+      "name": "Fomadon Excel",
+      "type": "powder",
+      "dilutions": [
+        { "id": "stock", "label": "Stock", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+        { "id": "1+1", "label": "1+1", "stockParts": 1, "waterParts": 1, "provenance": { "kind": "datasheet", "source": "foma-datasheets" } }
+      ],
+      "capacity": { "value": "1 litre stock: about 8 rolls; 1+1 uses 250 ml per roll", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "reuse": { "value": "Diluted solutions are one-shot. Foma's ascorbate fine-grain developer, a low-toxicity alternative to D-76 with similar fine-grain behaviour.", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } }
+    },
+    {
+      "key": "bellini-euro-hc",
+      "manufacturer": "Bellini",
+      "name": "Euro HC",
+      "type": "liquid",
+      "dilutions": [
+        { "id": "b", "label": "B (1+31)", "stockParts": 1, "waterParts": 31, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "capacity": { "value": "One-shot at dilution B", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Never reused. An HC-110 equivalent made in Italy, with the same dilution letters and a similar curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "caffenol-c",
+      "manufacturer": "Home-mixed",
+      "name": "Caffenol-C",
+      "type": "powder, home-mixed",
+      "dilutions": [
+        { "id": "stock", "label": "Stock (one litre)", "stockParts": null, "waterParts": null, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "capacity": { "value": "One litre per roll; one-shot", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "Never reused. A developer made from instant coffee, washing soda and vitamin C, documented by the community rather than a manufacturer. Development times vary with the coffee used, so it is a developer to test rather than trust; its results are real, its times are not standardised.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    }
+  ]
+}

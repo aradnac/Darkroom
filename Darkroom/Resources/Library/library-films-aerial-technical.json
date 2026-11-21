@@ -1,0 +1,379 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "agfa-aviphot-pan-80",
+      "manufacturer": "Agfa",
+      "name": "Aviphot Pan 80",
+      "iso": 80,
+      "process": "blackAndWhite",
+      "formats": ["cinema", "size135"],
+      "status": "specialty",
+      "generation": "aviphot-pan-80",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Aerial-survey emulsion: very thin coating, extremely fine grain, extended red sensitivity.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Agfa-Gevaert Aviphot Pan 80 aerial film",
+        "remjetRemoved": false,
+        "note": "Aerial survey stock, cut down into 35 mm cassettes by several respoolers (Rollei Retro 80S, Silberra Pan 100) and sold in bulk rolls.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Aviphot is Agfa-Gevaert's aerial survey film family, coated for mapping cameras rather than for photographers. Pan 80 is the slow, extremely fine-grained member, with extended red sensitivity that makes vegetation and water separate strongly. It has no anti-halation layer in the usual sense, so highlights bloom, and its contrast is high enough that a compensating developer helps. It is sold as bulk stock and respooled under several names.",
+      "characteristics": [
+        { "label": "Resolution", "value": "Extremely high; it out-resolves most lenses.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Red sensitivity", "value": "Extended, so it behaves like a slow infrared film with a deep red filter.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Contrast", "value": "High and thin; expose generously and develop gently.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-aviphot-pan-200",
+      "manufacturer": "Agfa",
+      "name": "Aviphot Pan 200",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["cinema", "size135"],
+      "status": "specialty",
+      "generation": "aviphot-pan-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine aerial-survey grain on a thin emulsion with extended red sensitivity.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Agfa-Gevaert Aviphot Pan 200 aerial film",
+        "note": "Bulk aerial stock, respooled under several brands and sold as 35 mm.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Aviphot Pan 200 is the middle speed of Agfa's aerial B&W range, a stop faster than Pan 80 with a similar fine grain and the same extended red response. It is a mapping film: designed for even exposure across a huge frame, not for pictorial tonality. Respooled, it is one of the most distinctive slow films available.",
+      "characteristics": [
+        { "label": "Look", "value": "Fine grain, hard contrast, dark skies and pale foliage.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-aviphot-pan-400",
+      "manufacturer": "Agfa",
+      "name": "Aviphot Pan 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["cinema", "size135"],
+      "status": "specialty",
+      "generation": "aviphot-pan-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine grain for a 400-speed film, with near-infrared sensitivity extending to about 750 nm.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Agfa-Gevaert Aviphot Pan 400 aerial film",
+        "note": "The base stock believed to sit behind JCH StreetPan 400, Rollei Infrared 400, Rollei Retro 400S and Silberra U400.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Aviphot Pan 400 is the fast aerial stock from Agfa-Gevaert's mapping range, and it is the emulsion behind most of the 'infrared-like' respools sold today. It is fine-grained for its speed, very contrasty and strongly red-sensitive, reaching into the near infrared. With an R72 filter it produces the classic black-sky, white-foliage look; without one it is a hard, clean 400.",
+      "characteristics": [
+        { "label": "Infrared", "value": "Sensitive to about 750 nm; an R72 filter at EI 6–25 gives the infrared look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Contrast", "value": "High; a compensating developer is the usual answer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Respooled as", "value": "JCH StreetPan 400, Rollei Infrared 400, Retro 400S, Silberra U400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-aviphot-color-x-100",
+      "manufacturer": "Agfa",
+      "name": "Aviphot Color X 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["cinema", "size135"],
+      "status": "specialty",
+      "generation": "aviphot-color-x-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine aerial colour-negative grain on a clear base, made for scanning.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Agfa-Gevaert Aviphot Color X 100 aerial film",
+        "note": "Aerial colour negative, respooled for still cameras and sold by Maco as Rollei Digibase CR 200.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Aviphot Color X 100 is Agfa's aerial colour negative, designed for mapping and photogrammetry. It has a very fine grain, a clear base and a colour balance tuned for terrain rather than skin, which is what makes the respooled versions so interesting — and so odd for portraits. It is processed in C-41.",
+      "characteristics": [
+        { "label": "Colour", "value": "Aerial balance: strong cyan and green, odd skin tones, superb landscape separation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "C-41.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Respooled as", "value": "Rollei Digibase CR 200.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-aerocolor-2460",
+      "manufacturer": "Kodak",
+      "name": "Aerocolor IV 2460",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["cinema", "size135"],
+      "status": "specialty",
+      "generation": "aerocolor-2460",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain on a clear synthetic base, made for scanning aerial negatives.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Aerocolor IV 2460 aerial film",
+        "remjetRemoved": false,
+        "note": "Kodak's aerial colour negative, respooled into 35 mm by several small companies and sold as a fine-grained colour film.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Aerocolor IV 2460 is Kodak's aerial colour negative for mapping aircraft: very fine-grained, with a clear base and a colour balance aimed at terrain and haze. It is processed in C-41, and respooled rolls have become popular for landscape work because the grain is so fine and the palette so unlike a consumer film. It has no rem-jet, which makes home development simple.",
+      "characteristics": [
+        { "label": "Grain", "value": "Among the finest of any colour negative available as a respool.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "C-41; no rem-jet to remove.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Colour", "value": "Aerial balance: cool, clean and slightly green, with strong separation in foliage.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-copex-rapid",
+      "manufacturer": "Agfa",
+      "name": "Copex Rapid",
+      "iso": 25,
+      "process": "blackAndWhite",
+      "formats": ["size135", "cinema"],
+      "status": "specialty",
+      "generation": "copex-rapid",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "unit": "monodisperse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "A microfilm emulsion: extremely fine, very thin, with almost no visible grain even at 35 mm.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Agfa Copex Rapid microfilm",
+        "note": "A document microfilm respooled for cameras by Spur and others; it needs a dedicated low-contrast developer to be usable photographically.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Copex Rapid is one of Agfa's document microfilms — a material for archiving documents at extreme reduction ratios, not for cameras. Respooled into 35 mm it becomes a photographic film with almost no grain and an unusable contrast unless it is developed in a low-contrast specialist developer. It is the sort of stock that exists because a few people wanted the highest possible resolution from a small negative.",
+      "characteristics": [
+        { "label": "Resolution", "value": "Extraordinary; it holds detail no pictorial film can.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Developer", "value": "A dedicated low-contrast microfilm developer is required; ordinary developers block up the highlights.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Handling", "value": "Very slow and very thin; load carefully and dry slowly.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-copex-hdp",
+      "manufacturer": "Agfa",
+      "name": "Copex HDP",
+      "iso": 12,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "specialty",
+      "generation": "copex-hdp",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "unit": "monodisperse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "High-definition microfilm emulsion, even finer than Copex Rapid.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Copex HDP is Agfa's high-definition microfilm, an even slower and finer material than Copex Rapid. It is used for archival document imaging and, respooled, for photographic experiments where resolution is the only goal. It is practically unusable without a specialist developer.",
+      "characteristics": [
+        { "label": "Use", "value": "Archival imaging, copy work and resolution tests.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-imagelink-hq",
+      "manufacturer": "Kodak",
+      "name": "Imagelink HQ",
+      "iso": 6,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "imagelink-hq",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "unit": "monodisperse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Microfilm emulsion with monodisperse crystals, coated for document scanning.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodak Imagelink HQ was a high-quality microfilm for document archiving, with extreme resolution and a contrast built for black-and-white text. Respooled, it is a curiosity: an almost grainless, extremely slow film that needs a low-contrast developer and enormous patience. It was discontinued as digital archiving replaced microfilm.",
+      "characteristics": [
+        { "label": "Use", "value": "Document imaging and resolution experiments.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodalith",
+      "manufacturer": "Kodak",
+      "name": "Kodalith",
+      "iso": 6,
+      "process": "blackAndWhite",
+      "formats": ["sheet4x5", "cinema"],
+      "status": "discontinued",
+      "generation": "kodalith",
+      "latitude": { "value": "−0.5 / +0.5", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Graphic-arts emulsion: very high contrast, orthochromatic, with almost no midtones.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "extreme", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodalith was Kodak's graphic-arts film for making lithographic masks and contact prints: a pure black-and-white material with essentially no midtones. Photographers respooled and sheet-cut it for high-contrast graphic work and for photograms. It has been discontinued for years and is now a specialist item.",
+      "characteristics": [
+        { "label": "Contrast", "value": "Extreme: it produces black or clear, almost nothing between.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Safelight", "value": "Orthochromatic, so a red safelight is safe.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-high-contrast-copy-5069",
+      "manufacturer": "Kodak",
+      "name": "High Contrast Copy Film 5069",
+      "iso": 6,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "5069",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine copy-film emulsion, engineered to reproduce line work and continuous tone at high contrast.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "High Contrast Copy Film 5069 was Kodak's technical copy stock, used for reproducing documents and line art. It is extremely slow and very contrasty, and in the 1970s and 1980s photographers bought it in bulk and developed it in special low-contrast developers for pictorial use — the same trick that made Technical Pan famous later.",
+      "characteristics": [
+        { "label": "Use", "value": "Copy work, or pictorial use with a low-contrast developer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-2238",
+      "manufacturer": "Kodak",
+      "name": "Kodak 2238",
+      "iso": 25,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "2238",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine, high-resolution grain with extended red sensitivity, designed to record an optical soundtrack.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodak 2238 is a sound recording film: the stock that carries the optical soundtrack alongside the picture on a release print. It is very slow, extremely fine-grained and contrasty, with extended red sensitivity. Film Washi and others have respooled it as a photographic film, where it behaves like a technical high-contrast material and needs careful development to hold any midtones.",
+      "characteristics": [
+        { "label": "Use", "value": "Optical sound recording, or technical photography at extreme contrast.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Almost grainless, very hard, with little midtone separation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "tasma-type-17l",
+      "manufacturer": "Tasma",
+      "name": "Type-17L",
+      "iso": 125,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "type-17l",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Soviet-era cubic grain on a thick emulsion, with uneven coating typical of the Kazan plant.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Tasma was the Soviet Union's second film plant, in Kazan, making aerial and technical films alongside the better-known Svema works. Type-17L was one of its black-and-white stocks, respooled and sold to photographers after the Soviet collapse. Documentation is thin and the surviving stock is expired, so treat it as an unknown — which is exactly why people shoot it.",
+      "characteristics": [
+        { "label": "Documentation", "value": "Thin. Tasma's data is scarce and the surviving stock is expired.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Coarse, contrasty and uneven — a genuinely unfamiliar image.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "astrum-foto-100",
+      "manufacturer": "Astrum",
+      "name": "Foto 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "astrum-foto-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Svema-style cubic grain coated on a thick base, with the unevenness of small-batch production.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Svema master roll (widely reported)",
+        "note": "Astrum, a Ukrainian company, respools old Svema stock into 35 mm cassettes. The stock is expired Soviet material, not new coating.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Astrum is a Ukrainian firm that respools remaining Svema master rolls into 35 mm cassettes. Foto 100 is therefore expired Soviet film in a new canister: thick, curly, contrasty and prone to fog, with a look that no modern emulsion reproduces. It is sold cheaply and with no promises, which is the honest way to sell it.",
+      "characteristics": [
+        { "label": "Nature", "value": "Expired Soviet stock, respooled. Expect fog and variation between rolls.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Handling", "value": "Curls badly; dry weighted and handle by the edges.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "astrum-foto-400",
+      "manufacturer": "Astrum",
+      "name": "Foto 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "astrum-foto-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse clumped Soviet grain, heavier than the 100.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Svema master roll (widely reported)",
+        "note": "Respooled expired Svema stock, sold without a guarantee of speed or condition.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Astrum Foto 400 is the faster of the respooled Svema stocks: grainier, harder and even less predictable than the 100. It is bought for texture rather than reliability, and the fog of forty years gives it a base density no fresh film has.",
+      "characteristics": [
+        { "label": "Nature", "value": "Expired stock; rate slowly and develop with a restrainer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kono-monotar-100",
+      "manufacturer": "Kono",
+      "name": "Monotar 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "monotar-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine conventional grain; the coating is not disclosed by the repackager.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Coating not disclosed",
+        "note": "A boutique European repackaging sold under the Kono name. The maker does not name the coating, and the community has not settled on one.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Kono Monotar 100 is one of the small boutique black-and-white films sold in hand-labelled cassettes by a repackager rather than a manufacturer. Its coating is not disclosed, and it is bought for the packaging, the small-batch character and the fun of not quite knowing what is in the camera. It behaves like a competent mid-speed European B&W film.",
+      "characteristics": [
+        { "label": "Origin", "value": "Undisclosed; sold in small batches.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "film-washi-s",
+      "manufacturer": "Film Washi",
+      "name": "Washi S",
+      "iso": 50,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "washi-s",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "A sound-recording film emulsion: extremely fine grain and very high contrast.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Sound recording film (Kodak 2238 family)",
+        "note": "Hand-rolled by Film Washi from optical sound-recording stock, which is why it is called S.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Film Washi S is hand-rolled from optical sound-recording film — the stock that carries the soundtrack on a cinema print. That makes it very slow, almost grainless and extremely contrasty, with extended red sensitivity. It is a technical material sold as a curiosity, and it needs a gentle developer to keep any midtones at all.",
+      "characteristics": [
+        { "label": "Contrast", "value": "Very high; a compensating developer is essential.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Grain", "value": "Effectively invisible at 35 mm.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "agfa-aviphot-pan-80", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-aviphot-pan-200", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-aviphot-pan-400", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 660, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-aviphot-color-x-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-aerocolor-2460", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "astrum-foto-100", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "Expired stock; add a restrainer." } },
+    { "film": "astrum-foto-400", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "Expired stock; add a restrainer." } },
+    { "film": "film-washi-s", "developer": "adox-rodinal", "dilution": "1+100", "celsius": 20, "seconds": 720, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ]
+}

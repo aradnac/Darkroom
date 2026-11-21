@@ -1,0 +1,155 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "kentmere-pan-100",
+      "manufacturer": "Kentmere",
+      "name": "Pan 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "kentmere-pan-100",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, similar in structure to Ilford's films but with a slightly softer, more old-fashioned curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Coated at Harman's Mobberley plant",
+        "note": "Kentmere is Harman Technology's budget brand, made in the same factory as Ilford film but to its own specification. It is not simply repackaged FP4 or HP5.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Kentmere was a Cumbrian photographic paper maker that Harman Technology bought in 2008, and the brand was relaunched for a budget black-and-white film range coated at Mobberley. Kentmere Pan 100 is the slow version: a traditional cubic emulsion with a soft curve and a very reasonable price. It is aimed at students and at anyone who wants to shoot a lot of black and white without worrying about the cost per frame.",
+      "characteristics": [
+        { "label": "Price", "value": "One of the cheapest first-party B&W films in Europe.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Softer and slightly flatter than FP4 Plus, with more forgiving highlights.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Use", "value": "Learning, testing and volume shooting.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kentmere-pan-400",
+      "manufacturer": "Kentmere",
+      "name": "Pan 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "kentmere-pan-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, visibly coarser than HP5's at the same speed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Coated at Harman's Mobberley plant",
+        "note": "Harman's budget brand, coated alongside the Ilford films but to its own recipe.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Kentmere Pan 400 is the fast member of Harman's budget range, and it is the cheapest way to shoot a British 400-speed film. It is grainier and a little softer than HP5 Plus, and it pushes less gracefully. For street work and experimentation it is excellent value; for anything precious, most people reach for HP5.",
+      "characteristics": [
+        { "label": "Push", "value": "To EI 800 with a visible contrast and grain penalty; not a dedicated push film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Price", "value": "The cheapest 400-speed film from a major European plant.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ilford-ortho-plus",
+      "manufacturer": "Ilford",
+      "name": "Ortho Plus",
+      "iso": 80,
+      "process": "blackAndWhite",
+      "formats": ["sheet4x5", "sheet8x10"],
+      "status": "specialty",
+      "generation": "ortho-plus",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "conventional cubic", "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } },
+      "grainStructure": { "value": "Fine cubic grain in an orthochromatic emulsion: sensitive to blue and green, blind to red.", "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ilford Ortho Plus is a sheet-film orthochromatic material, ISO 80, intended for copy work, scientific photography and darkroom use where red-blindness is the point. It can be handled under a red safelight, renders lips and red objects black, and gives the tonality of early twentieth-century portraiture. Ilford still coats it in 4×5 and 8×10.",
+      "characteristics": [
+        { "label": "Safelight", "value": "Orthochromatic, so a dim red safelight is safe during handling.", "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } },
+        { "label": "Rendering", "value": "Red goes black, blue goes white. The classic period look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Use", "value": "Copy work, alt processes and portraits with a 19th-century feel.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ilford-pan-f",
+      "manufacturer": "Ilford",
+      "name": "Pan F",
+      "iso": 50,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "pan-f",
+      "generationLabel": "Pan F, to 1990",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine conventional grain, the original 1950s ultra-fine emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Pan F was Ilford's slow film from the late 1950s until Pan F Plus replaced it in 1990. It was the standard fine-grain film of the 1960s and 1970s, and its tonality is slightly different from the Plus — softer in the midtones and with a longer toe. Expired rolls still turn up and develop surprisingly well.",
+      "characteristics": [
+        { "label": "Difference from Plus", "value": "Softer midtones and a longer toe; the Plus is contrastier and finer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ilford-hp5",
+      "manufacturer": "Ilford",
+      "name": "HP5",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "hp5",
+      "generationLabel": "HP5, 1976–1989",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate-coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "The original 1976 cubic emulsion, coarser and less controlled than the Plus that replaced it.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "HP5 was Ilford's first high-speed film, introduced in 1976 and replaced by HP5 Plus in 1989. It was the film of British photojournalism in the late 1970s, grainier and a little less sharp than its successor, with a soft shoulder that held highlights. Any surviving stock is now decades expired.",
+      "characteristics": [
+        { "label": "Expired stock", "value": "Add about a stop per two decades and develop with a restrainer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ilford-fp4",
+      "manufacturer": "Ilford",
+      "name": "FP4",
+      "iso": 125,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "fp4",
+      "generationLabel": "FP4, 1968–1990",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, the classic 1968 fine-grain structure.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "FP4 was 'Fine grain Panchromatic' from 1968, and it was the standard British medium-speed film for two decades. FP4 Plus replaced it in 1990 with a sharper, cleaner emulsion. Expired FP4 is common in old cameras and is usually still usable, if a little fogged.",
+      "characteristics": [
+        { "label": "Look", "value": "Soft and slightly flat compared with FP4 Plus, with a long toe.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ilford-xp1",
+      "manufacturer": "Ilford",
+      "name": "XP1",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "xp1",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Chromogenic dye-cloud grain, the first generation of Ilford's C-41 monochrome films.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "XP1 was Ilford's first chromogenic black-and-white film, introduced in the early 1980s and developed in C-41. It was a revelation at the time: a black-and-white film that any minilab could process. XP2 replaced it in the 1990s. Its grain is softer and its contrast lower than XP2 Super's.",
+      "characteristics": [
+        { "label": "Development", "value": "C-41 only.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "kentmere-pan-100", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kentmere-pan-400", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 660, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ]
+}

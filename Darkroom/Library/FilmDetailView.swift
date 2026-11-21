@@ -52,7 +52,10 @@ struct FilmDetailView: View {
                 topBar(film)
                 header(film)
                 chips(film)
+                originCard(film)
+                historyCard(film)
                 factTiles(film)
+                characteristicsSection(film)
 
                 Rectangle()
                     .fill(Theme.hairline)
@@ -151,12 +154,161 @@ struct FilmDetailView: View {
         .frame(maxWidth: .infinity)
     }
 
+    // MARK: Origin and background
+
+    /// A respool or a rebrand is only interesting when it says what it actually
+    /// is, so the stock it came from comes before anything else on the page.
+    @ViewBuilder
+    private func originCard(_ film: LibraryFilm) -> some View {
+        if let origin = film.origin {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 6) {
+                    Text(origin.kind.label.uppercased())
+                        .font(.system(size: 10, weight: .semibold))
+                        .tracking(1.1)
+                        .foregroundStyle(Theme.amberInk)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background { Capsule().fill(Theme.amber) }
+
+                    if let remjet = origin.remjetRemoved {
+                        Text(remjet ? "REM-JET REMOVED" : "REM-JET INTACT")
+                            .font(.system(size: 9, weight: .semibold))
+                            .tracking(0.9)
+                            .foregroundStyle(Theme.inkSoft)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background { Capsule().fill(Theme.surfaceRaised) }
+                    }
+
+                    Spacer(minLength: 4)
+                }
+
+                if let stock = origin.stock {
+                    Text(stock)
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundStyle(Theme.ink)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                Text(origin.kind.detail)
+                    .font(.system(size: 12))
+                    .foregroundStyle(Theme.inkFaint)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                if let note = origin.note, !note.isEmpty {
+                    Text(note)
+                        .font(.system(size: 13))
+                        .foregroundStyle(Theme.inkSoft)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .glassCard(radius: 20)
+            .accessibilityElement(children: .combine)
+        }
+    }
+
+    @ViewBuilder
+    private func historyCard(_ film: LibraryFilm) -> some View {
+        if let history = film.history, !history.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                OverlineText(text: "Background", color: Theme.amber)
+
+                Text(history)
+                    .font(.system(size: 14))
+                    .foregroundStyle(Theme.ink.opacity(0.9))
+                    .fixedSize(horizontal: false, vertical: true)
+                    .lineSpacing(3)
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .glassCard(radius: 20)
+        }
+    }
+
+    // MARK: Facts
+
     private func factTiles(_ film: LibraryFilm) -> some View {
-        HStack(spacing: 8) {
-            LibraryFactTile(symbol: "circle.lefthalf.filled", label: "Latitude", fact: film.latitude)
-            LibraryFactTile(symbol: "circle.grid.3x3.fill", label: "Grain", fact: film.grain)
-            LibraryFactTile(symbol: "circle.dotted", label: "Contrast", fact: film.contrast)
-            LibraryFactTile(symbol: "minus", label: "Reciprocity", fact: film.reciprocity)
+        VStack(spacing: 8) {
+            HStack(spacing: 8) {
+                LibraryFactTile(symbol: "circle.lefthalf.filled", label: "Latitude", fact: film.latitude)
+                LibraryFactTile(symbol: "circle.grid.3x3.fill", label: "Grain", fact: film.grain)
+                LibraryFactTile(symbol: "circle.dotted", label: "Contrast", fact: film.contrast)
+                LibraryFactTile(symbol: "minus", label: "Reciprocity", fact: film.reciprocity)
+            }
+
+            if let structure = film.grainStructure {
+                HStack(alignment: .top, spacing: 10) {
+                    Image(systemName: "square.grid.3x3")
+                        .font(.system(size: 16, weight: .light))
+                        .foregroundStyle(Theme.inkSoft)
+                        .padding(.top, 1)
+
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("GRAIN STRUCTURE")
+                            .font(.system(size: 9, weight: .semibold))
+                            .tracking(1.1)
+                            .foregroundStyle(Theme.inkFaint)
+
+                        Text(structure.value)
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundStyle(Theme.ink)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+
+                    Spacer(minLength: 6)
+
+                    LibraryBadge(kind: structure.provenance.kind)
+                }
+                .padding(14)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .glassCard(radius: 18)
+                .accessibilityElement(children: .combine)
+            }
+        }
+    }
+
+    // MARK: Characteristics
+
+    @ViewBuilder
+    private func characteristicsSection(_ film: LibraryFilm) -> some View {
+        let items = film.characteristics ?? []
+        if !items.isEmpty {
+            VStack(alignment: .leading, spacing: 10) {
+                LibrarySectionTitle(text: "Characteristics")
+
+                VStack(spacing: 0) {
+                    ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
+                        HStack(alignment: .top, spacing: 10) {
+                            Text(item.label)
+                                .font(.system(size: 13))
+                                .foregroundStyle(Theme.inkFaint)
+                                .frame(width: 96, alignment: .leading)
+
+                            Text(item.value)
+                                .font(.system(size: 14))
+                                .foregroundStyle(Theme.ink.opacity(0.92))
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            Spacer(minLength: 4)
+
+                            LibraryBadge(kind: item.provenance.kind)
+                        }
+                        .padding(.vertical, 12)
+                        .accessibilityElement(children: .combine)
+
+                        if index < items.count - 1 {
+                            Rectangle()
+                                .fill(Theme.hairline)
+                                .frame(height: 1)
+                        }
+                    }
+                }
+                .padding(.horizontal, 16)
+                .glassCard(radius: 22)
+            }
         }
     }
 

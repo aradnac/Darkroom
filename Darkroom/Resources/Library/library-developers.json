@@ -1,0 +1,201 @@
+{
+  "schema": 2,
+  "developers": [
+    {
+      "key": "ilford-dd-x",
+      "manufacturer": "Ilford",
+      "name": "DD-X",
+      "type": "liquid",
+      "dilutions": [
+        { "id": "1+4", "label": "1+4", "stockParts": 1, "waterParts": 4, "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } }
+      ],
+      "capacity": { "value": "1 litre of working solution per 135 roll at 1+4", "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } },
+      "reuse": { "value": "One-shot at 1+4. DD-X is Ilford's speed-increasing developer and gives roughly +1 stop over ID-11.", "provenance": { "kind": "datasheet", "source": "ilford-film-datasheets" } }
+    },
+    {
+      "key": "kodak-tmax-developer",
+      "manufacturer": "Kodak",
+      "name": "T-Max Developer",
+      "type": "liquid",
+      "dilutions": [
+        { "id": "stock", "label": "Stock", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+        { "id": "1+4", "label": "1+4", "stockParts": 1, "waterParts": 4, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } }
+      ],
+      "capacity": { "value": "1 litre of working solution at 1+4 develops about 4 rolls one-shot", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "reuse": { "value": "One-shot at 1+4. Stock can be reused with time compensation, but Kodak's published tables are for one-shot use.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } }
+    },
+    {
+      "key": "foma-fomadon-r09",
+      "manufacturer": "Foma",
+      "name": "Fomadon R09",
+      "type": "liquid",
+      "dilutions": [
+        { "id": "1+20", "label": "1+20", "stockParts": 1, "waterParts": 20, "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+        { "id": "1+40", "label": "1+40", "stockParts": 1, "waterParts": 40, "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+        { "id": "1+80", "label": "1+80", "stockParts": 1, "waterParts": 80, "provenance": { "kind": "datasheet", "source": "foma-datasheets" } }
+      ],
+      "capacity": { "value": "One-shot at every dilution; a 500 ml bottle makes dozens of rolls", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "reuse": { "value": "Never reused. Fomadon R09 is Foma's Rodinal-equivalent: a para-aminophenol developer that keeps for years and gives sharp, grainy, compensating negatives.", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } }
+    },
+    {
+      "key": "adox-adonal",
+      "manufacturer": "Adox",
+      "name": "Adonal",
+      "type": "liquid",
+      "dilutions": [
+        { "id": "1+25", "label": "1+25", "stockParts": 1, "waterParts": 25, "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+        { "id": "1+50", "label": "1+50", "stockParts": 1, "waterParts": 50, "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+        { "id": "1+100", "label": "1+100", "stockParts": 1, "waterParts": 100, "provenance": { "kind": "datasheet", "source": "adox-datasheets" } }
+      ],
+      "capacity": { "value": "One-shot at every dilution; 500 ml makes around 50 rolls at 1+25", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+      "reuse": { "value": "Never reused. Adonal is Adox's Rodinal equivalent, with the same long shelf life and compensating behaviour.", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } }
+    },
+    {
+      "key": "adotech-iv",
+      "manufacturer": "Adox",
+      "name": "Adotech IV",
+      "type": "liquid",
+      "dilutions": [
+        { "id": "stock", "label": "Working solution", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "adox-datasheets" } }
+      ],
+      "capacity": { "value": "Per Adox's instructions; one bottle makes 500 ml of working solution", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+      "reuse": { "value": "One-shot. A special low-contrast developer made for CMS 20 II; it is the only developer that gives the microfilm emulsion a printable contrast.", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } }
+    },
+    {
+      "key": "cinestill-cs41",
+      "manufacturer": "CineStill",
+      "name": "CS41 kit",
+      "type": "kit",
+      "dilutions": [
+        { "id": "stock", "label": "Working solution", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "massive-dev-chart" } }
+      ],
+      "capacity": { "value": "1 litre of working solution: about 8 rolls, or more with the supplied replenishment routine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "A two-bath C-41 kit at 38 °C, sold as a powder or liquid set. Developer is one-shot; bleach and fix can be reused.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    },
+    {
+      "key": "cinestill-df96",
+      "manufacturer": "CineStill",
+      "name": "DF96 monobath",
+      "type": "kit",
+      "dilutions": [
+        { "id": "stock", "label": "Working solution", "stockParts": 1, "waterParts": 0, "provenance": { "kind": "datasheet", "source": "massive-dev-chart" } }
+      ],
+      "capacity": { "value": "1 litre: about 8 rolls, with a published capacity table", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reuse": { "value": "A monobath: developer, stop and fix in one solution, used once per session and then discarded. Convenient, but it fixes contrast and grain to one look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+    }
+  ],
+  "crossProcess": [
+    {
+      "film": "fujifilm-velvia-100",
+      "fromProcess": "colourReversal",
+      "toProcess": "colourNegative",
+      "classification": "documentedAndTested",
+      "summary": "Velvia 100 through C-41: the same cross-process family as Velvia 50, with a slightly higher contrast and a stronger magenta cast.",
+      "colourShifts": "Cyan-green shadows, magenta midtones and yellow highlights. Skin goes distinctly red.",
+      "contrastChange": "Very high, with both ends steepened and a usable latitude of about a stop.",
+      "grainChange": "Fine and slightly tighter than the film in E-6.",
+      "exposureNotes": "Rate at EI 50–80 and meter for the highlights.",
+      "expectedResult": "A dense, saturated negative with a strong colour cast, best scanned.",
+      "limitations": "The look cannot be neutralised without losing the contrast that justifies the process. Times vary between kits.",
+      "examples": ["A common cross-processing stock since Velvia 100 replaced Velvia 50 in many kits."],
+      "references": ["Massive Dev Chart — https://www.digitaltruth.com/devchart.php"],
+      "provenance": { "kind": "community", "source": "massive-dev-chart" }
+    },
+    {
+      "film": "fujifilm-provia-100f",
+      "fromProcess": "colourReversal",
+      "toProcess": "colourNegative",
+      "classification": "communityTested",
+      "summary": "Provia 100F in C-41 gives a cooler, softer cross-process than Velvia: less saturation, gentler contrast, and a blue-cyan cast.",
+      "colourShifts": "Blue-cyan shadows and green-yellow midtones, with a gentler cast than Velvia.",
+      "contrastChange": "High, but less extreme than Velvia in the same process.",
+      "grainChange": "Fine and essentially unchanged.",
+      "exposureNotes": "Rate at EI 64–100 and expose for the shadows, which go empty quickly.",
+      "expectedResult": "A cool, contrasty negative that scans with a strong cyan cast.",
+      "limitations": "The cast is less dramatic than Velvia's, which for many photographers defeats the purpose.",
+      "examples": ["Used by photographers who want a cross-process look without Velvia's saturation."],
+      "references": ["Massive Dev Chart — https://www.digitaltruth.com/devchart.php"],
+      "provenance": { "kind": "community", "source": "massive-dev-chart" }
+    },
+    {
+      "film": "kodak-portra-160",
+      "fromProcess": "colourNegative",
+      "toProcess": "colourReversal",
+      "classification": "communityTested",
+      "summary": "Portra 160 in E-6: a pale, low-contrast transparency with a green-cyan cast and soft colour.",
+      "colourShifts": "Green-cyan overall, with pale shadows and slightly yellow highlights.",
+      "contrastChange": "Lower than the film's normal C-41 contrast.",
+      "grainChange": "Fine; barely changed by the process.",
+      "exposureNotes": "Overexpose by one stop against box speed; the transparency is very thin at box speed.",
+      "expectedResult": "A pale, soft transparency with a green cast.",
+      "limitations": "The orange mask is not removed, so the colour balance cannot be corrected in the chemistry.",
+      "examples": ["A common 'slide from negative stock' experiment."],
+      "references": ["Massive Dev Chart — https://www.digitaltruth.com/devchart.php"],
+      "provenance": { "kind": "community", "source": "massive-dev-chart" }
+    },
+    {
+      "film": "kodak-portra-800",
+      "fromProcess": "colourNegative",
+      "toProcess": "colourReversal",
+      "classification": "experimental",
+      "summary": "Portra 800 in E-6 is thin and grainy, with the contrast compressed and the shadows empty. It is a test rather than a process.",
+      "colourShifts": "Strong green-cyan cast with muddy highlights.",
+      "contrastChange": "Compressed and flat.",
+      "grainChange": "Coarser and more visible than in C-41.",
+      "exposureNotes": "Overexpose by one to two stops and expect little shadow detail.",
+      "expectedResult": "A pale, grainy transparency with a heavy cast.",
+      "limitations": "No reliable published times; results vary widely between E-6 kits.",
+      "examples": [],
+      "references": ["Massive Dev Chart — https://www.digitaltruth.com/devchart.php"],
+      "provenance": { "kind": "community", "source": "massive-dev-chart" }
+    },
+    {
+      "film": "cinestill-800t",
+      "fromProcess": "colourNegative",
+      "toProcess": "cinemaNegative",
+      "classification": "notRecommended",
+      "summary": "CineStill has already had its rem-jet removed. Running it through an ECN-2 pre-bath gains nothing and the alkaline bath can damage the emulsion.",
+      "colourShifts": "None to gain: the stock is a cinema emulsion already.",
+      "contrastChange": "Unpredictable, and generally thinner than a C-41 development.",
+      "grainChange": "Unchanged in principle, but the pre-bath can reticulate the emulsion.",
+      "exposureNotes": "No usable exposure index for this route.",
+      "expectedResult": "At best an ordinary negative with a damaged emulsion; at worst a ruined roll.",
+      "limitations": "The rem-jet is gone, so the reason for ECN-2 has gone with it. Develop CineStill in C-41.",
+      "examples": [],
+      "references": ["Kodak ECN-2 process specification — https://www.kodak.com/en/motion"],
+      "provenance": { "kind": "datasheet", "source": "kodak-ecn2" }
+    },
+    {
+      "film": "kodak-vision3-500t",
+      "fromProcess": "cinemaNegative",
+      "toProcess": "colourNegative",
+      "classification": "communityTested",
+      "summary": "Vision3 500T in C-41 after a proper rem-jet pre-bath: this is exactly what CineStill 800T is, and it works.",
+      "colourShifts": "A slight blue-cyan cast from the ECN-2 to C-41 gamma difference, correctable in the scan.",
+      "contrastChange": "A little higher than ECN-2, because C-41 is a still-film process.",
+      "grainChange": "Fine, and slightly more visible than in ECN-2.",
+      "exposureNotes": "Rate at EI 500–800 depending on the look wanted.",
+      "expectedResult": "A clean, low-contrast colour negative with strong latitude.",
+      "limitations": "Only after the rem-jet pre-bath. Without it the backing survives, mottles and contaminates the chemistry.",
+      "examples": ["CineStill 800T and several other respools are exactly this process."],
+      "references": ["Massive Dev Chart — https://www.digitaltruth.com/devchart.php"],
+      "provenance": { "kind": "community", "source": "massive-dev-chart" }
+    },
+    {
+      "film": "foma-fomapan-100",
+      "fromProcess": "blackAndWhite",
+      "toProcess": "colourNegative",
+      "classification": "communityTested",
+      "summary": "Fomapan 100 through C-41: dense, contrasty and heavily stained, like other B&W cross-processes but with a distinctly Foma warmth.",
+      "colourShifts": "Warm brown base and yellow highlights, with muddy shadows.",
+      "contrastChange": "Much higher than a normal B&W development.",
+      "grainChange": "Coarser and more clumped.",
+      "exposureNotes": "Rate at EI 50–80; C-41 develops the film far beyond its normal contrast.",
+      "expectedResult": "A thick, stained negative that scans better than it prints.",
+      "limitations": "The stain is uneven and the negative is harder to print than to scan.",
+      "examples": ["A cheap way into cross-processing for anyone with a C-41 kit and a roll of Foma."],
+      "references": ["Massive Dev Chart — https://www.digitaltruth.com/devchart.php"],
+      "provenance": { "kind": "community", "source": "massive-dev-chart" }
+    }
+  ]
+}

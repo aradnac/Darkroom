@@ -75,7 +75,7 @@ struct JournalView: View {
             .background {
                 LiquidBackdrop()
             }
-            .appNavigationChrome(index: "04", title: "Journal")
+            .appNavigationChrome(title: "Journal")
             .sheet(item: $selected) { record in
                 NavigationStack {
                     JournalRecordDetail(record: record)

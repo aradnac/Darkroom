@@ -1,0 +1,611 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "kodak-kodacolor-ii",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor II",
+      "iso": 80,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "kodacolor-ii-1972",
+      "generationLabel": "Kodacolor II, 1972–1980s",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Large, soft dye-cloud grain of the first C-41 consumer generation — visibly coarser than anything sold a decade later.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodacolor II was Kodak's first consumer colour negative designed for C-41, the process introduced in 1972 to replace the hotter, more awkward C-22. At ISO 80 it was slow, warm and grainy, and it is the film that made one-hour colour processing possible in principle. Every Gold generation in this library descends from it. Surviving stock is fifty years old and essentially a chemistry experiment.",
+      "characteristics": [
+        { "label": "Process", "value": "C-41, the process it was introduced with. C-22 film must never go through C-41, and vice versa.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Palette", "value": "Warm and slightly muddy, with heavy reds and soft greens.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Expect severe fog, colour crossover and lost speed. It is a curiosity rather than a usable film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "notes": "The beginning of the Kodak consumer colour lineage. Anything this old needs a test frame before it is trusted with a photograph."
+    },
+    {
+      "key": "kodak-kodacolor-400",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodacolor-400-1977",
+      "generationLabel": "Kodacolor 400, 1977–1980s",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very coarse dye-cloud grain: a 1970s 400-speed colour film had nothing like the grain control of a modern one.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodacolor 400 arrived in 1977 as Kodak's fast consumer colour negative, the film that made available-light family photography practical without flash. It was warm, forgiving and extremely grainy by modern standards. It is the ancestor of every Gold 400 and of the high-speed consumer films that followed.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm, with strong reds and a soft, slightly yellow highlight.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Decades old; fog and crossover are certain, and the speed has fallen.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodacolor-vr-100",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor VR 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodacolor-vr-100",
+      "generationLabel": "Kodacolor VR 100, early 1980s",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "1980s conventional dye-cloud grain, soft-edged and clearly visible in skies.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodacolor VR was the first half of the 1980s consumer range, sold alongside the VR 200 and 400. VR 100 was the fine-grain option of a coarse family — warm, simple and designed for prints from a high-street lab. It was superseded by VR-G in 1986 and then by Gold.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm and soft, with the slightly washed highlights of 1980s consumer printing.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodacolor-vr-g-100",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor VR-G 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodacolor-vr-g-100",
+      "generationLabel": "Kodacolor VR-G 100, 1986–1988",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Finer than the VR it replaced, the first visible step in the run that ended with Gold's fine grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodacolor VR-G arrived in 1986 with noticeably finer grain and better colour than VR. The 'G' was the improvement, and it was the stepping stone to the Gold name that replaced the whole range two years later. A roll of VR-G is the point where a 1980s consumer film starts to look like something a modern scanner can work with.",
+      "characteristics": [
+        { "label": "Look", "value": "Warmer and cleaner than VR, with softer grain and a little more shadow detail.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodacolor-vr-g-200",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor VR-G 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodacolor-vr-g-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate conventional dye-cloud grain, between the VR-G 100 and 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "VR-G 200 was the middle speed of Kodak's 1986 consumer range, and the roll most family cameras were loaded with. It was warm, forgiving and much finer than the VR 200 it replaced. When Gold launched in 1988, this was the film it was measured against.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm, with a soft highlight and strong reds.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodacolor-vr-g-400",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor VR-G 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodacolor-vr-g-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain for the speed, better than VR 400 and still clearly 1980s.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "VR-G 400 was the fast member of the 1986 range, sold for indoor and flash photography. It was a real step forward in grain for a consumer 400, and it kept the warm palette the Gold line inherited. Expired rolls are common and usually still printable, with a colour shift.",
+      "characteristics": [
+        { "label": "Latitude", "value": "Wide, as a consumer 400 of its era had to be.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodacolor-gold-100-1988",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor Gold 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "kodacolor-gold-100-1988",
+      "generationLabel": "Kodacolor Gold 100, 1988",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "A distinctly finer dye-cloud grain than VR-G: the first Gold was marketed on exactly that.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "The Gold name arrived in 1988, replacing VR-G, and Kodacolor Gold 100 was its slow member. It was sharper and finer than anything Kodak had sold to consumers before, and it set the warm, red-forward palette that every later Gold kept. This is the first generation of the film people mean when they say 'Gold'.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and saturated, the template for the whole Gold line.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Compared with later Gold", "value": "Slightly coarser and warmer than the 2000s film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodacolor-gold-200-1988",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor Gold 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "kodacolor-gold-200-1988",
+      "generationLabel": "Kodacolor Gold 200, 1988",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain of the first Gold generation, a clear improvement on VR-G 200.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodacolor Gold 200 was the heart of the 1988 range and probably the most exposed consumer film of the following decade. It was warm and forgiving, with enough latitude to survive a disposable camera, and it gave the high-street lab a print it could colour-balance without effort. Later Gold generations refined its grain but kept its palette.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm, saturated and slightly soft — the '1980s family photograph' in a single roll.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Latitude", "value": "Very wide; three stops over was still printable.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodacolor-gold-400-1988",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor Gold 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodacolor-gold-400-1988",
+      "generationLabel": "Kodacolor Gold 400, 1988",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate dye-cloud grain for a 1988 400, noticeably coarser than the current Gold 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Gold 400 completed the 1988 launch, giving the consumer line a fast film that matched the new palette. It was the film in point-and-shoots at weddings and on holiday, warm and forgiving, and it is the generation that made 'Gold' a synonym for consumer colour film rather than a product name.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and strong in reds, with softer greens.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-gold-plus-100",
+      "manufacturer": "Kodak",
+      "name": "Gold Plus 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "gold-plus-100",
+      "generationLabel": "Gold Plus 100, mid-1990s",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Finer than the 1988 Gold, with the first generation of the improved couplers that made the 1990s Golds cleaner.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Gold Plus was the mid-1990s revision of the Gold line, sold while Kodak was still the dominant consumer film maker. It refined the grain and the colour couplers of the 1988 film without changing the palette. It is the generation between the original Gold and the 2000s Gold that most expired stock comes from.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm and clean, with finer grain and less muddiness than the 1988 film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-gold-plus-200",
+      "manufacturer": "Kodak",
+      "name": "Gold Plus 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "gold-plus-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, the 1990s refinement of the 1988 Gold 200.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Gold Plus 200 was the everyday roll of the mid-1990s: warm, predictable and cheap. It is the film in a great many surviving family negatives, and its palette is what most people picture when they describe 'film colour'. Expired Gold Plus usually still scans well, with a little extra warmth and grain.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm, with strong reds and a gentle green.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Common and forgiving; rate a stop slower if it has been warm.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-gold-plus-400",
+      "manufacturer": "Kodak",
+      "name": "Gold Plus 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "gold-plus-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate dye-cloud grain, cleaner than the 1988 Gold 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Gold Plus 400 was the fast consumer film of the 1990s, sold for indoor and evening photography. It carried the warm Gold palette at a speed that worked without flash, and it is one of the most commonly found expired films in drawers and charity shops.",
+      "characteristics": [
+        { "label": "Latitude", "value": "Wide and forgiving, designed for cameras without meters.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-gold-max-400",
+      "manufacturer": "Kodak",
+      "name": "Gold Max 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "gold-max-400",
+      "generationLabel": "Gold Max 400, late 1990s",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate grain with the improved 1990s couplers, a little coarser than Gold Plus at the same speed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Gold Max was Kodak's late-1990s value line, sold with the promise that it could be shot anywhere. Gold Max 400 was the fast member, warm and extremely forgiving, with grain that showed in enlargements. It sat below the Gold Plus range and disappeared when Kodak consolidated its consumer films.",
+      "characteristics": [
+        { "label": "Latitude", "value": "Very wide; it assumed a camera with no controls at all.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-gold-max-800",
+      "manufacturer": "Kodak",
+      "name": "Gold Max 800",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "gold-max-800",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse consumer dye-cloud grain, the price of ISO 800 in the late 1990s.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Gold Max 800 was the fast member of Kodak's value range, sold for indoor and flash work. It was grainy and warm and it sold on speed rather than quality. It is one of the last fast consumer emulsions Kodak made before the range was cut back to Gold 200 and Ultramax.",
+      "characteristics": [
+        { "label": "Use", "value": "Indoor and flash snapshot work, where grain was acceptable.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-royal-supra-100",
+      "manufacturer": "Kodak",
+      "name": "Royal Supra 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "royal-supra-100",
+      "generationLabel": "Royal Supra 100, early 2000s (Europe)",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, the premium end of Kodak's European consumer range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Royal Supra was a European premium consumer line sold alongside Gold in the early 2000s, with finer grain and a more restrained palette than the Gold films. It never had the name recognition of Gold and it vanished when Kodak consolidated the consumer range. It is one of the better expired stocks for scanning, because its colour is less heavily warmed.",
+      "characteristics": [
+        { "label": "Palette", "value": "Restrained and slightly cool, closer to a professional film than to Gold.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Market", "value": "European consumer channels; never a global product.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-royal-supra-200",
+      "manufacturer": "Kodak",
+      "name": "Royal Supra 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "royal-supra-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with the restrained Royal Supra colour.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Royal Supra 200 was the middle speed of Kodak's European premium consumer range of the early 2000s. It was finer and cooler than Gold 200, aimed at people who wanted better prints without paying for Portra. Expired stock is less common than Gold and generally scans with a cleaner base.",
+      "characteristics": [
+        { "label": "Look", "value": "Clean and neutral, with gentle skin and cool shadows.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-royal-supra-400",
+      "manufacturer": "Kodak",
+      "name": "Royal Supra 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "royal-supra-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate dye-cloud grain, tighter than Gold 400 of the same era.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Royal Supra 400 was the fast member of the European premium line. It was a cleaner, cooler 400 than Gold, and it is remembered by photographers who wanted a consumer price without the Gold warmth. It disappeared with the rest of the range in the mid-2000s.",
+      "characteristics": [
+        { "label": "Palette", "value": "Cool and clean, with noticeably less red than Gold 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-royal-supra-800",
+      "manufacturer": "Kodak",
+      "name": "Royal Supra 800",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "royal-supra-800",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain with the cooler Royal Supra palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Royal Supra 800 gave the European premium range a fast film for available light, with less warmth and more neutral shadows than Gold Max 800. It is rare now, and the surviving rolls are a curiosity for anyone who wants a high-speed consumer negative that does not look like Gold.",
+      "characteristics": [
+        { "label": "Use", "value": "Available light with a cooler palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-high-definition-200",
+      "manufacturer": "Kodak",
+      "name": "High Definition 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "hd-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, sold on sharpness in an era when 'high definition' was the phrase of the moment.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "High Definition 200 was Kodak's early-2000s consumer film marketed on sharpness rather than on colour. It was fine-grained for a 200 and slightly cooler than Gold, and it is the slower sibling of the High Definition 400 already in the library. It was discontinued as Kodak cut the consumer range back.",
+      "characteristics": [
+        { "label": "Look", "value": "Clean and slightly cool, with less warmth than Gold 200.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-bw400cn",
+      "manufacturer": "Kodak",
+      "name": "BW400CN",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "bw400cn",
+      "generationLabel": "BW400CN, early 2000s–2010s",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Chromogenic: dye clouds around silver, with the silver bleached away in C-41. Soft-edged grain that scans almost grainless.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "BW400CN was Kodak's professional chromogenic monochrome film of the 2000s, developed in C-41 like colour negative. It was the film a lab could process without a black-and-white line, and it scanned beautifully because the image is dye rather than silver. It was discontinued in the 2010s as Kodak left black-and-white chromogenic film behind.",
+      "characteristics": [
+        { "label": "Development", "value": "C-41 only; there are no useful B&W developer times.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Printing", "value": "The orange base makes optical printing awkward; it is designed for scanning.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Tone", "value": "Neutral and smooth, with a gentle curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-portra-400bw",
+      "manufacturer": "Kodak",
+      "name": "Portra 400BW",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "portra-400bw",
+      "generationLabel": "Portra 400BW, late 1990s",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Chromogenic dye-cloud grain, the professional precursor of BW400CN.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Portra 400BW was Kodak's professional chromogenic monochrome film of the late 1990s, sold under the Portra name and processed in C-41. It was BW400CN's predecessor, with the same soft dye-cloud structure and the same orange base. Portrait and wedding photographers who wanted monochrome from a colour lab used it.",
+      "characteristics": [
+        { "label": "Development", "value": "C-41 only.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Tone", "value": "Smooth, neutral and gentle; closer to a print film than a silver negative.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-t400cn",
+      "manufacturer": "Kodak",
+      "name": "T400CN",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "t400cn",
+      "generationLabel": "T400CN, 1990s",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Chromogenic dye-cloud grain with a T-grain host, the first generation of Kodak's C-41 monochrome films.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "T400CN was Kodak's first chromogenic black-and-white film, introduced in the 1990s. It let a colour lab produce monochrome prints from C-41, which was a revelation for newspapers and for anyone without a darkroom. It was replaced by Portra 400BW and then BW400CN, and it is now only found expired.",
+      "characteristics": [
+        { "label": "Development", "value": "C-41 only.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Generation", "value": "Older and grainier than BW400CN; not the same emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vericolor-ii-type-s",
+      "manufacturer": "Kodak",
+      "name": "Vericolor II Type S",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "vericolor-ii-vps",
+      "generationLabel": "Vericolor II Type S, 1970s",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain of the 1970s professional portrait emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vericolor II Type S was the 1970s professional portrait and wedding film, the generation before the Vericolor III already in the library. Type S meant short exposure — studio flash and daylight — and it was balanced to flatter skin under electronic flash. It was replaced by Vericolor III in the 1980s and by Portra in the 1990s.",
+      "characteristics": [
+        { "label": "Balance", "value": "Daylight and electronic flash (short exposure).", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Skin", "value": "Warm and creamy, with a soft shoulder. The 1970s studio look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vericolor-ii-type-l",
+      "manufacturer": "Kodak",
+      "name": "Vericolor II Type L",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "vericolor-ii-vpl",
+      "generationLabel": "Vericolor II Type L, 1970s",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, balanced for long exposures.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vericolor II Type L was the long-exposure partner to Type S, corrected for exposures of a second or more and for tungsten studio light. It was a large-format portrait and architectural film, and its colour balance drifts badly when it is shot at short exposures. It is now half a century expired.",
+      "characteristics": [
+        { "label": "Balance", "value": "Corrected for long exposures (Type L) and tungsten light.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodachrome-ii",
+      "manufacturer": "Kodak",
+      "name": "Kodachrome II",
+      "iso": 25,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodachrome-ii",
+      "generationLabel": "Kodachrome II, 1961",
+      "latitude": { "value": "−0.5 / +0.5", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Dye-coupler-in-developer colour, with the finest grain of any colour film of its era.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodachrome II arrived in 1961 as the faster, sharper replacement for the original Kodachrome of 1935, at ASA 25. It is the slide film of the 1960s — the one in the Nikon F, the one on the magazine cover — and its dye-coupler process gave it a palette and grain that no E-6 film has matched. It was replaced by Kodachrome 25 in 1974.",
+      "characteristics": [
+        { "label": "Process", "value": "K-12, then K-14 for later Kodachrome. Both are extinct.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Deep reds, restrained blues and fine grain. The 1960s in a slide mount.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodachrome-x",
+      "manufacturer": "Kodak",
+      "name": "Kodachrome-X",
+      "iso": 64,
+      "process": "colourReversal",
+      "formats": ["size135", "size126"],
+      "status": "discontinued",
+      "generation": "kodachrome-x",
+      "generationLabel": "Kodachrome-X, 1962",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Dye-coupler-in-developer colour: very fine grain, coarser than Kodachrome II but still exceptional.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodachrome-X was the faster companion to Kodachrome II, introduced in 1962 at ASA 64 and sold mainly in 126 Instamatic cartridges. It was the film of the family slide show and the holiday projector. Both films were replaced by the Kodachrome 25/64/200 generation in 1974.",
+      "characteristics": [
+        { "label": "Format", "value": "Famous in 126 cartridges for Instamatic cameras.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "K-12/K-14, no longer available.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-elite-chrome-100-eb",
+      "manufacturer": "Kodak",
+      "name": "Elite Chrome 100 (EB)",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "elite-chrome-100-eb",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, the 1990s consumer Ektachrome structure.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Elite Chrome 100 (EB) was the first generation of Kodak's 1990s consumer slide film, before the EBX revision already in the library. It was warm and contrasty, sold at a lower price than Ektachrome, and it was the slide film in a lot of European cameras. It is a favourite for cross-processing because its colour shifts are strong and predictable.",
+      "characteristics": [
+        { "label": "Cross-processing", "value": "A common E-6-in-C-41 stock, with cyan shadows and warm highlights.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-tri-x-400-1954",
+      "manufacturer": "Kodak",
+      "name": "Tri-X 400 (1954)",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "tri-x-400-1954",
+      "generationLabel": "Tri-X 400, 1954–1970s",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "The original double-coated cubic emulsion, coarser and softer than the later Tri-X generations.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Tri-X 400 arrived in 1954 as the 35 mm version of Kodak's sheet Tri-X, and it became the standard press film of the following two decades. It is the emulsion behind an enormous share of the twentieth century's photojournalism: grainier, softer and less corrected than the 2007 film, with a long shoulder that held highlights. It was revised several times before the 2007 TX generation.",
+      "characteristics": [
+        { "label": "Look", "value": "Softer and grainier than modern Tri-X, with an even longer shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Rare and very old; expect fog and lost speed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-plus-x-pan",
+      "manufacturer": "Kodak",
+      "name": "Plus-X Pan",
+      "iso": 125,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "plus-x-pan",
+      "generationLabel": "Plus-X Pan, 1950s–1980s",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine cubic grain with a long, gentle curve — the classic 1950s medium-speed photojournalism film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Plus-X Pan was introduced in the mid-1950s as Kodak's medium-speed black-and-white film, the companion to Tri-X. It was finer-grained and gentler, and it was the film press photographers used when there was enough light to choose quality over speed. The Plus-X 125 already in the library is its final generation; this is the earlier one.",
+      "characteristics": [
+        { "label": "Look", "value": "Smooth and long-scaled, with softer contrast than Tri-X.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Very old; use a restrainer and expect lost shadow detail.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-gold-200-120-2022",
+      "manufacturer": "Kodak",
+      "name": "Gold 200 (120 reissue)",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size120"],
+      "status": "current",
+      "generation": "gold-200-120-2022",
+      "generationLabel": "Gold 200, 120 reissue from 2022",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "The current Gold 200 emulsion, seen at 120 where its grain practically disappears.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "original",
+        "stock": "Kodak Gold 200",
+        "stockFilm": "kodak-gold-200",
+        "note": "The same emulsion as the current 135 Gold 200, cut and packed in 120 from 2022 — the first time Gold had been offered in medium format since the 1990s.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Kodak brought Gold back to 120 in 2022, more than a decade after the film had been a 35 mm-only product. It is the same current Gold 200 emulsion, and medium format flatters it: the warm palette is unchanged but the grain all but vanishes. It is now the cheapest way into colour negative in medium format, which is why it sells out.",
+      "characteristics": [
+        { "label": "Format", "value": "120 only; this record exists so the medium-format product is not confused with a different emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Warm Gold colour with medium-format smoothness.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "kodak-kodacolor-ii", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-kodacolor-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-kodacolor-vr-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-kodacolor-vr-g-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-kodacolor-gold-100-1988", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-kodacolor-gold-200-1988", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-gold-plus-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-gold-max-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-royal-supra-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-high-definition-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-bw400cn", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-portra-400bw", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-t400cn", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-vericolor-ii-type-s", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-vericolor-ii-type-l", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-kodachrome-ii", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "K-12/K-14 is extinct; an E-6 first developer is a salvage route only." } },
+    { "film": "kodak-kodachrome-x", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "K-12/K-14 is extinct; an E-6 first developer is a salvage route only." } },
+    { "film": "kodak-elite-chrome-100-eb", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-gold-200-120-2022", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ]
+}

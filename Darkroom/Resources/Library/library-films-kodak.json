@@ -1,0 +1,737 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "kodak-tri-x-400-original",
+      "manufacturer": "Kodak",
+      "name": "Tri-X 400 (400TX, pre-2007)",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "tri-x-400-400tx",
+      "generationLabel": "400TX, 1990s–2007",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate-coarse", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "The older double-coat cubic emulsion: bigger, more clumped grain than the 2007 film and a slightly shorter shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "This is the Tri-X that most of the famous photographs were made on: the 400TX emulsion sold from the 1990s until the 2007 revision. It is grainier and a little more contrasty than the current film, with a shorter straight line, and it pushes to 1600 with a look the newer emulsion cannot quite reproduce. Expired rolls are common and generally still usable; add about a stop of exposure per two decades past date.",
+      "characteristics": [
+        { "label": "Grain", "value": "Visibly coarser than current Tri-X, especially in the shadows.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Loses speed slowly. Rate at EI 200–320 if the film is more than ten years past date, and develop normally.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "notes": "A different emulsion from the current 400TX. Develop about 10% longer than the modern film, or use times published for 400TX before 2007."
+    },
+    {
+      "key": "kodak-tri-x-320",
+      "manufacturer": "Kodak",
+      "name": "Tri-X 320",
+      "iso": 320,
+      "process": "blackAndWhite",
+      "formats": ["sheet4x5", "sheet8x10", "size120"],
+      "status": "current",
+      "generation": "tri-x-320-txp",
+      "generationLabel": "Tri-X 320 (TXP)",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "grainStructure": { "value": "Cubic grain on a sheet-film base, with a longer toe than Tri-X 400 so that studio shadows hold separation.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "history": "Tri-X 320 is the professional sheet-film version of Tri-X, tuned for studio and portrait work: a slightly longer toe, a softer contrast build and a speed of 320 rather than 400. It has been the standard American studio film since the 1950s and is still made in 4×5 and 8×10, along with a 120 version. It is not the same film as Tri-X 400 and the times do not transfer.",
+      "characteristics": [
+        { "label": "Use", "value": "Studio portraiture and any work where shadow separation matters more than speed.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+        { "label": "Push", "value": "Less tolerant than Tri-X 400; +1 stop is the practical limit.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Formats", "value": "Sheet and 120 only; there is no 135 Tri-X 320.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } }
+      ]
+    },
+    {
+      "key": "kodak-t-max-400-original",
+      "manufacturer": "Kodak",
+      "name": "T-Max 400 (TMY, pre-2007)",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "tmax-400-tmy",
+      "generationLabel": "TMY, 1986–2007",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "tabular", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "First-generation T-grain tabular crystals; about a stop coarser than the 2007 TMY-2 film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "The original T-Max 400 was Kodak's first tabular 400 film, sold from 1986 to 2007. It was sharper than Tri-X but also fussier: it needed accurate exposure and careful development, and it gained contrast faster when pushed. The 2007 TMY-2 revision reduced grain and softened the contrast build, which is why times published before 2007 run long for the current film.",
+      "characteristics": [
+        { "label": "Difference from TMY-2", "value": "Coarser grain, steeper contrast, less shadow detail. Roughly ten per cent less development is needed for the current film versus this one.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-t-max-p3200",
+      "manufacturer": "Kodak",
+      "name": "T-Max P3200",
+      "iso": 3200,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "tmax-p3200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "grain": { "value": "coarse", "unit": "tabular", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "grainStructure": { "value": "Large tabular crystals, multi-coated. Unlike a pushed 400, the grain stays relatively even rather than clumping.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "history": "T-Max P3200 came out in 1986 as Kodak's answer to Ilford's ultra-fast films, and it was discontinued in 2012, then brought back in 2018 after Kodak Alaris found the demand still there. Like Delta 3200, its box speed is nominal: the true speed is around EI 800–1000, and 3200 is a development instruction. It is the last tabular ultra-fast film and has a smoother grain than Delta 3200 at the same speed.",
+      "characteristics": [
+        { "label": "True speed", "value": "About EI 800–1000. Box speed means 'develop for 3200'.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Push", "value": "Strong to 6400 with T-Max Developer; look for a hard, graphic negative rather than a clean one.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Availability", "value": "Discontinued 2012, reintroduced 2018.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } }
+      ]
+    },
+    {
+      "key": "kodak-high-speed-infrared",
+      "manufacturer": "Kodak",
+      "name": "High Speed Infrared (HIE)",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "hie",
+      "latitude": { "value": "−1 / +4", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very large conventional cubic grain, which is what gives infrared film its glow — the grain is part of the effect rather than an error.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodak High Speed Infrared was the infrared film of the twentieth century — a true infrared emulsion sensitive to about 900 nm, with no anti-halation layer so that light bounced freely off the base. It produced the white-glowing foliage and black skies that defined the look, and it had to be loaded and unloaded in total darkness because the cassette was not infrared-proof. Kodak discontinued it in 2007; no equivalent has been made since.",
+      "characteristics": [
+        { "label": "Handling", "value": "Load and unload in complete darkness. The felt light trap on a 135 cassette is not infrared-opaque.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Filter", "value": "The classic is a deep red (25) at +3 stops or an R72 at +4 to +5. Without a filter the image is strange rather than infrared.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Focus", "value": "A true IR film; focus needs correcting by about 1/200 of the focal length for an 89B filter.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Halation", "value": "Extreme. Highlights bloom heavily, which is the signature of the film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Discontinued", "value": "2007. Expired stock is often fogged and should be rated slower and developed with a restrainer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-infrared",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome Infrared (EIR)",
+      "iso": 200,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "eir",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, typical of a 200-speed Ektachrome; the colour shifts, not the grain, define the look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome Infrared was a false-colour infrared slide film: green foliage rendered red, skin went waxy, and strong colour casts were the point. It was a scientific and aerial-survey material that became a 1970s album-cover cliché. Kodak discontinued it in 2007, and it was processed in E-4 chemistry, which no longer exists — expired rolls can only be developed as a negative in E-6 or C-41 with unpredictable colour.",
+      "characteristics": [
+        { "label": "Process", "value": "E-4, not E-6. There is no commercial E-4 line left, so expired film is a gamble.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Filter", "value": "Usually shot with a yellow (12) filter to control the colour balance; without one the cast is overwhelming.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-technical-pan",
+      "manufacturer": "Kodak",
+      "name": "Technical Pan",
+      "iso": 25,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "technical-pan",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Monodisperse ultra-fine grain, engineered for microfilm sharpness rather than pictorial use.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Technical Pan was a high-resolution copy and scientific film — ISO 25, extremely fine grain, and so contrasty that it needed special low-contrast developers to be usable for photography. Kodak discontinued it in 2004. Its reputation survives because nothing since has resolved as much detail on 35 mm, and expired stock is still traded at collector prices.",
+      "characteristics": [
+        { "label": "Developer", "value": "Technidol LC was Kodak's own low-contrast developer for pictorial use. Rodinal at high dilution also works.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Use", "value": "Copy work, microscopy and any application where resolution matters more than tonality.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-recording-film-2475",
+      "manufacturer": "Kodak",
+      "name": "Recording Film 2475",
+      "iso": 1000,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "2475",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extreme", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Huge, clumped grain. It was designed to record oscilloscope traces and light pulses, not photographs.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodak Recording Film 2475 was a surveillance and instrumentation emulsion, nominally ISO 1000, sold in long rolls and respooled by photographers for low-light work. Its grain is famously enormous — the negatives look like snow — and that is precisely why people sought it out in the 1990s for gritty documentary work. It has been discontinued for years and appears only as expired stock.",
+      "characteristics": [
+        { "label": "Look", "value": "Extreme grain and high contrast; developed in D-76 it looks like a photocopy of a photograph.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Speed", "value": "Rated 1000, often exposed at 1600–3200 in practice.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-royal-x-pan",
+      "manufacturer": "Kodak",
+      "name": "Royal-X Pan",
+      "iso": 1250,
+      "process": "blackAndWhite",
+      "formats": ["size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "royal-x-pan",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse conventional grain, typical of the 1960s high-speed emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Royal-X Pan was Kodak's ISO 1250 roll film from the 1960s, the fastest thing available before push-processing became routine. It was discontinued in the 1970s, when Tri-X pushed in Diafine became the better answer. It survives in the memory of press photographers and in the occasional frozen box.",
+      "characteristics": [
+        { "label": "Era", "value": "1960s–1970s. Any surviving stock is decades past date.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-verichrome-pan",
+      "manufacturer": "Kodak",
+      "name": "Verichrome Pan",
+      "iso": 125,
+      "process": "blackAndWhite",
+      "formats": ["size120", "size135"],
+      "status": "discontinued",
+      "generation": "verichrome-pan",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain with a long, forgiving curve — designed for box cameras with only one shutter speed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low-medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Verichrome Pan was the amateur black-and-white film of the mid twentieth century, sold from 1956 until 2002 and found in millions of box cameras and Brownies. It was deliberately forgiving, with a soft curve that made snapshot exposure work. The last batches expired in the 2000s and old rolls turn up in cameras at car-boot sales — when they are still good, they produce surprisingly lovely negatives.",
+      "characteristics": [
+        { "label": "Forgiveness", "value": "Very wide exposure latitude; it was made for cameras without meters.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Often heavily fogged. Use a restrainer (benzotriazole) and develop cool.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektapan",
+      "manufacturer": "Kodak",
+      "name": "Ektapan",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["sheet4x5", "sheet8x10"],
+      "status": "discontinued",
+      "generation": "ektapan",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine cubic grain on a sheet base, with a long straight line aimed at commercial studio work.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektapan was Kodak's ISO 100 professional sheet film, popular with studio and architectural photographers from the 1970s until it was discontinued in the early 2000s. It was the sheet-film counterpart to Plus-X: fine-grained, straight-lined and predictable. T-Max 100 replaced it for most users.",
+      "characteristics": [
+        { "label": "Use", "value": "Sheet-film studio and architectural work.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-portra-160",
+      "manufacturer": "Kodak",
+      "name": "Portra",
+      "iso": 160,
+      "process": "colourNegative",
+      "formats": ["size135", "size120", "sheet4x5", "sheet8x10"],
+      "status": "current",
+      "generation": "portra-160",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "grain": { "value": "extremely fine", "unit": "dye cloud", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "grainStructure": { "value": "Dye clouds over tabular crystals, the finest of the Portra family.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "contrast": { "value": "low", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "history": "Portra 160 is the slow, fine member of the family, the descendant of the 1998 Portra 160NC. It is the portrait film for studio and bright-light work: extremely fine grain, soft contrast and skin tones that need almost no correction. Landscape photographers use it for the same reasons, and its latitude means a metering mistake rarely costs the frame.",
+      "characteristics": [
+        { "label": "Grain", "value": "Effectively invisible at 120 and 4×5.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+        { "label": "Skin", "value": "The most neutral of the Portras, with slightly cool shadows.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Push", "value": "Not designed to push; at 400 it is thin but workable.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-portra-800",
+      "manufacturer": "Kodak",
+      "name": "Portra",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "portra-800",
+      "latitude": { "value": "−2 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "grainStructure": { "value": "Dye-cloud grain, about a stop's worth coarser than Portra 400 but remarkably soft-edged.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Portra 800 exists for available light: it is the fastest of the Portra films and the one wedding photographers reach for at the end of the evening. Its latitude is even wider than Portra 400's, which makes it forgiving at 800 and surprisingly usable at 1600 when pushed. It was reformulated in 2010 along with the rest of the family.",
+      "characteristics": [
+        { "label": "Push", "value": "Pushes to 1600 with a modest grain increase; widely used for low-light editorial work.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Palette", "value": "Warm, with more visible colour in the shadows than the slower Portras.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-portra-400nc",
+      "manufacturer": "Kodak",
+      "name": "Portra 400NC",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "portra-400nc",
+      "latitude": { "value": "−2 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Dye-cloud grain from the 1998 generation of Portra emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Portra 400NC — Natural Colour — was one half of the original 1998 Portra split, alongside 400VC. It was the muted, skin-friendly option, and it was superseded in 2010 by the single Portra 400. Expired stock is still common and usually keeps well if it has been cold-stored.",
+      "characteristics": [
+        { "label": "Palette", "value": "Muted, warm, with low saturation compared with the current Portra 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-portra-400vc",
+      "manufacturer": "Kodak",
+      "name": "Portra 400VC",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "portra-400vc",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Same dye-cloud structure as 400NC, with stronger colour couplers.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Portra 400VC — Vivid Colour — was the saturated half of the original Portra pair. It was aimed at commercial and fashion work where colour needed to sing, and it was replaced in 2010 by the single, more neutral Portra 400. Photographers who preferred its punch still hunt expired stock.",
+      "characteristics": [
+        { "label": "Palette", "value": "Saturated and cool-cast relative to NC, with stronger blues and greens.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-gold-100",
+      "manufacturer": "Kodak",
+      "name": "Gold",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "gold-100",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, tighter than Gold 200.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Gold 100 was the slow member of Kodak's consumer Gold family, discontinued in 2009 as the consumer market collapsed. It was sharper and finer than Gold 200, with the same warm palette, and it was the default film in countless point-and-shoots. Expired rolls are everywhere and usually work well when rated at box speed.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm reds and yellows; the same consumer look as Gold 200, with less grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ultramax-400",
+      "manufacturer": "Kodak",
+      "name": "Ultramax 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "ultramax-400",
+      "latitude": { "value": "−2 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain, visibly coarser than Gold 200.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ultramax 400 is Kodak's consumer 400 — the film in the supermarket multipack. It is not a new emulsion: Kodak renamed the Gold 400 line to UltraMax in 2007, and the film has been coated on Estar base since 2023. It is warm, contrasty and extremely forgiving, designed to give a printable frame in almost any light. It is not the same emulsion as Portra 400 and should not be treated as a cheap substitute for it, but for snapshot and street work its latitude is hard to beat.",
+      "characteristics": [
+        { "label": "Latitude", "value": "Very wide; three stops over still prints.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Palette", "value": "Warm and saturated, with strong reds.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-colorplus-200",
+      "manufacturer": "Kodak",
+      "name": "ColorPlus 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "colorplus-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine conventional dye-cloud grain, similar to Gold 200.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "ColorPlus 200 is not a modern emulsion: it is Kodak's mid-1980s consumer film, Kodacolor VR 200, brought back as the budget offer below Gold 200. It has been on Estar base since 2021, it is sold outside the United States, and Kodak publishes no datasheet for it. It is very close to Gold 200 in look — warm, gently grainy, forgiving — and it is popular precisely because it is cheap and cheerful. It is not a professional film and does not claim to be.",
+      "characteristics": [
+        { "label": "Price", "value": "One of the cheapest colour negatives still made, which is most of its appeal.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-pro-image-100",
+      "manufacturer": "Kodak",
+      "name": "Pro Image 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "pro-image-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, close to Gold 100 in character.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodak Pro Image 100 is a professional-labelled film sold mainly in Asia and Latin America, with a warm palette and skin tones that suit portrait and event work. Kodak derived it from the Gold v6 emulsion and prints it with the Gold profile, and it is rated EI 100 against a speed of about ISO 160 — a film built for hot climates that could be sold without cold storage. It was designed for wedding photographers who needed consistent colour at a moderate price, and it remains one of the few cheap 100-speed colour films in production.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and slightly soft, with pleasant skin tones.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodacolor-vr-200",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor VR 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodacolor-vr-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "1980s conventional dye-cloud grain — coarser and softer than modern films.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodacolor VR was Kodak's consumer colour negative line of the 1980s, before Gold replaced it. It has the warm, slightly muddy palette of that era and a grain that reads as period rather than as a flaw. Any surviving stock is decades expired and usually needs extra exposure and development.",
+      "characteristics": [
+        { "label": "Expired stock", "value": "Expect fog and colour crossover. Add a stop of exposure per two decades and develop normally.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektar-25",
+      "manufacturer": "Kodak",
+      "name": "Ektar 25",
+      "iso": 25,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "ektar-25",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Extremely fine dye-cloud grain, the finest of any colour negative of its era.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektar 25 was launched in 1989 as the sharpest colour negative ever made, and it held that title until digital sensors took it. It was slow, contrasty, with almost no grain, and it needed plenty of light. Kodak discontinued it in the late 1990s, and it is now a cult stock among photographers who scan.",
+      "characteristics": [
+        { "label": "Sharpness", "value": "Exceptional. Its resolving power was the reason Kodak could claim a 25-speed colour film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Latitude", "value": "Narrow; expose carefully.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vericolor-iii",
+      "manufacturer": "Kodak",
+      "name": "Vericolor III",
+      "iso": 160,
+      "process": "colourNegative",
+      "formats": ["size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "vericolor-iii",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with the softer, creamier dyes of the professional films of the 1980s.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vericolor III was the professional portrait and wedding film of the 1980s, the ancestor of the Portra line. It was designed for the colour balance of optical printing onto Kodak paper, with warm skin and a soft shoulder, and it was superseded by Portra in 1998. Expired stock has become popular for the soft, slightly muted look it gives when scanned.",
+      "characteristics": [
+        { "label": "Look", "value": "Soft contrast, warm skin, muted greens — the 1980s studio portrait look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-e100",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome E100",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "ektachrome-e100",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "grain": { "value": "extremely fine", "unit": "dye cloud, tabular", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "grainStructure": { "value": "Tabular-grain dye clouds, the finest and most neutral of the current Ektachromes.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "contrast": { "value": "high", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+      "history": "Ektachrome E100 is the film Kodak brought back in 2018 after discontinuing the Ektachrome line, and it is the only slide film still coated in Rochester. It is neutral where Velvia is saturated: clean whites, gentle blues, skin that looks like skin. Kodak tuned it for scanning and for projection, and it has become the default transparency for anyone who wants predictable colour rather than a signature.",
+      "characteristics": [
+        { "label": "Palette", "value": "Neutral to slightly cool, with restrained saturation.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+        { "label": "Latitude", "value": "About ±½ stop. Meter for the highlights.", "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+        { "label": "Push", "value": "Pushes one stop cleanly; two stops raises contrast sharply.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-e100vs",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome E100VS",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "ektachrome-e100vs",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine tabular dye-cloud grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "E100VS — Vivid Saturation — was Kodak's answer to Velvia: a slide film with exaggerated colour, aimed at landscape photographers. It was discontinued in 2012 as the transparency market collapsed. It had a strong following among American landscape shooters, who preferred its bluer shadows and cleaner reds to Fujifilm's greens.",
+      "characteristics": [
+        { "label": "Palette", "value": "Highly saturated, with strong blues and clean whites.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-e200",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome E200",
+      "iso": 200,
+      "process": "colourReversal",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "ektachrome-e200",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine tabular dye-cloud grain; unusually smooth for a 200-speed slide film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome E200 was the fast member of the Ektachrome family, designed to be pushable: Kodak published times to EI 400, 800 and 1600, which was unusual for a transparency. It was discontinued in 2012. Its pushed look — cool shadows and rising contrast — is still sought after by music and night photographers.",
+      "characteristics": [
+        { "label": "Push", "value": "Documented to EI 1600 with published first-developer extension.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-elite-chrome-100",
+      "manufacturer": "Kodak",
+      "name": "Elite Chrome 100",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "elite-chrome-100",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, similar to the consumer Ektachromes of the 1990s.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Elite Chrome was Kodak's consumer slide film of the 1990s, sold alongside Ektachrome at a lower price. It was warm and slightly contrasty, and it was the film in many a holiday slide tray. Discontinued in the 2000s, it survives as expired stock that often cross-processes beautifully.",
+      "characteristics": [
+        { "label": "Cross-processing", "value": "A favourite for E-6 in C-41: strong cool shadows and blown highlights.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-elite-chrome-ebx",
+      "manufacturer": "Kodak",
+      "name": "Elite Chrome EBX",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "elite-chrome-ebx",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a clear base, made for scanning.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Elite Chrome EBX was a version of Elite Chrome made for professional labs and scanning, with a slightly different colour balance from the consumer film. It was sold in bulk and is now mostly found as expired stock. Its neutral shadows make it one of the better old slide films to cross-process.",
+      "characteristics": [
+        { "label": "Use", "value": "Scanning and cross-processing; the clear base helps.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodachrome-64",
+      "manufacturer": "Kodak",
+      "name": "Kodachrome 64",
+      "iso": 64,
+      "process": "colourReversal",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "kodachrome-64",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Kodachrome was a dye-coupler-in-developer film: the colour was added during processing, not present in the emulsion. The result was extremely fine grain and a look nothing else has reproduced.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodachrome 64, introduced in 1974, was the slide film of National Geographic and of a century of American colour photography. It was made by a process — K-14 — that no other film used, and when Kodak stopped making the chemistry in 2010 the last lab in the world, Dwayne's in Kansas, closed its line. Every surviving roll is now either expired or developable only as a black-and-white negative.",
+      "characteristics": [
+        { "label": "Process", "value": "K-14. No lab processes it any more; the film cannot be developed as intended.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Fine grain, deep reds, restrained blues, and a contrast that reads as 'documentary'.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Salvage", "value": "Can be developed as a B&W negative in D-76 with the rem-jet removed, giving a usable monochrome image.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodachrome-25",
+      "manufacturer": "Kodak",
+      "name": "Kodachrome 25",
+      "iso": 25,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodachrome-25",
+      "latitude": { "value": "−0.5 / +0.5", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "The finest grain of any colour film ever sold, thanks to the dye-coupler process.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodachrome 25 was the slow, sharp, saturated version of Kodachrome, introduced in 1974 and discontinued in 2002. Its grain was so fine that a 35 mm slide could be projected wall-sized. Landscape photographers who used it speak of it in religious terms; it needed a lot of light and a steady hand.",
+      "characteristics": [
+        { "label": "Process", "value": "K-14, now extinct.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodachrome-200",
+      "manufacturer": "Kodak",
+      "name": "Kodachrome 200",
+      "iso": 200,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodachrome-200",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, though visibly coarser than Kodachrome 25.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodachrome 200 was the fast Kodachrome, introduced in 1986 and discontinued with the rest of the line in 2009. It was grainier and warmer than the slower films, and it was the version photojournalists used when the light was low. It is the Kodachrome most often found in old press archives.",
+      "characteristics": [
+        { "label": "Process", "value": "K-14, no longer available.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-64",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome 64",
+      "iso": 64,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "ektachrome-64",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, the standard of 1970s professional transparency.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome 64 was the professional transparency of the 1970s and 1980s — the film in magazine shoots before Kodachrome and Velvia took over. It was discontinued in the 1990s and replaced by E100. Expired rolls are common and often still beautiful, with a warm cast that reads as period.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm, slightly muted, with a soft highlight roll-off.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-100-plus",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome 100 Plus",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "ektachrome-100-plus",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with a slightly steepened contrast curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome 100 Plus was the sharper, more saturated Ektachrome of the 1990s, positioned against Fuji's Velvia. It was discontinued around 2002. Photographers who used it remember a hard, clean slide with strong blacks and very little tolerance.",
+      "characteristics": [
+        { "label": "Contrast", "value": "Very high, with deep blacks and a narrow exposure window.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-160t",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome 160T",
+      "iso": 160,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ektachrome-160t",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a tungsten-balanced emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome 160T was a tungsten-balanced slide film for studio and stage work — 3200 K, so it needed no filter under photographic lamps. It was discontinued in the 1990s. Shot in daylight without a filter it goes deep blue, which is why it turns up in cross-processing experiments.",
+      "characteristics": [
+        { "label": "Balance", "value": "Tungsten (3200 K). Needs an 85B filter in daylight.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vision3-50d",
+      "manufacturer": "Kodak",
+      "name": "Vision3 50D",
+      "iso": 50,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "cinema",
+      "generation": "vision3-50d",
+      "generationLabel": "Vision3 50D (5203)",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "grain": { "value": "extremely fine", "unit": "dye cloud, tabular", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "grainStructure": { "value": "The finest-grained colour negative Kodak makes, with the same rem-jet backing as the rest of the Vision3 family.", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "contrast": { "value": "low", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "history": "Vision3 50D (5203) is the slow, daylight stock of the Vision3 family, introduced in 2007. Cinema cameras rarely use it outside bright exteriors, but its grain is so fine that it is the stock for daylight plates and effects work. It is respooled for still use by Silbersalz and others, always with the rem-jet removed first.",
+      "characteristics": [
+        { "label": "Use", "value": "Bright exteriors and visual-effects plates.", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+        { "label": "Backing", "value": "Rem-jet; needs an ECN-2 pre-bath.", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } }
+      ]
+    },
+    {
+      "key": "kodak-vision3-500t",
+      "manufacturer": "Kodak",
+      "name": "Vision3 500T",
+      "iso": 500,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "cinema",
+      "generation": "vision3-500t",
+      "generationLabel": "Vision3 500T (5219)",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "grain": { "value": "very fine", "unit": "dye cloud, tabular", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "grainStructure": { "value": "Tabular dye-cloud emulsion on a rem-jet backing, with grain that stays fine even at 500.", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "contrast": { "value": "low", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "history": "Vision3 500T (5219) is the workhorse of modern cinema: a tungsten-balanced 500-speed negative used on an enormous number of features and television productions. Its latitude, fine grain and resistance to halation are why it displaced almost everything else. CineStill 800T is this stock, with the rem-jet removed and the film respooled, which is why it can be developed in C-41.",
+      "characteristics": [
+        { "label": "Balance", "value": "Tungsten (3200 K). In daylight it needs an 85 filter or a colour correction in post.", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+        { "label": "Halation", "value": "Strong when the rem-jet is removed and the film is shot without an anti-halation layer — the famous CineStill red glow.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Respooled as", "value": "CineStill 800T, Reflx Lab 800T, Hitchcock 500T, Silbersalz 500T.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vision3-200t",
+      "manufacturer": "Kodak",
+      "name": "Vision3 200T",
+      "iso": 200,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "cinema",
+      "generation": "vision3-200t",
+      "generationLabel": "Vision3 200T (5213)",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "grain": { "value": "very fine", "unit": "dye cloud, tabular", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "grainStructure": { "value": "Tabular dye-cloud grain, between 50D and 500T in size.", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "contrast": { "value": "low", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+      "history": "Vision3 200T (5213) was the tungsten-balanced mid-speed stock of the Vision3 range, introduced in 2007 and discontinued in 2020 as production consolidated around 250D and 500T. It was a favourite for interior work where 500T was too fast. Short ends and recans still circulate.",
+      "characteristics": [
+        { "label": "Balance", "value": "Tungsten (3200 K).", "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+        { "label": "Availability", "value": "Discontinued 2020; only short ends and expired stock remain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vision2-500t",
+      "manufacturer": "Kodak",
+      "name": "Vision2 500T",
+      "iso": 500,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "vision2-500t",
+      "generationLabel": "Vision2 500T (5263)",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Tabular grain, slightly coarser than the Vision3 stock that replaced it.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vision2 500T was Kodak's motion-picture tungsten stock from 2002 to 2007, when Vision3 took over. It is the stock that shot much of the 2000s, and its slightly warmer, softer look is now sought after by people shooting expired short ends. It still needs the rem-jet pre-bath.",
+      "characteristics": [
+        { "label": "Compared with Vision3", "value": "Warmer and slightly coarser; less shadow detail.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vision-250d",
+      "manufacturer": "Kodak",
+      "name": "Vision 250D",
+      "iso": 250,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "vision-250d",
+      "generationLabel": "Vision 250D (5246)",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Tabular grain, the first generation of Kodak's T-grain cinema emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vision 250D (5246) was Kodak's daylight motion-picture stock in the late 1990s, before Vision2 and Vision3. It is remembered for a slightly cooler, more neutral palette than later stocks, and expired short ends produce gentle, low-contrast negatives. It carries the rem-jet backing of every cinema film.",
+      "characteristics": [
+        { "label": "Backing", "value": "Rem-jet; needs an ECN-2 pre-bath.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "kodak-portra-160", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets", "note": "Standard C-41 developer step: 3:15 at 38 °C." } },
+    { "film": "kodak-portra-800", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+    { "film": "kodak-ultramax-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+    { "film": "kodak-colorplus-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+    { "film": "kodak-pro-image-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+    { "film": "kodak-ektachrome-e100", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets", "note": "First developer 6:00 at 38 °C; the rest of the E-6 sequence is fixed." } },
+    { "film": "kodak-vision3-50d", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+    { "film": "kodak-vision3-500t", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+    { "film": "kodak-vision3-200t", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } },
+    { "film": "kodak-t-max-p3200", "developer": "kodak-tmax-developer", "dilution": "1+4", "celsius": 20, "seconds": 510, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } },
+    { "film": "kodak-tri-x-320", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 390, "provenance": { "kind": "datasheet", "source": "kodak-film-datasheets" } }
+  ]
+}

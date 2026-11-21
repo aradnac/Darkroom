@@ -1,0 +1,450 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "yashica-color-100",
+      "manufacturer": "Yashica",
+      "name": "Color 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "yashica-100",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine consumer dye-cloud grain from the repackaged emulsion behind the brand.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Japanese consumer colour negative (undisclosed)",
+        "note": "A licensed use of the Yashica name on a small colour film range; the coating is not published.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Yashica Color 100 is a licensed film from the 2010s, sold under one of the great Japanese camera names long after the original company left the film business. It is a repackaged consumer emulsion, warm and forgiving, and it exists as a curiosity more than as a photographic tool.",
+      "characteristics": [
+        { "label": "Origin", "value": "A licensed brand on a repackaged film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "forte-fortepan-100",
+      "manufacturer": "Forte",
+      "name": "FortePan 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "fortepan-100",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine Hungarian cubic grain with a long toe and gentle highlights.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "FortePan 100 was Forte's slow black-and-white film, coated in Vác and sold cheaply across Eastern Europe. It was fine-grained and soft, with a tonality closer to 1960s films than modern ones. Forte closed in 2007.",
+      "characteristics": [
+        { "label": "Look", "value": "Soft and traditional, with a long scale.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "forte-fortepan-200",
+      "manufacturer": "Forte",
+      "name": "FortePan 200",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "fortepan-200",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Hungarian cubic grain, between the 100 and 400 in size.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "FortePan 200 was the middle speed of Forte's black-and-white range, a good all-round film with the same soft European tonality as the rest of the line. It was discontinued with the factory.",
+      "characteristics": [
+        { "label": "Look", "value": "Soft, with moderate grain and good midtone separation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "efke-kb-50",
+      "manufacturer": "Efke",
+      "name": "KB 50",
+      "iso": 50,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "kb-50",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine single-layer grain on a clear base, with no anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Efke KB 50 was the mid-speed member of Fotokemika's classic black-and-white range: slower than KB 100, finer, and with the same clear base and missing anti-halation layer that give Efke its glow. It went out of production when the Samobor factory closed in 2012.",
+      "characteristics": [
+        { "label": "Halation", "value": "Strong, from the missing anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "orwo-n100",
+      "manufacturer": "ORWO",
+      "name": "N 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "n100",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine East German cubic grain on a cinema emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "ORWO N 100 was the 100-speed black-and-white cinema stock from the Wolfen works, used by East German television and film production. It was fine-grained and contrasty, and it disappeared with the company's contraction after reunification. It survives as expired stock and respools.",
+      "characteristics": [
+        { "label": "Look", "value": "Hard and clean, with strong red separation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "orwo-n75",
+      "manufacturer": "ORWO",
+      "name": "N 75",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "n75",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Cubic grain with visible clumping, typical of the Wolfen 400-speed cine emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "ORWO N 75 was a 400-speed black-and-white cinema stock from Wolfen, the fast member of the N series before the N 74 Plus. It was grainy and hard, with a strong shoulder that held highlights. It is now only available expired.",
+      "characteristics": [
+        { "label": "Look", "value": "Grainy and dramatic, in the East German newsreel tradition.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "svema-foto-32",
+      "manufacturer": "Svema",
+      "name": "Foto 32",
+      "iso": 32,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "foto-32",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine Soviet cubic grain on a thick emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Svema Foto 32 was the slowest of the standard Shostka black-and-white films, made for copy work and bright-light photography. It is very fine-grained and very contrasty, and the surviving stock is decades old.",
+      "characteristics": [
+        { "label": "Use", "value": "Bright light and copy work.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "svema-foto-250",
+      "manufacturer": "Svema",
+      "name": "Foto 250",
+      "iso": 250,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "foto-250",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse Soviet grain with heavy clumping and fog on expired stock.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Svema Foto 250 was the fast black-and-white film of the Shostka plant, made for press and available-light work across the Soviet Union. It is grainy, contrasty and usually fogged by now. Respooled expired stock is sold for its texture.",
+      "characteristics": [
+        { "label": "Expired stock", "value": "Expect fog; rate slower and develop with a restrainer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lucky-color-100",
+      "manufacturer": "Lucky",
+      "name": "Color 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "lucky-color-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with the greenish shadows and strong reds of the Chinese consumer palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Lucky Color 100 was the slow member of China's domestic colour negative range, sold in the 1990s and 2000s. Its palette is unlike any Western film — green-cyan shadows and strong reds — and it is a favourite among people shooting expired Chinese stock.",
+      "characteristics": [
+        { "label": "Palette", "value": "Green-cyan shadows and strong reds.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-x-pro-200",
+      "manufacturer": "Lomography",
+      "name": "X-Pro 200",
+      "iso": 200,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "lomo-x-pro-200",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a colour transparency emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Colour reversal film (source not disclosed)",
+        "note": "Sold by Lomography for cross-processing; the coating is not published.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "X-Pro 200 is Lomography's cross-processing slide film, sold explicitly for E-6 film in C-41. It is a rebadged transparency, and its purpose is the colour shift: green shadows, yellow highlights and heavy contrast. Shot in E-6 it is an ordinary slide film; shot in C-41 it is the look the name promises.",
+      "characteristics": [
+        { "label": "Cross-processing", "value": "Designed for E-6 film in C-41.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Green-cyan shadows and yellow highlights.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-redbird-400",
+      "manufacturer": "Rollei",
+      "name": "Redbird 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "redbird-400",
+      "latitude": { "value": "−2 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain, seen through the film base because the stock is wound backwards.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative wound the other way round",
+        "note": "A redscale film: an ordinary colour negative spooled backwards so light passes through the red-sensitive layer first.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Rollei Redbird 400 is the Maco brand's ready-made redscale film: a colour negative wound backwards so that the base filters the light before it reaches the emulsion. The result is a red-orange cast with crushed blues and strong contrast. Exposure changes the effect, with a slower rating giving deeper red.",
+      "characteristics": [
+        { "label": "Speed", "value": "Variable: rate slow for deep red, faster for a warm orange.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-digibase-cn-200",
+      "manufacturer": "Rollei",
+      "name": "Digibase CN 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "digibase-cn-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a colour negative made for scanning rather than optical printing.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Colour negative (source not disclosed)",
+        "note": "Sold by Maco under the Rollei name; the coating is not published.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Digibase CN 200 is a colour negative sold by Maco for scanning, part of the Rollei-branded range. It is fine-grained and neutral, with the flat contrast that scans well, and its coating source is not disclosed. It is a small-batch product that comes and goes.",
+      "characteristics": [
+        { "label": "Process", "value": "C-41.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "gaf-500",
+      "manufacturer": "GAF",
+      "name": "GAF 500",
+      "iso": 500,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "gaf-500",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Famously enormous dye-cloud grain — GAF 500 was known as the grainiest slide film ever sold.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "GAF 500 was the American company's high-speed colour slide film of the early 1970s, and it is remembered for one thing: its grain. At ISO 500 it was fast for a transparency, and the dye clouds were so large that the film looked like a pointillist painting. It was discontinued in the 1970s and its chemistry is long gone.",
+      "characteristics": [
+        { "label": "Grain", "value": "The defining characteristic: huge, colourful and unavoidable.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "GAF's own chemistry, no longer available.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "3m-color-400",
+      "manufacturer": "3M",
+      "name": "Color 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "3m-color-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain with the slightly muddy palette of the 1980s American consumer films.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "3M sold photographic film under its own name and the Scotch brand in the 1970s and 1980s, as an alternative to Kodak in the American market. Its colour negative was a competent consumer film with a warm, slightly muddy palette. It left the market when 3M's photographic division was sold.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and slightly muddy, typical of 1980s consumer colour.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ultra-color-100uc",
+      "manufacturer": "Kodak",
+      "name": "Ultra Color 100UC",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ultra-color-100uc",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with the boosted colour couplers of the Ultra Color range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ultra Color 100UC was Kodak's high-saturation consumer film of the early 2000s, sold as a step up from Gold for people who wanted vivid colour. It was punchy and clean, and it was discontinued as Kodak consolidated its consumer range.",
+      "characteristics": [
+        { "label": "Palette", "value": "Highly saturated, with strong reds and blues.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ultra-color-400uc",
+      "manufacturer": "Kodak",
+      "name": "Ultra Color 400UC",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ultra-color-400uc",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate dye-cloud grain with the saturated Ultra Color palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ultra Color 400UC was the fast member of Kodak's Ultra Color range, sold for available-light photography with extra punch. It was one of the last new consumer emulsions Kodak launched before the range collapsed.",
+      "characteristics": [
+        { "label": "Look", "value": "Saturated and contrasty, with strong reds.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-e100g",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome E100G",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "e100g",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "unit": "dye cloud, tabular", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine tabular dye-cloud grain, the cleanest of the last professional Ektachromes.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome E100G was Kodak's final professional 100-speed transparency, introduced in the 2000s as an improvement on E100S with finer grain and cleaner neutrals. It was discontinued in 2012 and is now available only as expired stock or through the E100 revival, which is a different emulsion.",
+      "characteristics": [
+        { "label": "Palette", "value": "Neutral and clean, with restrained saturation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Common and usually still good if cold-stored.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-e100gx",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome E100GX",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "e100gx",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine tabular dye-cloud grain, the warm-balanced version of E100G.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome E100GX was the warm-toned version of Kodak's final professional Ektachrome, giving skin and sunlight a little more warmth than the neutral E100G. It was discontinued with the rest of the line in 2012.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm, with gentle skin tones and golden highlights.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-high-definition-400",
+      "manufacturer": "Kodak",
+      "name": "High Definition 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "hd-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain for a consumer 400, sold on its sharpness.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodak High Definition 400 was a consumer colour negative of the early 2000s, marketed on its fine grain and sharpness at a time when 'high definition' was the phrase of the moment. It was a competent, slightly cool 400 and was discontinued in the consumer range's collapse.",
+      "characteristics": [
+        { "label": "Look", "value": "Clean and slightly cool, with less warmth than Gold.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujicolor-400-japan",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "fujicolor-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarser dye-cloud grain than the 100, with the same cool palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fujicolor 400 was the fast member of Fujifilm's plain-name Japanese consumer range, sold cheaply alongside Fujicolor 100. It was cool, grainy and forgiving, and it was one of the last films a Japanese convenience store would sell.",
+      "characteristics": [
+        { "label": "Latitude", "value": "Wide and forgiving.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ferrania-solaris-200",
+      "manufacturer": "Ferrania",
+      "name": "Solaris 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "solaris-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with Ferrania's warm, gently faded palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Solaris 200 was the middle speed of Ferrania's consumer colour range, sold in Italy and across Europe until the Cairo Montenotte factory closed in 2009. It was warm and slightly soft, the colour of Italian holiday photographs. Expired stock is still common.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and gently faded, with soft greens.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-ct100",
+      "manufacturer": "Agfa",
+      "name": "CT100",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ct100",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on Agfa's consumer transparency emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfa CT100 was a European consumer colour transparency, sold alongside CTx and the professional RSX line. It was warm and contrasty, with the softer European palette rather than Velvia's saturation. It disappeared with AgfaPhoto in 2005.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and contrasty, less saturated than Fuji's slide films.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "yashica-color-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "forte-fortepan-100", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "forte-fortepan-200", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 510, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "efke-kb-50", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "orwo-n100", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "orwo-n75", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 570, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "svema-foto-32", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 420, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "Expired stock; add a restrainer." } },
+    { "film": "svema-foto-250", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "Expired stock; add a restrainer." } },
+    { "film": "lucky-color-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "lomography-x-pro-200", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "rollei-redbird-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "rollei-digibase-cn-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "3m-color-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ultra-color-100uc", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ultra-color-400uc", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektachrome-e100g", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektachrome-e100gx", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-high-definition-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujicolor-400-japan", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ferrania-solaris-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-ct100", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "fujifilm-superia-200",
+      "manufacturer": "Fujifilm",
+      "name": "Superia 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "superia-200",
+      "generationLabel": "Superia 200, 1998–2010s",
+      "latitude": { "value": "−2 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on Fujifilm's fourth-colour-layer emulsion, noticeably tighter than Superia 400 and cooler in the shadows.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Superia 200 was the middle speed of the range Fujifilm launched in 1998 around its fourth colour layer, the technology it claimed gave cleaner colour under fluorescent light. It became the standard Japanese consumer film of the 2000s — the roll in the convenience-store camera, the one that gave street photography its cool green shadows and cyan skies. Fujifilm consolidated the line in the 2010s, leaving C200 and Superia X-TRA 400 as the survivors, and Superia 200 went with it.",
+      "characteristics": [
+        { "label": "Palette", "value": "Cool and green-leaning, with very cyan skies and clean whites — the Fuji consumer signature.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Fourth colour layer", "value": "Fujifilm's fourth layer was sold on colour accuracy under fluorescent and mixed light.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Latitude", "value": "Very wide; two stops over is unremarkable and three still prints.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Common and usually still good, drifting green and losing a little speed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "notes": "The missing middle of the Fujifilm consumer range. It sits between Superia 100's fineness and Superia 400's latitude, and it is the film most Japanese street photography of the 2000s was made on."
+    },
+    {
+      "key": "fujifilm-fujicolor-super-g-plus-100",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor Super G Plus 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "super-g-plus-100",
+      "generationLabel": "Fujicolor Super G Plus 100, early 1990s",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain of the early-1990s Japanese consumer emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Super G Plus was the Japanese consumer colour negative that preceded Super G Ace, sold in the early 1990s with a warmer palette than the later Superia line. It was the film in the family camera in Japan, and it is the generation between Fujicolor HR and Superia. The Super G Ace 400 already in the library is its successor.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warmer than Superia, closer to Kodak's consumer films, with softer greens.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Generation", "value": "Super G Plus → Super G Ace → Superia.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fujicolor-super-g-plus-200",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor Super G Plus 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "super-g-plus-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with the warm Super G palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Super G Plus 200 was the middle speed of Fujifilm's early-1990s Japanese consumer range, warm and forgiving, with a gentler palette than the Superia that replaced it. Expired rolls often scan with a magenta drift and a soft, slightly faded look that has become popular.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm and soft, with less green than Superia.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fujicolor-super-g-plus-400",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor Super G Plus 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "super-g-plus-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate dye-cloud grain, warmer and softer than Superia 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Super G Plus 400 was the fast member of the Japanese consumer line, sold for indoor and evening photography. It was noticeably warmer than Superia 400 would become, and its expired stock is a way to get a Fuji film without the cyan cast people either love or fight.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm, with gentle greens and softer contrast than Superia.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fujicolor-hr-100",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor HR 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "fujicolor-hr-100",
+      "generationLabel": "Fujicolor HR 100, from 1983",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, the result of the 1980s push for finer consumer emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fujicolor HR arrived in 1983 and the letters stood for High Resolution: it was Fujifilm's answer to Kodak's VR-G and the start of the 1980s race for finer consumer grain. It was warm by later Fuji standards and it was sold worldwide, not only in Japan. It was replaced by Super HG in the late 1980s.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm, with muted greens — nothing like the later Superia cyan.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Era", "value": "1983–late 1980s; surviving stock is four decades old.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fujicolor-hr-400",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor HR 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "fujicolor-hr-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse 1980s dye-cloud grain at 400 speed, warm and soft-edged.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "HR 400 was the fast member of the 1983 range, sold for available-light family photography. It was grainy and warm, and it is the Fuji equivalent of Kodacolor VR 400: the same decade, the same ambitions, a different colour engineer.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm and grainy, with a soft highlight roll-off.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fujicolor-super-hg-100",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor Super HG 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "fujicolor-super-hg-100",
+      "generationLabel": "Fujicolor Super HG 100, late 1980s",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, the late-1980s refinement of HR.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Super HG followed HR in the late 1980s, with HG for High Grade. It was Fujifilm's mainstream consumer film of the period when Kodak launched Gold, and it is the last generation before the Superia era. It was sold worldwide and is a common find in old camera bags.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and gentle, between HR and Superia in character.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fujicolor-super-hg-400",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor Super HG 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "fujicolor-super-hg-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate dye-cloud grain, cleaner than HR 400 and warmer than Superia 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Super HG 400 was the fast film of Fujifilm's late-1980s range, sold for indoor and evening work. It is the direct ancestor of Superia 400, and its warmer, softer palette is the main difference an expired roll will show.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm and soft, with moderate grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-pro-800z",
+      "manufacturer": "Fujifilm",
+      "name": "Pro 800Z",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "pro-800z",
+      "generationLabel": "Pro 800Z, 2000s",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate dye-cloud grain, unusually clean for an 800-speed film of its generation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low-medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Pro 800Z was Fujifilm's professional 800-speed colour negative of the 2000s, the fast member of the same professional family as Pro 400H and Pro 160S. It was designed for available-light wedding and event work, with clean shadows and a cool palette, and it was discontinued as Fujifilm withdrew from professional colour negative. It is now rare and has become expensive.",
+      "characteristics": [
+        { "label": "Palette", "value": "Cool and clean, with the pastel green of the Pro H family.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Use", "value": "Available-light professional work where 400 was not fast enough.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-provia-100",
+      "manufacturer": "Fujifilm",
+      "name": "Provia 100",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "provia-100",
+      "generationLabel": "Provia 100, 1994–1999",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain of the first Provia generation, a step finer than the Fujichrome it replaced.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Provia 100 was introduced in 1994 as Fujifilm's professional transparency, and it was the film that convinced a generation that colour slides did not have to be outrageous. It was replaced by Provia 100F in 1999, which is the film still sold today; the two are different emulsions and their times do not transfer exactly.",
+      "characteristics": [
+        { "label": "Palette", "value": "Neutral, with slightly warmer skin than Provia 100F.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Generation", "value": "Provia 100 (1994) and Provia 100F (1999) are different emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "fujifilm-superia-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-fujicolor-super-g-plus-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-fujicolor-super-g-plus-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-fujicolor-super-g-plus-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-fujicolor-hr-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-fujicolor-hr-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-fujicolor-super-hg-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-fujicolor-super-hg-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-pro-800z", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-provia-100", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ]
+}

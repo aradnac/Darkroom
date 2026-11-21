@@ -1,0 +1,875 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "foma-fomapan-100",
+      "manufacturer": "Foma",
+      "name": "Fomapan 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5", "sheet8x10"],
+      "status": "current",
+      "generation": "fomapan-100",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "grainStructure": { "value": "Classic cubic grain, fine and slightly irregular. It prints with a soft, almost vintage texture rather than modern glassiness.", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "history": "Fomapan 100 is the oldest film still in the Foma catalogue, a direct descendant of the emulsions Foma Bohemia coated in Hradec Králové in the 1930s. It is a classic single-run cubic film: no tabular crystals, no modern sensitising tricks, just a well-made slow emulsion with a long toe and a pronounced red sensitivity that darkens skies without a filter. Its price and its old-fashioned tonality keep it in production.",
+      "characteristics": [
+        { "label": "Look", "value": "Classic, slightly soft, with rich midtones and a long toe. It tolerates overexposure well.", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+        { "label": "Red sensitivity", "value": "Extended red; skies go dark and skin warms slightly compared with Ilford films.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Coating", "value": "Occasional reports of pinholes and uneven coating on 120. Check the backing paper before loading.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "foma-fomapan-200",
+      "manufacturer": "Foma",
+      "name": "Fomapan 200",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "fomapan-200",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic with tabular", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "grainStructure": { "value": "Foma's only emulsion that mixes tabular and cubic crystals — a hybrid intended to combine fine grain with a classic curve.", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fomapan 200 was introduced in the 1990s as the modern member of the Foma range, using a mixed tabular/cubic crystal structure. It is the least Foma-like of the Fomas: smoother than 100 and 400, with a cleaner highlight roll-off. Many photographers rate it at EI 160 for finer grain.",
+      "characteristics": [
+        { "label": "True speed", "value": "About EI 160–200. It is slightly optimistic at box speed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Smoother than Fomapan 100 or 400, with a more modern tonality.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "foma-fomapan-800",
+      "manufacturer": "Foma",
+      "name": "Fomapan 800",
+      "iso": 800,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "fomapan-800",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very coarse", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Large conventional cubic grain, coarser than any other 800-speed film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fomapan 800 was Foma's fast film, discontinued around 2012. It was grainier and contrastier than Delta 3200, with a look closer to a pushed 400 than to a designed ultra-fast emulsion. Expired rolls are still in circulation.",
+      "characteristics": [
+        { "label": "Look", "value": "Very grainy and hard, with blocked shadows at box speed. Rate at EI 400–500.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "foma-fomapan-r100",
+      "manufacturer": "Foma",
+      "name": "Fomapan R100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "fomapan-r100",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "grain": { "value": "fine", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "grainStructure": { "value": "Fine conventional grain on a clear base, designed to be reversed into a positive.", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "contrast": { "value": "high", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "history": "Fomapan R100 is the only black-and-white reversal film still made: shoot it, then develop it with the Foma reversal kit to get a black-and-white slide. It is a real transparency, projected like a colour slide, with a tonality no digital process reproduces. Foma sells the reversal chemistry alongside it, and the process is a full eight-step sequence with a bleaching bath.",
+      "characteristics": [
+        { "label": "Process", "value": "Reversal, not negative: first developer, bleach, clearing bath, re-exposure, second developer, fix. Foma's own kit is the documented route.", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+        { "label": "Look", "value": "A projected B&W positive with a long tonal scale and very fine grain.", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+        { "label": "Handle", "value": "The clear base makes it fragile; handle by the edges and dry slowly.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "foma-retropan-320-soft",
+      "manufacturer": "Foma",
+      "name": "Retropan 320 Soft",
+      "iso": 320,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5", "sheet8x10"],
+      "status": "current",
+      "generation": "retropan-320-soft",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "grain": { "value": "coarse", "unit": "conventional cubic", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "grainStructure": { "value": "Coarse cubic grain with a deliberately soft, low-acutance structure. The grain is visible and the edges are gentle.", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "contrast": { "value": "low", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+      "history": "Retropan 320 Soft was introduced in 2015 as Foma's 'retro' film: a soft-contrast emulsion with visible grain and a long, gentle highlight roll-off. It is designed for available light and portrait work where a modern film would look too clinical. It is not a low-grain film and it is not meant to be.",
+      "characteristics": [
+        { "label": "Contrast", "value": "Low, with a long shoulder. It holds highlight detail that other films lose.", "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+        { "label": "Grain", "value": "Visible and soft-edged; the look is closer to a 1960s film than a modern one.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "foma-fomapan-ortho-400",
+      "manufacturer": "Foma",
+      "name": "Fomapan Ortho 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["sheet4x5", "sheet8x10"],
+      "status": "specialty",
+      "generation": "fomapan-ortho-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Orthochromatic: sensitive to blue and green only, so red renders black. The grain is conventional cubic.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fomapan Ortho 400 is a sheet-only orthochromatic film, introduced for darkroom and alt-process work where red-blind sensitivity is an advantage. Under a red safelight it can be handled briefly, and it renders lips dark and skies pale. It is a niche material rather than a general film.",
+      "characteristics": [
+        { "label": "Safelight", "value": "Orthochromatic, so a dim red safelight is tolerated briefly during handling.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Rendering", "value": "Red goes black, blue goes white. The classic 'period' portrait look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "adox-chs-100-ii",
+      "manufacturer": "Adox",
+      "name": "CHS 100 II",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5", "sheet8x10"],
+      "status": "current",
+      "generation": "chs-100-ii",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+      "grainStructure": { "value": "Single-layer conventional grain on a clear triacetate base, with no anti-halation dye — which is why old Adox films sometimes show a glow around highlights.", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+      "history": "Adox CHS 100 II is the modern revival of the old Adox CHS 100, a classic German emulsion that Adox Photo Chemie brought back after the original company's collapse. It is coated on a clear base with no anti-halation layer, which gives it the halation and the vintage tonality that people buy it for. Adox's own Adonal developer is the traditional pairing.",
+      "characteristics": [
+        { "label": "Halation", "value": "No anti-halation layer: highlights bloom, especially against dark backgrounds.", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+        { "label": "Base", "value": "Clear triacetate. It scans with almost no base cast.", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+        { "label": "Developer", "value": "Adonal (Rodinal) at 1+50 is the classic pairing; the film also works in D-76.", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } }
+      ]
+    },
+    {
+      "key": "adox-chs-50",
+      "manufacturer": "Adox",
+      "name": "CHS 50",
+      "iso": 50,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "chs-50",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine conventional grain on a clear base, with no anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Adox CHS 50 was the slowest of the original Adox films, a fine-grain emulsion from the 1950s that Adox revived in the 2000s and then discontinued again. It is a slow, thin-emulsion film with a long straight line and a clear base, and it develops beautifully in Rodinal 1+100.",
+      "characteristics": [
+        { "label": "Developer", "value": "Rodinal 1+100 for maximum compensation, Adonal 1+50 for a straighter curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "adox-chs-200",
+      "manufacturer": "Adox",
+      "name": "CHS 200",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "chs-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain on a clear base, no anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "CHS 200 was the fast member of Adox's revived classic range, discontinued in the 2010s. It was a thin-emulsion film with pronounced halation and a soft, old-fashioned tonality, and it was popular with photographers who wanted the Adox look at a usable speed.",
+      "characteristics": [
+        { "label": "Halation", "value": "Strong, from the missing anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "adox-cms-20-ii",
+      "manufacturer": "Adox",
+      "name": "CMS 20 II",
+      "iso": 20,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "specialty",
+      "generation": "cms-20-ii",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+      "grain": { "value": "extremely fine", "unit": "monodisperse", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+      "grainStructure": { "value": "A microfilm emulsion: monodisperse ultra-fine crystals coated very thin. It resolves more detail per millimetre than any pictorial film.", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+      "history": "CMS 20 II is a document-copying microfilm adapted for camera use, and it needs a special low-contrast developer — Adox's Adotech IV — to produce a printable image at all. Developed normally it is almost black. Its resolving power is extraordinary: a 35 mm negative holds as much detail as a medium-format frame of any other film.",
+      "characteristics": [
+        { "label": "Developer", "value": "Adotech IV only. Ordinary developers give an unusable contrast.", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+        { "label": "Resolution", "value": "The highest of any film in the library, by a wide margin.", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+        { "label": "Handling", "value": "Very slow (ISO 20) and very contrasty. Exposure has to be precise.", "provenance": { "kind": "datasheet", "source": "adox-datasheets" } }
+      ]
+    },
+    {
+      "key": "adox-hr-50",
+      "manufacturer": "Adox",
+      "name": "HR-50",
+      "iso": 50,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "hr-50",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "A high-resolution aerial-survey emulsion: very fine, very thin, with extended red sensitivity.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "HR-50 is Adox's high-resolution film, derived from an aerial-survey emulsion and sold for pictorial use. It is extremely fine-grained and contrasty, with near-infrared sensitivity that makes it a favourite for landscape work with a deep red filter. It is a small-batch product and sells out regularly.",
+      "characteristics": [
+        { "label": "Infrared", "value": "Extended red sensitivity; with an R72 filter it behaves like a slow infrared film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Contrast", "value": "High — expose carefully and develop gently.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "adox-scala-50",
+      "manufacturer": "Adox",
+      "name": "Scala 50",
+      "iso": 50,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "specialty",
+      "generation": "scala-50",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine aerial-survey grain on a clear base, designed for reversal processing.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Scala 50 is Adox's black-and-white reversal film, the successor to the original Agfa Scala 200 that was discontinued in 2005. It is developed with a reversal kit to produce a projected positive, and it is one of only two B&W slide films still made. Its tonality is cooler and more contrasty than Fomapan R100.",
+      "characteristics": [
+        { "label": "Process", "value": "B&W reversal kit: first developer, bleach, clearing, re-exposure, second developer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Cool, contrasty positives with very fine grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "adox-color-mission",
+      "manufacturer": "Adox",
+      "name": "Color Mission",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "color-mission-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain, closer to the 1990s European colour negatives than to a modern Kodak or Fuji film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Color Mission was a 2022 limited edition: Adox bought a batch of unslit colour-negative stock and finished it as 135 cassettes under its own name. It is the only colour film Adox sells, and it exists because the coating was available rather than because it was designed. Its palette is distinctly European — muted, warm in the shadows, less saturated than Gold.",
+      "characteristics": [
+        { "label": "Origin", "value": "Finished by Adox from stock bought in bulk; the manufacturer of the coating is not disclosed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Availability", "value": "Limited edition; sold out quickly.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "adox-color-implosion",
+      "manufacturer": "Adox",
+      "name": "Color Implosion",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "color-implosion",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Heavy dye-cloud grain on an old emulsion, with wildly uneven colour.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Color Implosion was Adox's deliberately eccentric colour negative, made from expired aerial colour stock and sold as a special effect. Its palette is broken — cyan shadows, orange highlights, enormous grain — and that was the point. It has been discontinued for years and is now a collector's item.",
+      "characteristics": [
+        { "label": "Look", "value": "Deliberately broken colour, closer to cross-processing than to a normal negative.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "adox-silvermax-100",
+      "manufacturer": "Adox",
+      "name": "Silvermax 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "silvermax-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine grain on a clear base, marketed for its silver-rich look and its ability to be reversed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Silvermax 100 was Adox's premium black-and-white film, sold from the 2000s until it was discontinued in 2020. It was designed to be reversal-processed as well as developed as a negative, and it had a clear base that made it good for scanning and for projection. Its fans still describe its tonality as richer than CHS 100.",
+      "characteristics": [
+        { "label": "Reversal", "value": "Can be processed as a positive with Adox's reversal kit.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-apx-100",
+      "manufacturer": "Agfa",
+      "name": "APX 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "apx-100-new",
+      "generationLabel": "APX 100 (post-2013 revival)",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, very fine and even — the classic Agfa look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "APX 100 was Agfa's professional 100-speed film, in production from the 1960s until Agfa's insolvency in 2005. The brand was revived by AgfaPhoto, and the current APX 100 is coated by a different manufacturer under licence. It looks close to the original — fine grain, a long straight line, a deep red sensitivity — but it is not the same emulsion.",
+      "characteristics": [
+        { "label": "Generation", "value": "The original Agfa APX 100 (to 2005) and the current APX 100 are different emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Fine grain, deep blacks, strong red rendering.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-apx-400",
+      "manufacturer": "Agfa",
+      "name": "APX 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "apx-400-new",
+      "generationLabel": "APX 400 (post-2013 revival)",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, coarser than the 100 with the same Agfa colour response.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "APX 400 was the fast member of Agfa's professional range, discontinued with the company in 2005 and revived as a licensed brand in the 2010s. The current film is a different emulsion from the original, but it keeps the Agfa character: strong red sensitivity, punchy contrast and a slightly coarse grain that reads as European rather than Japanese.",
+      "characteristics": [
+        { "label": "Push", "value": "Good to EI 800–1600 in Rodinal or D-76.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-apx-100-original",
+      "manufacturer": "Agfa",
+      "name": "APX 100 (original)",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "apx-100-original",
+      "generationLabel": "Original Agfa APX 100, to 2005",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine conventional grain with a long straight line, considered one of the best black-and-white emulsions of its era.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "The original Agfa APX 100 was the professional 100-speed film of the Agfa-Gevaert empire, and it is one of the great lost emulsions. When AgfaPhoto collapsed in 2005 the coating stopped, and the later APX is a different film under the same name. Expired stock of the original is still traded and develops remarkably well if it was frozen.",
+      "characteristics": [
+        { "label": "Expired stock", "value": "Cold-stored rolls are usually fine at box speed; warm-stored rolls need +1 stop and a restrainer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-apx-400-original",
+      "manufacturer": "Agfa",
+      "name": "APX 400 (original)",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "apx-400-original",
+      "generationLabel": "Original Agfa APX 400, to 2005",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, tighter than Tri-X and with a shorter shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "The original APX 400 was the fast Agfa professional film, in production until 2005. It was sharper and more contrasty than Tri-X, with a distinctive European tonality, and it was the film many photojournalists in Germany and Eastern Europe used. The current APX 400 is a different emulsion.",
+      "characteristics": [
+        { "label": "Look", "value": "Hard, clean blacks and strong red separation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-apx-25",
+      "manufacturer": "Agfa",
+      "name": "APX 25",
+      "iso": 25,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "apx-25",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Extremely fine cubic grain, among the finest ever coated on 35 mm.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "APX 25 was Agfa's slow, ultra-fine film, discontinued in 2005 when the company collapsed. It was beloved by landscape photographers for its resolving power and its deep, clean shadows, and it developed beautifully in Rodinal 1+100. It is one of the most mourned discontinued films in Europe.",
+      "characteristics": [
+        { "label": "Developer", "value": "Rodinal 1+100 is the classic pairing; the compensating effect controls its high contrast.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-vista-400",
+      "manufacturer": "Agfa",
+      "name": "Vista 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "vista-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Dye-cloud grain with the warm, slightly muted palette of the pre-2005 Agfa consumer films.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vista 400 was Agfa's consumer colour negative of the 1990s and 2000s, sold in supermarkets across Europe. When AgfaPhoto collapsed, the Vista brand was bought and the later Vista films were rebranded Fujifilm — a confusing afterlife for a name that once meant Agfa. The pre-2005 film is a warm, gently grainy European colour negative.",
+      "characteristics": [
+        { "label": "Generations", "value": "Original Agfa Vista (to 2005) and the later Fuji-made Vista are different films under one name.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-vista-200",
+      "manufacturer": "Agfa",
+      "name": "Vista 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "vista-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, cleaner than Vista 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vista 200 was the middle of Agfa's consumer colour range, warm and forgiving with a European palette. It was one of the cheapest films in Europe for years, and expired rolls are now sold for their muted, slightly green look.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm, muted, with gentle greens.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-vista-100",
+      "manufacturer": "Agfa",
+      "name": "Vista 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "vista-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, the sharpest of the Vista range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vista 100 was Agfa's consumer 100-speed colour film, clean and slightly cool with fine grain. Like the rest of the Vista range, it was discontinued after 2005 and briefly revived under licence.",
+      "characteristics": [
+        { "label": "Use", "value": "Daylight and flash snapshot work.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-ultra-100",
+      "manufacturer": "Agfa",
+      "name": "Ultra 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ultra-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain with unusually saturated dyes for a consumer film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfa Ultra 100 was the saturated member of the consumer range, released in the 1990s as a rival to Kodak's Ektar. It had vivid reds and blues and extremely fine grain, and it was discontinued in 2005. It is now a cult film among people who scan their negatives.",
+      "characteristics": [
+        { "label": "Palette", "value": "Vivid, with strong reds and clean blues.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-optima-200",
+      "manufacturer": "Agfa",
+      "name": "Optima 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "optima-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with Agfa's warm, slightly muted palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Optima was Agfa's premium consumer colour negative in the 1990s, sold alongside Vista and Ultra. It was warm and soft with generous latitude, and it was discontinued in 2005. Expired Optima has a pleasant, faded look that reads as period.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm, low-contrast and slightly soft — a family-album palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-ct-precisa-100",
+      "manufacturer": "Agfa",
+      "name": "CT Precisa 100",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ct-precisa-100",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain; the later CT Precisa was Fujifilm Provia under an Agfa label.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfa's CT Precisa was a consumer transparency, and after Agfa's collapse the name was revived on rebadged Fujifilm Provia — which makes it an unusually well-documented rebrand. The original Agfa coating is a warmer, slightly softer slide film; the later Fuji-based version is effectively Provia 100F.",
+      "characteristics": [
+        { "label": "Origin", "value": "Later stock is Fujifilm Provia 100F in Agfa packaging.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-scala-200",
+      "manufacturer": "Agfa",
+      "name": "Scala 200",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "scala-200",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine conventional grain designed for reversal processing into a positive.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfa Scala 200 was the only black-and-white slide film most photographers ever used, in production from the 1990s until Agfa's collapse in 2005. It required a dedicated reversal process that Agfa ran through selected labs, and when the chemistry went, so did the film. Adox Scala is its spiritual successor.",
+      "characteristics": [
+        { "label": "Process", "value": "Agfa's own Scala reversal chemistry, no longer available.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-rpx-100",
+      "manufacturer": "Rollei",
+      "name": "RPX 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "rpx-100",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine conventional grain, described by the seller as a classic European emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Unconfirmed European black-and-white stock",
+        "note": "Maco, which owns the Rollei film brand, does not publish the coating source. The RPX films are widely reported to be made by a European manufacturer rather than by Rollei itself.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Rollei's film brand was revived in the 2000s by Maco, a German distributor, which sells a range of black-and-white films under the Rollei name. RPX 100 is a traditional cubic-grain film with a classic curve; its actual coating source is not disclosed, and the community has argued about it for years. It performs like a good mid-century European 100 film and is priced accordingly.",
+      "characteristics": [
+        { "label": "Origin", "value": "Not officially disclosed; sold under licence by Maco.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Classic, slightly soft, with a long toe.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-rpx-400",
+      "manufacturer": "Rollei",
+      "name": "RPX 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "rpx-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, coarse and film-like, with visible clumping in the shadows.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Unconfirmed European black-and-white stock",
+        "note": "Coating source not published by Maco; widely reported to be a European B&W emulsion.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "RPX 400 is Rollei's fast general-purpose film, and it behaves like a classic 1970s 400: good latitude, coarse-ish grain, and a soft shoulder that holds highlights. It is not a modern tabular film and does not pretend to be. It is one of the cheaper ways to shoot medium-format black and white.",
+      "characteristics": [
+        { "label": "Look", "value": "Classic grain and a gentle shoulder; closer to HP5 than to T-Max.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-retro-80s",
+      "manufacturer": "Rollei",
+      "name": "Retro 80S",
+      "iso": 80,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "retro-80s",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Aerial-survey style thin emulsion with extraordinarily fine grain and a clear base.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Agfa-Gevaert Aviphot aerial film (widely reported)",
+        "note": "Widely believed to be cut from Agfa's Aviphot aerial stock; Maco does not confirm the source. It is an aerial-survey emulsion, not a pictorial one.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Retro 80S is a thin, extremely fine-grained film with a clear base, sold by Maco under the Rollei name. The community almost universally believes it is Agfa Aviphot 80 aerial film cut down for still cameras, and everything about it — the tone, the very high resolution, the extended red sensitivity — fits that theory. It is superb for landscape and copy work and awkward for anything that needs a forgiving curve.",
+      "characteristics": [
+        { "label": "Resolution", "value": "Extremely high; it out-resolves most lenses.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Red sensitivity", "value": "Extended, so it behaves like a slow infrared film with a deep red filter.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Contrast", "value": "High and thin. Develop gently and expose generously.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-retro-400s",
+      "manufacturer": "Rollei",
+      "name": "Retro 400S",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "retro-400s",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Aerial-survey emulsion with a clear base and unusually fine grain for its speed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Agfa-Gevaert Aviphot aerial film (widely reported)",
+        "note": "Same suspected source as Retro 80S. Maco does not publish it.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Retro 400S is the fast member of the Retro family, and it is a strange film: an aerial-survey emulsion with the resolution of a slow film and the speed of a 400. It has a clear base, high contrast and a strong red response. It is best at EI 200–400 and it punishes overdevelopment.",
+      "characteristics": [
+        { "label": "Speed", "value": "Rated 400 but often exposed at 200–320 for a fuller negative.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Infrared", "value": "With an R72 filter it produces strong infrared-like effects.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-infrared-400",
+      "manufacturer": "Rollei",
+      "name": "Infrared 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "specialty",
+      "generation": "infrared-400",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine aerial-survey grain with sensitivity extending into the near infrared.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Agfa-Gevaert Aviphot 400 aerial film (widely reported)",
+        "note": "The most plausible source for a near-infrared B&W film with this grain and speed, though Maco does not confirm it.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Rollei Infrared 400 is the easiest true near-infrared film currently made: it needs no special loading, it can be handled in dim light, and it responds strongly to a deep red filter. It is widely believed to be Aviphot 400, an aerial-survey emulsion with sensitivity to about 750 nm. It is the modern replacement for Kodak HIE, though it has an anti-halation layer, so it lacks HIE's extreme glow.",
+      "characteristics": [
+        { "label": "Filter", "value": "R72 or 720 nm filter at EI 6–25; without a filter it behaves like a normal 400 film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Halation", "value": "Less than HIE: the anti-halation layer damps the glow but does not remove it.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Loading", "value": "Can be loaded in subdued light; no need for total darkness.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-superpan-200",
+      "manufacturer": "Rollei",
+      "name": "Superpan 200",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "superpan-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Aerial-survey emulsion with extended red sensitivity, very fine grain and a clear base.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Agfa-Gevaert Aviphot aerial film (widely reported)",
+        "note": "Same family as Retro 80S and Infrared 400; source not confirmed by Maco.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Superpan 200 is the middle of the Rollei aerial-film family: a very fine-grained 200 with extended red sensitivity and high contrast. It is superb for skies and foliage, because red and near-infrared light darkens them dramatically, and it is difficult in mixed light. It is the film for someone who wants infrared-like skies without committing to a true IR stock.",
+      "characteristics": [
+        { "label": "Red rendering", "value": "Very strong; skies go nearly black with a red filter.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Contrast", "value": "High — develop in a compensating developer for the best result.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-rpx-25",
+      "manufacturer": "Rollei",
+      "name": "RPX 25",
+      "iso": 25,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "rpx-25",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine conventional grain, the finest of the RPX range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Unconfirmed European black-and-white stock",
+        "note": "Coating source not published.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" } 
+      },
+      "history": "RPX 25 is Rollei's slow, ultra-fine film, sold for landscape and architectural work where resolution matters more than speed. It is thin-emulsion and high-contrast, and it needs bright light or a tripod. It is one of the few 25-speed films still in production.",
+      "characteristics": [
+        { "label": "Use", "value": "Bright light, tripod, maximum resolution.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-ortho-25",
+      "manufacturer": "Rollei",
+      "name": "Ortho 25",
+      "iso": 25,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "specialty",
+      "generation": "ortho-25",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Orthochromatic emulsion with very fine grain and no red sensitivity.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Rollei Ortho 25 is a blue-sensitive, red-blind film for copy work, alt processes and darkroom handling under a red safelight. It renders red as black and gives the classic 19th-century portrait look. It is very slow and very contrasty.",
+      "characteristics": [
+        { "label": "Safelight", "value": "Can be handled under a dim red safelight.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Use", "value": "Copy work, photograms and period portraiture.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-digibase-cr-200",
+      "manufacturer": "Rollei",
+      "name": "Digibase CR 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "digibase-cr-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Aerial colour negative with fine dye-cloud grain and a clear base, made for scanning rather than optical printing.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Agfa-Gevaert aerial colour negative (widely reported)",
+        "note": "Aerial survey stock finished as 35 mm cassettes; the colour balance is designed for mapping, not for people.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Digibase CR 200 was a colour negative made from aerial-survey stock, sold by Maco for scanning. It has a very fine grain and a colour balance that is odd for portraits but interesting for landscape. It has been discontinued for some years and is now a cult item.",
+      "characteristics": [
+        { "label": "Colour", "value": "Aerial balance: strong cyan and green, odd skin tones.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "bergger-pancro-400",
+      "manufacturer": "Bergger",
+      "name": "Pancro 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5", "sheet8x10"],
+      "status": "current",
+      "generation": "pancro-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "A dual-layer emulsion with a visible, classical grain and an unusually long tonal scale for a 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Bergger Pancro 400 is the last film from a small French company that once supplied photographic paper to the trade. It is a panchromatic 400 with a broad tonal range, made in a small coating run and sold at a premium. It is particularly good in large format, where its grain becomes a texture rather than a limitation.",
+      "characteristics": [
+        { "label": "Tonality", "value": "Long scale with gentle highlights; it prints like a slower film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Grain", "value": "Visible at 135, pleasant at 120 and above.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Developer", "value": "Bergger's own PMK-style pyro developer gives the fullest scale.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "bergger-brf-400",
+      "manufacturer": "Bergger",
+      "name": "BRF 400 Plus",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "brf-400-plus",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, similar in character to the older European 400s.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "BRF 400 Plus was Bergger's earlier 400-speed film, before Pancro 400 replaced it. It was made in small batches and had a reputation for beautiful tonality and inconsistent quality control. It is long discontinued and now only available expired.",
+      "characteristics": [
+        { "label": "Availability", "value": "Discontinued; expired stock only.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ferrania-p30",
+      "manufacturer": "Ferrania",
+      "name": "P30",
+      "iso": 80,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "p30",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Classic fine cubic grain, formulated to reproduce the look of the 1950s Ferrania P30. It is thin-emulsion and high-contrast.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ferrania P30 is the first film from the revived Ferrania works in Cairo Montenotte, Italy, a factory that once made film for the Italian cinema. The P30 name comes from a 1950s Ferrania cine film, and the modern version is a high-contrast, fine-grain panchromatic stock with a very different look from modern emulsions. Production has been slow and intermittent since launch.",
+      "characteristics": [
+        { "label": "Contrast", "value": "High, with deep blacks; it is closer to an old cine stock than a modern pictorial film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Developer", "value": "A compensating developer tames its contrast; D-76 gives a hard, graphic negative.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Availability", "value": "Small-batch and intermittent; production restarted in the 2020s.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ferrania-p33",
+      "manufacturer": "Ferrania",
+      "name": "P33",
+      "iso": 33,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "p33",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine cubic grain, slower and smoother than P30.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ferrania P33 is a limited-edition slow film released in 2024, based on the same Italian cine heritage as P30 but with a finer grain and an ISO of 33. It is made in very small batches and sells out quickly. It is a bright-light film with a period look.",
+      "characteristics": [
+        { "label": "Availability", "value": "Limited edition, small batches.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ferrania-solaris-100",
+      "manufacturer": "Ferrania",
+      "name": "Solaris 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "solaris-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with a warm, slightly faded palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Solaris was Ferrania's consumer colour negative, sold from the 1990s until the factory closed in 2009. It had a warm, slightly muted Italian palette and was cheap, and it was the film in a lot of European holiday cameras. Expired stock is still common.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm and gently faded; a distinctly European colour negative.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ferrania-solaris-400",
+      "manufacturer": "Ferrania",
+      "name": "Solaris 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "solaris-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarser dye-cloud grain than Solaris 100, with the same warm palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Solaris 400 was Ferrania's fast consumer colour negative, discontinued when the Cairo Montenotte factory closed in 2009. Expired rolls have a strong warm cast and visible grain, which is either a problem or the reason to shoot it.",
+      "characteristics": [
+        { "label": "Expired stock", "value": "Expect a strong orange cast; correct in the scan.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ferrania-solaris-800",
+      "manufacturer": "Ferrania",
+      "name": "Solaris 800",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "solaris-800",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain, typical of late-1990s high-speed colour negatives.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Solaris 800 was the fastest Ferrania consumer film, sold in the late 1990s and discontinued in the 2000s. It was grainy and warm, and it is now a rare expired stock with a distinctly lo-fi look.",
+      "characteristics": [
+        { "label": "Look", "value": "Grainy, warm, low-fidelity — a 1990s snapshot aesthetic.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "foma-fomapan-100", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 480, "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+    { "film": "foma-fomapan-100", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "foma-fomapan-200", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 540, "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+    { "film": "foma-retropan-320-soft", "developer": "foma-fomadon-r09", "dilution": "1+40", "celsius": 20, "seconds": 600, "provenance": { "kind": "datasheet", "source": "foma-datasheets" } },
+    { "film": "adox-chs-100-ii", "developer": "adox-adonal", "dilution": "1+50", "celsius": 20, "seconds": 660, "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+    { "film": "adox-cms-20-ii", "developer": "adotech-iv", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "datasheet", "source": "adox-datasheets" } },
+    { "film": "agfa-apx-100", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-apx-400", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-vista-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-vista-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "rollei-rpx-100", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "rollei-retro-80s", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "bergger-pancro-400", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ferrania-p30", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ferrania-solaris-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ]
+}

@@ -26,6 +26,9 @@ enum FilmProcess: String, CaseIterable, Identifiable, Codable {
 enum FilmFormat: String, CaseIterable, Identifiable, Codable {
     case size135
     case size120
+    /// The Instamatic cartridge. Only historical films use it, but without the
+    /// case a library document that lists it cannot be decoded at all.
+    case size126
     case sheet4x5
     case sheet8x10
     case cinema
@@ -36,6 +39,7 @@ enum FilmFormat: String, CaseIterable, Identifiable, Codable {
         switch self {
         case .size135: return "35 mm"
         case .size120: return "120"
+        case .size126: return "126"
         case .sheet4x5: return "4×5"
         case .sheet8x10: return "8×10"
         case .cinema: return "Cinema"

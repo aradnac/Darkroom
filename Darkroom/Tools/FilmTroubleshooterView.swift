@@ -366,7 +366,6 @@ enum Troubleshooter {
 // MARK: - Screen
 
 struct FilmTroubleshooterView: View {
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
     @ObservedObject private var library = LibraryStore.shared
 
     @State private var filmKey: String?
@@ -384,9 +383,7 @@ struct FilmTroubleshooterView: View {
     }
 
     private func displayFont(_ size: CGFloat) -> Font {
-        themeStore.isTheme13Active
-            ? Theme13Type.headline(size)
-            : .system(size: size, weight: .semibold, design: .rounded)
+        .system(size: size, weight: .semibold, design: .rounded)
     }
 
     var body: some View {
@@ -447,18 +444,10 @@ struct FilmTroubleshooterView: View {
                 .padding(.horizontal, 18)
                 .padding(.vertical, 10)
                 .background {
-                    if themeStore.isTheme13Active {
-                        Rectangle().fill(themeStore.palette.plate(isDark: themeStore.isDarkAppearance))
-                    } else {
-                        Capsule().fill(Theme.surfaceRaised)
-                    }
+                    Capsule().fill(Theme.surfaceRaised)
                 }
                 .overlay {
-                    if themeStore.isTheme13Active {
-                        Rectangle().stroke(themeStore.palette.stroke(isDark: themeStore.isDarkAppearance), lineWidth: 1.2)
-                    } else {
-                        Capsule().strokeBorder(Theme.border, lineWidth: 1)
-                    }
+                    Capsule().strokeBorder(Theme.border, lineWidth: 1)
                 }
         }
         .accessibilityLabel("Film: \(selectedFilm?.name ?? "none selected")")
@@ -496,8 +485,6 @@ private struct TroubleshooterCard: View {
     let isSelected: Bool
     let action: () -> Void
 
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
-
     var body: some View {
         Button(action: action) {
             HStack(spacing: 12) {
@@ -515,24 +502,12 @@ private struct TroubleshooterCard: View {
             .padding(10)
             .frame(maxWidth: .infinity)
             .background {
-                if themeStore.isTheme13Active {
-                    Rectangle().fill(themeStore.palette.plate(isDark: themeStore.isDarkAppearance))
-                } else {
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(Theme.surfaceRaised)
-                }
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(Theme.surfaceRaised)
             }
             .overlay {
-                if themeStore.isTheme13Active {
-                    Rectangle()
-                        .stroke(
-                            isSelected ? Theme.amber : themeStore.palette.stroke(isDark: themeStore.isDarkAppearance),
-                            lineWidth: isSelected ? 2 : 1.2
-                        )
-                } else {
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .strokeBorder(isSelected ? Theme.amber : Theme.border, lineWidth: isSelected ? 1.6 : 1)
-                }
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .strokeBorder(isSelected ? Theme.amber : Theme.border, lineWidth: isSelected ? 1.6 : 1)
             }
         }
         .buttonStyle(HapticButtonStyle())
@@ -763,8 +738,6 @@ private struct TroubleshooterResultPanel: View {
     let symptom: TroubleshooterSymptom
     @Binding var isExpanded: Bool
 
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
-
     private let collapsedCauses = 3
 
     var body: some View {
@@ -819,7 +792,7 @@ private struct TroubleshooterResultPanel: View {
         .frame(maxWidth: .infinity)
         .background { surface }
         .overlay(alignment: .top) { topEdge }
-        .shadow(color: .black.opacity(themeStore.isTheme13Active ? 0 : 0.34), radius: 22, x: 0, y: -10)
+        .shadow(color: .black.opacity(0.34), radius: 22, x: 0, y: -10)
         .animation(.spring(response: 0.35, dampingFraction: 0.88), value: isExpanded)
         .accessibilityElement(children: .contain)
         .accessibilityLabel("Likely causes for \(symptom.resultTitle)")
@@ -847,18 +820,10 @@ private struct TroubleshooterResultPanel: View {
                 .foregroundStyle(Theme.ink.opacity(0.9))
                 .frame(width: 30, height: 30)
                 .background {
-                    if themeStore.isTheme13Active {
-                        Rectangle().fill(themeStore.palette.secondarySurface)
-                    } else {
-                        Circle().fill(Theme.surfaceRaised)
-                    }
+                    Circle().fill(Theme.surfaceRaised)
                 }
                 .overlay {
-                    if themeStore.isTheme13Active {
-                        Rectangle().stroke(themeStore.palette.stroke(isDark: themeStore.isDarkAppearance), lineWidth: 1.2)
-                    } else {
-                        Circle().strokeBorder(Theme.hairline, lineWidth: 1)
-                    }
+                    Circle().strokeBorder(Theme.hairline, lineWidth: 1)
                 }
 
             VStack(alignment: .leading, spacing: 3) {
@@ -884,43 +849,30 @@ private struct TroubleshooterResultPanel: View {
         .accessibilityLabel("\(index). \(cause.title). Step: \(cause.step.label). Confidence \(cause.confidence.label). Fix: \(cause.fix)")
     }
 
-    @ViewBuilder
     private var surface: some View {
-        if themeStore.isTheme13Active {
-            Rectangle()
-                .fill(themeStore.palette.plate(isDark: themeStore.isDarkAppearance))
-        } else {
-            ZStack {
-                UnevenRoundedRectangle(
-                    topLeadingRadius: 30,
-                    topTrailingRadius: 30,
-                    style: .continuous
-                )
-                .fill(.ultraThinMaterial)
-                UnevenRoundedRectangle(
-                    topLeadingRadius: 30,
-                    topTrailingRadius: 30,
-                    style: .continuous
-                )
-                .fill(Theme.panelGradient)
-            }
-        }
-    }
-
-    @ViewBuilder
-    private var topEdge: some View {
-        if themeStore.isTheme13Active {
-            Rectangle()
-                .fill(themeStore.palette.stroke(isDark: themeStore.isDarkAppearance))
-                .frame(height: 1.5)
-        } else {
+        ZStack {
             UnevenRoundedRectangle(
                 topLeadingRadius: 30,
                 topTrailingRadius: 30,
                 style: .continuous
             )
-            .strokeBorder(Theme.border, lineWidth: 1)
+            .fill(.ultraThinMaterial)
+            UnevenRoundedRectangle(
+                topLeadingRadius: 30,
+                topTrailingRadius: 30,
+                style: .continuous
+            )
+            .fill(Theme.panelGradient)
         }
+    }
+
+    private var topEdge: some View {
+        UnevenRoundedRectangle(
+            topLeadingRadius: 30,
+            topTrailingRadius: 30,
+            style: .continuous
+        )
+        .strokeBorder(Theme.border, lineWidth: 1)
     }
 }
 

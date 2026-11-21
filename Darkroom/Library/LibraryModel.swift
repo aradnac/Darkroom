@@ -72,6 +72,67 @@ struct LibraryFact: Codable, Hashable {
     var provenance: LibraryProvenance
 }
 
+/// One further named property of a stock — sharpness, base, push behaviour,
+/// halation — so a profile can carry more than the four headline facts without
+/// each new one becoming a schema change.
+struct LibraryCharacteristic: Codable, Identifiable, Hashable {
+    var label: String
+    var value: String
+    var provenance: LibraryProvenance
+
+    var id: String { label }
+}
+
+// MARK: - Origin
+
+/// Where a stock actually comes from. A good part of what is on a shelf is
+/// another maker's emulsion, reprinted or respooled, and the library says so
+/// rather than presenting the repackager as the manufacturer.
+enum LibraryOriginKind: String, Codable, CaseIterable, Identifiable {
+    /// The maker's own emulsion, sold under the maker's name.
+    case original
+    /// Cinema or bulk stock cut down and put into 35 mm cassettes.
+    case respool
+    /// An existing film sold under another brand's name.
+    case rebrand
+    /// A stock sold for a different process than the one it was designed for.
+    case converted
+
+    var id: String { rawValue }
+
+    var label: String {
+        switch self {
+        case .original: return "Original"
+        case .respool: return "Respool"
+        case .rebrand: return "Rebrand"
+        case .converted: return "Converted"
+        }
+    }
+
+    var detail: String {
+        switch self {
+        case .original: return "The maker's own emulsion"
+        case .respool: return "Bulk or cinema stock cut down into still-film cassettes"
+        case .rebrand: return "Another maker's emulsion sold under a different name"
+        case .converted: return "Repackaged for a different process than it was made for"
+        }
+    }
+}
+
+struct LibraryOrigin: Codable, Hashable {
+    var kind: LibraryOriginKind
+    /// The stock this is made from, as it is written in the trade, e.g.
+    /// "Kodak Vision3 500T 5219".
+    var stock: String?
+    /// The library key of that stock when it has a profile of its own.
+    var stockFilm: String?
+    /// True only when the carbon backing has been removed before resale, which
+    /// is what lets a cinema stock go through C-41.
+    var remjetRemoved: Bool?
+    var note: String?
+    var provenance: LibraryProvenance?
+}
+
 // MARK: - Films
 
 enum FilmStatus: String, Codable, CaseIterable, Identifiable {
@@ -88,6 +149,17 @@ enum FilmStatus: String, Codable, CaseIterable, Identifiable {
         case .discontinued: return "Discontinued"
         case .cinema: return "Cinema"
         case .specialty: return "Specialty"
+        }
+    }
+
+    /// The order the catalogue reads in: what you can buy, then what needs a
+    /// special process, then what is still made in small runs, then history.
+    var browseRank: Int {
+        switch self {
+        case .current: return 0
+        case .cinema: return 1
+        case .specialty: return 2
+        case .discontinued: return 3
         }
     }
 }
@@ -108,6 +180,14 @@ struct LibraryFilm: Codable, Identifiable, Hashable {
     var contrast: LibraryFact?
     var reciprocity: LibraryFact?
     var notes: String?
+
+    // Provenance and story. A respool is not worth listing without the stock it
+    // came from, and a discontinued film is not worth listing without why it
+    // went, so both live with the record rather than in a separate document.
+    var origin: LibraryOrigin? = nil
+    var history: String?
+    var grainStructure: LibraryFact?
+    var characteristics: [LibraryCharacteristic]? = nil
 
     var id: String { key }
 
@@ -130,7 +210,11 @@ struct LibraryFilm: Codable, Identifiable, Hashable {
         result.grain = Self.pick(grain, other.grain)
         result.contrast = Self.pick(contrast, other.contrast)
         result.reciprocity = Self.pick(reciprocity, other.reciprocity)
+        result.grainStructure = Self.pick(grainStructure, other.grainStructure)
         result.notes = other.notes ?? notes
+        result.history = other.history ?? history
+        result.origin = other.origin ?? origin
+        result.characteristics = other.characteristics ?? characteristics
         if !other.formats.isEmpty { result.formats = other.formats }
         if other.generationLabel != nil { result.generationLabel = other.generationLabel }
         return result

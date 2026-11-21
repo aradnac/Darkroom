@@ -3,22 +3,24 @@
 //  Darkroom
 //
 //  The frosted panel and the two button styles that carry the whole interface.
-//  When the print theme is active they become paper plates and block buttons.
+//  The soft-glass language dresses each one in its own field and capsule.
 //
 
 import SwiftUI
 
 struct GlassPanel: ViewModifier {
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
     var radius: CGFloat = 26
     var tint: Color?
     var glowing: Bool = false
 
     @ViewBuilder
     func body(content: Content) -> some View {
-        if themeStore.isTheme13Active {
-            paper(content)
-        } else if themeStore.isSoftGlassActive {
+        if let style = DLRuntime.activeStyle {
+            content
+                .designLanguage(style)
+                .dlPanel(radius: radius, role: .secondary, tint: tint)
+        } else if appearance.isSoftGlassActive {
             softGlass(content)
         } else {
             glass(content)
@@ -64,34 +66,6 @@ struct GlassPanel: ViewModifier {
             }
             .shadow(color: .black.opacity(0.45), radius: 26, x: 0, y: 16)
             .shadow(color: glowing ? Color.white.opacity(0.16) : Color.clear, radius: 34, x: 0, y: 0)
-    }
-
-    // MARK: Print theme
-
-    private func paper(_ content: Content) -> some View {
-        let palette = themeStore.palette
-        let dark = themeStore.isDarkAppearance
-        return content
-            .background(alignment: .topLeading) {
-                Rectangle()
-                    .fill(palette.stroke(isDark: dark).opacity(0.75))
-                    .offset(x: 3, y: 3)
-            }
-            .background {
-                Rectangle().fill(palette.plate(isDark: dark))
-            }
-            .overlay(alignment: .leading) {
-                if let tint {
-                    Rectangle()
-                        .fill(tint)
-                        .frame(width: 4)
-                        .padding(.vertical, 12)
-                }
-            }
-            .overlay {
-                Rectangle()
-                    .stroke(palette.stroke(isDark: dark), lineWidth: 1.5)
-            }
     }
 
     // MARK: Darkroom
@@ -143,36 +117,40 @@ extension View {
 // MARK: - Primary action
 
 struct AmberCapsuleStyle: ButtonStyle {
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
     var height: CGFloat = 56
 
     @ViewBuilder
     func makeBody(configuration: Configuration) -> some View {
-        if themeStore.isTheme13Active {
-            let palette = themeStore.palette
-            let box = themeStore.compactControls ? min(height, 44) : height
-            configuration.label.hapticFeedbackOnPress(isPressed: configuration.isPressed)
-                .font(.system(size: 12, weight: .bold, design: .monospaced))
-                .tracking(1.5)
-                .textCase(.uppercase)
-                .foregroundStyle(palette.accentInk)
+        if let style = DLRuntime.activeStyle {
+            configuration.label
+                .hapticFeedbackOnPress(isPressed: configuration.isPressed)
+                .font(style.body(16, weight: .semibold))
+                .textCase(style.labelCase)
+                .tracking(style.spec.type.labelUppercase ? 0.6 : 0)
+                .foregroundStyle(style.palette.accentInk)
                 .frame(maxWidth: .infinity)
-                .frame(height: box)
-                .background(alignment: .topLeading) {
-                    Rectangle()
-                        .fill(palette.accent2)
-                        .offset(x: configuration.isPressed ? 0 : 4, y: configuration.isPressed ? 0 : 4)
-                }
+                .frame(height: height)
                 .background {
-                    Rectangle().fill(palette.accent)
+                    style.actionBackground(role: .primary, isPressed: configuration.isPressed)
                 }
+                .clipShape(
+                    RoundedRectangle(
+                        cornerRadius: style.actionRadius >= 999 ? height / 2 : style.actionRadius,
+                        style: .continuous
+                    )
+                )
                 .overlay {
-                    Rectangle().stroke(palette.border, lineWidth: 2)
+                    RoundedRectangle(
+                        cornerRadius: style.actionRadius >= 999 ? height / 2 : style.actionRadius,
+                        style: .continuous
+                    )
+                    .strokeBorder(style.palette.line, lineWidth: 1)
                 }
-                .offset(x: configuration.isPressed ? 4 : 0, y: configuration.isPressed ? 4 : 0)
-                .animation(.linear(duration: 0.06), value: configuration.isPressed)
-        } else if themeStore.isSoftGlassActive {
-            let compact = themeStore.compactControls
+                .scaleEffect(configuration.isPressed ? 0.985 : 1)
+                .designLanguage(style)
+        } else if appearance.isSoftGlassActive {
+            let compact = appearance.compactControls
             configuration.label.hapticFeedbackOnPress(isPressed: configuration.isPressed)
                 .font(.system(size: 17, weight: .semibold))
                 .foregroundStyle(SoftGlassTheme.amberInk)
@@ -196,7 +174,7 @@ struct AmberCapsuleStyle: ButtonStyle {
                 .scaleEffect(configuration.isPressed ? 0.96 : 1)
                 .animation(.spring(response: 0.34, dampingFraction: 0.62), value: configuration.isPressed)
         } else {
-            let compact = themeStore.compactControls
+            let compact = appearance.compactControls
             configuration.label.hapticFeedbackOnPress(isPressed: configuration.isPressed)
                 .font(.system(size: 17, weight: .semibold))
                 .foregroundStyle(Theme.amberInk)
@@ -223,31 +201,40 @@ struct AmberCapsuleStyle: ButtonStyle {
 // MARK: - Secondary action
 
 struct GlassCapsuleStyle: ButtonStyle {
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
     var height: CGFloat = 56
 
     @ViewBuilder
     func makeBody(configuration: Configuration) -> some View {
-        if themeStore.isTheme13Active {
-            let palette = themeStore.palette
-            let dark = themeStore.isDarkAppearance
-            let box = themeStore.compactControls ? min(height, 44) : height
-            configuration.label.hapticFeedbackOnPress(isPressed: configuration.isPressed)
-                .font(.system(size: 12, weight: .bold, design: .monospaced))
-                .tracking(1.5)
-                .textCase(.uppercase)
-                .foregroundStyle(palette.ink(isDark: dark))
+        if let style = DLRuntime.activeStyle {
+            configuration.label
+                .hapticFeedbackOnPress(isPressed: configuration.isPressed)
+                .font(style.body(16, weight: .semibold))
+                .textCase(style.labelCase)
+                .tracking(style.spec.type.labelUppercase ? 0.6 : 0)
+                .foregroundStyle(style.palette.ink)
                 .frame(maxWidth: .infinity)
-                .frame(height: box)
+                .frame(height: height)
                 .background {
-                    Rectangle().fill(configuration.isPressed ? palette.secondarySurface : palette.plate(isDark: dark))
+                    style.actionBackground(role: .secondary, isPressed: configuration.isPressed)
                 }
+                .clipShape(
+                    RoundedRectangle(
+                        cornerRadius: style.actionRadius >= 999 ? height / 2 : style.actionRadius,
+                        style: .continuous
+                    )
+                )
                 .overlay {
-                    Rectangle().stroke(palette.stroke(isDark: dark), lineWidth: configuration.isPressed ? 2 : 1.5)
+                    RoundedRectangle(
+                        cornerRadius: style.actionRadius >= 999 ? height / 2 : style.actionRadius,
+                        style: .continuous
+                    )
+                    .strokeBorder(style.palette.line, lineWidth: 1)
                 }
-                .animation(.linear(duration: 0.06), value: configuration.isPressed)
-        } else if themeStore.isSoftGlassActive {
-            let compact = themeStore.compactControls
+                .scaleEffect(configuration.isPressed ? 0.985 : 1)
+                .designLanguage(style)
+        } else if appearance.isSoftGlassActive {
+            let compact = appearance.compactControls
             configuration.label.hapticFeedbackOnPress(isPressed: configuration.isPressed)
                 .font(.system(size: 17, weight: .medium))
                 .foregroundStyle(Theme.ink)
@@ -264,7 +251,7 @@ struct GlassCapsuleStyle: ButtonStyle {
                 .scaleEffect(configuration.isPressed ? 0.965 : 1)
                 .animation(.spring(response: 0.34, dampingFraction: 0.62), value: configuration.isPressed)
         } else {
-            let compact = themeStore.compactControls
+            let compact = appearance.compactControls
             configuration.label.hapticFeedbackOnPress(isPressed: configuration.isPressed)
                 .font(.system(size: 17, weight: .semibold))
                 .foregroundStyle(Theme.ink)

@@ -2,29 +2,106 @@
 //  ContentView.swift
 //  Darkroom
 //
-//  The five main tabs. Each tab's own screen lives in its feature folder.
+//  The five main tabs. Each tab's own screen lives in its feature folder. While
+//  one of the twelve design languages is on, the whole interface — navigation,
+//  layout and all — is handed to that language's root.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
+    @ObservedObject private var languages = ThemeLanguageStore.shared
     @Environment(\.colorScheme) private var colorScheme
 
     /// Held here, outside the re-identified tab stack, so switching the visual
     /// language never throws the reader back to the first tab.
     @State private var selection = 0
 
-    private var preferredScheme: ColorScheme? {
-        guard themeStore.isTheme13Active else { return .dark }
-        return themeStore.isDarkAppearance ? .dark : .light
-    }
-
     private var settingsBinding: Binding<Bool> {
         Binding(
-            get: { themeStore.isShowingSettings },
-            set: { themeStore.isShowingSettings = $0 }
+            get: { appearance.isShowingSettings },
+            set: { appearance.isShowingSettings = $0 }
         )
+    }
+
+    var body: some View {
+        Group {
+            if languages.isActive {
+                ThemeLanguageRootView()
+                    .transition(.opacity)
+            } else {
+                tabs
+                    .transition(.opacity)
+            }
+        }
+        .animation(.easeInOut(duration: 0.28), value: languages.isActive)
+        .sheet(isPresented: settingsBinding) {
+            SettingsView()
+        }
+        .onAppear {
+            languages.updateSystemAppearance(isDark: colorScheme == .dark)
+            ThemeLanguageChrome.apply(languages)
+        }
+        .onChange(of: colorScheme) { _, scheme in
+            languages.updateSystemAppearance(isDark: scheme == .dark)
+            ThemeLanguageChrome.apply(languages)
+        }
+        .onChange(of: languages.selected) { _, _ in
+            ThemeLanguageChrome.apply(languages)
+        }
+    }
+
+    // MARK: Liquid Glass (the app's own interface)
+
+    private var tabs: some View {
+        ZStack {
+            TabView(selection: $selection) {
+                Tab("Develop", systemImage: "timer", value: 0) {
+                    DevelopHomeView()
+                        .appHidesSystemTabBar()
+                }
+
+                Tab("Recipes", systemImage: "books.vertical", value: 1) {
+                    RecipesView()
+                        .appHidesSystemTabBar()
+                }
+
+                Tab("Chemistry", systemImage: "flask", value: 2) {
+                    ChemistryView()
+                        .appHidesSystemTabBar()
+                }
+
+                Tab("Journal", systemImage: "book.closed", value: 3) {
+                    JournalView()
+                        .appHidesSystemTabBar()
+                }
+
+                Tab("Tools", systemImage: "wrench.and.screwdriver", value: 4) {
+                    ToolsView()
+                        .appHidesSystemTabBar()
+                }
+            }
+            .tint(Theme.amber)
+            .environment(\.controlSize, appearance.compactControls ? .small : .regular)
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                if appearance.isSoftGlassActive {
+                    // The fade and the capsule share one full-width layer. A
+                    // background on the capsule alone would inherit the
+                    // capsule's own width and leave the edges of the screen
+                    // uncovered — the bug this replaced.
+                    ZStack(alignment: .bottom) {
+                        dockBand
+                        SoftGlassTabBar(selection: $selection)
+                    }
+                    .frame(height: SoftGlassTabBar.height)
+                    .frame(maxWidth: .infinity)
+                }
+            }
+            .id(appearance.revision)
+        }
+        .buttonStyle(HapticButtonStyle())
+        .preferredColorScheme(.dark)
     }
 
     /// How far above the dock the fade keeps easing. Kept short so the ramp is
@@ -61,82 +138,6 @@ struct ContentView: View {
         .offset(y: bottom)
         .allowsHitTesting(false)
         .accessibilityHidden(true)
-    }
-
-    var body: some View {
-        Group {
-            if themeStore.isRedroomActive {
-                RedroomRootView()
-            } else {
-                ZStack {
-                    TabView(selection: $selection) {
-                        Tab("Develop", systemImage: "timer", value: 0) {
-                            DevelopHomeView()
-                                .appHidesSystemTabBar()
-                        }
-
-                        Tab("Recipes", systemImage: "books.vertical", value: 1) {
-                            RecipesView()
-                                .appHidesSystemTabBar()
-                        }
-
-                        Tab("Chemistry", systemImage: "flask", value: 2) {
-                            ChemistryView()
-                                .appHidesSystemTabBar()
-                        }
-
-                        Tab("Journal", systemImage: "book.closed", value: 3) {
-                            JournalView()
-                                .appHidesSystemTabBar()
-                        }
-
-                        Tab("Tools", systemImage: "wrench.and.screwdriver", value: 4) {
-                            ToolsView()
-                                .appHidesSystemTabBar()
-                        }
-                    }
-                    .tint(Theme.amber)
-                    .environment(\.controlSize, themeStore.compactControls ? .small : .regular)
-                    .safeAreaInset(edge: .bottom, spacing: 0) {
-                        if themeStore.isTheme13Active {
-                            Theme13TabBar(selection: $selection)
-                        } else if themeStore.isSoftGlassActive {
-                            // The fade and the capsule share one full-width layer. A
-                            // background on the capsule alone would inherit the
-                            // capsule's own width and leave the edges of the screen
-                            // uncovered — the bug this replaced.
-                            ZStack(alignment: .bottom) {
-                                dockBand
-                                SoftGlassTabBar(selection: $selection)
-                            }
-                            .frame(height: SoftGlassTabBar.height)
-                            .frame(maxWidth: .infinity)
-                        }
-                    }
-                    .id(themeStore.revision)
-                }
-                .buttonStyle(HapticButtonStyle())
-                .preferredColorScheme(preferredScheme)
-            }
-        }
-        .sheet(isPresented: settingsBinding) {
-            if themeStore.isRedroomActive {
-                RedroomSettingsView()
-            } else {
-                Theme13SettingsView()
-            }
-        }
-        .onAppear {
-            themeStore.updateSystemAppearance(isDark: colorScheme == .dark)
-            Theme13Chrome.apply(themeStore)
-        }
-        .onChange(of: colorScheme) { _, scheme in
-            themeStore.updateSystemAppearance(isDark: scheme == .dark)
-            Theme13Chrome.apply(themeStore)
-        }
-        .onChange(of: themeStore.revision) { _, _ in
-            Theme13Chrome.apply(themeStore)
-        }
     }
 }
 
