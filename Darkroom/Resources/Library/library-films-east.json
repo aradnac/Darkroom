@@ -1,0 +1,533 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "orwo-un54",
+      "manufacturer": "ORWO",
+      "name": "UN54",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "un54",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "A classic cinema cubic-grain emulsion, fine and slightly hard-edged.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "ORWO UN54 black-and-white cinema stock",
+        "note": "Cinema stock cut down into still cassettes by ORWO itself and by several respoolers, including Lomography's Potsdam Kino.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "ORWO — originally the East German film division of Agfa, nationalised after the war as the 'Original Wolfen' works — has been coating film in Wolfen since the 1930s. UN54 is its classic ISO 100 cinema negative, a stock with a hard, contrasty look and strong red sensitivity. After the wall came down the plant shrank drastically, but small runs of B&W cinema stock continued, and respoolers rediscovered UN54 in the 2010s as a cheap, characterful film.",
+      "characteristics": [
+        { "label": "Look", "value": "Hard and contrasty, with deep blacks and strong red separation — an East German cinema look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Respooled as", "value": "Lomography Potsdam Kino 100, and ORWO's own 135 cassettes.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Handling", "value": "The cinema version carries a rem-jet backing and needs a pre-bath; the still cassettes are usually pre-cleaned.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "orwo-n74-plus",
+      "manufacturer": "ORWO",
+      "name": "N74 Plus",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "n74-plus",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Cubic grain with visible clumping, typical of a 1970s 400-speed cinema emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "ORWO N74 black-and-white cinema stock",
+        "note": "Respooled cinema stock, widely believed to be the base of Lomography's Berlin Kino 400.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "N74 Plus is ORWO's 400-speed cinema black-and-white stock, the descendant of the N74 emulsion that East German newsreel and feature crews used. It is grainy, hard and atmospheric, with a strong shoulder that holds highlights. It is the film behind the 'Berlin Kino' aesthetic, whether or not Lomography names it.",
+      "characteristics": [
+        { "label": "Look", "value": "Grainy and dramatic; closer to a 1960s newsreel than a modern film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Backing", "value": "Cinema stock may carry rem-jet; still cassettes are usually cleaned.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "orwo-wolfen-np100",
+      "manufacturer": "ORWO",
+      "name": "Wolfen NP100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "wolfen-np100",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine cubic grain on a clear base, with a clean modern curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Wolfen NP100 is ORWO's modern photographic 100-speed film, launched in the late 2010s as part of the company's return to still photography. It is cleaner and more neutral than the old cinema stocks and has become the sensible everyday ORWO.",
+      "characteristics": [
+        { "label": "Look", "value": "Clean and neutral for an ORWO: fine grain, straight curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "orwo-wolfen-nc400",
+      "manufacturer": "ORWO",
+      "name": "Wolfen NC400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "wolfen-nc400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Dye-cloud grain with a distinctly vintage, slightly rough structure.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Wolfen NC400 is ORWO's modern colour negative, launched in 2022 after the company revived colour film production at Wolfen. It is a genuinely new emulsion rather than an old stock, with a warm, slightly muted palette and visible grain. It is one of the very few colour films launched in Europe in the 2020s.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and muted, with strong reds and soft greens.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "C-41 standard.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "orwo-wolfen-nc500",
+      "manufacturer": "ORWO",
+      "name": "Wolfen NC500",
+      "iso": 500,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "wolfen-nc500",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain, deliberately left rough.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Wolfen NC500 is ORWO's fast colour negative, released in 2022 and quickly becoming the more popular of the two. It is grainy, contrasty and warm, with a look that is closer to a 1980s colour film than to Portra. It is designed for available light and it has the kind of character that modern emulsions lack.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm, grainy and contrasty — an authentic 'old film' palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Latitude", "value": "Wide enough for a camera with no meter.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lucky-shd-400",
+      "manufacturer": "Lucky",
+      "name": "SHD 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "shd-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, slightly coarse and old-fashioned in structure — closer to a 1970s Chinese emulsion than a modern one.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Lucky Film (乐凯) was founded in 1958 in Baoding, China, as the country's state film works, and for decades it was the film most Chinese photographers used. Its SHD 100 and SHD 400 black-and-white films were exported cheaply around the world from the 1990s. The company's film production collapsed in the 2000s as digital took over, and the brand has been revived in recent years with new runs. Lucky has a loyal following for its old-fashioned tonality and a difficult reputation for quality control: uneven coating, occasional spots, and a grain that can vary from roll to roll. When it is good it is very good — a slightly hard, contrasty, red-sensitive film with a Chinese-market look — and when it is bad it has pinholes.",
+      "characteristics": [
+        { "label": "Look", "value": "Hard, contrasty, with strong red sensitivity and a slightly coarse grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Quality control", "value": "Inconsistent. Reports of pinholes, spots and uneven coating are common on older stock. Check every frame.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Price", "value": "Very cheap, which is a large part of the appeal.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "History", "value": "State works from 1958; production collapsed in the 2000s and the brand has since been revived.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "notes": "A Chinese classic with a real history behind it. Excellent value and a distinctive look, but check the coating on every roll."
+    },
+    {
+      "key": "lucky-shd-100",
+      "manufacturer": "Lucky",
+      "name": "SHD 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "shd-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine cubic grain, aging less gracefully than European films of the same speed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Lucky SHD 100 is the slow member of the SHD range, the film that Chinese school darkrooms used for decades. It is finer and cleaner than SHD 400, with the same warm-red rendering and the same quality-control caveats. It has been revived alongside the 400.",
+      "characteristics": [
+        { "label": "Quality control", "value": "Check for spots and uneven density; the 100 is generally more consistent than the 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lucky-color-200",
+      "manufacturer": "Lucky",
+      "name": "Color 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "color-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain with a palette unlike any Kodak or Fuji film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Lucky Color was China's domestic colour negative, sold from the 1980s into the 2000s. Its palette is distinctive — greenish shadows, strong reds, a slightly cyan cast — and it does not look like any Western film. Production ended in the 2000s and surviving stock is expired.",
+      "characteristics": [
+        { "label": "Palette", "value": "Green-cyan shadows and strong reds; unmistakably Chinese-market.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "shanghai-gp3-100",
+      "manufacturer": "Shanghai",
+      "name": "GP3 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "gp3-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine conventional grain, older in structure than modern emulsions, with a tendency to backing-paper marks on 120.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Shanghai GP3 100 is made by Shanghai Shenguang Film, a Chinese state-linked manufacturer that has coated black-and-white film since the 1950s. It has become popular outside China as an extremely cheap medium-format film, particularly in 120 and 4×5. Its quality control is inconsistent — backing-paper marks, occasional scratches and variable speed are all reported — but when it works it has a pleasingly old-fashioned, slightly soft tonality.",
+      "characteristics": [
+        { "label": "Formats", "value": "One of the cheapest ways into 4×5 black and white.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Quality control", "value": "Backing-paper marks and scratches are common on 120. Check the emulsion side before scanning.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "svema-foto-64",
+      "manufacturer": "Svema",
+      "name": "Foto 64",
+      "iso": 64,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "foto-64",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse Soviet-era cubic grain with heavy base fog on expired stock.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Svema was the Soviet Union's main photographic film plant, in Shostka, Ukraine, and it supplied the whole Eastern bloc. Foto 64 was one of its standard black-and-white emulsions, and after the Soviet collapse the plant's remaining stock was sold off in vast quantities. Expired Svema is now a genre of its own: heavy fog, uneven density and a look that no modern film reproduces. It is sold by resellers who respool the old master rolls.",
+      "characteristics": [
+        { "label": "Expired stock", "value": "Expect fog. Add a restrainer such as benzotriazole and develop cool.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Rough and period: coarse grain, soft corners, uneven density.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "svema-foto-100",
+      "manufacturer": "Svema",
+      "name": "Foto 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "foto-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Soviet cubic grain with a thick emulsion and a tendency to curl.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Svema Foto 100 was the workhorse black-and-white film of the Soviet Union and its satellites. It is thickly coated, curls badly and fogs with age, and it has a strong, contrasty look. Respooled expired stock is widely sold as a novelty, and it is genuinely one of the most distinctive films still shootable.",
+      "characteristics": [
+        { "label": "Handling", "value": "Thick and curly; load carefully and dry weighted.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "svema-foto-200",
+      "manufacturer": "Svema",
+      "name": "Foto 200",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "foto-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse Soviet grain with heavy clumping in the shadows.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Foto 200 was Svema's faster black-and-white film, made for press and amateur use across the USSR. It is grainy, contrasty and heavily fogged on surviving stock, and it is one of the films people buy to get a truly unfamiliar look.",
+      "characteristics": [
+        { "label": "Expired stock", "value": "Much of it is 30+ years old. Rate slower and develop with a restrainer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "svema-foto-400",
+      "manufacturer": "Svema",
+      "name": "Foto 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "foto-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very coarse, heavily clumped grain — the extreme end of the Soviet emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Svema Foto 400 was the fastest of the Soviet black-and-white range and is now the rarest. Surviving stock is heavily fogged and extremely grainy, and it is bought for the aesthetic rather than for reliability.",
+      "characteristics": [
+        { "label": "Availability", "value": "Rare; mostly sold as expired respools.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "svema-color-125",
+      "manufacturer": "Svema",
+      "name": "Color 125",
+      "iso": 125,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "color-125",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain with severe colour crossover on expired stock.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Svema Color 125 was the Soviet Union's domestic colour negative, processed in a C-41-compatible chemistry and rarely seen in the West. Expired stock produces wild colour crossovers, fog and enormous grain, and it is shot today as a special effect rather than as a reliable film.",
+      "characteristics": [
+        { "label": "Process", "value": "C-41 compatible, though designed for the Soviet equivalent.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Expect extreme colour crossover and fog.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "silberra-u200",
+      "manufacturer": "Silberra",
+      "name": "U200",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "u200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Aerial-survey style fine grain with extended red sensitivity.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Aerial survey stock (widely reported Agfa Aviphot)",
+        "note": "Silberra, a Russian brand, sells respooled aerial film without naming the coating.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Silberra is a Russian respooler that sells a range of aerial-survey-derived black-and-white films under its own names. U200 is its fine-grained, red-sensitive stock, and it behaves like the other Aviphot-based films in this library: very sharp, contrasty and dramatic with a red filter. Availability follows the Russian market and has been affected by export restrictions.",
+      "characteristics": [
+        { "label": "Origin", "value": "Aerial stock, coating not disclosed; consistent with Agfa Aviphot.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Very fine grain, high contrast and dark skies.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "silberra-u400",
+      "manufacturer": "Silberra",
+      "name": "U400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "u400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine aerial grain for a 400 film, with the same extended red sensitivity.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Aerial survey stock (widely reported Agfa Aviphot 400)",
+        "note": "Coating not disclosed by Silberra.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "U400 is Silberra's faster aerial-derived film, marketed as a low-light 400 with the resolution of a slower stock. It develops into a high-contrast negative with strong red separation, and it is best exposed at 200–400 depending on the light.",
+      "characteristics": [
+        { "label": "Look", "value": "High contrast, dark skies, fine grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "silberra-pan100",
+      "manufacturer": "Silberra",
+      "name": "Pan 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "pan-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine panchromatic grain on a clear base.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Silberra Pan 100 is a fine-grained panchromatic film sold by the Russian brand, aimed at general photography. It is cleaner and more neutral than the U series, and it behaves like a classic European 100-speed film.",
+      "characteristics": [
+        { "label": "Look", "value": "Fine, clean and slightly contrasty.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "silberra-select-160",
+      "manufacturer": "Silberra",
+      "name": "Select 160",
+      "iso": 160,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "select-160",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine grain, sold as a hand-selected premium run.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Select 160 is Silberra's premium line: film from a specific coating run, checked and sold at a higher price. It sits between the U series and Pan 100 in character. Production is small and intermittent.",
+      "characteristics": [
+        { "label": "Availability", "value": "Small batches, often out of stock.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "washi-w",
+      "manufacturer": "Washi",
+      "name": "Washi W",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "washi-w",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "A hand-coated paper-based emulsion with visible texture and irregular grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Washi films are hand-coated in Japan on a paper base rather than a plastic one, by a small workshop that revives pre-industrial photographic materials. Washi W is its panchromatic black-and-white film, and it behaves nothing like an industrial emulsion: the base is translucent paper, the emulsion is uneven, and the results have soft edges and a texture that cannot be reproduced digitally. It is expensive and fragile and it is bought for exactly that.",
+      "characteristics": [
+        { "label": "Base", "value": "Paper, not plastic. Handle by the edges and dry flat.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Soft, textured and unpredictable — a handmade material.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Speed", "value": "Nominally ISO 100; expect to bracket.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "washi-d",
+      "manufacturer": "Washi",
+      "name": "Washi D",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "washi-d",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Hand-coated paper-based emulsion with a slightly different coating weight from W.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Washi D is the contrastier of the two Washi black-and-white films, coated on the same paper base. It is a direct-process material in the tradition of early photography, sold in tiny quantities.",
+      "characteristics": [
+        { "label": "Base", "value": "Paper; fragile when wet.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "dubblefilm-jelly-200",
+      "manufacturer": "Dubblefilm",
+      "name": "Jelly 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "jelly-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain from the base colour negative, with pre-exposed colour marks layered over it.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative with pre-exposure",
+        "note": "Not a different emulsion: an ordinary colour negative that has been given a controlled pre-exposure so that light streaks and colour washes appear on every frame.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Dubblefilm is a small company that makes 'pre-exposed' films: ordinary colour negatives that have been given a controlled leak of light before being packed, so that every frame carries coloured streaks and glows. Jelly 200 is one of its milder effects. It is a creative material rather than a documentary one, and the effect is baked in — there is no way to shoot it clean.",
+      "characteristics": [
+        { "label": "Effect", "value": "Pink and blue light streaks across the frame.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "C-41 standard.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "dubblefilm-bubblegum-400",
+      "manufacturer": "Dubblefilm",
+      "name": "Bubblegum 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "bubblegum-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain with a pink pre-exposure wash.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative with pre-exposure",
+        "note": "A pre-exposed colour negative, packed to produce a pink cast across the roll.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Bubblegum 400 is Dubblefilm's pink effect film: a colour negative pre-exposed to give a warm pink wash. It is popular for parties and portraits where the colour is the point.",
+      "characteristics": [
+        { "label": "Effect", "value": "Pink wash over the whole roll.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "dubblefilm-showtime-400",
+      "manufacturer": "Dubblefilm",
+      "name": "Showtime 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "showtime-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain with heavy light-leak streaks.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative with pre-exposure",
+        "note": "A pre-exposed colour negative with strong simulated light leaks and colour burns.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Showtime 400 is Dubblefilm's most extreme effect film, with orange and red light leaks pre-exposed onto every frame. It looks like a film that was left in the sun, deliberately.",
+      "characteristics": [
+        { "label": "Effect", "value": "Orange and red light leaks on every frame.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "revolog-kolor-200",
+      "manufacturer": "Revolog",
+      "name": "Kolor 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "revolog-kolor-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain under a pre-exposed colour pattern.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative with pre-exposure",
+        "note": "Revolog films are pre-exposed colour negatives with patterns printed onto them before packing.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Revolog is an Austrian company that makes pre-exposed effect films, each with a different pattern baked in. Kolor 200 adds coloured stripes and marks; others add scratches, flames or dots. They are novelty materials, made from ordinary colour negatives, and the effect is fixed at the factory.",
+      "characteristics": [
+        { "label": "Effect", "value": "Coloured stripes and marks pre-exposed onto the film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "C-41 standard.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "revolog-volvox-400",
+      "manufacturer": "Revolog",
+      "name": "Volvox 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "volvox-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain with a green bubble pattern pre-exposed onto it.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative with pre-exposure",
+        "note": "Pre-exposed colour negative with a repeating green cell pattern.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Volvox 400 is Revolog's green bubble-pattern film, named after the algae colonies whose shape the pre-exposure imitates. Like all Revolog films it is a creative material with the effect fixed before exposure.",
+      "characteristics": [
+        { "label": "Effect", "value": "Green circular patterns across the frame.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "orwo-un54", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 420, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "orwo-n74-plus", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "lucky-shd-400", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "lucky-shd-100", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "shanghai-gp3-100", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "orwo-wolfen-nc400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "orwo-wolfen-nc500", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "svema-foto-64", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 420, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "Expired stock; add a restrainer and develop cool." } }
+  ]
+}

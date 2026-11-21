@@ -1,0 +1,709 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "cinestill-800t",
+      "manufacturer": "CineStill",
+      "name": "800T",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "cinestill-800t",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud, tabular", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Kodak T-grain dye clouds, fine and even. The visible texture in a CineStill frame is halation, not grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low-medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Vision3 500T 5219",
+        "stockFilm": "kodak-vision3-500t",
+        "remjetRemoved": true,
+        "note": "Cut from Kodak Vision3 500T cinema stock, with the carbon rem-jet backing removed so it can be developed in ordinary C-41. Removing the backing also removes the anti-halation layer, which is where the famous red glow around highlights comes from.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "CineStill was founded in 2012 by the twins Brandon and Brian Wright, who worked out how to remove the rem-jet backing from Kodak's motion-picture stock at home and respool it for still cameras. 800T is Vision3 500T, a tungsten-balanced cinema film, relabelled at 800 because that is how CineStill recommends exposing and developing it. It is the film that made a whole generation of photographers aware that cinema stock existed — and the red halation around highlights, caused by the missing anti-halation layer, became the look people now chase.",
+      "characteristics": [
+        { "label": "Balance", "value": "Tungsten 3200 K. In daylight it needs an 85B filter or a strong blue correction — the unfiltered teal cast is deliberate for many users.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Halation", "value": "Extreme around highlights, because the rem-jet carried the anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Development", "value": "C-41, including at home. Do not put it through ECN-2 without the pre-bath — the backing is already gone.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Push", "value": "Rated 800 by default; 1600 is a common push and 3200 is usable with a strong look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "notes": "A respool of Kodak Vision3 500T with the rem-jet removed. The red glow is halation from the missing anti-halation layer."
+    },
+    {
+      "key": "cinestill-400d",
+      "manufacturer": "CineStill",
+      "name": "400D",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "cinestill-400d",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine T-grain dye clouds from the Vision3 250D emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Vision3 250D 5207",
+        "stockFilm": "kodak-vision3-250d",
+        "remjetRemoved": true,
+        "note": "Vision3 250D cut down and de-backed for C-41. Labelled 400 because CineStill recommends exposing and developing it there.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "400D arrived in 2023 as CineStill's daylight stock, answering years of requests for a version of 800T that did not need a filter or a blue correction. It is Kodak Vision3 250D, rated at 400 in C-41, with the same removed backing and the same halation. It is cleaner and cooler than 800T, and it has become the default daylight CineStill.",
+      "characteristics": [
+        { "label": "Balance", "value": "Daylight 5500 K. No filter needed, unlike 800T.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Development", "value": "C-41 standard at 38 °C; no push needed at 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Halation", "value": "Present but less dominant than 800T's, because the stock is slower and finer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "cinestill-50d",
+      "manufacturer": "CineStill",
+      "name": "50D",
+      "iso": 50,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "cinestill-50d",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "The finest grain of the CineStill range, from the Vision3 50D emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Vision3 50D 5203",
+        "stockFilm": "kodak-vision3-50d",
+        "remjetRemoved": true,
+        "note": "Vision3 50D with the backing removed, for C-41.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "50D was CineStill's first slow stock, released for bright-light work and long exposures. Because it is Vision3 50D it has almost no grain and a very wide tonal range, and because the backing is gone it halates. It is the least used of the three colour CineStills and the cleanest.",
+      "characteristics": [
+        { "label": "Use", "value": "Bright daylight and studio flash; too slow for anything else.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Balance", "value": "Daylight 5500 K.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "cinestill-bwxx",
+      "manufacturer": "CineStill",
+      "name": "BwXX",
+      "iso": 250,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "bwxx",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Classic cubic grain from Kodak Double-X, with the backing removed so it can be developed in ordinary B&W chemistry.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Double-X 5222",
+        "stockFilm": "kodak-double-x-5222",
+        "remjetRemoved": true,
+        "note": "Kodak's 1959 black-and-white cinema stock, de-backed and respooled. No pre-bath needed before B&W development.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "BwXX is CineStill's black-and-white film: Kodak Double-X 5222, the cinema stock in production since 1959, with the rem-jet removed. Because the backing is gone it can go straight into a B&W tank. It carries the look of mid-century cinema — deep shadows, a long shoulder and a grain that reads as texture — and it is the easiest way to shoot Double-X in a still camera without a pre-bath.",
+      "characteristics": [
+        { "label": "Look", "value": "The classic cinema B&W image: rich shadows and a strong shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Development", "value": "Ordinary B&W developers; D-76 stock around 8 minutes at 20 °C is a common start.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Speed", "value": "Boxed at 250; widely exposed at 200–400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "hitchcock-250d",
+      "manufacturer": "Hitchcock",
+      "name": "250D",
+      "iso": 250,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "hitchcock-250d",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Kodak T-grain dye clouds, fine and clean.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Vision3 250D 5207",
+        "stockFilm": "kodak-vision3-250d",
+        "remjetRemoved": true,
+        "note": "Vision3 250D with the rem-jet removed, sold for C-41 development at home or in a lab.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Hitchcock is a small European respooler that buys Kodak motion-picture short ends and recans, removes the rem-jet and sells them as still-film cassettes. Its 250D is Vision3 250D, the daylight stock, and it behaves exactly like CineStill 400D at a lower rating. Stocks vary with what Kodak has available, which is part of the charm — and part of the risk.",
+      "characteristics": [
+        { "label": "Origin", "value": "Kodak Vision3 250D, de-backed. Short ends and recans, so the stock can vary between batches.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Development", "value": "C-41 at 38 °C.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Halation", "value": "Present: the anti-halation layer went with the backing.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ],
+      "notes": "A respool of Kodak Vision3 250D with the rem-jet removed. Availability depends on what short ends the respooler can find."
+    },
+    {
+      "key": "hitchcock-500t",
+      "manufacturer": "Hitchcock",
+      "name": "500T",
+      "iso": 500,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "hitchcock-500t",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Vision3 500T T-grain dye clouds, fine and even.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Vision3 500T 5219",
+        "stockFilm": "kodak-vision3-500t",
+        "remjetRemoved": true,
+        "note": "Vision3 500T de-backed for C-41, the same base stock CineStill 800T uses.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Hitchcock 500T is the tungsten-balanced sibling of its 250D, made from the same Kodak cinema stock that CineStill 800T uses. It is sold at 500 rather than 800, which gives a thinner, more neutral negative than 800T's recommended rating. The halation and the cinematic latitude are the same.",
+      "characteristics": [
+        { "label": "Balance", "value": "Tungsten 3200 K; needs an 85B in daylight.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Compared with 800T", "value": "Rated a stop slower, so a thinner negative and less highlight compression.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "reflx-lab-400d",
+      "manufacturer": "Reflx Lab",
+      "name": "400D",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "reflx-400d",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine Kodak T-grain dye clouds.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Vision3 250D 5207",
+        "stockFilm": "kodak-vision3-250d",
+        "remjetRemoved": true,
+        "note": "A Hong Kong respool house: Vision3 250D de-backed for C-41, sold with and without development included.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Reflx Lab is a Hong Kong company that respools Kodak cinema stock and sells it both as film and as a film-plus-development package. Its 400D is Vision3 250D de-backed for C-41. Shipping and availability follow the Asian market more than the European one, and batches vary with the short ends available.",
+      "characteristics": [
+        { "label": "Origin", "value": "Kodak Vision3 250D, rem-jet removed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Development", "value": "C-41; Reflx also sells development-included packages.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "reflx-lab-800t",
+      "manufacturer": "Reflx Lab",
+      "name": "800T",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "reflx-800t",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Vision3 500T dye clouds, fine and smooth.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Vision3 500T 5219",
+        "stockFilm": "kodak-vision3-500t",
+        "remjetRemoved": true,
+        "note": "Vision3 500T de-backed for C-41, boxed at 800 like CineStill.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Reflx Lab's 800T is the same Vision3 500T base stock as CineStill 800T, respooled and de-backed in Hong Kong. The difference between respoolers is not the emulsion — it is the care taken removing the backing, the cassette quality and the batch age. Badly de-backed stock shows mottled patches where carbon remains.",
+      "characteristics": [
+        { "label": "Quality control", "value": "The whole game for a respool. Look for an even base on the first frame.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Balance", "value": "Tungsten 3200 K.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "silbersalz-250d",
+      "manufacturer": "Silbersalz",
+      "name": "250D",
+      "iso": 250,
+      "process": "cinemaNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "silbersalz-250d",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Kodak Vision3 T-grain dye clouds, with the rem-jet still present.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Vision3 250D 5207",
+        "stockFilm": "kodak-vision3-250d",
+        "remjetRemoved": false,
+        "note": "Vision3 250D respooled with the rem-jet left on, sold as a package with ECN-2 development and scanning in Germany.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Silbersalz is a German lab that sells Kodak Vision3 stock with development and scanning included, processed properly in ECN-2 with the rem-jet removed in the pre-bath. It is the honest route to cinema stock: the film arrives and leaves as a lab package, so the backing is handled by people who do it every day. The 250D is the daylight stock.",
+      "characteristics": [
+        { "label": "Process", "value": "ECN-2, done by the lab. Do not put this cassette through C-41 — the backing is still on.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Package", "value": "Film, development and scans sold together.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "silbersalz-500t",
+      "manufacturer": "Silbersalz",
+      "name": "500T",
+      "iso": 500,
+      "process": "cinemaNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "silbersalz-500t",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Vision3 500T T-grain dye clouds, rem-jet intact.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Kodak Vision3 500T 5219",
+        "stockFilm": "kodak-vision3-500t",
+        "remjetRemoved": false,
+        "note": "Vision3 500T respooled with the rem-jet intact, sold with ECN-2 development included.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Silbersalz 500T is the tungsten stock in the same lab package, and it is the one to shoot indoors or at night. Because Silbersalz processes in ECN-2, the film keeps its anti-halation layer, so it does not get the CineStill red glow — the result is a cleaner, more neutral cinema negative.",
+      "characteristics": [
+        { "label": "Halation", "value": "Absent: the rem-jet is intact until the lab removes it in the pre-bath.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "ECN-2 only, through the lab.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-color-negative-100",
+      "manufacturer": "Lomography",
+      "name": "Color Negative 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "lomo-cn-100",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, consistent with a Kodak consumer emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Kodak colour negative (widely reported)",
+        "note": "Lomography does not name the manufacturer of its colour films. The community has long identified them as Kodak emulsions, but this is not officially confirmed.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Lomography's Color Negative films are made for the company's own cameras and sold in distinctive packaging. The coating is not disclosed, but the film behaves like Kodak consumer stock: warm, forgiving, with generous latitude. The 100 is the cleanest of the three and the best for daylight.",
+      "characteristics": [
+        { "label": "Origin", "value": "Undisclosed; widely believed to be Kodak.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Latitude", "value": "Very wide, designed for cameras with no meter.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-color-negative-400",
+      "manufacturer": "Lomography",
+      "name": "Color Negative 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "lomo-cn-400",
+      "latitude": { "value": "−2 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain, coarser than the 100.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Kodak colour negative (widely reported)",
+        "note": "Manufacturer not disclosed by Lomography.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Color Negative 400 is Lomography's all-purpose film, the one sold with most of its 35 mm cameras. It is warm and forgiving, with a latitude wide enough to survive a toy camera's guesswork, and it is the film most Lomography users shoot first.",
+      "characteristics": [
+        { "label": "Use", "value": "The default film for toy cameras and no-meter shooting.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-color-negative-800",
+      "manufacturer": "Lomography",
+      "name": "Color Negative 800",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "lomo-cn-800",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain, visible even at 120.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Kodak colour negative (widely reported)",
+        "note": "Manufacturer not disclosed.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Color Negative 800 is Lomography's fast film, for night and available light. It is grainy and warm, with a latitude that forgives underexposure, and it is one of the few 800-speed colour negatives still made in 120.",
+      "characteristics": [
+        { "label": "Use", "value": "Night and indoor work; grain is part of the result.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-lady-grey-400",
+      "manufacturer": "Lomography",
+      "name": "Lady Grey 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "lady-grey-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, with a soft, low-contrast curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low-medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Unconfirmed European black-and-white stock",
+        "note": "Coating source not published.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Lady Grey 400 is Lomography's black-and-white film, named for its soft, grey-toned look. It has a low-contrast, gentle curve that suits portraits and available light, and it is one of the few B&W films sold in toy-shop packaging.",
+      "characteristics": [
+        { "label": "Look", "value": "Soft and grey, with a gentle shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-earl-grey-100",
+      "manufacturer": "Lomography",
+      "name": "Earl Grey 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "earl-grey-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine conventional grain with a clean, slightly contrasty curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Unconfirmed European black-and-white stock",
+        "note": "Coating source not published.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Earl Grey 100 is the slow member of Lomography's black-and-white pair: finer, cleaner and more contrasty than Lady Grey 400. It is a daylight film with a traditional look, sold in the same toy-camera packaging.",
+      "characteristics": [
+        { "label": "Use", "value": "Bright light; a good first B&W film for a toy camera.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-berlin-kino-400",
+      "manufacturer": "Lomography",
+      "name": "Berlin Kino 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "berlin-kino-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "A cine-style cubic emulsion with visible grain and a long, filmic shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Black-and-white cinema stock (widely believed ORWO N74)",
+        "note": "Lomography says it is made from a classic cine film but does not name it. The community has long identified it with ORWO's N74 family.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Berlin Kino 400 is Lomography's cine-stock black-and-white film, sold as the look of 1960s Berlin cinema. The coating is not disclosed, but its grain, red sensitivity and shoulder are consistent with ORWO's N74 cinema stock. It was the first of Lomography's Kino pair, which followed in the wake of the cine-respool trend CineStill started.",
+      "characteristics": [
+        { "label": "Origin", "value": "Undisclosed cine stock, widely believed ORWO N74.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Grainy and atmospheric, with soft highlights.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-potsdam-kino-100",
+      "manufacturer": "Lomography",
+      "name": "Potsdam Kino 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "potsdam-kino-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine cine-stock cubic grain with a clean, straight curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Black-and-white cinema stock (widely believed ORWO UN54)",
+        "note": "Undisclosed, but the fine grain and red sensitivity match ORWO's UN54 cine stock.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Potsdam Kino 100 is the slower sibling of Berlin Kino 400, with a finer grain and a cleaner curve. It is a classic cinema black-and-white stock in the same undisclosed ORWO family, and it is the better of the two for daylight and detail.",
+      "characteristics": [
+        { "label": "Origin", "value": "Undisclosed cine stock, widely believed ORWO UN54.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-lomochrome-purple",
+      "manufacturer": "Lomography",
+      "name": "LomoChrome Purple",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "lomochrome-purple",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain with an altered colour-coupler set.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Lomography's own colour negative with a shifted coupler set",
+        "note": "A colour negative deliberately tuned to render greens as purple, in the spirit of Kodak's discontinued Aerochrome infrared film.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "LomoChrome Purple is Lomography's colour-shifting film, a C-41 negative whose couplers turn greens into purples and blues into greens. It was inspired by Kodak Aerochrome, the false-colour infrared aerial film that has been unobtainable for years. It is not infrared and does not need a filter: the effect is built into the emulsion.",
+      "characteristics": [
+        { "label": "Effect", "value": "Greens go purple, blues go green, skin stays mostly plausible.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Speed", "value": "Boxed at 400; the effect is strongest at 200–400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "C-41 standard.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-lomochrome-metropolis",
+      "manufacturer": "Lomography",
+      "name": "LomoChrome Metropolis",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "lomochrome-metropolis",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain with muted couplers.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Lomography's own desaturated colour negative",
+        "note": "A C-41 film whose couplers are tuned for muted, almost monochrome colour with strong contrast.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "LomoChrome Metropolis is the desaturated member of the LomoChrome family: muted colour, deep blacks and a gritty street look. It was released in 2019 after a crowdfunding campaign and has become one of Lomography's most popular films. It is a C-41 negative, so it develops anywhere.",
+      "characteristics": [
+        { "label": "Look", "value": "Desaturated, high-contrast and slightly green, close to a bleach bypass.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "C-41 standard.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-lomochrome-turquoise",
+      "manufacturer": "Lomography",
+      "name": "LomoChrome Turquoise",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "lomochrome-turquoise",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain with an inverted blue/yellow coupler relationship.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Lomography's own colour negative with shifted couplers",
+        "note": "Renders skies orange and foliage turquoise: a colour negative engineered for a full inversion of the usual palette.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "LomoChrome Turquoise is the most extreme of the LomoChrome films: skies turn orange, foliage turns turquoise, and skin goes strange. It was originally released in 2013 and reissued in 2021. It is a C-41 film and needs no special handling beyond accepting the colour.",
+      "characteristics": [
+        { "label": "Effect", "value": "Blue skies go orange, greens go turquoise.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-lomochrome-color-92",
+      "manufacturer": "Lomography",
+      "name": "LomoChrome Color '92",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "lomochrome-color-92",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain, deliberately left visible to mimic a 1990s consumer film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Lomography's own colour negative",
+        "note": "Designed to look like a 1990s drugstore colour negative: warm, grainy and slightly washed.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "LomoChrome Color '92 was released in 2023 as a nostalgia film: a C-41 negative tuned to look like the colour prints of the 1990s. Warm, grainy and slightly muted, it is the opposite of a modern clean emulsion, and that is the entire point.",
+      "characteristics": [
+        { "label": "Look", "value": "Warm, grainy and slightly washed — a 1990s snapshot.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "lomography-redscale-xr",
+      "manufacturer": "Lomography",
+      "name": "Redscale XR 50–200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "redscale-xr",
+      "latitude": { "value": "−2 / +4", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain, indistinguishable from the base colour film once exposed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative wound the other way round",
+        "note": "Redscale is not a different emulsion: the film is spooled backwards so light passes through the red-sensitive layer before the others, producing a strong red-orange cast.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Redscale XR is Lomography's ready-made redscale film: an ordinary colour negative wound the wrong way round so that light hits the red-sensitive layer first. The XR label means its speed is variable — rated at 50 it is deep red, at 200 it is orange, and at 400 it is a warm golden. It is a technique rather than an emulsion.",
+      "characteristics": [
+        { "label": "Speed", "value": "Variable by design: ISO 50 for deep red, 200 for orange, 400 for warm.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Effect", "value": "Red-orange cast with strong contrast and crushed blue channel.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "harman-phoenix-200",
+      "manufacturer": "Harman",
+      "name": "Phoenix 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "phoenix-200",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "A first-generation colour emulsion, with visible grain, strong halation and a steep curve — it looks like an early experimental colour film because it is one.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Harman Phoenix 200 was announced in 2023 as the first new colour negative film coated at Harman's Mobberley factory — the Ilford plant — in decades. It is a genuinely new emulsion rather than a rebrand, and it behaves like one: strong grain, heavy halation, narrow latitude and wild colour under some light. The community's reaction was split between delight that a new colour film existed at all and frustration at its quality control. A second version followed.",
+      "characteristics": [
+        { "label": "Character", "value": "Grainy, contrasty and halated, with colour that shifts strongly with exposure. It is not a clean film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Latitude", "value": "Narrow. Expose carefully; it clips early.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Significance", "value": "The first new colour emulsion from a British coating plant in a generation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "harman-red-125",
+      "manufacturer": "Harman",
+      "name": "Red 125",
+      "iso": 125,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "red-125",
+      "generationLabel": "RED 125, 2025–",
+      "origin": {
+        "kind": "converted",
+        "stock": "Harman Phoenix 200, reverse rolled",
+        "stockFilm": "harman-phoenix-200",
+        "note": "The Phoenix 200 emulsion is loaded the other way round, so the image is exposed through the base. It is a redscale film, not a black-and-white one, and it is processed in C-41.",
+        "provenance": { "kind": "community", "source": "wikipedia-photographic-films" }
+      },
+      "history": "RED 125 is Harman's own redscale film, released in 2025: Phoenix 200 rolled backwards so that light passes through the base before it reaches the emulsion. The base filters out blue and green, so the picture lands in deep reds, oranges and yellows. 120 followed in June 2025. It is one of very few redscale films made deliberately at a coating plant rather than respooled by a third party.",
+      "characteristics": [
+        { "label": "How it works", "value": "Reverse-rolled Phoenix 200. The orange base acts as a heavy filter, so what reaches the emulsion is mostly red.", "provenance": { "kind": "community", "source": "wikipedia-photographic-films" } },
+        { "label": "Process", "value": "C-41. It is a colour negative film, and there are no black-and-white development times for it.", "provenance": { "kind": "community", "source": "wikipedia-photographic-films" } }
+      ]
+    },
+    {
+      "key": "jch-streetpan-400",
+      "manufacturer": "JCH",
+      "name": "StreetPan 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "streetpan-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Aerial-survey style grain: very fine for its speed, with extended red sensitivity.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Agfa-Gevaert Aviphot 400 aerial film (widely reported)",
+        "note": "Sold by Japan Camera Hunter. The coating is not officially named, but its grain, base and red response match Agfa's aerial stock.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "StreetPan 400 was launched by Japan Camera Hunter in 2016 as a film for street photography, and it is widely believed to be Agfa Aviphot 400 aerial stock cut down and repackaged. It is very fine-grained for 400, contrasty, and strongly red-sensitive, which gives dark skies and deep shadows. It is the most Japanese-looking of the respooled European aerial films.",
+      "characteristics": [
+        { "label": "Origin", "value": "Undisclosed; widely believed Agfa Aviphot 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Fine grain, high contrast, dark skies.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kosmo-foto-mono-100",
+      "manufacturer": "Kosmo Foto",
+      "name": "Mono 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "mono-100",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain with the classic mid-European curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Fomapan 100 (widely reported)",
+        "note": "Kosmo Foto describes it as made in Europe and the community has consistently identified it as Fomapan 100 in new packaging.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Kosmo Foto Mono 100 is a boutique repackaging of a European black-and-white film, sold with Soviet-space-programme styling. It is widely believed to be Fomapan 100, and it behaves exactly like it: fine grain, strong red sensitivity, a vintage curve. It is a good film at a fair price with better packaging than most.",
+      "characteristics": [
+        { "label": "Origin", "value": "Undisclosed; widely believed Fomapan 100.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kosmo-foto-agent-shadow-400",
+      "manufacturer": "Kosmo Foto",
+      "name": "Agent Shadow 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "agent-shadow-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Cine-stock cubic grain with a long shoulder and strong contrast.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Black-and-white cinema stock (undisclosed)",
+        "note": "Kosmo Foto says it is based on a classic black-and-white cine film. The community has suggested several candidates, but the maker is not public.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Agent Shadow 400 is Kosmo Foto's cine-stock black-and-white film, released in 2021 and styled after 1960s spy photography. It is a respooled B&W cinema emulsion with the rem-jet removed, and it has the grainy, high-contrast character of a cold-war newsreel. Its origin is not disclosed.",
+      "characteristics": [
+        { "label": "Origin", "value": "Undisclosed B&W cine stock.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Grainy and dramatic, with deep blacks.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "cinestill-800t", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "C-41 standard: 3:15 at 38 °C." } },
+    { "film": "cinestill-400d", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "cinestill-50d", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "cinestill-bwxx", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "A common starting point for Double-X without the rem-jet." } },
+    { "film": "hitchcock-250d", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "hitchcock-500t", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "reflx-lab-400d", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "reflx-lab-800t", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "silbersalz-250d", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "silbersalz-500t", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "lomography-color-negative-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "lomography-color-negative-800", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "lomography-lomochrome-purple", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "harman-phoenix-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "jch-streetpan-400", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 510, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ]
+}

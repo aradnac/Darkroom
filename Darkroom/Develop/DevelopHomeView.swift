@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DevelopHomeView: View {
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     /// Sections settle in once the first frame is laid out, so a tab switch or a
@@ -28,9 +28,7 @@ struct DevelopHomeView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
-                    if themeStore.isTheme13Active {
-                        paperContent
-                    } else if themeStore.isSoftGlassActive {
+                    if appearance.isSoftGlassActive {
                         softContent
                     } else {
                         hero
@@ -44,32 +42,7 @@ struct DevelopHomeView: View {
             .background {
                 LiquidBackdrop()
             }
-            .appNavigationChrome(index: "01", title: "Develop")
-        }
-    }
-
-    // MARK: Print theme
-
-    /// The poster-cover archetype: display title, cutout hero, specimen index.
-    private var paperContent: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            Theme13PosterCover(
-                index: "01",
-                kicker: "At the sink",
-                title: "Develop",
-                line: "A roll, end to end",
-                caption: "Pre-soak, developer, stop, fix, wash, final rinse — timed, prompted and logged."
-            )
-
-            NavigationLink {
-                SessionSetupView()
-            } label: {
-                Text("Start a session")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(AmberCapsuleStyle(height: 52))
-
-            Theme13StageList(index: "02", heading: "How a session runs", steps: steps)
+            .appNavigationChrome(title: "Develop")
         }
     }
 
@@ -110,7 +83,7 @@ struct DevelopHomeView: View {
             Spacer(minLength: 0)
 
             SoftGlassIconButton(systemImage: "slider.horizontal.3") {
-                themeStore.isShowingSettings = true
+                appearance.isShowingSettings = true
             }
             .accessibilityLabel("Settings")
         }
@@ -191,16 +164,7 @@ struct DevelopHomeView: View {
         .background {
             ZStack {
                 RoundedRectangle(cornerRadius: 28, style: .continuous)
-                    .fill(
-                        LinearGradient(
-                            colors: [
-                                Color(red: 0.90, green: 0.62, blue: 0.57),
-                                Color(red: 0.60, green: 0.29, blue: 0.42)
-                            ],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
+                    .fill(SoftGlassTheme.ramp(for: Preferences.shared.accent.base))
                 RoundedRectangle(cornerRadius: 28, style: .continuous)
                     .fill(
                         RadialGradient(
@@ -242,11 +206,7 @@ struct DevelopHomeView: View {
                 label: "Films",
                 value: "\(films)",
                 unit: "in library",
-                gradient: LinearGradient(
-                    colors: [Color(red: 0.47, green: 0.60, blue: 0.55), Color(red: 0.06, green: 0.11, blue: 0.09)],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
+                gradient: SoftGlassTheme.ramp(for: Preferences.shared.accent.soft)
             ) {
                 SoftGlassRangeBar(fraction: 0.80)
             }
@@ -255,11 +215,7 @@ struct DevelopHomeView: View {
                 label: "Chemicals",
                 value: "\(bottles)",
                 unit: bottles == 1 ? "bottle" : "bottles",
-                gradient: LinearGradient(
-                    colors: [Color(red: 0.88, green: 0.30, blue: 0.66), Color(red: 0.48, green: 0.06, blue: 0.38)],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
+                gradient: SoftGlassTheme.ramp(for: Preferences.shared.accent.bloom)
             ) {
                 SoftGlassDotRow()
             }
@@ -268,11 +224,7 @@ struct DevelopHomeView: View {
                 label: "Published at",
                 value: featured?.temperature ?? "—",
                 unit: "",
-                gradient: LinearGradient(
-                    colors: [Color(red: 0.28, green: 0.40, blue: 0.80), Color(red: 0.05, green: 0.07, blue: 0.28)],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
+                gradient: SoftGlassTheme.ramp(for: Preferences.shared.accent.base)
             ) {
                 SoftGlassTickStrip()
             }
@@ -281,11 +233,7 @@ struct DevelopHomeView: View {
                 label: "Stages",
                 value: "\(steps.count)",
                 unit: "in a session",
-                gradient: LinearGradient(
-                    colors: [Color(red: 0.82, green: 0.40, blue: 0.22), Color(red: 0.42, green: 0.12, blue: 0.09)],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
+                gradient: SoftGlassTheme.ramp(for: Preferences.shared.accent.deep)
             ) {
                 HStack {
                     Spacer()

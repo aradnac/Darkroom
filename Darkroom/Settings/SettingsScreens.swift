@@ -2,9 +2,9 @@
 //  SettingsScreens.swift
 //  Darkroom
 //
-//  The Settings subscreens and the pieces they share: a numbered hub row, a paper
-//  card that becomes a glass panel in the other languages, and the four screens
-//  behind units, development defaults, alerts and appearance.
+//  The Settings subscreens and the pieces they share: a numbered hub row, the
+//  card every setting sits in, and the screens behind units, development
+//  defaults and alerts.
 //
 
 import SwiftUI
@@ -31,7 +31,7 @@ struct SettingsScreen<Content: View>: View {
                 VStack(alignment: .leading, spacing: 8) {
                     OverlineText(text: "Bench preferences · \(index)", color: Theme.amber)
                     Text(title)
-                        .font(Theme13Type.headline(27))
+                        .font(.system(size: 27, weight: .semibold, design: .rounded))
                         .foregroundStyle(Theme.ink)
                     Text(blurb)
                         .font(.system(size: 14))
@@ -51,8 +51,31 @@ struct SettingsScreen<Content: View>: View {
     }
 }
 
-/// The card every setting sits in: a flat paper plate in the print language, a
-/// glass panel in the other two.
+/// A section heading: the numbered colophon line that opens a group of rows.
+struct SettingsSectionHeader: View {
+    let index: String
+    let title: String
+
+    var body: some View {
+        HStack(spacing: 8) {
+            Text(index)
+                .font(.system(size: 11, weight: .bold, design: .monospaced))
+                .foregroundStyle(Theme.amber)
+            Rectangle()
+                .fill(Theme.hairline)
+                .frame(width: 20, height: 1)
+            Text(title.uppercased())
+                .font(.system(size: 11, weight: .semibold))
+                .tracking(1.8)
+                .foregroundStyle(Theme.inkSoft)
+            Spacer(minLength: 0)
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isHeader)
+    }
+}
+
+/// The card every setting sits in.
 struct SettingsCard<Content: View>: View {
     private let content: Content
 
@@ -66,7 +89,7 @@ struct SettingsCard<Content: View>: View {
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .modifier(Theme13PaperSurface(marked: false))
+        .glassCard(radius: 20)
     }
 }
 
@@ -156,7 +179,7 @@ struct SettingsHubRow<Destination: View>: View {
             .padding(16)
             .frame(maxWidth: .infinity, alignment: .leading)
             .contentShape(Rectangle())
-            .modifier(Theme13PaperSurface(marked: false))
+            .glassCard(radius: 20)
         }
         .buttonStyle(HapticButtonStyle())
         .accessibilityLabel(title)

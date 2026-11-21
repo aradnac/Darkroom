@@ -485,13 +485,13 @@ final class Preferences: ObservableObject {
     func setTemperatureScale(_ scale: TemperatureScale) {
         temperatureScale = scale
         defaults.set(scale.rawValue, forKey: Keys.temperatureScale)
-        Theme13SettingsStore.shared.bumpRevision()
+        AppearanceStore.shared.bumpRevision()
     }
 
     func setVolumeUnit(_ unit: VolumeUnit) {
         volumeUnit = unit
         defaults.set(unit.rawValue, forKey: Keys.volumeUnit)
-        Theme13SettingsStore.shared.bumpRevision()
+        AppearanceStore.shared.bumpRevision()
     }
 
     func setAgitationScheme(_ scheme: AgitationScheme) {
@@ -554,7 +554,7 @@ final class Preferences: ObservableObject {
     func setAccent(_ choice: AccentChoice) {
         accent = choice
         defaults.set(choice.rawValue, forKey: Keys.accent)
-        Theme13SettingsStore.shared.bumpRevision()
+        AppearanceStore.shared.bumpRevision()
     }
 
     // MARK: Events
@@ -570,7 +570,6 @@ final class Preferences: ObservableObject {
     // MARK: Reset
 
     /// Puts every preference back to the value it had before the first change.
-    /// The hidden theme's unlock is not one of them and is left alone.
     func resetAll() {
         for key in defaults.dictionaryRepresentation().keys where key.hasPrefix(Keys.prefix) {
             defaults.removeObject(forKey: key)
@@ -600,7 +599,7 @@ final class Preferences: ObservableObject {
         sounds = soundValues
         haptics = hapticValues
 
-        Theme13SettingsStore.shared.bumpRevision()
+        AppearanceStore.shared.bumpRevision()
     }
 
     // MARK: Defaults

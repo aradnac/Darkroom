@@ -162,7 +162,7 @@ final class LibraryStore: ObservableObject {
     ) -> [LibraryFilm] {
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
         let dxKeys = dxMatchedFilmKeys(for: trimmed)
-        return document.films.filter { film in
+        let matches = document.films.filter { film in
             if let process, film.process != process { return false }
             if let status, film.status != status { return false }
             guard !trimmed.isEmpty else { return true }
@@ -170,6 +170,23 @@ final class LibraryStore: ObservableObject {
             guard let haystack = index.filmSearchKey[film.key] else { return false }
             return haystack.localizedCaseInsensitiveContains(trimmed)
         }
+        return matches.sorted(by: Self.browseOrder)
+    }
+
+    /// The catalogue reads as a shelf: current stock first, then by maker and
+    /// name, so a library of a hundred films can be scanned without scrolling
+    /// through the order they happened to be imported in.
+    private static func browseOrder(_ left: LibraryFilm, _ right: LibraryFilm) -> Bool {
+        if left.status != right.status {
+            return left.status.browseRank < right.status.browseRank
+        }
+        if left.manufacturer != right.manufacturer {
+            return left.manufacturer.localizedCaseInsensitiveCompare(right.manufacturer) == .orderedAscending
+        }
+        if left.name != right.name {
+            return left.name.localizedCaseInsensitiveCompare(right.name) == .orderedAscending
+        }
+        return left.iso < right.iso
     }
 
     /// The index entry for a canister, matched to a film the development library
@@ -367,8 +384,18 @@ final class LibraryStore: ObservableObject {
         // First entry wins, as the linear `first(where:)` lookups did.
         for film in document.films where built.filmsByKey[film.key] == nil {
             built.filmsByKey[film.key] = film
-            built.filmSearchKey[film.key] = [film.manufacturer, film.name, String(film.iso), film.formatSummary]
-                .joined(separator: " ")
+            built.filmSearchKey[film.key] = [
+                film.manufacturer,
+                film.name,
+                String(film.iso),
+                film.formatSummary,
+                film.generationLabel,
+                film.generation,
+                film.origin?.stock,
+                film.origin?.stockFilm
+            ]
+            .compactMap { $0 }
+            .joined(separator: " ")
             built.normalizedFilms.append((
                 film: film,
                 nameKey: FilmCatalog.normalize(film.name),
@@ -480,17 +507,36 @@ final class LibraryStore: ObservableObject {
     // MARK: Loading
 
     private static func loadBundled(bundle: Bundle) -> LibraryDocument {
-        let candidates: [URL?] = [
-            bundle.url(forResource: "library", withExtension: "json", subdirectory: "Library"),
-            bundle.url(forResource: "library", withExtension: "json"),
-            bundle.url(forResource: "library", withExtension: "json", subdirectory: "Resources/Library")
-        ]
-        for case let url? in candidates {
-            if let document = decode(at: url) {
-                return document
+        // The library is split across several documents so each one stays a
+        // readable sheet rather than a single enormous file. Every document
+        // named "library*.json" — in the folder or, with a project layout that
+        // flattens resources, at the bundle root — is decoded and merged in a
+        // stable order, with library.json first because it carries the sources.
+        var urls: [URL] = []
+        var seen: Set<String> = []
+
+        for subdirectory in ["Library", "Resources/Library", nil] {
+            let found = bundle.urls(forResourcesWithExtension: "json", subdirectory: subdirectory) ?? []
+            for url in found {
+                let name = url.lastPathComponent
+                guard name.hasPrefix("library"),
+                      seen.insert(url.standardizedFileURL.path).inserted else { continue }
+                urls.append(url)
             }
         }
-        return .empty
+
+        urls.sort { left, right in
+            if left.lastPathComponent == "library.json" { return true }
+            if right.lastPathComponent == "library.json" { return false }
+            return left.lastPathComponent.localizedStandardCompare(right.lastPathComponent) == .orderedAscending
+        }
+
+        var document = LibraryDocument.empty
+        for url in urls {
+            guard let part = decode(at: url) else { continue }
+            document = document.merged(with: part)
+        }
+        return document
     }
 
     private static func decode(at url: URL) -> LibraryDocument? {

@@ -2,8 +2,9 @@
 //  Theme.swift
 //  Darkroom
 //
-//  The shared visual language. Every token resolves to the darkroom defaults,
-//  or to the hidden print theme's current palette when that theme is active.
+//  The shared visual language. Every token resolves to the darkroom defaults, to
+//  the soft-glass language's values, or — while one of the twelve design
+//  languages is on — to that language's own palette and type.
 //
 
 import SwiftUI
@@ -26,33 +27,30 @@ enum DarkroomThemeDefaults {
 }
 
 enum Theme {
-    private static var store: Theme13SettingsStore { .shared }
-
-    /// True while the hidden print theme owns the interface.
-    static var isPaper: Bool { store.isTheme13Active }
+    private static var store: AppearanceStore { .shared }
 
     /// True while the soft-glass language owns the interface.
     static var isSoft: Bool { store.isSoftGlassActive }
 
-    static var palette: Theme13Palette { store.palette }
-    private static var paperIsDark: Bool { store.isDarkAppearance }
+    /// The active design language's resolved style, when one is on.
+    private static var language: DLStyle? { DLRuntime.activeStyle }
 
     // MARK: Fields
 
     static var base: Color {
-        if isPaper { return palette.bg(isDark: paperIsDark) }
+        if let language { return language.palette.field }
         if isSoft { return SoftGlassTheme.background }
         return DarkroomThemeDefaults.base
     }
 
     static var baseLift: Color {
-        if isPaper { return palette.plate(isDark: paperIsDark) }
+        if let language { return language.palette.fieldAlt }
         if isSoft { return SoftGlassTheme.backgroundLift }
         return DarkroomThemeDefaults.baseLift
     }
 
     static var surfaceRaised: Color {
-        if isPaper { return palette.plateRaised(isDark: paperIsDark) }
+        if let language { return language.palette.surfaceAlt }
         if isSoft { return SoftGlassTheme.surfaceRaised }
         return DarkroomThemeDefaults.raised
     }
@@ -60,31 +58,31 @@ enum Theme {
     // MARK: Inks
 
     static var ink: Color {
-        if isPaper { return palette.ink(isDark: paperIsDark) }
+        if let language { return language.palette.ink }
         if isSoft { return SoftGlassTheme.ink }
         return DarkroomThemeDefaults.ink
     }
 
     static var inkSoft: Color {
-        if isPaper { return palette.inkAlt(isDark: paperIsDark) }
+        if let language { return language.palette.inkSoft }
         if isSoft { return SoftGlassTheme.inkSoft }
         return DarkroomThemeDefaults.inkSoft
     }
 
     static var inkFaint: Color {
-        if isPaper { return palette.inkAlt(isDark: paperIsDark).opacity(0.72) }
+        if let language { return language.palette.inkFaint }
         if isSoft { return SoftGlassTheme.inkFaint }
         return DarkroomThemeDefaults.inkFaint
     }
 
     static var hairline: Color {
-        if isPaper { return palette.rule(isDark: paperIsDark) }
+        if let language { return language.palette.line }
         if isSoft { return SoftGlassTheme.hairline }
         return DarkroomThemeDefaults.hairline
     }
 
     static var border: Color {
-        if isPaper { return palette.stroke(isDark: paperIsDark) }
+        if let language { return language.palette.lineStrong }
         if isSoft { return SoftGlassTheme.border }
         return DarkroomThemeDefaults.border
     }
@@ -92,32 +90,32 @@ enum Theme {
     // MARK: Accents
 
     static var amber: Color {
-        if isPaper { return palette.accent }
+        if let language { return language.palette.accent }
         if isSoft { return SoftGlassTheme.amber }
         return Preferences.shared.accent.base
     }
 
     static var amberSoft: Color {
-        if isPaper { return palette.accent2 }
+        if let language { return language.palette.glow }
         if isSoft { return SoftGlassTheme.amberSoft }
         return Preferences.shared.accent.soft
     }
 
     static var amberDeep: Color {
-        if isPaper { return palette.accentText }
+        if let language { return language.palette.glowTwo }
         if isSoft { return SoftGlassTheme.amberDeep }
         return Preferences.shared.accent.deep
     }
 
     /// Ink that sits on top of the accent block.
     static var amberInk: Color {
-        if isPaper { return palette.accentInk }
+        if let language { return language.palette.accentInk }
         if isSoft { return SoftGlassTheme.amberInk }
         return Preferences.shared.accent.ink
     }
 
     static var accentWash: Color {
-        if isPaper { return palette.accent.opacity(0.14) }
+        if let language { return language.palette.accent.opacity(0.14) }
         if isSoft { return SoftGlassTheme.amber.opacity(0.14) }
         return amber.opacity(0.13)
     }
@@ -126,27 +124,28 @@ enum Theme {
     /// for *pressable*, not for *on*: a white track around a white knob reads
     /// as one blank pill, so the switch takes a quieter grey there.
     static var switchTint: Color {
-        if isPaper { return palette.accent }
+        if let language { return language.palette.accent }
         if isSoft { return Color(white: 0.58) }
         return Preferences.shared.accent.base
     }
 
-    /// Decorative blooms — only the soft-glass language uses these.
+    /// Decorative blooms — only the softer languages use these.
     static var magenta: Color {
-        isSoft ? SoftGlassTheme.magenta : DarkroomThemeDefaults.amberDeep
+        if let language { return language.palette.glow }
+        return isSoft ? Preferences.shared.accent.bloom : Preferences.shared.accent.deep
     }
 
     static var mint: Color {
-        isSoft ? SoftGlassTheme.mint : DarkroomThemeDefaults.amberSoft
+        if let language { return language.palette.glowTwo }
+        return Preferences.shared.accent.soft
     }
 
     // MARK: Fills
 
-    /// The paper theme is flat by definition; the darkroom keeps its amber ramp.
     static var amberGradient: LinearGradient {
-        if isPaper {
+        if let language {
             return LinearGradient(
-                colors: [palette.accent, palette.accent, palette.accent],
+                colors: [language.palette.accent, language.palette.glow],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
@@ -161,9 +160,9 @@ enum Theme {
     }
 
     static var panelGradient: LinearGradient {
-        if isPaper {
+        if let language {
             return LinearGradient(
-                colors: [palette.plate(isDark: paperIsDark), palette.plate(isDark: paperIsDark), palette.plate(isDark: paperIsDark)],
+                colors: [language.palette.surface, language.palette.surfaceAlt],
                 startPoint: .top,
                 endPoint: .bottom
             )
@@ -179,12 +178,10 @@ enum Theme {
 
 extension Font {
     /// Tabular figures — every number in the app uses this so digits never jump.
-    /// The print theme sets them in mono; the darkroom and the soft-glass language
-    /// in rounded.
+    /// A design language sets them in its own numeric face.
     static func figures(_ size: CGFloat, weight: Font.Weight = .medium) -> Font {
-        if Theme13SettingsStore.shared.isTheme13Active {
-            let scaled = size * Theme13SettingsStore.shared.fontScale
-            return .system(size: scaled, weight: weight, design: .monospaced).monospacedDigit()
+        if let language = DLRuntime.activeStyle {
+            return language.figure(size, weight: weight)
         }
         return .system(size: size, weight: weight, design: .rounded).monospacedDigit()
     }

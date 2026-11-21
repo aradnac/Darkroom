@@ -309,7 +309,7 @@ struct SoftGlassDayStrip: View {
 /// The wave the reference draws under its hero figure, settling flat to the
 /// right where a small triangle marker sits on the baseline. Decorative.
 struct SoftGlassWaveLine: View {
-    var stroke: Color = Color(red: 0.82, green: 0.74, blue: 0.30)
+    var stroke: Color = Preferences.shared.accent.base
     var markerAt: Double = 0.60
 
     var body: some View {
@@ -407,7 +407,7 @@ struct SoftGlassRangeBar: View {
                 Capsule()
                     .fill(
                         LinearGradient(
-                            colors: [Color.white.opacity(0.30), Color(red: 0.92, green: 0.32, blue: 0.28)],
+                            colors: [Color.white.opacity(0.30), Preferences.shared.accent.base],
                             startPoint: .leading,
                             endPoint: .trailing
                         )
@@ -427,7 +427,7 @@ struct SoftGlassRangeBar: View {
 
 /// The small solid triangle the reference rides on its bars and waves.
 struct SoftGlassTriangle: View {
-    var color: Color = Color(red: 0.98, green: 0.86, blue: 0.40)
+    var color: Color = Preferences.shared.accent.base
 
     var body: some View {
         Path { path in
@@ -487,7 +487,7 @@ struct SoftGlassTickStrip: View {
                 VStack(spacing: 2) {
                     SoftGlassTriangle()
                     Rectangle()
-                        .fill(Color(red: 0.98, green: 0.86, blue: 0.40))
+                        .fill(Preferences.shared.accent.base)
                         .frame(width: 1.6)
                 }
                 .offset(x: needleX - 6.5)
@@ -502,7 +502,7 @@ struct SoftGlassTickStrip: View {
 
 /// The soft coloured pool the reference drops into the corner of a card.
 struct SoftGlassBlob: View {
-    var color: Color = Color(red: 0.25, green: 0.30, blue: 0.95)
+    var color: Color = Preferences.shared.accent.bloom
     var size: CGFloat = 120
 
     var body: some View {
@@ -542,10 +542,12 @@ struct SoftGlassPageDots: View {
 
 // MARK: - Radial hero card
 
-/// The "Complete setup" card from the reference: a pale pink field with a deep
-/// magenta-to-black radial glow pooling behind the figure at its centre.
+/// The "Complete setup" card from the reference: a field in the chosen palette
+/// with a deep glow of the same lamp pooling behind the figure at its centre.
 struct SoftGlassRadialCard<Content: View>: View {
     var cornerRadius: CGFloat = 36
+    /// The lamp the card is lit with. Defaults to the palette the reader chose.
+    var tint: Color = Preferences.shared.accent.base
     @ViewBuilder var content: () -> Content
 
     var body: some View {
@@ -555,24 +557,15 @@ struct SoftGlassRadialCard<Content: View>: View {
                 GeometryReader { geometry in
                     ZStack {
                         RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                            .fill(
-                                LinearGradient(
-                                    colors: [
-                                        Color(red: 0.80, green: 0.55, blue: 0.68),
-                                        Color(red: 0.66, green: 0.41, blue: 0.57)
-                                    ],
-                                    startPoint: .top,
-                                    endPoint: .bottom
-                                )
-                            )
+                            .fill(SoftGlassTheme.ramp(for: tint))
 
                         Ellipse()
                             .fill(
                                 RadialGradient(
                                     colors: [
-                                        Color(red: 0.13, green: 0.02, blue: 0.11),
-                                        Color(red: 0.89, green: 0.10, blue: 0.50).opacity(0.72),
-                                        Color(red: 0.89, green: 0.10, blue: 0.50).opacity(0.0)
+                                        Color.black.opacity(0.85),
+                                        tint.opacity(0.72),
+                                        tint.opacity(0.0)
                                     ],
                                     center: .center,
                                     startRadius: 0,
@@ -598,7 +591,7 @@ struct SoftGlassTickRuler: View {
     let range: ClosedRange<Double>
     let step: Double
     @Binding var value: Double
-    var tickColor: Color = Color(red: 0.98, green: 0.80, blue: 0.35)
+    var tickColor: Color = Preferences.shared.accent.base
 
     private var steps: Int {
         Int(((range.upperBound - range.lowerBound) / step).rounded())
@@ -658,10 +651,10 @@ struct SoftGlassTickRuler: View {
 /// tile ramps, lit from a corner, instead of a frosted panel.
 struct SoftGlassRowSurface: ViewModifier {
     let key: String
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
 
     func body(content: Content) -> some View {
-        if themeStore.isSoftGlassActive {
+        if appearance.isSoftGlassActive {
             content
                 .background {
                     ZStack {

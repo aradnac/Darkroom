@@ -1,0 +1,318 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "ilford-xp2",
+      "manufacturer": "Ilford",
+      "name": "XP2",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "xp2",
+      "generationLabel": "XP2, before XP2 Super",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Chromogenic dye-cloud grain, softer and slightly coarser than XP2 Super's.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "XP2 was Ilford's second chromogenic black-and-white film, sold from the 1990s until XP2 Super replaced it in the early 2000s. It was the first C-41 monochrome film many labs would process without argument, and its orange base made it a natural fit for scanning and minilab printing. Expired rolls usually still develop cleanly.",
+      "characteristics": [
+        { "label": "Development", "value": "C-41 only.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Difference from Super", "value": "Slightly coarser grain and a little less latitude.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-panatomic-x",
+      "manufacturer": "Kodak",
+      "name": "Panatomic-X",
+      "iso": 32,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "panatomic-x",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine conventional grain, among the finest of the mid-century emulsions.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Panatomic-X was Kodak's slow, ultra-fine black-and-white film from 1938 until it was discontinued in 1987. It was the landscape and architectural film of the mid-century, with a long straight line and almost no grain. Its replacement, Technical Pan, was sharper but far harder to use, and nothing since has quite the same gentle tonality.",
+      "characteristics": [
+        { "label": "Grain", "value": "Effectively grainless at 4×5 and very fine at 35 mm.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Usually fogged; rate slower and develop with a restrainer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-portrait-160",
+      "manufacturer": "Agfa",
+      "name": "Portrait 160",
+      "iso": 160,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "portrait-160",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain tuned for smooth skin rendering.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low-medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfa Portrait 160 was the professional portrait film of the Agfa-Gevaert range in the 1990s, designed for studio and wedding work with warm skin tones and a soft shoulder. It was discontinued with the rest of the professional line in 2005. Expired stock gives a gentle, slightly faded portrait palette.",
+      "characteristics": [
+        { "label": "Skin", "value": "Warm and smooth, with the softness the name promises.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-rsx-ii-100",
+      "manufacturer": "Agfa",
+      "name": "RSX II 100",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "rsx-ii-100",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a neutral professional transparency.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfa RSX II 100 was the professional transparency of the Agfa range, sold through the 1990s until the company's collapse in 2005. It was warm and natural with clean skin tones, and it was the slide film many European studios used before Provia took over.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and natural, less saturated than Velvia.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-ctx-100",
+      "manufacturer": "Agfa",
+      "name": "CTx 100",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ctx-100",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine consumer dye-cloud grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfa CTx 100 was the consumer transparency of the 1990s and 2000s, sold at a lower price than RSX II. It was warm and contrasty, and it was the slide film in a lot of European holiday cameras. It was discontinued in 2005.",
+      "characteristics": [
+        { "label": "Cross-processing", "value": "A cheap and common E-6-in-C-41 stock.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "adox-chs-100-original",
+      "manufacturer": "Adox",
+      "name": "CHS 100 (original)",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "chs-100-original",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Single-layer conventional grain on a clear base, with no anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "The original Adox CHS 100 was a classic German emulsion from the 1950s, revived by Adox Photo Chemie in the 2000s and later replaced by CHS 100 II. It was thin-coated on a clear base with no anti-halation layer, so highlights bloom against dark backgrounds — the look people buy Adox for.",
+      "characteristics": [
+        { "label": "Halation", "value": "Strong, from the missing anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Developer", "value": "Adonal or Rodinal at 1+50.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "adox-chs-25",
+      "manufacturer": "Adox",
+      "name": "CHS 25",
+      "iso": 25,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "chs-25",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine conventional grain on a clear base, with no anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "CHS 25 was the slowest of Adox's revived classic films, a very fine-grained emulsion intended for bright-light and copy work. It was discontinued in the 2010s. Developed in Rodinal 1+100 it gives extraordinary detail with a compensating tonality.",
+      "characteristics": [
+        { "label": "Use", "value": "Bright light, tripod, maximum resolution.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "adox-cms-20-original",
+      "manufacturer": "Adox",
+      "name": "CMS 20",
+      "iso": 20,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "cms-20-original",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "unit": "monodisperse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Microfilm emulsion, monodisperse and very thin.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "CMS 20 was Adox's first version of its microfilm-based high-resolution film, sold before the II revision. It needed a special low-contrast developer to be usable, and its resolving power was unmatched. It was replaced by CMS 20 II.",
+      "characteristics": [
+        { "label": "Developer", "value": "Only a dedicated low-contrast developer gives a printable image.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-retro-100-tonal",
+      "manufacturer": "Rollei",
+      "name": "Retro 100 Tonal",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "retro-100-tonal",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine conventional grain with a longer, softer curve than the other Retro films.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Unconfirmed European black-and-white stock",
+        "note": "Maco does not publish the coating source for the Retro films.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Retro 100 Tonal is a low-contrast version of Rollei's Retro 100, sold for work where a long and gentle tonal scale matters more than bite. It has the fine grain of the Retro family with a softer curve, and it is one of the more usable films in the range for portraits.",
+      "characteristics": [
+        { "label": "Look", "value": "Soft and tonal, with a long shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-crossbird-200",
+      "manufacturer": "Rollei",
+      "name": "Crossbird 200",
+      "iso": 200,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "crossbird-200",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a colour transparency emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Colour reversal stock (source not disclosed)",
+        "note": "Sold by Maco under the Rollei name; the coating source is not published. It is an E-6 transparency intended for cross-processing.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Rollei Crossbird 200 is a colour slide film sold by Maco and marketed for cross-processing. It is an E-6 film, so it can be shot as a slide, but its reason for existing is C-41: the saturated, shifted colours that E-6 stock gives in a negative process. Its coating source is not disclosed.",
+      "characteristics": [
+        { "label": "Cross-processing", "value": "Its intended use: E-6 film in C-41 for strong colour shifts.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "In E-6", "value": "A conventional, slightly warm transparency.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-nightbird-400",
+      "manufacturer": "Rollei",
+      "name": "Nightbird 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "nightbird-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Dye-cloud grain on a tungsten-balanced colour negative.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Tungsten-balanced colour negative (source not disclosed)",
+        "note": "A Maco/Rollei branded film; the coating is not published.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Nightbird 400 is a tungsten-balanced colour negative sold by Maco for night and available-light photography. It is balanced for 3200 K, so daylight needs an 85B filter, and its colour is tuned for artificial light. It is a niche film and is produced in small runs.",
+      "characteristics": [
+        { "label": "Balance", "value": "Tungsten 3200 K; an 85B filter is needed in daylight.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "rollei-atp-1-1",
+      "manufacturer": "Rollei",
+      "name": "ATP 1.1",
+      "iso": 32,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "specialty",
+      "generation": "atp-1-1",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "A technical panchromatic emulsion: extremely fine grain, very thin, with extended red sensitivity.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Agfa-Gevaert Aviphot technical stock (widely reported)",
+        "note": "Sold by Maco as a technical pan film; the coating source is not officially named.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Rollei ATP 1.1 is a technical panchromatic film: extremely fine-grained, very contrasty and extremely slow, sold for copy work, microscopy and any application where resolution matters more than tonality. It is widely believed to be based on Agfa's technical aerial stock and needs a low-contrast developer for pictorial use.",
+      "characteristics": [
+        { "label": "Resolution", "value": "Among the highest of any 35 mm film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Contrast", "value": "Very high; a low-contrast developer or a compensating dilution is required.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "orwo-np20",
+      "manufacturer": "ORWO",
+      "name": "NP 20",
+      "iso": 20,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "np-20",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine East German cubic grain, designed for copying and scientific work.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "ORWO NP 20 was the Wolfen plant's slow, ultra-fine black-and-white film, made for copying and documentation. It was discontinued after German reunification shrank the company. Surviving stock is decades expired and is mostly shot for its period look.",
+      "characteristics": [
+        { "label": "Use", "value": "Copy and documentation work, not handheld photography.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "orwo-np27",
+      "manufacturer": "ORWO",
+      "name": "NP 27",
+      "iso": 25,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "np-27",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine cubic grain, slightly faster than NP 20.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "ORWO NP 27 was a low-speed East German black-and-white film, a stop faster than NP 20 and equally fine-grained. It was used for still photography where resolution mattered and light was plentiful, and it disappeared with the company's contraction in the 1990s.",
+      "characteristics": [
+        { "label": "Expired stock", "value": "Expect fog; rate slowly and develop with a restrainer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "svema-foto-65",
+      "manufacturer": "Svema",
+      "name": "Foto 65",
+      "iso": 65,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "foto-65",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine Soviet cubic grain with the thick coating and unevenness typical of Svema's production.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Svema Foto 65 was the fine-grain black-and-white film of the Soviet Union, made at Shostka and sold across the Eastern bloc. It was the slow, quality option next to Foto 100 and 200, and surviving stock is now decades expired. It is popular with people who want a genuinely unfamiliar look.",
+      "characteristics": [
+        { "label": "Handling", "value": "Thick and curly; load carefully and dry weighted.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Heavy fog; add a restrainer and develop cool.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "ilford-xp2", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-panatomic-x", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 420, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-portrait-160", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-rsx-ii-100", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-ctx-100", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "adox-chs-100-original", "developer": "adox-adonal", "dilution": "1+50", "celsius": 20, "seconds": 660, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "adox-chs-25", "developer": "adox-adonal", "dilution": "1+100", "celsius": 20, "seconds": 720, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "rollei-retro-100-tonal", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "rollei-crossbird-200", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "rollei-nightbird-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ]
+}

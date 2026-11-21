@@ -17,7 +17,6 @@ struct TimeTemperatureCalculatorView: View {
     @State private var direction: DevelopmentDirection = .findTime
     @State private var editingSheetTime = false
     @State private var editingWantedTime = false
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
 
     // MARK: - The arithmetic
 
@@ -86,11 +85,7 @@ struct TimeTemperatureCalculatorView: View {
         VStack(alignment: .leading, spacing: 8) {
             OverlineText(text: "Time / temperature", color: Theme.amber)
             Text("Warmer water develops faster.")
-                .font(
-                    themeStore.isTheme13Active
-                        ? Theme13Type.headline(27)
-                        : .system(size: 27, weight: .semibold, design: .rounded)
-                )
+                .font(.system(size: 27, weight: .semibold, design: .rounded))
                 .foregroundStyle(Theme.ink)
                 .fixedSize(horizontal: false, vertical: true)
             Text("Put in the time your sheet gives and the temperature it is for. Then either set the water you have and read the time, or set the time you want and read the water.")

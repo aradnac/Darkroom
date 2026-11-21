@@ -1,0 +1,744 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "kodak-ektapress-gold-100",
+      "manufacturer": "Kodak",
+      "name": "Ektapress Gold 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ektapress-gold-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain tuned for sharpness rather than smoothness, because the film was designed to be reproduced on newsprint.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektapress Gold was Kodak's press-photography colour negative line, sold to newspapers and agencies that needed film which survived fast machine processing and reproduced well in ink. It was deliberately sharper and a little more contrasty than the consumer Gold films, because a halftone screen destroys fine detail anyway. The line is long discontinued and survives only as expired stock.",
+      "characteristics": [
+        { "label": "Use", "value": "Press and agency work, where contrast and sharpness beat smoothness.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Latitude", "value": "Good but not generous; press photographers metered carefully.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektapress-gold-400",
+      "manufacturer": "Kodak",
+      "name": "Ektapress Gold 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ektapress-gold-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Finer than the consumer Gold 400 of the same era, with a crisp structure intended for reproduction.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektapress Gold 400 was the workhorse of Kodak's press line: a 400-speed colour negative fast enough for available light, sharp enough for a newspaper page, and stable enough to go through a newspaper's C-41 machine at speed. It is the film behind a great deal of 1990s photojournalism, and it is now expired.",
+      "characteristics": [
+        { "label": "Sharpness", "value": "High for a 400 of its generation; it was built for reproduction.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Clean and slightly cool, with none of Gold's consumer warmth.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektapress-gold-1600",
+      "manufacturer": "Kodak",
+      "name": "Ektapress Gold 1600",
+      "iso": 1600,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ektapress-gold-1600",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse but well-behaved dye-cloud grain: it was engineered to look acceptable in newsprint rather than clean on a wall.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektapress Gold 1600 was the ultra-fast member of Kodak's press line, made for night sport, fire scenes and anything a newspaper had to cover after dark. It was grainy and contrasty, and its speed was real rather than nominal. Along with Fuji's Superia 1600 and Kodak's own Kodacolor 1000, it is one of the few true ISO 1600 colour negatives ever made.",
+      "characteristics": [
+        { "label": "Speed", "value": "Genuinely ISO 1600; unlike the nominal 3200 black-and-white films, it is not a push rating.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Grain", "value": "Coarse, but of the clumped, press-friendly kind.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Use", "value": "Night press work and available-light sport.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektar-1000",
+      "manufacturer": "Kodak",
+      "name": "Ektar 1000",
+      "iso": 1000,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ektar-1000",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain, the price of its speed in the late 1980s.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektar 1000 was Kodak's ultra-fast colour negative of the late 1980s and early 1990s, launched under the Ektar name that Kodak was using for its sharpest colour films. It was fast, expensive and very grainy, and it was the colour counterpart to the high-speed black-and-white films of the era. It disappeared when the Ektar name was retired the first time.",
+      "characteristics": [
+        { "label": "Speed", "value": "ISO 1000, genuine and usable.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Heavy grain with strong colour; a night-photography film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektar-125",
+      "manufacturer": "Kodak",
+      "name": "Ektar 125",
+      "iso": 125,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "ektar-125",
+      "latitude": { "value": "−0.5 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, the reason Ektar 125 was sold as the sharpest colour negative of its day.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektar 125 was launched in 1989 alongside Ektar 25, as Kodak's professional fine-grain colour negative. It was sharp, saturated and contrasty, with a narrow latitude that punished careless metering. It was discontinued in the 1990s and replaced by the Portra and Supra lines.",
+      "characteristics": [
+        { "label": "Latitude", "value": "Narrow for a negative; expose for the highlights.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Palette", "value": "Saturated and slightly cool, with strong blues.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vps-iii",
+      "manufacturer": "Kodak",
+      "name": "Vericolor III Type S (VPS)",
+      "iso": 160,
+      "process": "colourNegative",
+      "formats": ["size120", "sheet4x5", "sheet8x10"],
+      "status": "discontinued",
+      "generation": "vps-iii",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a professional portrait emulsion, with the soft shoulder of the Vericolor generation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vericolor III Type S was Kodak's professional portrait and wedding film for short exposures — the 'S' means short exposure, as opposed to the long-exposure Type L. It was the standard studio colour negative of the 1980s, balanced for electronic flash and daylight, and it was replaced by Portra at the end of the decade.",
+      "characteristics": [
+        { "label": "Balance", "value": "Daylight and electronic flash (short exposure).", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Skin", "value": "Warm and smooth — the classic 1980s studio portrait look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-vpl",
+      "manufacturer": "Kodak",
+      "name": "Vericolor III Type L (VPL)",
+      "iso": 160,
+      "process": "colourNegative",
+      "formats": ["size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "vpl",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, balanced for long exposures and reciprocity behaviour.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Vericolor III Type L was the long-exposure version of Kodak's professional portrait film, corrected for exposures of a second or more where the short-exposure film's colour balance drifted. It was a tungsten-friendly studio film used for large-format portrait and architectural work, and it is long discontinued.",
+      "characteristics": [
+        { "label": "Balance", "value": "Corrected for long exposures (Type L).", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Use", "value": "Large-format studio work with long exposures.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-royal-gold-100",
+      "manufacturer": "Kodak",
+      "name": "Royal Gold 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "royal-gold-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, the premium end of Kodak's consumer range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Royal Gold was Kodak's premium consumer film of the 1990s, sold alongside Gold at a higher price with finer grain and richer colour. Royal Gold 100 was the sharpest of the range, and it has become a favourite expired stock for its restrained palette.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm but cleaner than Gold, with better neutrals.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-royal-gold-200",
+      "manufacturer": "Kodak",
+      "name": "Royal Gold 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "royal-gold-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, between Royal Gold 100 and Gold 200 in character.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Royal Gold 200 was the middle speed of Kodak's premium consumer range, sold in the 1990s as a step up from Gold. It was warm and forgiving, with better grain than the standard Gold films. Expired stock is common and usually still usable.",
+      "characteristics": [
+        { "label": "Latitude", "value": "Wide; two stops over is fine.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-supra-100",
+      "manufacturer": "Kodak",
+      "name": "Supra 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "supra-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, the professional 100-speed emulsion of Kodak's late-1990s range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Supra was Kodak's professional colour negative range of the late 1990s, sitting between the consumer Gold films and the Portra line. Supra 100 was fine-grained and neutral, used for commercial and editorial work. It was discontinued as Portra absorbed the professional range.",
+      "characteristics": [
+        { "label": "Palette", "value": "Neutral and clean, with none of Gold's warmth.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-supra-800",
+      "manufacturer": "Kodak",
+      "name": "Supra 800",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "supra-800",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate dye-cloud grain, remarkable for an 800-speed film of its generation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Supra 800 was the fast member of Kodak's professional Supra range, sold for wedding and available-light work. It was unusually clean for 800 and had a neutral palette, and it is remembered as one of the better high-speed professional colour negatives of the 1990s.",
+      "characteristics": [
+        { "label": "Grain", "value": "Moderate rather than coarse, which was its selling point.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodacolor-200",
+      "manufacturer": "Kodak",
+      "name": "Kodacolor 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "kodacolor-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Consumer dye-cloud grain of the early 2000s, similar to Gold but softer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodacolor 200 was the budget name Kodak used for consumer colour negative in Europe and elsewhere in the 2000s, sold in supermarkets alongside Gold. It was warm and very forgiving, and it is one of the last films ordinary families bought at the checkout.",
+      "characteristics": [
+        { "label": "Use", "value": "Snapshot and holiday photography.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-e100s",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome E100S",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "e100s",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine tabular dye-cloud grain, the professional Ektachrome structure of the 1990s.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome E100S was the professional saturated Ektachrome of the 1990s, sold alongside the neutral E100 and the warm E100SW. It was sharp and contrasty, aimed at commercial work that needed punch on a light table. It was discontinued in the 2000s as the transparency market collapsed.",
+      "characteristics": [
+        { "label": "Palette", "value": "Saturated, with clean reds and strong blues.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-e100sw",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome E100SW",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "e100sw",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine tabular dye-cloud grain, the warm-balance member of the E100 family.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome E100SW was the warm-balanced professional transparency of the E100 family — 'SW' for saturated warm. It was designed for photographers who wanted the contrast of E100S without its cool cast, and it was discontinued in the 2000s.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm, with creamy highlights and strong reds.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-200",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome 200",
+      "iso": 200,
+      "process": "colourReversal",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "ektachrome-200-epd",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain from the 1990s professional Ektachrome generation.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome 200 (EPD) was Kodak's professional 200-speed transparency, sold for low-light slide work and for push processing. It was faster than E100 with a modest grain penalty, and it was discontinued in the 2000s with the rest of the Ektachrome line.",
+      "characteristics": [
+        { "label": "Use", "value": "Available-light slide work.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-ektachrome-100-epn",
+      "manufacturer": "Kodak",
+      "name": "Ektachrome 100 (EPN)",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "epn",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, the neutral professional Ektachrome before the E100 family.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ektachrome 100 Professional (EPN) was the neutral transparency of the 1980s and early 1990s, the default slide film for catalogue and architectural photography because it reproduced colour without a signature. It was replaced by the E100 family and then by E100G.",
+      "characteristics": [
+        { "label": "Colour", "value": "Neutral and accurate; the point of EPN.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-tri-x-reversal-7278",
+      "manufacturer": "Kodak",
+      "name": "Tri-X Reversal 7278",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "tri-x-reversal-7278",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain on a reversal emulsion, so the image on the film is a positive with a clear base.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Tri-X Reversal 7278 was the black-and-white reversal stock for 16 mm newsfilm and television: it came out of the process as a positive, ready to project or broadcast without a print. It was grainy and contrasty, like Tri-X, but designed for reversal processing. It went out of production with the newsfilm era.",
+      "characteristics": [
+        { "label": "Process", "value": "B&W reversal, not negative; it produces a positive with a clear base.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Grainy and punchy, with the newsreel contrast.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-plus-x-reversal-7276",
+      "manufacturer": "Kodak",
+      "name": "Plus-X Reversal 7276",
+      "iso": 50,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "plus-x-reversal-7276",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine cubic grain on a reversal emulsion, with a clear base.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Plus-X Reversal 7276 was the fine-grain black-and-white reversal stock for 16 mm, used for television and industrial films where a clean projected positive was wanted. It was slower and finer than Tri-X Reversal and was discontinued decades ago.",
+      "characteristics": [
+        { "label": "Process", "value": "B&W reversal.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Clean, contrasty and fine-grained for a reversal film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-4-x-reversal-7277",
+      "manufacturer": "Kodak",
+      "name": "4-X Reversal 7277",
+      "iso": 250,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "4-x-reversal-7277",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse cubic grain on a reversal emulsion, the grainiest of the Eastman reversal stocks.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "4-X Reversal 7277 was the fast, grainy reversal stock of the 16 mm era, used where light was scarce and grain was acceptable. It is one of the least-known Kodak cinema stocks and has been out of production for decades.",
+      "characteristics": [
+        { "label": "Process", "value": "B&W reversal.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-kodachrome-40",
+      "manufacturer": "Kodak",
+      "name": "Kodachrome 40",
+      "iso": 40,
+      "process": "colourReversal",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "kodachrome-40",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Kodachrome's dye-coupler-in-developer structure: extremely fine grain and a look nothing else matches.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Kodachrome 40 Type A was the amateur movie film — Super 8, and the film that most families' home movies of the 1970s and 1980s were shot on. It was tungsten-balanced for movie lights, processed in K-14, and discontinued with the rest of the Kodachrome line in 2009. It is the last colour film many people ever projected.",
+      "characteristics": [
+        { "label": "Process", "value": "K-14, now extinct.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Extremely fine grain, warm reds and the unmistakable Kodachrome palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "kodak-super-xx",
+      "manufacturer": "Kodak",
+      "name": "Super-XX",
+      "iso": 200,
+      "process": "blackAndWhite",
+      "formats": ["sheet4x5", "sheet8x10", "cinema"],
+      "status": "discontinued",
+      "generation": "super-xx",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Mid-century cubic grain with a thick emulsion and a long shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Eastman Super-XX was Kodak's high-speed black-and-white film of the 1940s and 1950s, used by press photographers and by the great American landscape photographers of the period. It had a long, forgiving curve and a grain that reads as period. It was discontinued in the 1960s as Tri-X and Plus-X took over.",
+      "characteristics": [
+        { "label": "Look", "value": "Soft and long-scaled, with a warm-toned print response.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Era", "value": "1940s–1960s; surviving stock is very old.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-superia-xtra-800",
+      "manufacturer": "Fujifilm",
+      "name": "Superia X-TRA 800",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "superia-xtra-800",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate dye-cloud grain with the fourth-colour-layer technology of the Superia range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Superia X-TRA 800 was Fujifilm's fast consumer colour negative, sold for available light and indoor work in the 2000s. It was cooler and cleaner than Kodak's high-speed films, and it was discontinued as the consumer range shrank. Expired stock is common and usually keeps well.",
+      "characteristics": [
+        { "label": "Palette", "value": "Cool and green, with strong cyan skies.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-pro-plus-ii-100",
+      "manufacturer": "Fujifilm",
+      "name": "Pro Plus II 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "pro-plus-ii-100",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, consumer structure with a cool Fuji palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Pro Plus II was Fujifilm's Japanese consumer colour negative, sold in convenience stores and camera shops. It was cool and clean, with the Superia family's green-leaning palette, and it was one of the cheapest ways to shoot colour in Japan.",
+      "characteristics": [
+        { "label": "Use", "value": "Japanese consumer snapshot film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-pro-plus-ii-400",
+      "manufacturer": "Fujifilm",
+      "name": "Pro Plus II 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "pro-plus-ii-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarser dye-cloud grain than the 100, with the same cool palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Pro Plus II 400 was the fast member of Fujifilm's Japanese consumer range, sold for the same everyday photography as Superia. It was grainy, cool and forgiving, and it disappeared when Fujifilm consolidated its consumer films.",
+      "characteristics": [
+        { "label": "Latitude", "value": "Wide, as consumer films were expected to be.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fujicolor-100",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "fujicolor-100",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine consumer dye-cloud grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fujicolor 100 was Fujifilm's plain-name consumer colour negative, sold in Japan and Asian markets as the cheapest way into colour film. It was cool and clean with fine grain, and it was discontinued as Fujifilm cut its consumer line back to Superia.",
+      "characteristics": [
+        { "label": "Price", "value": "The budget option in its markets.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-industrial-100",
+      "manufacturer": "Fujifilm",
+      "name": "Industrial 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "industrial-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain on an industrial-use emulsion, with a clean and slightly cool palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "respool",
+        "stock": "Fujifilm industrial 100 colour negative (bulk)",
+        "note": "Fujifilm's industrial-use colour film, sold in bulk and respooled into 35 mm cassettes by Film Photography Project and others.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Fujifilm Industrial 100 is a colour negative made for industrial and instrumentation use rather than for consumers, and sold in bulk rolls. Respooled into 35 mm it is a very fine-grained, clean and slightly cool colour film with a look close to Fuji's professional emulsions. It is one of the better bargains among respooled colour films, though stock comes and goes.",
+      "characteristics": [
+        { "label": "Origin", "value": "Industrial bulk stock, respooled for still cameras.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "C-41.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-super-hr",
+      "manufacturer": "Fujifilm",
+      "name": "Super HR",
+      "iso": 6,
+      "process": "blackAndWhite",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "super-hr",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "unit": "monodisperse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Microfilm emulsion with monodisperse crystals, coated for document imaging.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Super HR is one of Fujifilm's microfilm materials, made for document archiving rather than photography. Respooled and developed in a low-contrast specialist developer, it gives an almost grainless, extremely slow negative. It is a technical curiosity with no pictorial datasheet.",
+      "characteristics": [
+        { "label": "Use", "value": "Document imaging, or technical photography with a specialist developer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ilford-pan-100",
+      "manufacturer": "Ilford",
+      "name": "Pan 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "ilford-pan-100",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, similar to Kentmere's, with a soft and forgiving curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ilford Pan 100 is the budget black-and-white film sold under the Ilford name in developing markets and through some distributors. It is a simple, forgiving cubic-grain film at a low price, and it is not the same emulsion as FP4 Plus. It is a good way to shoot a lot of black and white cheaply.",
+      "characteristics": [
+        { "label": "Price", "value": "One of the cheapest Ilford-branded films.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Soft and traditional, closer to FP4 than to Delta.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ilford-pan-400",
+      "manufacturer": "Ilford",
+      "name": "Pan 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "current",
+      "generation": "ilford-pan-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, coarser than HP5 Plus, with a similar curve.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ilford Pan 400 is the fast member of Ilford's budget Pan range, sold in markets where price matters more than the newest emulsion. It behaves like an older 400: grainy, forgiving and cheap. It is not HP5 Plus, and it does not push as well.",
+      "characteristics": [
+        { "label": "Look", "value": "Grainier and flatter than HP5, with a soft shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-agfapan-apx-100",
+      "manufacturer": "Agfa",
+      "name": "Agfapan APX 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "agfapan-apx-100",
+      "generationLabel": "Agfapan APX 100, before the APX rename",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine conventional grain with the long straight line that made Agfapan famous.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfapan APX 100 was Agfa's professional 100-speed black-and-white film under its older name, before the APX branding became standard in the 1990s. It was one of the great European films: fine-grained, straight-lined and capable of beautiful tonality in Rodinal. It died with AgfaPhoto in 2005.",
+      "characteristics": [
+        { "label": "Developer", "value": "Rodinal 1+50 for bite; D-76 for smoothness.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Clean and neutral, with a long scale.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-agfapan-apx-400",
+      "manufacturer": "Agfa",
+      "name": "Agfapan APX 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "agfapan-apx-400",
+      "generationLabel": "Agfapan APX 400, before the APX rename",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, tighter than Tri-X and with a shorter shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfapan APX 400 was the fast member of Agfa's professional black-and-white range, in production until 2005. It was crisp and contrasty with a strong red response, and it was the everyday 400 for a lot of European photographers.",
+      "characteristics": [
+        { "label": "Look", "value": "Hard and clean, with strong separation between reds and blues.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-optima-100",
+      "manufacturer": "Agfa",
+      "name": "Optima 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "optima-100",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain with Agfa's warm, slightly muted palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Optima was Agfa's premium consumer colour negative in the 1990s, sold alongside Vista and Ultra. Optima 100 was the fine-grained member, warm and soft with a gentle curve. It was discontinued in 2005 and is now a pleasant expired stock.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and soft, with muted greens.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-optima-400",
+      "manufacturer": "Agfa",
+      "name": "Optima 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "optima-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Moderate dye-cloud grain with the same warm palette as Optima 100.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Optima 400 was the fast member of Agfa's premium consumer range, sold for available-light family photography. It was warm and forgiving, and it was one of the better European 400s of its era. It disappeared with AgfaPhoto in 2005.",
+      "characteristics": [
+        { "label": "Latitude", "value": "Wide; two stops over is fine.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "agfa-ultra-50",
+      "manufacturer": "Agfa",
+      "name": "Ultra 50",
+      "iso": 50,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "ultra-50",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Extremely fine dye-cloud grain with unusually saturated dyes for a consumer film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Agfa Ultra 50 was the slow, ultra-saturated member of Agfa's consumer Ultra range, sold in the 1990s as a rival to Kodak's Ektar. It had vivid colour and almost no grain, and its narrow latitude made it a film for careful photographers. It was discontinued in 2005.",
+      "characteristics": [
+        { "label": "Palette", "value": "Highly saturated, with strong reds and blues.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Latitude", "value": "Narrow; expose carefully.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "konica-centuria-800",
+      "manufacturer": "Konica",
+      "name": "Centuria 800",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "centuria-800",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain with the cool Konica palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Centuria 800 was the fast member of Konica's consumer colour range, sold for indoor and evening photography. It was grainy and cool, and it disappeared when Konica Minolta left the film business in 2007. Expired stock is common.",
+      "characteristics": [
+        { "label": "Use", "value": "Available-light consumer photography.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "konica-vx-100",
+      "manufacturer": "Konica",
+      "name": "VX 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "vx-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, the sharpest of the VX range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Konica VX 100 was the slow member of the company's 1990s consumer colour negative range, sold before the Centuria rebrand. It was fine-grained and slightly cool, and it was a popular cheap film in Japan and Europe.",
+      "characteristics": [
+        { "label": "Palette", "value": "Cool and clean, with a slight green cast in the shadows.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "konica-vx-200",
+      "manufacturer": "Konica",
+      "name": "VX 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "vx-200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, between VX 100 and 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Konica VX 200 was the middle speed of the VX consumer range, warm-ish for a Konica and very forgiving. It was sold throughout the 1990s and disappeared with the shift to Centuria and then to digital.",
+      "characteristics": [
+        { "label": "Latitude", "value": "Wide and forgiving.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "konica-sr-g-3200",
+      "manufacturer": "Konica",
+      "name": "SR-G 3200",
+      "iso": 3200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "sr-g-3200",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Extremely coarse dye-cloud grain, the price of ISO 3200 on colour film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Konica SR-G 3200 was one of the fastest colour negative films ever sold, produced for low-light press and surveillance work in the 1990s. It was extraordinarily grainy and expensive, and it is remembered more as a technical achievement than as a usable film. It was discontinued long before Konica left photography.",
+      "characteristics": [
+        { "label": "Speed", "value": "Genuinely ISO 3200 — a rare thing in colour negative.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Grain", "value": "Very heavy; the image is built from visible dye clouds.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "kodak-ektapress-gold-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektapress-gold-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektapress-gold-1600", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektar-1000", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektar-125", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-vps-iii", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-vpl", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-royal-gold-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-royal-gold-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-supra-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-supra-800", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-kodacolor-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektachrome-e100s", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektachrome-e100sw", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektachrome-200", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-ektachrome-100-epn", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "kodak-kodachrome-40", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "community", "source": "massive-dev-chart", "note": "K-14 is extinct; an E-6 first developer is the only salvage route and it will not reproduce Kodachrome." } },
+    { "film": "fujifilm-superia-xtra-800", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-fujicolor-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-industrial-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ilford-pan-100", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "ilford-pan-400", "developer": "ilford-id-11", "dilution": "1+1", "celsius": 20, "seconds": 660, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-agfapan-apx-100", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-agfapan-apx-400", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 480, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-optima-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "agfa-optima-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "konica-centuria-800", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "konica-vx-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "konica-vx-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ]
+}

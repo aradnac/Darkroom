@@ -11,7 +11,7 @@ import SwiftUI
 
 struct SessionSetupView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
 
     @State private var setup = DevelopmentSetup(
         film: StarterLibrary.films[0],
@@ -47,7 +47,8 @@ struct SessionSetupView: View {
         dilution: Dilution? = nil,
         temperature: Double? = nil,
         pushStops: Int? = nil,
-        reuseCount: Int? = nil
+        reuseCount: Int? = nil,
+        developmentSeconds: TimeInterval? = nil
     ) {
         let films = StarterLibrary.films
         let developers = StarterLibrary.developers
@@ -69,6 +70,13 @@ struct SessionSetupView: View {
         if let reuseCount {
             drafted.setReuseCount(reuseCount)
         }
+        // A setting handed over from the simulator brings its own time, measured
+        // at the water it was set for: the sheet is filled in rather than asking
+        // for the time again.
+        if let developmentSeconds, developmentSeconds >= 10, let temperature {
+            drafted.setNominalCelsius(temperature)
+            drafted.setPointSeconds(developmentSeconds, at: temperature)
+        }
 
         _setup = State(initialValue: drafted)
     }
@@ -89,7 +97,7 @@ struct SessionSetupView: View {
                 filmCard
                 developerCard
                 exposureCard
-                if themeStore.isSoftGlassActive {
+                if appearance.isSoftGlassActive {
                     softTimeCard
                 } else {
                     timeCard

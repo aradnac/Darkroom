@@ -2,7 +2,8 @@
 //  LiquidBackdrop.swift
 //  Darkroom
 //
-//  The default bench-light backdrop, with a procedural print surface in THE 13TH THEME.
+//  The default bench-light backdrop, with the soft-glass field while that
+//  language is active.
 //
 
 import SwiftUI
@@ -10,7 +11,7 @@ import SwiftUI
 struct LiquidBackdrop: View {
     var tint: Color = Theme.amber
     var intensity: Double = 1.0
-    @ObservedObject private var themeStore = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
 
@@ -35,9 +36,9 @@ struct LiquidBackdrop: View {
         Color.clear
             .overlay {
                 Group {
-                    if themeStore.isTheme13Active {
-                        Theme13Backdrop()
-                    } else if themeStore.isSoftGlassActive {
+                    if let style = DLRuntime.activeStyle {
+                        DLBackgroundView(spec: style.spec, palette: style.palette)
+                    } else if appearance.isSoftGlassActive {
                         SoftGlassTheme.backdrop(intensity: intensity)
                     } else {
                         darkroomBackdrop

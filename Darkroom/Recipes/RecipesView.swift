@@ -12,7 +12,7 @@ struct RecipesView: View {
     var body: some View {
         NavigationStack {
             LibraryBrowserView()
-                .appNavigationChrome(index: "02", title: "Recipes")
+                .appNavigationChrome(title: "Recipes")
         }
     }
 }

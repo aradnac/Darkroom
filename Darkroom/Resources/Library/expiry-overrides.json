@@ -1,0 +1,431 @@
+{
+  "schema": 1,
+  "note": "Per-film departures from the behaviour groups in ExpiryParameters.swift. A film listed here keeps its group's shape but moves the numbers; a film not listed runs on its group's priors and is labelled accordingly. Fog ceilings are absolute base fog in log D. Time constants are in years at the modelled mean storage temperature; they are engineering priors informed by how each family is described, not published ageing rates. 'evidence' caps how confident the answer is allowed to sound.",
+  "sources": [
+    {
+      "key": "kodak-e30",
+      "title": "Storage and Care of KODAK Photographic Materials — Before and After Processing (Publication E-30)",
+      "publisher": "Eastman Kodak Company, 2004",
+      "url": "https://filmcolors.org/wp-content/uploads/2025/12/Kodak_Storage-and-Care-of-Kodak-Photographic-Materials-Before-and-After-Processing_E-30.pdf",
+      "usedFor": "Storage limits and temperatures; that speed, contrast, colour balance and fog change gradually after manufacture and faster when badly stored; that colour is affected more seriously than black-and-white; that refrigeration must not be relied on past the printed date."
+    },
+    {
+      "key": "kodak-tib5202",
+      "title": "Technical Information Bulletin TIB5202 — Storage and Handling of Unprocessed Film",
+      "publisher": "Eastman Kodak Company, May 2002",
+      "url": "https://www.kodak.com/content/products-brochures/Film/Storage-and-Handling-of-Unprocessed-Film.pdf",
+      "usedFor": "That ambient gamma radiation raises D-min and toe density and increases grain, that higher-speed films are affected more than slower ones, and that refrigeration cannot reduce it. Also 13 °C general storage and −18 °C beyond six months at about 50% RH."
+    },
+    {
+      "key": "kodak-tmax100-f4016",
+      "title": "KODAK PROFESSIONAL T-MAX 100 Film — Technical Data F-4016",
+      "publisher": "Kodak Alaris, February 2016",
+      "url": "https://business.kodakmoments.com/sites/default/files/files/resources/f4016_TMax_100.pdf",
+      "usedFor": "Manufacturer storage guidance for this stock (24 °C or lower, original sealed package) beside the T-Max 100 override."
+    },
+    {
+      "key": "ilford-faq",
+      "title": "ILFORD film FAQs",
+      "publisher": "Ilford Photo / HARMAN technology",
+      "url": "https://www.ilfordphoto.com/faqs/ilford-film-faqs/",
+      "usedFor": "That the expiry date is a useful guide when film has not been refrigerated, that refrigerated film may last much longer, and that no numeric shelf life is published — only the date."
+    },
+    {
+      "key": "ilford-delta3200",
+      "title": "ILFORD DELTA 3200 PROFESSIONAL — Technical Information",
+      "publisher": "HARMAN technology Limited, June 2025",
+      "url": "https://www.ilfordphoto.com/amfile/file/download/file/1913/product/2175/",
+      "usedFor": "The manufacturer's own storage wording (10–20 °C, dry, original packaging; fridge or freezer with time to acclimatise) beside the Delta 3200 override."
+    },
+    {
+      "key": "ipi-acetate",
+      "title": "IPI Storage Guide for Acetate Film",
+      "publisher": "Image Permanence Institute, Rochester Institute of Technology, 1993",
+      "url": "https://s3.cad.rit.edu/ipi-assets/publications/acetate_guide.pdf",
+      "usedFor": "Vinegar syndrome: onset times by temperature and humidity (about 50 years at 65 °F/50% RH, about 150 years at 55 °F/40% RH), the roughly 17× slower reaction at 30 °F than at 70 °F, the autocatalytic point at 0.5 free acidity, and the order of warning signs — smell first, then shrinkage, brittleness and channelling."
+    },
+    {
+      "key": "nfpf-storage",
+      "title": "The Film Preservation Guide — Chapter 6, Storage",
+      "publisher": "National Film Preservation Foundation",
+      "url": "https://www.filmpreservation.org/userfiles/image/PDFs/fpg_6.pdf",
+      "usedFor": "The preservation reading that temperature and moisture control the rate of decay, and that cold storage buys time for acetate film."
+    },
+    {
+      "key": "usaf-afm160-30",
+      "title": "Air Force Manual AFM 160-30, page 18-5",
+      "publisher": "United States Department of the Air Force, 15 November 1965",
+      "url": "https://books.google.de/books?id=uWMrAQAAMAAJ&pg=SA18-PA5",
+      "usedFor": "The published, non-forum statement that films lose speed and contrast as they age and that stray radiation fogs them."
+    },
+    {
+      "key": "loc-photographs",
+      "title": "Care, Handling and Storage of Photographs",
+      "publisher": "Library of Congress, Preservation Directorate",
+      "url": "https://www.loc.gov/preservation/care/photo.html",
+      "usedFor": "The best-practice environment — 30–50% RH, 70 °F or below, no attics or basements, and 40 °F or below for colour negatives — which is what the storage tiers are descriptions of."
+    }
+  ],
+  "films": [
+    {
+      "filmKey": "kodak-t-max-100",
+      "group": "slowModernBW",
+      "evidence": "literatureDerived",
+      "note": "T-grain, heavy stabiliser load, and the stock with the best long-keeping reputation in the app's library. A roll dated 2009, stored at room temperature, has been reported to give solid results at box speed; that is one anecdote and is weighted as one, but it points the same way as the film's construction.",
+      "overrides": {
+        "fogCeiling": 0.16,
+        "fogTimeConstantYears": 110,
+        "gammaLossFraction": 0.10,
+        "gammaTimeConstantYears": 120,
+        "densityLoss": 0.20,
+        "densityTimeConstantYears": 120,
+        "speedLossStops": 0.30,
+        "speedTimeConstantYears": 100,
+        "radiationSensitivity": { "mean": 0.70, "deviation": 0.20, "minimum": 0.1 },
+        "saturationStops": 6.5
+      }
+    },
+    {
+      "filmKey": "ilford-delta-100",
+      "group": "slowModernBW",
+      "evidence": "literatureDerived",
+      "note": "Core-shell tabular crystals; fine grain and a long straight line, which is what keeps a shadow readable after the toe has moved.",
+      "overrides": {
+        "fogCeiling": 0.18,
+        "fogTimeConstantYears": 100,
+        "gammaLossFraction": 0.12,
+        "speedLossStops": 0.32,
+        "speedTimeConstantYears": 92,
+        "saturationStops": 6.3
+      }
+    },
+    {
+      "filmKey": "fujifilm-acros-100-ii",
+      "group": "slowModernBW",
+      "evidence": "literatureDerived",
+      "note": "Fine-grain modern monochrome; the library documents it as a long-scale film, which helps it hold shadow separation as fog rises.",
+      "overrides": {
+        "fogCeiling": 0.17,
+        "fogTimeConstantYears": 105,
+        "speedLossStops": 0.34,
+        "speedTimeConstantYears": 96
+      }
+    },
+    {
+      "filmKey": "ilford-pan-f-plus",
+      "group": "slowModernBW",
+      "evidence": "literatureDerived",
+      "note": "Rated ISO 50 with a famously short scale: contrast climbs quickly as it ages, so its saturation point arrives sooner than the other modern films.",
+      "overrides": {
+        "fogCeiling": 0.22,
+        "fogTimeConstantYears": 85,
+        "speedLossStops": 0.35,
+        "speedTimeConstantYears": 80,
+        "saturationStops": 5.2
+      }
+    },
+    {
+      "filmKey": "ilford-hp5-plus",
+      "group": "classicBW",
+      "evidence": "literatureDerived",
+      "note": "The reference conventional film. Library notes describe it as robust and forgiving a stop either way, so it is modelled to keep its toe longer than the fast-B&W group.",
+      "overrides": {
+        "fogCeiling": 0.30,
+        "fogTimeConstantYears": 75,
+        "speedLossStops": 0.55,
+        "speedTimeConstantYears": 62,
+        "saturationStops": 6.0
+      }
+    },
+    {
+      "filmKey": "ilford-fp4-plus",
+      "group": "classicBW",
+      "evidence": "literatureDerived",
+      "note": "Fine-grained conventional film with a slow toe; it tolerates age better than the family average, though its push latitude is poor.",
+      "overrides": {
+        "fogCeiling": 0.25,
+        "fogTimeConstantYears": 85,
+        "speedLossStops": 0.40,
+        "speedTimeConstantYears": 74
+      }
+    },
+    {
+      "filmKey": "kodak-tri-x-400",
+      "group": "classicBW",
+      "evidence": "literatureDerived",
+      "note": "Grouped with the classic monochromes rather than the fast-B&W group despite its ISO: its cubic crystals and long-standing use as a documentary film put it with HP5 in keeping behaviour, not with the Delta 3200s.",
+      "overrides": {
+        "fogCeiling": 0.34,
+        "fogTimeConstantYears": 70,
+        "gammaLossFraction": 0.20,
+        "speedLossStops": 0.60,
+        "speedTimeConstantYears": 58
+      }
+    },
+    {
+      "filmKey": "ilford-delta-400",
+      "group": "fastBW",
+      "evidence": "literatureDerived",
+      "note": "A fast tabular film: the grain is fine for its speed, but the crystal volume is still large enough that fog arrives earlier than on the 100-speed films.",
+      "overrides": {
+        "fogCeiling": 0.40,
+        "fogTimeConstantYears": 52,
+        "speedLossStops": 0.72,
+        "speedTimeConstantYears": 46
+      }
+    },
+    {
+      "filmKey": "ilford-delta-3200",
+      "group": "fastBW",
+      "evidence": "literatureDerived",
+      "note": "A pushable high-speed film, and the least forgiving in the Ilford range: fog builds early, speed falls fastest, and the useful shadow detail is gone long before the film is unusable.",
+      "overrides": {
+        "fogCeiling": 0.60,
+        "fogTimeConstantYears": 24,
+        "gammaLossFraction": 0.30,
+        "gammaTimeConstantYears": 30,
+        "speedLossStops": 1.10,
+        "speedTimeConstantYears": 24,
+        "radiationSensitivity": { "mean": 1.60, "deviation": 0.40, "minimum": 0.1 },
+        "saturationStops": 4.2
+      }
+    },
+    {
+      "filmKey": "kodak-t-max-p3200",
+      "group": "fastBW",
+      "evidence": "literatureDerived",
+      "note": "The same high-speed problem as Delta 3200: large crystals, rapid fog growth, and a short usable window once the date has gone.",
+      "overrides": {
+        "fogCeiling": 0.58,
+        "fogTimeConstantYears": 26,
+        "gammaLossFraction": 0.28,
+        "speedLossStops": 1.05,
+        "speedTimeConstantYears": 26,
+        "radiationSensitivity": { "mean": 1.55, "deviation": 0.40, "minimum": 0.1 },
+        "saturationStops": 4.3
+      }
+    },
+    {
+      "filmKey": "kodak-portra-160",
+      "group": "professionalColourNegative",
+      "evidence": "literatureDerived",
+      "note": "Professional C-41 with a cold chain assumed in its printed date. Its three layers age unevenly, so the crossover warning is likely long before the speed matters.",
+      "overrides": {
+        "fogCeiling": 0.44,
+        "fogTimeConstantYears": 52,
+        "speedLossStops": 0.60,
+        "speedTimeConstantYears": 44
+      }
+    },
+    {
+      "filmKey": "kodak-portra-400",
+      "group": "professionalColourNegative",
+      "evidence": "literatureDerived",
+      "note": "The most commonly shot professional colour negative, and the one with the most community reporting behind it. Modelled with a longer fog time constant than the consumer stocks and a lower saturation point.",
+      "overrides": {
+        "fogCeiling": 0.46,
+        "fogTimeConstantYears": 48,
+        "speedLossStops": 0.68,
+        "speedTimeConstantYears": 40,
+        "saturationStops": 4.4
+      }
+    },
+    {
+      "filmKey": "kodak-portra-800",
+      "group": "professionalColourNegative",
+      "evidence": "literatureDerived",
+      "note": "A fast professional stock: more grain, less keeping margin, and a shorter printed date than the slower Portras.",
+      "overrides": {
+        "fogCeiling": 0.52,
+        "fogTimeConstantYears": 38,
+        "speedLossStops": 0.90,
+        "speedTimeConstantYears": 32
+      }
+    },
+    {
+      "filmKey": "kodak-ektar-100",
+      "group": "professionalColourNegative",
+      "evidence": "literatureDerived",
+      "note": "Unusually saturated and contrasty for a colour negative, with fine grain. The library notes its limited overexposure latitude, so its saturation point is set lower than the Portras'.",
+      "overrides": {
+        "fogCeiling": 0.42,
+        "fogTimeConstantYears": 48,
+        "speedLossStops": 0.78,
+        "speedTimeConstantYears": 40,
+        "saturationStops": 3.8
+      }
+    },
+    {
+      "filmKey": "kodak-gold-200",
+      "group": "consumerColourNegative",
+      "evidence": "literatureDerived",
+      "note": "The stock most often found expired in a drawer, and the one with the strongest community consensus about mild overexposure suiting it. Modelled to keep its toe longer than the group prior.",
+      "overrides": {
+        "fogCeiling": 0.50,
+        "fogTimeConstantYears": 55,
+        "speedLossStops": 0.80,
+        "speedTimeConstantYears": 42
+      }
+    },
+    {
+      "filmKey": "kodak-gold-400",
+      "group": "consumerColourNegative",
+      "evidence": "literatureDerived",
+      "note": "Same family as Gold 200 with larger crystals: fog arrives sooner and speed drops faster, so it wants the compensation earlier.",
+      "overrides": {
+        "fogCeiling": 0.54,
+        "fogTimeConstantYears": 46,
+        "speedLossStops": 0.95,
+        "speedTimeConstantYears": 36
+      }
+    },
+    {
+      "filmKey": "kodak-colorplus-200",
+      "group": "consumerColourNegative",
+      "evidence": "literatureDerived",
+      "note": "A value-priced consumer stock, modelled with the same shape as Gold and a slightly wider uncertainty: less is documented about it.",
+      "overrides": {
+        "fogCeiling": 0.52,
+        "fogTimeConstantYears": 52,
+        "speedLossStops": 0.85,
+        "speedTimeConstantYears": 40
+      }
+    },
+    {
+      "filmKey": "fujifilm-superia-xtra-400",
+      "group": "consumerColourNegative",
+      "evidence": "literatureDerived",
+      "note": "Fujifilm's consumer 400. Its dye set is as prone to crossover with age as Kodak's, and it is the consumer stock most often shot warm in tropical climates.",
+      "overrides": {
+        "fogCeiling": 0.52,
+        "fogTimeConstantYears": 46,
+        "speedLossStops": 0.90,
+        "speedTimeConstantYears": 36
+      }
+    },
+    {
+      "filmKey": "fujifilm-pro-400h",
+      "group": "professionalColourNegative",
+      "evidence": "literatureDerived",
+      "note": "A professional film with a short printed date and a cold chain expected of it. Its characteristic pale-green rendering makes any colour crossover more obvious than on a saturated stock.",
+      "overrides": {
+        "fogCeiling": 0.46,
+        "fogTimeConstantYears": 50,
+        "speedLossStops": 0.70,
+        "speedTimeConstantYears": 42
+      }
+    },
+    {
+      "filmKey": "fujifilm-velvia-50",
+      "group": "slide",
+      "evidence": "literatureDerived",
+      "note": "A dense, saturated reversal film with a narrow contrast scale. Reversal has no printing stage to correct in, so the layers must stay balanced on their own; modelled with a quick crossover and a low saturation point.",
+      "overrides": {
+        "fogCeiling": 0.30,
+        "fogTimeConstantYears": 34,
+        "gammaLossFraction": 0.16,
+        "speedLossStops": 0.85,
+        "speedTimeConstantYears": 30,
+        "saturationStops": 4.0
+      }
+    },
+    {
+      "filmKey": "fujifilm-velvia-100",
+      "group": "slide",
+      "evidence": "literatureDerived",
+      "note": "The faster Velvia, with more grain and a slightly thinner keeping margin than the ISO 50.",
+      "overrides": {
+        "fogCeiling": 0.32,
+        "fogTimeConstantYears": 32,
+        "speedLossStops": 0.90,
+        "speedTimeConstantYears": 28,
+        "saturationStops": 3.9
+      }
+    },
+    {
+      "filmKey": "kodak-ektachrome-e100",
+      "group": "slide",
+      "evidence": "literatureDerived",
+      "note": "A neutral, finely grained reversal film. Its longer printed date is typical of the Ektachrome line, but the layer-balance problem of E-6 is unchanged.",
+      "overrides": {
+        "fogCeiling": 0.34,
+        "fogTimeConstantYears": 38,
+        "speedLossStops": 0.88,
+        "speedTimeConstantYears": 32
+      }
+    },
+    {
+      "filmKey": "kodak-vision3-250d",
+      "group": "cineECN2",
+      "evidence": "literatureDerived",
+      "note": "Motion-picture negative, made to be exposed within weeks of coating. Good keeping when cold; a respool with the rem-jet removed goes through C-41 but the film's ageing is unchanged by that.",
+      "overrides": {
+        "fogCeiling": 0.46,
+        "fogTimeConstantYears": 50,
+        "speedLossStops": 0.75,
+        "speedTimeConstantYears": 40
+      }
+    },
+    {
+      "filmKey": "kodak-vision3-500t",
+      "group": "cineECN2",
+      "evidence": "literatureDerived",
+      "note": "The tungsten-balanced fast Vision3. More speed, more grain, and a shorter usable window than the 250D.",
+      "overrides": {
+        "fogCeiling": 0.50,
+        "fogTimeConstantYears": 42,
+        "speedLossStops": 0.90,
+        "speedTimeConstantYears": 34
+      }
+    },
+    {
+      "filmKey": "kodak-vision3-50d",
+      "group": "cineECN2",
+      "evidence": "literatureDerived",
+      "note": "Fine-grained daylight cinema negative; the best-keeping of the Vision3 stocks, and the one most often respooled for still cameras.",
+      "overrides": {
+        "fogCeiling": 0.40,
+        "fogTimeConstantYears": 58,
+        "speedLossStops": 0.60,
+        "speedTimeConstantYears": 50,
+        "saturationStops": 5.2
+      }
+    },
+    {
+      "filmKey": "kodak-vision3-200t",
+      "group": "cineECN2",
+      "evidence": "literatureDerived",
+      "note": "Mid-speed tungsten cinema negative, between the 250D and the 500T in keeping behaviour.",
+      "overrides": {
+        "fogCeiling": 0.46,
+        "fogTimeConstantYears": 48,
+        "speedLossStops": 0.80,
+        "speedTimeConstantYears": 40
+      }
+    },
+    {
+      "filmKey": "kodak-vision-5279",
+      "group": "cineECN2",
+      "evidence": "empiricallyObserved",
+      "note": "An earlier Vision generation. Older coatings were stabilised less effectively than the Vision3 emulsions, and the dates on the stock that survives are far in the past.",
+      "overrides": {
+        "fogCeiling": 0.55,
+        "fogTimeConstantYears": 40,
+        "speedLossStops": 0.95,
+        "speedTimeConstantYears": 34
+      }
+    },
+    {
+      "filmKey": "kodak-vision-5274",
+      "group": "cineECN2",
+      "evidence": "empiricallyObserved",
+      "note": "An earlier Vision generation, modelled the same way as 5279 and labelled as observed rather than documented.",
+      "overrides": {
+        "fogCeiling": 0.55,
+        "fogTimeConstantYears": 40,
+        "speedLossStops": 0.95,
+        "speedTimeConstantYears": 34
+      }
+    }
+  ]
+}

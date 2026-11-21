@@ -31,6 +31,22 @@ classification — documented, community-tested, experimental, not recommended, 
 chemically incompatible. An incompatible combination is shown as a warning, never
 as a recipe, and more combinations arrive through the same import pipeline.
 
+The film library is more than three hundred and eighty records rather than a
+starter list: current, discontinued, cinema and specialty stocks, every
+generation kept apart, and respools and rebrands listed with the stock they
+actually come from. Consumer ranges are documented as lineages — every Kodak
+Gold generation from the 1988 launch to the 2022 return of 120, the Fujifilm
+consumer line from HR through Super G and Superia, and what a later rebrand such
+as AgfaPhoto Vista Plus or Fujifilm's plain 200 really is — because the name on
+the box is often the least reliable fact about a film. Each
+film carries its latitude, grain and grain structure, contrast, reciprocity and
+history, plus a `characteristics` list for everything that does not fit the four
+headline facts. A respool says which emulsion it is cut from and whether the
+rem-jet was removed; a rebrand says what the coating is believed to be and who
+says so, because repackagers rarely name their supplier. The documents are split
+by manufacturer under `Resources/Library/` and merged at load, so the library can
+keep growing without one enormous file.
+
 **Setup maths.** A session asks for one chart time and the temperature it was
 measured at; every other temperature comes from the time/temperature converter —
 the exponential correction the Massive Dev Chart's calculator uses, with the same
@@ -61,6 +77,28 @@ conversion, stopwatch with laps, interval timer, wash and final-rinse timers, a
 tank liquid visualizer drawn to scale, a film leader retrieval guide, tank
 capacities and a chemical safety sheet.
 
+**Simulator.** A sandbox for trying a choice before the chemistry is mixed. Pick
+a black-and-white film and developer the library documents a time for, then move
+dilution, temperature, development time, agitation and fixing on sliders. An
+example frame — drawn rather than photographed, so it carries a full range of
+tones and fine detail — is rendered at that setting, and the expected movement in
+contrast, density, grain and fog is reported beside it. Over-development,
+under-development and over-fixing each say so in words, the thumbnails preview a
+stop either side, and the setting can be carried straight into a new session.
+
+**Expired film.** A calculator for an out-of-date roll: pick the stock from the
+library, give the printed date and how it has been stored, and get a
+recommended exposure index, a P10–P90 range, the stops over box speed, a
+confidence badge and the warnings that matter — colour crossover, saturation,
+and an acetate base that may be deteriorating. Storage can be described as one
+period or as a timeline of several. Behind it: a parametric H&D curve, an
+Arrhenius thermal model integrated across the timeline, radiation fog counted
+separately with a floor that freezing cannot remove, two thousand seeded Monte
+Carlo samples, and a calibration that accepts logged roll outcomes and shrinks
+them toward the film family. Every parameter says whether it is measured,
+manufacturer documented, literature derived, observed or assumed. Exposure only:
+it recommends no developer, dilution or time. `docs/expired-film-ei.md`.
+
 **Settings.** Units and temperature scale, the default agitation scheme and its
 intensity, the reuse penalty used for compounded increases, the factor that
 scales extrapolation past a published temperature range, a sound and a haptic for
@@ -70,14 +108,25 @@ preference. `docs/settings.md` records what each one changes.
 
 ## Design languages
 
-Two complete alternates sit behind the dark Liquid Glass default: **Soft Glass**
-(white for anything you can press, colour only where it decorates or reports)
-and a hidden **13th theme**, unlocked by tapping the Themes row nine times in
-Settings, rendered as a print-media collage language with nine palettes.
-The darkroom itself is lit by nine colour palettes — a lamp and a second light
-behind it, so the backdrop carries a gradient — and fades its content into the
-chrome at the top and bottom of every screen.
-`docs/soft-glass-theme.md` and `docs/theme13-log.md` record the decisions.
+Fourteen complete themes ship, chosen in Settings → Appearance and remembered
+between launches. They are not colour schemes: each has its own navigation
+structure, screen layouts, type ramp, controls, surfaces, borders, shadows,
+motion and background, and the same screen is laid out differently in each.
+**Darkroom** (the dark default, the app's own native interface) and **Soft Light**
+(white for anything you can press, colour only where it decorates or reports) are
+two of them; **Clean**, **Fluent**, **Material 3**, **Swiss**, **Brutalist**,
+**Neumorphic**, **Cyberpunk**, **Retro Analog**, **Editorial**, **Skeuomorphic**,
+**Terminal** and **Recorder** are the rest. **Recorder** is a flat field of the
+chosen colour from edge to edge with black type on it: a bold masthead, a disc of
+square dots that fills to the featured time, a tabular readout and a two-by-two
+deck of black knobs, each with a signal dot, reading the library, the shelf and
+the journal. A single Appearance section carries the theme selector and the
+palette every theme is lit with, plus brightness, text size, animation intensity,
+reduced motion and interface density, with a live preview before anything is
+applied. The darkroom itself is lit by nine colour palettes — a lamp and a second
+light behind it, so the backdrop carries a gradient — and fades its content into
+the chrome at the top and bottom of every screen. `docs/design-languages.md` and
+`docs/soft-glass-theme.md` record the decisions.
 
 ## Performance notes
 
@@ -108,6 +157,6 @@ upload.
       Tools/        sink-side utilities and references
       Models/       session plans, chemistry maths, compensation
       Design/       shared tokens, panels, glass, soft glass
-      Theme13/      the hidden print language
+      Languages/    the twelve design languages: specs, components, navigation, screens
       Support/      clock, feedback, Live Activity
       Resources/    bundled library JSON and DX database

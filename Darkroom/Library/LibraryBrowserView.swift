@@ -323,6 +323,10 @@ struct LibraryBrowserView: View {
 
                 Spacer(minLength: 4)
 
+                if let origin = film.origin, origin.kind != .original {
+                    LibraryChip(text: origin.kind.label)
+                }
+
                 LibraryChip(text: film.status.label, emphasised: film.status == .current)
             }
 

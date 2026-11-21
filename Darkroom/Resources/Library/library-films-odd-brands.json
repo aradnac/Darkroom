@@ -1,0 +1,378 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "konica-centuria-100",
+      "manufacturer": "Konica",
+      "name": "Centuria 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "centuria-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, cool and slightly green — the Konica palette.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Konica Centuria was the company's consumer colour negative range from the late 1990s until Konica Minolta left the photographic film business in 2007. Centuria 100 was fine-grained and cool, with a distinctly Japanese palette that sat between Fuji's greens and Kodak's warmth. Stock is now expired and much of it has drifted.",
+      "characteristics": [
+        { "label": "Palette", "value": "Cool and slightly green, with clean whites.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Often shifts green and loses speed; rate at EI 50–80.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "konica-centuria-400",
+      "manufacturer": "Konica",
+      "name": "Centuria 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "centuria-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarser dye-cloud grain than the 100, with the same cool cast.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Centuria 400 was the fast member of Konica's consumer range, sold in the 2000s before the company left film. It was grainy and cool, and it is now one of the cheaper expired stocks still circulating. It scans with a strong green cast that needs correcting.",
+      "characteristics": [
+        { "label": "Expired stock", "value": "Expect a green cast and fog; correct in the scan.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "konica-vx-400",
+      "manufacturer": "Konica",
+      "name": "VX 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "vx-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "1990s Konica consumer grain, slightly coarser than Centuria's.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Konica VX was the company's 1990s consumer colour negative, sold before the Centuria rebrand. It was warm-ish for a Konica, with a soft curve and a lot of latitude. Expired VX is common and usually still develops, though the colour has drifted.",
+      "characteristics": [
+        { "label": "Look", "value": "Softer and warmer than Centuria, with more latitude.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "konica-infrared-750",
+      "manufacturer": "Konica",
+      "name": "Infrared 750",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "infrared-750",
+      "latitude": { "value": "−1 / +4", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Large conventional grain, sensitive to about 750 nm, with no anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Konica Infrared 750 was the last mass-market near-infrared black-and-white film after Kodak discontinued HIE. It needed a deep red filter to show its effect, had no anti-halation layer, and produced the glowing foliage and black skies that infrared photographers want. It was discontinued in the mid-2000s and expired rolls are now expensive.",
+      "characteristics": [
+        { "label": "Filter", "value": "Deep red or R72 at +3 to +5 stops; without one it is an ordinary slow film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Handling", "value": "Load in subdued light and develop in total darkness until fixed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Halation", "value": "Strong: the anti-halation layer is absent.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "yashica-color-400",
+      "manufacturer": "Yashica",
+      "name": "Color 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "yashica-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Consumer dye-cloud grain of the kind a repackaged Japanese emulsion gives.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Japanese consumer colour negative (undisclosed)",
+        "note": "The Yashica name was licensed for a small range of colour films in the 2010s; the coating behind it is not published.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Yashica Color 400 is a licensed use of one of the great Japanese camera names on a small range of colour negative films sold in the 2010s, long after the original company had left the film business. The film is a repackaged consumer emulsion, and the honest description is that it is a Yashica-badged film rather than a Yashica-made one.",
+      "characteristics": [
+        { "label": "Origin", "value": "A licensed brand on a repackaged film; the coating is not disclosed.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "perutz-primafilm-100",
+      "manufacturer": "Perutz",
+      "name": "Primafilm 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "primafilm-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, consistent with the Agfa consumer emulsion it is believed to be.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Agfa consumer colour negative (widely reported)",
+        "note": "Perutz was a German brand name used on Agfa-made film after Perutz's own coating ended.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Perutz was one of the oldest German photographic brands, but by the 1990s its films were Agfa emulsions in Perutz packaging. Primafilm 100 is one of those: a warm, fine-grained consumer colour negative, made in Leverkusen and branded for a name that had stopped coating its own film. It disappeared with Agfa's collapse.",
+      "characteristics": [
+        { "label": "Origin", "value": "Agfa-made, Perutz-branded.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "ansco-versapan-125",
+      "manufacturer": "Ansco",
+      "name": "Versapan 125",
+      "iso": 125,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "versapan-125",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Classic mid-century American cubic grain, soft-edged and generous in the midtones.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Ansco was General Aniline & Film's photographic brand, the great American rival to Kodak for much of the twentieth century. Versapan 125 was its medium-speed black-and-white film, with a soft curve and a warm tone that many photographers preferred to Plus-X. The brand folded in the 1970s, and surviving rolls are rare and long expired.",
+      "characteristics": [
+        { "label": "Tone", "value": "Warm and soft, with a gentler shoulder than Kodak's films of the period.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Rare and very old; expect heavy fog.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "anscochrome-200",
+      "manufacturer": "Ansco",
+      "name": "Anscochrome 200",
+      "iso": 200,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "anscochrome-200",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Mid-century dye-cloud grain, coarser than the European slide films of the same era.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Anscochrome was Ansco's colour transparency film, processed in Ansco's own chemistry rather than Kodak's E-3 or E-4. It was sold from the 1950s into the 1970s and has a distinct American palette — warm, with heavy reds. It is long discontinued and its process chemistry is gone, so surviving film cannot be developed as intended.",
+      "characteristics": [
+        { "label": "Process", "value": "Ansco's own chemistry, no longer available. Only salvage processing is possible.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Look", "value": "Warm and heavy, with strong reds and a soft highlight roll-off.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fortepan-400",
+      "manufacturer": "Forte",
+      "name": "FortePan 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "fortepan-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Hungarian cubic grain, coarse and full of character, with a long toe.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Forte was Hungary's state photographic manufacturer, coating film and paper in Vác from the 1920s. FortePan 400 was its fast black-and-white film, sold cheaply across Eastern Europe and loved for its coarse, old-fashioned grain and long tonal scale. The company closed in 2007 and the film has been unavailable since.",
+      "characteristics": [
+        { "label": "Look", "value": "Coarse and soft, with a long toe and gentle highlights — closer to a 1960s film than a modern one.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Common in Eastern Europe; usually still usable with extra exposure.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "efke-kb-100",
+      "manufacturer": "Efke",
+      "name": "KB 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "kb-100",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Single-layer conventional grain on a clear base, with no anti-halation layer — the classic Efke look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Efke was the brand of Fotokemika, a Croatian factory in Samobor that coated film on 1950s machinery until it closed in 2012. KB 100 was its standard black-and-white film: a thin, single-layer emulsion on a clear base with no anti-halation layer, which gives the blooming highlights and soft tonality that Efke is loved for. When the plant closed, the last of that emulsion went with it.",
+      "characteristics": [
+        { "label": "Halation", "value": "Strong, from the missing anti-halation layer — the signature of the film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Handling", "value": "The emulsion is soft when wet; use a hardening fixer and handle carefully.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Developer", "value": "Rodinal 1+50 is the classic pairing.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "efke-kb-25",
+      "manufacturer": "Efke",
+      "name": "KB 25",
+      "iso": 25,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "kb-25",
+      "latitude": { "value": "−1 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine single-layer grain on a clear base, with no anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Efke KB 25 was the slow, ultra-fine film from Fotokemika's Samobor works, and it is one of the finest-grained pictorial emulsions ever made. It is thin, delicate and contrasty, with the same halation as the rest of the Efke range. It disappeared when the factory closed in 2012.",
+      "characteristics": [
+        { "label": "Use", "value": "Bright light, tripod and maximum resolution.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Handling", "value": "Soft emulsion; use a hardening fixer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "efke-ir-820",
+      "manufacturer": "Efke",
+      "name": "IR 820",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "ir-820",
+      "latitude": { "value": "−1 / +4", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine grain with sensitivity extending to about 820 nm, on a clear base with no anti-halation layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Efke IR 820 was one of the few true infrared films left after Kodak discontinued HIE, reaching to about 820 nm. It had no anti-halation layer, so highlights bloomed heavily, and it needed a deep red filter to show its effect. It went out of production when Fotokemika closed in 2012 and expiry has made surviving rolls a gamble.",
+      "characteristics": [
+        { "label": "Filter", "value": "R72 or deeper at +3 to +5 stops.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Handling", "value": "Load in subdued light; the emulsion is soft when wet.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "samsung-color-prime-200",
+      "manufacturer": "Samsung",
+      "name": "Color Prime 200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "color-prime-200",
+      "latitude": { "value": "−1 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Consumer dye-cloud grain, consistent with the repackaged Japanese emulsions of its era.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "rebrand",
+        "stock": "Consumer colour negative (undisclosed)",
+        "note": "A Korea-market film sold under the Samsung name. The coating source is not documented; treat it as a repackaged consumer emulsion.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Samsung Color Prime 200 is a Korea-market consumer colour negative from the era when electronics companies put their names on film. Documentation is thin and the coating source is not published, so the honest record is a short one: a warm, forgiving 200-speed negative in Samsung packaging, now expired. It is included because it is exactly the kind of oddity worth finding in a library, not because anything about it is well documented.",
+      "characteristics": [
+        { "label": "Documentation", "value": "Thin. The coating is not disclosed and no datasheet is known.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Expired stock", "value": "Rate at EI 100–160 and expect a colour shift.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "revolog-tesla-400",
+      "manufacturer": "Revolog",
+      "name": "Tesla 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "revolog-tesla-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain under a pre-exposed electric-blue pattern.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative with pre-exposure",
+        "note": "Revolog films are ordinary colour negatives pre-exposed with a pattern before packing; the effect is fixed at the factory.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Revolog Tesla 400 is one of the Austrian company's effect films: a colour negative that has been given a controlled electrical-looking pattern of blue streaks before being packed. Every frame carries the effect, and there is no way to shoot it clean. It is a creative material, not a documentary one.",
+      "characteristics": [
+        { "label": "Effect", "value": "Blue electric streaks across the frame.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "C-41 standard.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "revolog-streak-400",
+      "manufacturer": "Revolog",
+      "name": "Streak 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "revolog-streak-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain with a pre-exposed light-streak pattern.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative with pre-exposure",
+        "note": "A pre-exposed colour negative from Revolog; the effect is baked in.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Revolog Streak 400 is a pre-exposed colour negative that places a long light streak across every frame, imitating a film that was wound on with the back open. It is one of the more subtle Revolog effects and is often used for portraits.",
+      "characteristics": [
+        { "label": "Effect", "value": "A single warm light streak across the frame.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "revolog-nebula-400",
+      "manufacturer": "Revolog",
+      "name": "Nebula 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "revolog-nebula-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain under a pre-exposed cloud pattern.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative with pre-exposure",
+        "note": "A Revolog effect film; the pattern is exposed onto the film before packing.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Revolog Nebula 400 adds a soft, coloured cloud to every frame, in the company's line of pre-exposed films. It is popular for night and concert photography, where the pattern blends into the scene.",
+      "characteristics": [
+        { "label": "Effect", "value": "Soft coloured clouds across the frame.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "dubblefilm-apollo-400",
+      "manufacturer": "Dubblefilm",
+      "name": "Apollo 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "specialty",
+      "generation": "apollo-400",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain under a warm, orange pre-exposure.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "origin": {
+        "kind": "converted",
+        "stock": "Colour negative with pre-exposure",
+        "note": "A Dubblefilm pre-exposed colour negative with a warm leak pattern.",
+        "provenance": { "kind": "community", "source": "massive-dev-chart" }
+      },
+      "history": "Dubblefilm Apollo 400 is a pre-exposed colour negative with warm orange leaks that imitate a light-struck roll. Like the rest of the Dubblefilm range, the effect is applied before packing and cannot be turned off, which makes it a creative tool rather than a general-purpose film.",
+      "characteristics": [
+        { "label": "Effect", "value": "Warm orange leaks and washes.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "konica-centuria-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "konica-centuria-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "konica-vx-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "konica-infrared-750", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "yashica-color-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "perutz-primafilm-100", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fortepan-400", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 540, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "efke-kb-100", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 600, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "efke-kb-25", "developer": "adox-rodinal", "dilution": "1+100", "celsius": 20, "seconds": 720, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "efke-ir-820", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 660, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "samsung-color-prime-200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+  ]
+}

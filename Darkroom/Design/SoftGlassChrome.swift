@@ -164,11 +164,11 @@ struct SoftGlassNavigationChrome<Accessory: View>: ViewModifier {
     let title: String
     let accessory: Accessory
 
-    @ObservedObject private var store = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
 
     @ViewBuilder
     func body(content: Content) -> some View {
-        if store.isSoftGlassActive {
+        if appearance.isSoftGlassActive {
             content
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(.hidden, for: .navigationBar)
@@ -181,14 +181,13 @@ struct SoftGlassNavigationChrome<Accessory: View>: ViewModifier {
     }
 }
 
-/// Chooses the right chrome for the active language: the print theme's specimen
-/// strip, the soft-glass header, or the system navigation title.
+/// Chooses the right chrome for the active language: the soft-glass header, or
+/// the system navigation title.
 struct AppNavigationChrome<Accessory: View>: ViewModifier {
-    let index: String
     let title: String
     let accessory: Accessory
 
-    @ObservedObject private var store = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
 
     /// How far the content's bottom sits above the physical bottom of the
     /// display. The bottom fade has to start from the edge of the glass, not
@@ -198,9 +197,7 @@ struct AppNavigationChrome<Accessory: View>: ViewModifier {
 
     @ViewBuilder
     func body(content: Content) -> some View {
-        if store.isTheme13Active {
-            content.theme13NavigationChrome(index: index, title: title) { accessory }
-        } else if store.isSoftGlassActive {
+        if appearance.isSoftGlassActive {
             content.softGlassNavigationChrome(title: title) { accessory }
         } else {
             content
@@ -250,13 +247,11 @@ struct AppBarButton: View {
     let label: String
     let action: () -> Void
 
-    @ObservedObject private var store = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
 
     @ViewBuilder
     var body: some View {
-        if store.isTheme13Active {
-            Theme13BarButton(symbol: symbol, label: label, action: action)
-        } else if store.isSoftGlassActive {
+        if appearance.isSoftGlassActive {
             SoftGlassIconButton(systemImage: symbol, size: 38, action: action)
                 .accessibilityLabel(label)
         }
@@ -265,14 +260,14 @@ struct AppBarButton: View {
 
 // MARK: - System chrome
 
-/// Stops the system tab bar drawing underneath either custom chrome. Inert in the
-/// darkroom, which keeps the glass tab bar.
+/// Stops the system tab bar drawing underneath the soft-glass dock. Inert in
+/// the darkroom, which keeps the glass tab bar.
 struct AppHidesSystemTabBar: ViewModifier {
-    @ObservedObject private var store = Theme13SettingsStore.shared
+    @ObservedObject private var appearance = AppearanceStore.shared
 
     @ViewBuilder
     func body(content: Content) -> some View {
-        if store.isTheme13Active || store.isSoftGlassActive {
+        if appearance.isSoftGlassActive {
             content.toolbar(.hidden, for: .tabBar)
         } else {
             content
@@ -292,16 +287,15 @@ extension View {
         modifier(SoftGlassNavigationChrome(title: title, accessory: accessory()))
     }
 
-    func appNavigationChrome(index: String, title: String) -> some View {
-        modifier(AppNavigationChrome(index: index, title: title, accessory: EmptyView()))
+    func appNavigationChrome(title: String) -> some View {
+        modifier(AppNavigationChrome(title: title, accessory: EmptyView()))
     }
 
     func appNavigationChrome<Accessory: View>(
-        index: String,
         title: String,
         @ViewBuilder accessory: () -> Accessory
     ) -> some View {
-        modifier(AppNavigationChrome(index: index, title: title, accessory: accessory()))
+        modifier(AppNavigationChrome(title: title, accessory: accessory()))
     }
 
     func appHidesSystemTabBar() -> some View {

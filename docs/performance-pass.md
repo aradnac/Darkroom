@@ -59,7 +59,7 @@ screens. It now pauses when the view is off screen (`onAppear` / `onDisappear`),
 when the app is not active (`scenePhase`), and when Reduce Motion is on. All
 three use the schedule's own `paused:` flag, so the last frame is held rather
 than the layer disappearing: with Reduce Motion the backdrop is a still image of
-the same liquid, which is what the print theme already does.
+the same liquid.
 
 ## 4. `LibraryStore` answers from an index
 

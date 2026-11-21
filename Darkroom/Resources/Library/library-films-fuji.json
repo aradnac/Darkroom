@@ -1,0 +1,518 @@
+{
+  "schema": 2,
+  "films": [
+    {
+      "key": "fujifilm-neopan-acros-100",
+      "manufacturer": "Fujifilm",
+      "name": "Neopan Acros 100",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "acros-100",
+      "generationLabel": "Acros 100, 1998–2018",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "core–shell", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "grainStructure": { "value": "Super Fine-σ core–shell crystals, the same family as the II, but coated on a slightly thicker base with a different sensitising dye set.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "reciprocity": { "value": "No correction to about 120 s, +½ stop at 1000 s", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "history": "The original Acros 100 was introduced in 1998 and discontinued in 2018, when Fujifilm ended its black-and-white film production. It is the film that made Fujifilm's reputation in black and white: extraordinarily fine grain, a cool neutral tone, and the flattest reciprocity curve of any film ever made. Its 120 version was a favourite for night landscape work because a ten-minute exposure needed almost no correction.",
+      "characteristics": [
+        { "label": "Reciprocity", "value": "The best ever published for a B&W film.", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+        { "label": "Difference from II", "value": "The original has a slightly thicker base and a marginally warmer tone; the II is thinner-coated and a little cooler.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-neopan-400",
+      "manufacturer": "Fujifilm",
+      "name": "Neopan 400",
+      "iso": 400,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "neopan-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, coarser than Tri-X and with a steeper contrast build.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium-high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Neopan 400 was Fujifilm's professional 400-speed black-and-white film, sold from the 1970s until 2014. It was the Japanese press film — a little sharper and contrastier than Tri-X, with a harder look — and it had a devoted following among street photographers in Japan. Its 120 version was much loved for its tonality in medium format.",
+      "characteristics": [
+        { "label": "Look", "value": "Harder-edged than Tri-X, with deep blacks and a steep shoulder.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Push", "value": "Good to EI 1600 in Fujidol or D-76.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-neopan-1600",
+      "manufacturer": "Fujifilm",
+      "name": "Neopan 1600",
+      "iso": 1600,
+      "process": "blackAndWhite",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "neopan-1600",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very coarse", "unit": "conventional cubic", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Large cubic grain, coarser than Delta 3200 but with a more classic clumped structure.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Neopan 1600 was Fujifilm's ultra-fast black-and-white film, sold from the 1980s until 2010. It was grainier and contrastier than Delta 3200, and Japanese street photographers used it at 1600 in available light for the hard, high-contrast look it gave. It is one of the films people still file petitions to have remade.",
+      "characteristics": [
+        { "label": "Look", "value": "Very grainy, very high contrast, with crushed shadows — a documentary look rather than a clean one.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Speed", "value": "Genuinely about ISO 1600, unlike the nominal 3200 films.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-neopan-ss",
+      "manufacturer": "Fujifilm",
+      "name": "Neopan SS",
+      "iso": 100,
+      "process": "blackAndWhite",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "neopan-ss",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional cubic grain, the classic Japanese 100-speed structure.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Neopan SS was Fujifilm's amateur 100-speed black-and-white film, sold in Japan for decades and exported in small quantities. It was the film in school cameras and club darkrooms, with a soft, slightly low-contrast look. It was discontinued in the 2000s.",
+      "characteristics": [
+        { "label": "Use", "value": "A forgiving general-purpose film, closer to Verichrome Pan than to Acros.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-neopan-400cn",
+      "manufacturer": "Fujifilm",
+      "name": "Neopan 400CN",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "neopan-400cn",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Chromogenic: dye clouds over silver, with the silver bleached away in C-41. The grain is soft and barely visible.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Neopan 400CN was Fujifilm's chromogenic monochrome film, a competitor to Ilford XP2, developed in C-41 and sold mainly in Japan and Europe. It was discontinued in 2014. It is smoother than XP2 and cooler in tone, and because it could go through a minilab it was the film of choice for photographers who did not process at home.",
+      "characteristics": [
+        { "label": "Development", "value": "C-41 only; no useful B&W developer times.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-superia-xtra-400",
+      "manufacturer": "Fujifilm",
+      "name": "Superia X-TRA 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "superia-xtra-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Conventional dye-cloud grain, with a fourth colour layer (the '4th colour layer' technology) that Fujifilm claimed improved colour under fluorescent light.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Superia X-TRA 400 is Fujifilm's consumer 400 colour negative and one of the few Japanese films still widely sold outside Japan. It is cooler and greener than Kodak's consumer films, with strong greens and clean whites, and it is the film that many people associate with Japanese street photography of the 1990s and 2000s. Its North American life ended in spring 2023, when Fujifilm replaced it with a plain 'Fujifilm 400' made for it by Eastman Kodak.",
+      "characteristics": [
+        { "label": "Palette", "value": "Cool and green-shifted, with strong cyan skies.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Latitude", "value": "Wide; two stops over is normal.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-superia-premium-400",
+      "manufacturer": "Fujifilm",
+      "name": "Superia Premium 400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "superia-premium-400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Finer dye-cloud grain than X-TRA 400, with a warmer skin-tone balance.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Superia Premium 400 is a Japan-market version of Superia tuned for skin tones, sold in 27-exposure rolls mainly for portrait and event work. It went on sale in 2009 and is still catalogued in Japan. It is warmer and slightly finer than X-TRA 400 and is a favourite of Japanese portrait photographers who want a film look without Kodak's warmth.",
+      "characteristics": [
+        { "label": "Skin", "value": "The reason it exists: smoother, warmer skin than X-TRA 400.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fujicolor-c200",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor C200",
+      "iso": 200,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "c200",
+      "latitude": { "value": "−2 / +3", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine conventional dye-cloud grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fujicolor C200 was Fujifilm's cheap consumer 200-speed film, sold worldwide in supermarkets and pound shops until it was retired — in North America in 2021 and in Europe in 2022. The film that replaced it is sold as plain 'Fujifilm 200', and photographers identify it as rebranded Kodak Gold 200; Fujifilm does not name the stock. It is cool, slightly green, and forgiving, and it is often the least expensive way to shoot colour film. Its look is unmistakably Fuji: clean whites and a cyan cast in the shadows.",
+      "characteristics": [
+        { "label": "Price", "value": "One of the cheapest colour films available.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fujicolor-c400",
+      "manufacturer": "Fujifilm",
+      "name": "Fujicolor C400",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "current",
+      "generation": "c400",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "moderate", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarser dye-cloud grain than C200, with a cooler balance.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fujicolor C400 is the 400-speed companion to C200, sold in the same budget channels and often found in multipacks. It is grainier and less refined than Superia X-TRA 400, with a stronger cyan shift, and it is at its best in daylight where its colour balance falls into place.",
+      "characteristics": [
+        { "label": "Palette", "value": "Cool with strong cyan; less neutral than Superia.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-pro-400h",
+      "manufacturer": "Fujifilm",
+      "name": "Pro 400H",
+      "iso": 400,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "pro-400h",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "grain": { "value": "fine", "unit": "dye cloud", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with Fujifilm's fourth colour layer, which is why its greens and pastels are so clean.", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "contrast": { "value": "low", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "history": "Pro 400H was Fujifilm's professional 400-speed colour negative, introduced in 2004 and discontinued in 2022 after the company ended production of its colour negative films. It was the wedding film of the 2010s: pale, airy, with mint greens and soft skin, and it tolerated overexposure better than almost anything. Its discontinuation caused a run on remaining stock and a lasting price rise.",
+      "characteristics": [
+        { "label": "Palette", "value": "Pale, cool and airy, with mint greens and very soft contrast.", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+        { "label": "Exposure", "value": "Overexpose by one to two stops for the look; it was designed to be shot at EI 200.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-pro-160ns",
+      "manufacturer": "Fujifilm",
+      "name": "Pro 160NS",
+      "iso": 160,
+      "process": "colourNegative",
+      "formats": ["size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "pro-160ns",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, the finest of the Fujifilm professional colour negatives.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Pro 160NS was Fujifilm's professional 160-speed colour negative for medium and large format, sold in Japan and in limited export quantities. It was discontinued in 2021. It has the same pale, cool palette as 400H with finer grain, and it was a favourite for architectural and landscape work on 4×5.",
+      "characteristics": [
+        { "label": "Formats", "value": "120 and 4×5; never sold in 135.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-pro-160c",
+      "manufacturer": "Fujifilm",
+      "name": "Pro 160C",
+      "iso": 160,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "pro-160c",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine dye-cloud grain, with higher colour saturation than 160NS.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Pro 160C was the saturated member of Fujifilm's 160-speed professional pair, discontinued around 2013. It was the commercial film: stronger colour than 160NS, with a clean neutral base. Expired stock is still common, and it scans with a distinctively Fuji blue-green cast.",
+      "characteristics": [
+        { "label": "Palette", "value": "Saturated with cool shadows; a commercial rather than a portrait film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-reala-100",
+      "manufacturer": "Fujifilm",
+      "name": "Reala 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "reala-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a fourth-colour-layer emulsion, giving very accurate colour under mixed light.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Reala 100 was Fujifilm's top consumer film from 1989 until it was discontinued in 2013. Its fourth colour layer made it unusually accurate under fluorescent and mixed light, and it had a restrained, natural palette that photographers still describe with affection. It is one of the most missed discontinued films.",
+      "characteristics": [
+        { "label": "Colour accuracy", "value": "Excellent under mixed light thanks to the fourth colour layer.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-natura-1600",
+      "manufacturer": "Fujifilm",
+      "name": "Natura 1600",
+      "iso": 1600,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "natura-1600",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain, deliberately left visible: the film was tuned for available-light photography and the grain is part of the look.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low-medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Natura 1600 was made for Fujifilm's Natura camera, a compact with an f/1.9 lens and a cult following in Japan. It was a 1600-speed colour negative that kept its colour at high speed, with a cool, available-light palette. It was discontinued around 2018 and is now expensive and rare.",
+      "characteristics": [
+        { "label": "Use", "value": "Available light, tungsten and night work.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Palette", "value": "Cool with strong blues, and grain that reads as atmosphere rather than noise.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-superia-venus-800",
+      "manufacturer": "Fujifilm",
+      "name": "Superia Venus 800",
+      "iso": 800,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "venus-800",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "coarse", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Coarse dye-cloud grain, softer than Natura 1600's.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Superia Venus 800 was a high-speed consumer film sold mainly in Japan, with a warmer balance than the Natura range and enough latitude for compact cameras. It was discontinued in the 2010s. Its look — warm, grainy, slightly washed — is the Japanese snapshot aesthetic in a single stock.",
+      "characteristics": [
+        { "label": "Palette", "value": "Warm and slightly pastel, with soft contrast.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-superia-100",
+      "manufacturer": "Fujifilm",
+      "name": "Superia 100",
+      "iso": 100,
+      "process": "colourNegative",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "superia-100",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, the sharpest of the Superia range.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Superia 100 was the slow member of Fujifilm's consumer Superia line, discontinued around 2012. It was cool and clean with strong greens, and in 120 it was a cheap alternative to professional film for landscape work. Expired stock still circulates and usually crosses over to green.",
+      "characteristics": [
+        { "label": "Expired stock", "value": "Tends to go green and lose contrast; add a stop of exposure.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-velvia-100",
+      "manufacturer": "Fujifilm",
+      "name": "Velvia 100",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "current",
+      "generation": "velvia-100",
+      "latitude": { "value": "−0.5 / +0.5", "unit": "stops", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "grain": { "value": "extremely fine", "unit": "dye cloud, tabular", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "grainStructure": { "value": "Super Fine-σ tabular grain, slightly coarser than Velvia 50 but with more speed.", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "history": "Velvia 100 launched in 2003 as the faster, more usable Velvia, and it is the version most landscape photographers actually carry. It is a stop faster than Velvia 50 with a slightly cooler, more magenta cast, and its contrast is even higher. It remains in production in 135, 120 and sheet in Japan, but it was withdrawn from the United States in 2021 over a chemical banned by the EPA.",
+      "characteristics": [
+        { "label": "Palette", "value": "Saturated with a magenta cast; reds go very strong.", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+        { "label": "Exposure", "value": "±½ stop, and it is more forgiving of over- than under-exposure.", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } }
+      ]
+    },
+    {
+      "key": "fujifilm-velvia-100f",
+      "manufacturer": "Fujifilm",
+      "name": "Velvia 100F",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "velvia-100f",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine tabular dye-cloud grain with a softer contrast curve than Velvia 100.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Velvia 100F was the more neutral, more forgiving member of the Velvia family, aimed at photographers who found Velvia 50 too extreme. It was discontinued in 2019. Its palette is cooler and less saturated, closer to Provia with extra punch.",
+      "characteristics": [
+        { "label": "Difference from Velvia 100", "value": "Less magenta, lower contrast, slightly more latitude.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-provia-100f",
+      "manufacturer": "Fujifilm",
+      "name": "Provia 100F",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120", "sheet4x5", "sheet8x10"],
+      "status": "current",
+      "generation": "provia-100f",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "grain": { "value": "extremely fine", "unit": "dye cloud, tabular", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "grainStructure": { "value": "Super Fine-σ tabular grain: the finest and most neutral of the current Fujifilm slide emulsions.", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "contrast": { "value": "high", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+      "history": "Provia 100F is Fujifilm's professional transparency — neutral, clean, and the one slide film that behaves like a well-behaved negative. It was introduced in 1999 and remains in production. It is the sensible choice for anyone who wants accurate colour on a transparency rather than a signature.",
+      "characteristics": [
+        { "label": "Palette", "value": "Neutral, slightly cool, with natural skin.", "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+        { "label": "Push", "value": "Documented to +2 stops; contrast rises but colour holds.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-astia-100f",
+      "manufacturer": "Fujifilm",
+      "name": "Astia 100F",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135", "size120"],
+      "status": "discontinued",
+      "generation": "astia-100f",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine tabular dye-cloud grain, comparable with Provia.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "medium", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Astia 100F was Fujifilm's soft-contrast transparency, designed for portrait and fashion work where the contrast of Velvia would crush the highlights. It was discontinued in 2011. It had the most natural skin tones of any slide film, and portrait photographers still regard its loss as a real one.",
+      "characteristics": [
+        { "label": "Skin", "value": "The softest, most natural skin of any Fujifilm transparency.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-sensia-100",
+      "manufacturer": "Fujifilm",
+      "name": "Sensia 100",
+      "iso": 100,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "sensia-100",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain, essentially Provia's structure in a consumer coating.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Sensia was Fujifilm's consumer slide film, sold from the 1990s until the early 2010s as a cheaper alternative to Provia. It was Provia-like with slightly warmer colour. Expired Sensia is one of the most common slide films on the second-hand market and crosses over beautifully.",
+      "characteristics": [
+        { "label": "Cross-processing", "value": "A long-time favourite for E-6 in C-41, with strong green shadows.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fortia-sp",
+      "manufacturer": "Fujifilm",
+      "name": "Fortia SP",
+      "iso": 50,
+      "process": "colourReversal",
+      "formats": ["size135"],
+      "status": "discontinued",
+      "generation": "fortia-sp",
+      "latitude": { "value": "−0.5 / +0.5", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Very fine tabular grain with the most saturated dye set Fujifilm ever coated.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "very high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fortia SP was a Japan-only limited edition slide film released in 2005 and discontinued in 2006, made for cherry-blossom and festival photography. It was even more saturated than Velvia 50, with extraordinary reds and pinks. It is now one of the most collectible films in the world.",
+      "characteristics": [
+        { "label": "Saturation", "value": "The most saturated film Fujifilm ever sold, designed for spring colour.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-fujichrome-64t",
+      "manufacturer": "Fujifilm",
+      "name": "Fujichrome 64T",
+      "iso": 64,
+      "process": "colourReversal",
+      "formats": ["size135", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "fujichrome-64t",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a tungsten-balanced emulsion.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "high", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fujichrome 64T was Fujifilm's tungsten-balanced professional slide film for studio work under 3200 K lamps. It was discontinued around 2010. Shot in daylight it turns deep blue, which makes it a favourite for cross-processing and for deliberate colour effects.",
+      "characteristics": [
+        { "label": "Balance", "value": "Tungsten 3200 K; needs an 85B in daylight.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-cdu-ii",
+      "manufacturer": "Fujifilm",
+      "name": "CDU II",
+      "iso": 3,
+      "process": "colourReversal",
+      "formats": ["size135", "sheet4x5"],
+      "status": "discontinued",
+      "generation": "cdu-ii",
+      "latitude": { "value": "−0.5 / +1", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "extremely fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Extremely fine grain — a duplicating film, designed to copy slides without adding grain.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "CDU II was a duplicating film: ultra-slow, ultra-fine, with a low-contrast curve designed to copy a transparency onto another transparency. It was never meant for cameras, but because it was available in large sheets and long rolls it was respooled and used for still-life and landscape work on a tripod with exposures measured in seconds. It is processed in E-6 and is now long discontinued.",
+      "characteristics": [
+        { "label": "Speed", "value": "Around ISO 3. Tripod and long exposures only.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Use", "value": "Copying slides, or as an ultra-fine-grained slow film.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Process", "value": "E-6, though it was designed for Fujifilm's CR-56 duplicating chemistry.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-eterna-500t",
+      "manufacturer": "Fujifilm",
+      "name": "Eterna 500T",
+      "iso": 500,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "eterna-500t",
+      "generationLabel": "Eterna 500T (8573)",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "unit": "dye cloud", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain on a rem-jet backing, with a softer, creamier colour response than Kodak's Vision stocks.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Fujifilm Eterna was the company's motion-picture colour negative line, and 500T (8573) was its tungsten-balanced workhorse. Fujifilm announced it was ending motion-picture film production in 2013, and Eterna disappeared from cinema. Its look — softer, greener, gentler than Vision3 — is still prized by people shooting expired short ends.",
+      "characteristics": [
+        { "label": "Look", "value": "Soft, low-contrast, slightly green — the opposite of Kodak's punch.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Backing", "value": "Rem-jet; needs an ECN-2 pre-bath.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+        { "label": "Availability", "value": "Discontinued 2013, expired only.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-eterna-250d",
+      "manufacturer": "Fujifilm",
+      "name": "Eterna 250D",
+      "iso": 250,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "eterna-250d",
+      "generationLabel": "Eterna 250D (8563)",
+      "latitude": { "value": "−1 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "very fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain with Fujifilm's gentler colour science.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Eterna 250D (8563) was the daylight stock of the Eterna family, used on Japanese productions and by cinematographers who wanted a softer, less contrasty image than Kodak's. It was discontinued with the rest of the line in 2013. Expired rolls are much rarer than 500T.",
+      "characteristics": [
+        { "label": "Balance", "value": "Daylight 5500 K.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    },
+    {
+      "key": "fujifilm-reala-500d",
+      "manufacturer": "Fujifilm",
+      "name": "Reala 500D",
+      "iso": 500,
+      "process": "cinemaNegative",
+      "formats": ["cinema"],
+      "status": "discontinued",
+      "generation": "reala-500d",
+      "latitude": { "value": "−2 / +2", "unit": "stops", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grain": { "value": "fine", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "grainStructure": { "value": "Fine dye-cloud grain using the Reala fourth-colour-layer technology.", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "contrast": { "value": "low", "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+      "history": "Reala 500D was Fujifilm's daylight motion-picture negative, sold as a tungsten-free alternative for exterior work and used on several high-profile films. It was discontinued in 2013. It has the clean, natural colour of the Reala still film and is now one of the rarest cinema stocks.",
+      "characteristics": [
+        { "label": "Balance", "value": "Daylight 5500 K.", "provenance": { "kind": "community", "source": "massive-dev-chart" } }
+      ]
+    }
+  ],
+  "times": [
+    { "film": "fujifilm-superia-xtra-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+    { "film": "fujifilm-superia-premium-400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+    { "film": "fujifilm-fujicolor-c200", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+    { "film": "fujifilm-fujicolor-c400", "developer": "c41-press-kit", "dilution": "stock", "celsius": 38, "seconds": 195, "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+    { "film": "fujifilm-velvia-100", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets", "note": "First developer 6:00 at 38 °C; the rest of the E-6 sequence is fixed." } },
+    { "film": "fujifilm-provia-100f", "developer": "e6-kit", "dilution": "stock", "celsius": 38, "seconds": 360, "provenance": { "kind": "datasheet", "source": "fujifilm-datasheets" } },
+    { "film": "fujifilm-neopan-acros-100", "developer": "adox-rodinal", "dilution": "1+50", "celsius": 20, "seconds": 780, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-neopan-400", "developer": "kodak-d-76", "dilution": "stock", "celsius": 20, "seconds": 450, "provenance": { "kind": "community", "source": "massive-dev-chart" } },
+    { "film": "fujifilm-eterna-500t", "developer": "ecn-2-kit", "dilution": "stock", "celsius": 41, "seconds": 180, "provenance": { "kind": "datasheet", "source": "kodak-ecn2" } }
+  ]
+}

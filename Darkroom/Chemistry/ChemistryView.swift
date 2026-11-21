@@ -35,7 +35,7 @@ struct ChemistryView: View {
             .background {
                 LiquidBackdrop()
             }
-            .appNavigationChrome(index: "03", title: "Chemistry") {
+            .appNavigationChrome(title: "Chemistry") {
                 AppBarButton(symbol: "plus", label: "Add a batch") {
                     showingAdd = true
                 }

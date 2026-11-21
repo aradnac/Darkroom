@@ -4,8 +4,10 @@ Theme 2. A second, complete visual language that replaces the interface rather
 than tinting it: its own field, its own chrome, its own controls, its own hero
 figures. The darkroom theme is untouched by any of it.
 
-Switch with **Tools → Settings → Themes → Design language → Soft Glass**. The
-choice persists across launches (`theme13.theme = softglass`).
+Choose it with **Settings → Appearance → Theme** (listed as **Soft Light**), or
+**Develop → the settings disc**. It is one entry in the single theme list; the
+choice persists across launches (`designLanguage.language = softLight`). Its
+colours follow the palette chosen in the same Appearance section.
 
 ## The language
 
@@ -49,12 +51,11 @@ Three ideas, applied everywhere:
 - Five tab roots hide the system tab bar (`.appHidesSystemTabBar()`) and the app
   root adds `SoftGlassTabBar` in a bottom safe-area inset: a frosted capsule with
   five circular targets and a solid white disc under the active one.
-- Each tab root uses `.appNavigationChrome(index:title:)`, which picks the print
-  theme's specimen strip, the soft-glass header (a small tracked label plus an
-  optional action) or the system title.
+- Each tab root uses `.appNavigationChrome(title:)`, which picks the soft-glass
+  header (a small tracked label plus an optional action) or the system title.
 - `AppBarButton` draws a screen's action in whichever language is active, so
-  Chemistry's add button is a bar plate in the print theme, an outlined circle in
-  soft glass and a toolbar item in the darkroom.
+  Chemistry's add button is an outlined circle in soft glass and a toolbar item
+  in the darkroom.
 
 ## Home composition
 
@@ -122,7 +123,7 @@ touched to more than a whisper:
   through the content.
 - Offsetting a background cannot change the bar's layout, so the geometry of the
   screen is untouched. The darkroom keeps the system bars and Apple's own
-  scroll-edge effect; the 13th theme keeps its opaque printed strip.
+  scroll-edge effect.
 
 Note: that library reaches a private cue (`CAFilter`'s `variableBlur`) through
 obfuscated strings, the same technique Apple's own translucent bars use

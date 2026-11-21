@@ -43,10 +43,6 @@ struct SessionActivityAttributes: ActivityAttributes {
         var filmTitle: String
         var developerTitle: String
         var temperatureText: String
-
-        /// Which design language is running the session, so the card on the Lock
-        /// Screen speaks in the same one. Nil for the app's default language.
-        var themeIdentifier: String?
     }
 
     var sessionID: String
@@ -59,13 +55,13 @@ struct DarkroomSessionLiveActivity: Widget {
         ActivityConfiguration(for: SessionActivityAttributes.self) { context in
             SessionActivityLockScreenView(
                 state: context.state,
-                accent: SessionActivityPalette.accent(for: context.state),
-                quiet: SessionActivityPalette.quiet(for: context.state)
+                accent: SessionActivityPalette.accent,
+                quiet: SessionActivityPalette.quiet
             )
-            .activityBackgroundTint(SessionActivityPalette.background(for: context.state))
+            .activityBackgroundTint(SessionActivityPalette.background)
             .activitySystemActionForegroundColor(.white)
         } dynamicIsland: { context in
-            let accent = SessionActivityPalette.accent(for: context.state)
+            let accent = SessionActivityPalette.accent
 
             return DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
@@ -141,31 +137,12 @@ struct DarkroomSessionLiveActivity: Widget {
 
 // MARK: - Palette
 
-/// The card speaks the app's language. REDROOM gets the safelight's own red and
-/// a near-black card; every other language keeps the app's amber. The Dynamic
-/// Island's layout is Apple's — only the tint and the content change.
+/// The card speaks the app's language: the safelight's amber on the dark bench.
+/// The Dynamic Island's layout is Apple's — only the tint and the content change.
 enum SessionActivityPalette {
-    static func isRedroom(_ state: SessionActivityAttributes.ContentState) -> Bool {
-        state.themeIdentifier == "redroom"
-    }
-
-    static func accent(for state: SessionActivityAttributes.ContentState) -> Color {
-        isRedroom(state)
-            ? Color(red: 1.0, green: 0.063, blue: 0.094)
-            : .orange
-    }
-
-    static func quiet(for state: SessionActivityAttributes.ContentState) -> Color {
-        isRedroom(state)
-            ? Color(red: 0.663, green: 0.604, blue: 0.604)
-            : .white.opacity(0.65)
-    }
-
-    static func background(for state: SessionActivityAttributes.ContentState) -> Color {
-        isRedroom(state)
-            ? Color(red: 0.012, green: 0.008, blue: 0.008)
-            : Color(red: 0.043, green: 0.047, blue: 0.055)
-    }
+    static let accent: Color = .orange
+    static let quiet = Color.white.opacity(0.65)
+    static let background = Color(red: 0.043, green: 0.047, blue: 0.055)
 }
 
 // MARK: - Lock Screen
