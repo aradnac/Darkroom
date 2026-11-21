@@ -1,0 +1,443 @@
+diff --git a/Darkroom/ContentView.swift b/Darkroom/ContentView.swift
+index 412843f..fc8af32 100644
+--- a/Darkroom/ContentView.swift
++++ b/Darkroom/ContentView.swift
+@@ -25,8 +25,21 @@ struct ContentView: View {
+         )
+     }
+ 
++    private var appearanceBinding: Binding<Bool> {
++        Binding(
++            get: { languages.isShowingAppearance },
++            set: { languages.isShowingAppearance = $0 }
++        )
++    }
++
+     var body: some View {
+-        Group {
++        // A ZStack, not a Group: modifiers on a Group are applied to each of its
++        // branches separately, so switching between the native tabs and a theme
++        // root tore down whichever view was presenting the Settings or Appearance
++        // sheet. UIKit then dismissed the sheet without ever writing `false`
++        // back, `isShowingSettings` stayed true, and every later tap on Settings
++        // was a no-op. One stable container owns both sheets for the app's life.
++        ZStack {
+             if languages.isActive {
+                 ThemeLanguageRootView()
+                     .transition(.opacity)
+@@ -39,6 +52,9 @@ struct ContentView: View {
+         .sheet(isPresented: settingsBinding) {
+             SettingsView()
+         }
++        .sheet(isPresented: appearanceBinding) {
++            ThemeLanguageAppearanceView()
++        }
+         .onAppear {
+             languages.updateSystemAppearance(isDark: colorScheme == .dark)
+             ThemeLanguageChrome.apply(languages)
+diff --git a/Darkroom/Design/Appearance.swift b/Darkroom/Design/Appearance.swift
+index 91cb61f..89f44e1 100644
+--- a/Darkroom/Design/Appearance.swift
++++ b/Darkroom/Design/Appearance.swift
+@@ -24,11 +24,35 @@ final class AppearanceStore: ObservableObject {
+         didSet {
+             guard oldValue != isShowingSettings else { return }
+             if !isShowingSettings {
+-                bumpRevision()
++                if skipNextRevision {
++                    skipNextRevision = false
++                } else {
++                    bumpRevision()
++                }
+             }
+         }
+     }
+ 
++    /// Set while a stale presentation flag is being cleared, so the reset is not
++    /// mistaken for the reader closing Settings.
++    private var skipNextRevision = false
++
++    /// The one way to open Settings. A reader can only tap an entry while no
++    /// sheet covers the screen, so if the flag still says Settings is showing it
++    /// is stale; clear it, then raise it again on the next turn so the sheet is
++    /// presented rather than the tap doing nothing.
++    func presentSettings() {
++        guard isShowingSettings else {
++            isShowingSettings = true
++            return
++        }
++        skipNextRevision = true
++        isShowingSettings = false
++        DispatchQueue.main.async { [weak self] in
++            self?.isShowingSettings = true
++        }
++    }
++
+     private init() {}
+ 
+     // MARK: Derived
+diff --git a/Darkroom/Design/Glass.swift b/Darkroom/Design/Glass.swift
+index 3bb64fb..27df955 100644
+--- a/Darkroom/Design/Glass.swift
++++ b/Darkroom/Design/Glass.swift
+@@ -65,7 +65,7 @@ struct GlassPanel: ViewModifier {
+                     )
+             }
+             .shadow(color: .black.opacity(0.45), radius: 26, x: 0, y: 16)
+-            .shadow(color: glowing ? Color.white.opacity(0.16) : Color.clear, radius: 34, x: 0, y: 0)
++            .glowShadow(glowing, color: Color.white.opacity(0.16), radius: 34)
+     }
+ 
+     // MARK: Darkroom
+@@ -100,7 +100,21 @@ struct GlassPanel: ViewModifier {
+                     )
+             }
+             .shadow(color: .black.opacity(0.42), radius: 20, x: 0, y: 12)
+-            .shadow(color: glowing ? Theme.amber.opacity(0.20) : Color.clear, radius: 28, x: 0, y: 0)
++            .glowShadow(glowing, color: Theme.amber.opacity(0.20), radius: 28)
++    }
++}
++
++private extension View {
++    /// A clear shadow draws nothing but still costs an offscreen blur pass per
++    /// card, so the glow is only added to a card that is actually glowing. The
++    /// result on screen is identical.
++    @ViewBuilder
++    func glowShadow(_ isOn: Bool, color: Color, radius: CGFloat) -> some View {
++        if isOn {
++            shadow(color: color, radius: radius, x: 0, y: 0)
++        } else {
++            self
++        }
+     }
+ }
+ 
+diff --git a/Darkroom/Design/LiquidBackdrop.swift b/Darkroom/Design/LiquidBackdrop.swift
+index 12c37bc..1b3fe49 100644
+--- a/Darkroom/Design/LiquidBackdrop.swift
++++ b/Darkroom/Design/LiquidBackdrop.swift
+@@ -23,6 +23,12 @@ struct LiquidBackdrop: View {
+     /// Reduce Motion asks for no movement at all; a covered screen and a
+     /// backgrounded app have nothing to animate. In every one of those cases the
+     /// liquid is drawn once and held, which looks the same and costs nothing.
++    /// The liquid moves a couple of points a second under a 24-44 pt blur, so a
++    /// few frames a second look the same as 24. It matters beyond the backdrop:
++    /// every frosted card above it re-blurs whatever is behind it each time this
++    /// layer changes, so each redraw saved here is saved once per visible card.
++    private static let driftInterval: TimeInterval = 1.0 / 6.0
++
+     private var isDrifting: Bool {
+         isVisible && !reduceMotion && scenePhase == .active
+     }
+@@ -104,7 +110,7 @@ struct LiquidBackdrop: View {
+     }
+ 
+     private func liquidLayers(tint: Color) -> some View {
+-        TimelineView(.animation(minimumInterval: 1.0 / 24.0, paused: !isDrifting)) { timeline in
++        TimelineView(.animation(minimumInterval: Self.driftInterval, paused: !isDrifting)) { timeline in
+             Canvas { context, size in
+                 let time = timeline.date.timeIntervalSinceReferenceDate
+                 let width = Double(size.width)
+diff --git a/Darkroom/Develop/DevelopHomeView.swift b/Darkroom/Develop/DevelopHomeView.swift
+index af5f7fe..5f32a42 100644
+--- a/Darkroom/Develop/DevelopHomeView.swift
++++ b/Darkroom/Develop/DevelopHomeView.swift
+@@ -83,7 +83,7 @@ struct DevelopHomeView: View {
+             Spacer(minLength: 0)
+ 
+             SoftGlassIconButton(systemImage: "slider.horizontal.3") {
+-                appearance.isShowingSettings = true
++                appearance.presentSettings()
+             }
+             .accessibilityLabel("Settings")
+         }
+diff --git a/Darkroom/Languages/DesignLanguage.swift b/Darkroom/Languages/DesignLanguage.swift
+index 00e8148..cb2c1fc 100644
+--- a/Darkroom/Languages/DesignLanguage.swift
++++ b/Darkroom/Languages/DesignLanguage.swift
+@@ -370,6 +370,20 @@ final class ThemeLanguageStore: ObservableObject {
+     /// presents the Appearance sheet.
+     @Published var isShowingAppearance = false
+ 
++    /// The one way to open Appearance from a theme's own screens. Same rule as
++    /// Settings: a tap can only happen with no sheet up, so a flag that is still
++    /// true is stale and is cleared before it is raised again.
++    func presentAppearance() {
++        guard isShowingAppearance else {
++            isShowingAppearance = true
++            return
++        }
++        isShowingAppearance = false
++        DispatchQueue.main.async { [weak self] in
++            self?.isShowingAppearance = true
++        }
++    }
++
+     private init() {
+         let stored = defaults.string(forKey: Keys.language).flatMap(ThemeLanguage.init(rawValue:))
+         if let stored {
+@@ -561,6 +575,6 @@ enum DLRuntime {
+     /// resolved against the current brightness, density and text size.
+     static var activeStyle: DLStyle? {
+         guard activeSpec != nil else { return nil }
+-        return DLStyle(store: ThemeLanguageStore.shared)
++        return DLStyle.current(from: ThemeLanguageStore.shared)
+     }
+ }
+diff --git a/Darkroom/Languages/DesignLanguageComponents.swift b/Darkroom/Languages/DesignLanguageComponents.swift
+index 3b8ba1a..a0031ec 100644
+--- a/Darkroom/Languages/DesignLanguageComponents.swift
++++ b/Darkroom/Languages/DesignLanguageComponents.swift
+@@ -51,6 +51,38 @@ struct DLStyle {
+         )
+     }
+ 
++    /// Every card and button in a drawn theme asks for the active style while it
++    /// builds its body, and building one resolves a whole palette. The inputs
++    /// change only when the reader changes the theme, palette, brightness, text
++    /// size or density, so the last result is reused until they do.
++    private struct CacheKey: Equatable {
++        let language: ThemeLanguage
++        let isDark: Bool
++        let accent: AccentChoice
++        let scale: CGFloat
++        let density: DLDensity
++    }
++
++    private static var cacheKey: CacheKey?
++    private static var cachedStyle: DLStyle?
++
++    static func current(from store: ThemeLanguageStore) -> DLStyle {
++        let key = CacheKey(
++            language: store.selected,
++            isDark: store.isDark,
++            accent: Preferences.shared.accent,
++            scale: store.textScale,
++            density: store.density
++        )
++        if key == cacheKey, let cachedStyle {
++            return cachedStyle
++        }
++        let built = DLStyle(store: store)
++        cacheKey = key
++        cachedStyle = built
++        return built
++    }
++
+     static let fallback = DLStyle(
+         language: .darkroom,
+         isDark: true,
+diff --git a/Darkroom/Languages/DesignLanguageGraphics.swift b/Darkroom/Languages/DesignLanguageGraphics.swift
+index 42c4c83..e07d7d3 100644
+--- a/Darkroom/Languages/DesignLanguageGraphics.swift
++++ b/Darkroom/Languages/DesignLanguageGraphics.swift
+@@ -62,7 +62,7 @@ struct DLBackgroundView: View {
+ 
+     private var liquidField: some View {
+         ZStack {
+-            TimelineView(.animation(minimumInterval: 1.0 / 20.0, paused: isStill)) { timeline in
++            TimelineView(.animation(minimumInterval: 1.0 / 6.0, paused: isStill)) { timeline in
+                 let t = isStill ? 0 : timeline.date.timeIntervalSinceReferenceDate
+ 
+                 Canvas { context, size in
+diff --git a/Darkroom/Languages/DesignLanguageRootView.swift b/Darkroom/Languages/DesignLanguageRootView.swift
+index bba80ff..4c9259c 100644
+--- a/Darkroom/Languages/DesignLanguageRootView.swift
++++ b/Darkroom/Languages/DesignLanguageRootView.swift
+@@ -66,9 +66,6 @@ struct ThemeLanguageRootView: View {
+         .transition(.opacity)
+         .designLanguage(style)
+         .preferredColorScheme(store.preferredScheme)
+-        .sheet(isPresented: appearanceBinding) {
+-            ThemeLanguageAppearanceView()
+-        }
+         .onAppear {
+             store.updateSystemAppearance(isDark: systemScheme == .dark)
+             guard !appeared else { return }
+@@ -83,13 +80,6 @@ struct ThemeLanguageRootView: View {
+         }
+     }
+ 
+-    private var appearanceBinding: Binding<Bool> {
+-        Binding(
+-            get: { store.isShowingAppearance },
+-            set: { store.isShowingAppearance = $0 }
+-        )
+-    }
+-
+     // MARK: Pages
+ 
+     /// The current place, carried in on the theme's own page motion. Clipped so a
+diff --git a/Darkroom/Languages/DesignLanguageScreens.swift b/Darkroom/Languages/DesignLanguageScreens.swift
+index 014d75a..af17631 100644
+--- a/Darkroom/Languages/DesignLanguageScreens.swift
++++ b/Darkroom/Languages/DesignLanguageScreens.swift
+@@ -1363,7 +1363,7 @@ struct DLDevelopScreen: View {
+     /// right. It opens the Appearance section.
+     private var recorderMenu: some View {
+         Button {
+-            ThemeLanguageStore.shared.isShowingAppearance = true
++            ThemeLanguageStore.shared.presentAppearance()
+         } label: {
+             Image(systemName: "chevron.down")
+                 .font(.system(size: 15, weight: .bold))
+@@ -1481,7 +1481,7 @@ struct DLDevelopScreen: View {
+ 
+     private var gearButton: some View {
+         Button {
+-            ThemeLanguageStore.shared.isShowingAppearance = true
++            ThemeLanguageStore.shared.presentAppearance()
+         } label: {
+             Image(systemName: "slider.horizontal.3")
+                 .font(.system(size: 13, weight: .semibold))
+diff --git a/Darkroom/Library/LibraryStore.swift b/Darkroom/Library/LibraryStore.swift
+index 8e7a9fd..f393d44 100644
+--- a/Darkroom/Library/LibraryStore.swift
++++ b/Darkroom/Library/LibraryStore.swift
+@@ -379,6 +379,8 @@ final class LibraryStore: ObservableObject {
+     }
+ 
+     private func rebuildIndex() {
++        legacyFilmsCache = nil
++        legacyDevelopersCache = nil
+         var built = Index()
+ 
+         // First entry wins, as the linear `first(where:)` lookups did.
+@@ -469,8 +471,16 @@ final class LibraryStore: ObservableObject {
+ 
+     /// The session setup still speaks in the app's original `Film` and
+     /// `Developer` values; this is the one place the two vocabularies meet.
++    ///
++    /// Both lists are read from view initialisers, `ForEach`s and per-row
++    /// lookups, so they are built once per document change and cached rather
++    /// than re-mapped (hundreds of films) on every read.
++    private var legacyFilmsCache: [Film]?
++    private var legacyDevelopersCache: [Developer]?
++
+     var legacyFilms: [Film] {
+-        document.films.map { film in
++        if let cached = legacyFilmsCache { return cached }
++        let built = document.films.map { film in
+             Film(
+                 id: film.key,
+                 manufacturer: film.manufacturer,
+@@ -480,10 +490,13 @@ final class LibraryStore: ObservableObject {
+                 formats: film.formats
+             )
+         }
++        legacyFilmsCache = built
++        return built
+     }
+ 
+     var legacyDevelopers: [Developer] {
+-        document.developers.map { developer in
++        if let cached = legacyDevelopersCache { return cached }
++        let built = document.developers.map { developer in
+             Developer(
+                 id: developer.key,
+                 manufacturer: developer.manufacturer,
+@@ -498,6 +511,8 @@ final class LibraryStore: ObservableObject {
+                 }
+             )
+         }
++        legacyDevelopersCache = built
++        return built
+     }
+ 
+     func legacyFilm(key: String) -> Film? {
+diff --git a/Darkroom/Tools/ToolsView.swift b/Darkroom/Tools/ToolsView.swift
+index a1ad98e..5bec4bc 100644
+--- a/Darkroom/Tools/ToolsView.swift
++++ b/Darkroom/Tools/ToolsView.swift
+@@ -118,7 +118,7 @@ struct ToolsView: View {
+                     }
+ 
+                     Button {
+-                        appearance.isShowingSettings = true
++                        appearance.presentSettings()
+                     } label: {
+                         ToolCardBody(
+                             title: "Settings",
+diff --git a/docs/performance-pass.md b/docs/performance-pass.md
+index 7c99085..ee35a79 100644
+--- a/docs/performance-pass.md
++++ b/docs/performance-pass.md
+@@ -141,3 +141,78 @@ The audit's measurement plan (Animation Hitches + the SwiftUI instrument on
+ stage") has not been run — that needs a device, and this project builds on a
+ remote Mac. Findings 3, 4, 5 and 6 above are the ones that plan would confirm
+ first.
++
++---
++
++# Second pass: presentation bug and card/backdrop cost
++
++Everything below is a **code reading**, not a measurement. It was written without
++a compiler or a device, so no frame times are claimed. Where a finding names what
++would confirm it, that is the first thing to run.
++
++## 7. Settings stopped opening after a theme change (bug)
++
++`ContentView.swift`, `Design/Appearance.swift`, `Languages/DesignLanguage.swift`,
++`Languages/DesignLanguageRootView.swift`
++
++`ContentView` hung its Settings sheet on a `Group` whose content switched between
++`tabs` and `ThemeLanguageRootView`. Modifiers on a `Group` are applied to each
++branch, so a theme change across that boundary removed the view presenting the
++sheet. The sheet was dismissed by the system without the binding being written
++back, `AppearanceStore.isShowingSettings` stayed `true`, and every later
++`isShowingSettings = true` changed nothing. `ThemeLanguageRootView` had the same
++shape for the Appearance sheet and `isShowingAppearance`.
++
++- One stable `ZStack` now owns both the Settings and the Appearance sheet.
++- `presentSettings()` and `presentAppearance()` clear a stale flag and raise it
++  again on the next turn, so a leftover `true` can no longer swallow a tap. The
++  reset is not counted as the reader closing Settings, so it does not rebuild the
++  tab stack.
++
++To confirm: switch Darkroom → any other theme → Settings; switch back → Settings;
++repeat from the Appearance sheet opened by a theme's own gear button.
++
++## 8. Cards paid for a shadow that drew nothing
++
++`Design/Glass.swift`
++
++Every `glassCard` added a second `.shadow` with a clear colour when it was not
++glowing. A clear shadow draws nothing but is still a separate blurred pass. It is
++now added only when `glowing` is true. The picture is identical.
++
++## 9. The backdrop redrew 24 times a second under every frosted card
++
++`Design/LiquidBackdrop.swift`, `Languages/DesignLanguageGraphics.swift`
++
++Each frosted card samples and blurs what is behind it, so every redraw of the
++backdrop forces a re-blur of every visible card. The liquid moves a couple of
++points a second under a 24–44 pt blur; it is now redrawn 6 times a second, which
++is indistinguishable at that speed and about a quarter of the compositing work.
++
++To confirm: Animation Hitches and the Core Animation instrument on a device,
++scrolling Recipes, before and after.
++
++## 10. A palette was rebuilt for every card in a drawn theme
++
++`Languages/DesignLanguageComponents.swift`, `Languages/DesignLanguage.swift`
++
++`DLRuntime.activeStyle` built a `DLStyle`, and with it a whole palette, on every
++call, and every card and button calls it while building its body. The last style
++is now reused until the theme, palette, brightness, text size or density changes.
++
++## 11. The library bridge re-mapped every film on every read
++
++`Library/LibraryStore.swift`
++
++`StarterLibrary.films` and `.developers` rebuilt hundreds of `Film` values on each
++access, including inside a view initialiser's `@State` default and in `ForEach`.
++They are now built once per document change.
++
++## Not changed on purpose
++
++- Closing Settings still rebuilds the tab stack. Some screens read defaults
++  (fix time, wash time) once when built, so the rebuild is what refreshes them.
++  Making it conditional is a behaviour change and needs a device to check.
++- The variable edge blurs stay on. They are the app's look. If a device trace
++  shows them in the hitch, `ProgressiveBlur` is the one place to scale back.
++- The library is still decoded and merged on the main thread at first use.
