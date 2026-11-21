@@ -51,6 +51,38 @@ struct DLStyle {
         )
     }
 
+    /// Every card and button in a drawn theme asks for the active style while it
+    /// builds its body, and building one resolves a whole palette. The inputs
+    /// change only when the reader changes the theme, palette, brightness, text
+    /// size or density, so the last result is reused until they do.
+    private struct CacheKey: Equatable {
+        let language: ThemeLanguage
+        let isDark: Bool
+        let accent: AccentChoice
+        let scale: CGFloat
+        let density: DLDensity
+    }
+
+    private static var cacheKey: CacheKey?
+    private static var cachedStyle: DLStyle?
+
+    static func current(from store: ThemeLanguageStore) -> DLStyle {
+        let key = CacheKey(
+            language: store.selected,
+            isDark: store.isDark,
+            accent: Preferences.shared.accent,
+            scale: store.textScale,
+            density: store.density
+        )
+        if key == cacheKey, let cachedStyle {
+            return cachedStyle
+        }
+        let built = DLStyle(store: store)
+        cacheKey = key
+        cachedStyle = built
+        return built
+    }
+
     static let fallback = DLStyle(
         language: .darkroom,
         isDark: true,

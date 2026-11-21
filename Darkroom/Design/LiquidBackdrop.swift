@@ -23,6 +23,12 @@ struct LiquidBackdrop: View {
     /// Reduce Motion asks for no movement at all; a covered screen and a
     /// backgrounded app have nothing to animate. In every one of those cases the
     /// liquid is drawn once and held, which looks the same and costs nothing.
+    /// The liquid moves a couple of points a second under a 24-44 pt blur, so a
+    /// few frames a second look the same as 24. It matters beyond the backdrop:
+    /// every frosted card above it re-blurs whatever is behind it each time this
+    /// layer changes, so each redraw saved here is saved once per visible card.
+    private static let driftInterval: TimeInterval = 1.0 / 6.0
+
     private var isDrifting: Bool {
         isVisible && !reduceMotion && scenePhase == .active
     }
@@ -104,7 +110,7 @@ struct LiquidBackdrop: View {
     }
 
     private func liquidLayers(tint: Color) -> some View {
-        TimelineView(.animation(minimumInterval: 1.0 / 24.0, paused: !isDrifting)) { timeline in
+        TimelineView(.animation(minimumInterval: Self.driftInterval, paused: !isDrifting)) { timeline in
             Canvas { context, size in
                 let time = timeline.date.timeIntervalSinceReferenceDate
                 let width = Double(size.width)

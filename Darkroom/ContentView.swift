@@ -25,8 +25,21 @@ struct ContentView: View {
         )
     }
 
+    private var appearanceBinding: Binding<Bool> {
+        Binding(
+            get: { languages.isShowingAppearance },
+            set: { languages.isShowingAppearance = $0 }
+        )
+    }
+
     var body: some View {
-        Group {
+        // A ZStack, not a Group: modifiers on a Group are applied to each of its
+        // branches separately, so switching between the native tabs and a theme
+        // root tore down whichever view was presenting the Settings or Appearance
+        // sheet. UIKit then dismissed the sheet without ever writing `false`
+        // back, `isShowingSettings` stayed true, and every later tap on Settings
+        // was a no-op. One stable container owns both sheets for the app's life.
+        ZStack {
             if languages.isActive {
                 ThemeLanguageRootView()
                     .transition(.opacity)
@@ -38,6 +51,9 @@ struct ContentView: View {
         .animation(.easeInOut(duration: 0.28), value: languages.isActive)
         .sheet(isPresented: settingsBinding) {
             SettingsView()
+        }
+        .sheet(isPresented: appearanceBinding) {
+            ThemeLanguageAppearanceView()
         }
         .onAppear {
             languages.updateSystemAppearance(isDark: colorScheme == .dark)

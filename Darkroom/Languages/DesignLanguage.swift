@@ -370,6 +370,20 @@ final class ThemeLanguageStore: ObservableObject {
     /// presents the Appearance sheet.
     @Published var isShowingAppearance = false
 
+    /// The one way to open Appearance from a theme's own screens. Same rule as
+    /// Settings: a tap can only happen with no sheet up, so a flag that is still
+    /// true is stale and is cleared before it is raised again.
+    func presentAppearance() {
+        guard isShowingAppearance else {
+            isShowingAppearance = true
+            return
+        }
+        isShowingAppearance = false
+        DispatchQueue.main.async { [weak self] in
+            self?.isShowingAppearance = true
+        }
+    }
+
     private init() {
         let stored = defaults.string(forKey: Keys.language).flatMap(ThemeLanguage.init(rawValue:))
         if let stored {
@@ -561,6 +575,6 @@ enum DLRuntime {
     /// resolved against the current brightness, density and text size.
     static var activeStyle: DLStyle? {
         guard activeSpec != nil else { return nil }
-        return DLStyle(store: ThemeLanguageStore.shared)
+        return DLStyle.current(from: ThemeLanguageStore.shared)
     }
 }

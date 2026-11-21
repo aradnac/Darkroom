@@ -106,28 +106,6 @@ each prompt, voice prompts, keep-awake, the default stop, fix, wash and
 final-rinse times, appearance and accent, and a reset for every stored
 preference. `docs/settings.md` records what each one changes.
 
-## Design languages
-
-Fourteen complete themes ship, chosen in Settings → Appearance and remembered
-between launches. They are not colour schemes: each has its own navigation
-structure, screen layouts, type ramp, controls, surfaces, borders, shadows,
-motion and background, and the same screen is laid out differently in each.
-**Darkroom** (the dark default, the app's own native interface) and **Soft Light**
-(white for anything you can press, colour only where it decorates or reports) are
-two of them; **Clean**, **Fluent**, **Material 3**, **Swiss**, **Brutalist**,
-**Neumorphic**, **Cyberpunk**, **Retro Analog**, **Editorial**, **Skeuomorphic**,
-**Terminal** and **Recorder** are the rest. **Recorder** is a flat field of the
-chosen colour from edge to edge with black type on it: a bold masthead, a disc of
-square dots that fills to the featured time, a tabular readout and a two-by-two
-deck of black knobs, each with a signal dot, reading the library, the shelf and
-the journal. A single Appearance section carries the theme selector and the
-palette every theme is lit with, plus brightness, text size, animation intensity,
-reduced motion and interface density, with a live preview before anything is
-applied. The darkroom itself is lit by nine colour palettes — a lamp and a second
-light behind it, so the backdrop carries a gradient — and fades its content into
-the chrome at the top and bottom of every screen. `docs/design-languages.md` and
-`docs/soft-glass-theme.md` record the decisions.
-
 ## Performance notes
 
 `docs/agent-skills/` holds three vendored review guides — profiling, SwiftUI

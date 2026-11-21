@@ -66,9 +66,6 @@ struct ThemeLanguageRootView: View {
         .transition(.opacity)
         .designLanguage(style)
         .preferredColorScheme(store.preferredScheme)
-        .sheet(isPresented: appearanceBinding) {
-            ThemeLanguageAppearanceView()
-        }
         .onAppear {
             store.updateSystemAppearance(isDark: systemScheme == .dark)
             guard !appeared else { return }
@@ -81,13 +78,6 @@ struct ThemeLanguageRootView: View {
         .onChange(of: systemScheme) { _, value in
             store.updateSystemAppearance(isDark: value == .dark)
         }
-    }
-
-    private var appearanceBinding: Binding<Bool> {
-        Binding(
-            get: { store.isShowingAppearance },
-            set: { store.isShowingAppearance = $0 }
-        )
     }
 
     // MARK: Pages

@@ -65,7 +65,7 @@ struct GlassPanel: ViewModifier {
                     )
             }
             .shadow(color: .black.opacity(0.45), radius: 26, x: 0, y: 16)
-            .shadow(color: glowing ? Color.white.opacity(0.16) : Color.clear, radius: 34, x: 0, y: 0)
+            .glowShadow(glowing, color: Color.white.opacity(0.16), radius: 34)
     }
 
     // MARK: Darkroom
@@ -100,7 +100,21 @@ struct GlassPanel: ViewModifier {
                     )
             }
             .shadow(color: .black.opacity(0.42), radius: 20, x: 0, y: 12)
-            .shadow(color: glowing ? Theme.amber.opacity(0.20) : Color.clear, radius: 28, x: 0, y: 0)
+            .glowShadow(glowing, color: Theme.amber.opacity(0.20), radius: 28)
+    }
+}
+
+private extension View {
+    /// A clear shadow draws nothing but still costs an offscreen blur pass per
+    /// card, so the glow is only added to a card that is actually glowing. The
+    /// result on screen is identical.
+    @ViewBuilder
+    func glowShadow(_ isOn: Bool, color: Color, radius: CGFloat) -> some View {
+        if isOn {
+            shadow(color: color, radius: radius, x: 0, y: 0)
+        } else {
+            self
+        }
     }
 }
 

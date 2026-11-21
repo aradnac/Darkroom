@@ -83,7 +83,7 @@ struct DevelopHomeView: View {
             Spacer(minLength: 0)
 
             SoftGlassIconButton(systemImage: "slider.horizontal.3") {
-                appearance.isShowingSettings = true
+                appearance.presentSettings()
             }
             .accessibilityLabel("Settings")
         }

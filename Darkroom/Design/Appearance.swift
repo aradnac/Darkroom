@@ -24,8 +24,32 @@ final class AppearanceStore: ObservableObject {
         didSet {
             guard oldValue != isShowingSettings else { return }
             if !isShowingSettings {
-                bumpRevision()
+                if skipNextRevision {
+                    skipNextRevision = false
+                } else {
+                    bumpRevision()
+                }
             }
+        }
+    }
+
+    /// Set while a stale presentation flag is being cleared, so the reset is not
+    /// mistaken for the reader closing Settings.
+    private var skipNextRevision = false
+
+    /// The one way to open Settings. A reader can only tap an entry while no
+    /// sheet covers the screen, so if the flag still says Settings is showing it
+    /// is stale; clear it, then raise it again on the next turn so the sheet is
+    /// presented rather than the tap doing nothing.
+    func presentSettings() {
+        guard isShowingSettings else {
+            isShowingSettings = true
+            return
+        }
+        skipNextRevision = true
+        isShowingSettings = false
+        DispatchQueue.main.async { [weak self] in
+            self?.isShowingSettings = true
         }
     }
 

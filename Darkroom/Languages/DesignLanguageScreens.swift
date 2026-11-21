@@ -1363,7 +1363,7 @@ struct DLDevelopScreen: View {
     /// right. It opens the Appearance section.
     private var recorderMenu: some View {
         Button {
-            ThemeLanguageStore.shared.isShowingAppearance = true
+            ThemeLanguageStore.shared.presentAppearance()
         } label: {
             Image(systemName: "chevron.down")
                 .font(.system(size: 15, weight: .bold))
@@ -1481,7 +1481,7 @@ struct DLDevelopScreen: View {
 
     private var gearButton: some View {
         Button {
-            ThemeLanguageStore.shared.isShowingAppearance = true
+            ThemeLanguageStore.shared.presentAppearance()
         } label: {
             Image(systemName: "slider.horizontal.3")
                 .font(.system(size: 13, weight: .semibold))

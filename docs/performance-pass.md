@@ -141,3 +141,78 @@ The audit's measurement plan (Animation Hitches + the SwiftUI instrument on
 stage") has not been run — that needs a device, and this project builds on a
 remote Mac. Findings 3, 4, 5 and 6 above are the ones that plan would confirm
 first.
+
+---
+
+# Second pass: presentation bug and card/backdrop cost
+
+Everything below is a **code reading**, not a measurement. It was written without
+a compiler or a device, so no frame times are claimed. Where a finding names what
+would confirm it, that is the first thing to run.
+
+## 7. Settings stopped opening after a theme change (bug)
+
+`ContentView.swift`, `Design/Appearance.swift`, `Languages/DesignLanguage.swift`,
+`Languages/DesignLanguageRootView.swift`
+
+`ContentView` hung its Settings sheet on a `Group` whose content switched between
+`tabs` and `ThemeLanguageRootView`. Modifiers on a `Group` are applied to each
+branch, so a theme change across that boundary removed the view presenting the
+sheet. The sheet was dismissed by the system without the binding being written
+back, `AppearanceStore.isShowingSettings` stayed `true`, and every later
+`isShowingSettings = true` changed nothing. `ThemeLanguageRootView` had the same
+shape for the Appearance sheet and `isShowingAppearance`.
+
+- One stable `ZStack` now owns both the Settings and the Appearance sheet.
+- `presentSettings()` and `presentAppearance()` clear a stale flag and raise it
+  again on the next turn, so a leftover `true` can no longer swallow a tap. The
+  reset is not counted as the reader closing Settings, so it does not rebuild the
+  tab stack.
+
+To confirm: switch Darkroom → any other theme → Settings; switch back → Settings;
+repeat from the Appearance sheet opened by a theme's own gear button.
+
+## 8. Cards paid for a shadow that drew nothing
+
+`Design/Glass.swift`
+
+Every `glassCard` added a second `.shadow` with a clear colour when it was not
+glowing. A clear shadow draws nothing but is still a separate blurred pass. It is
+now added only when `glowing` is true. The picture is identical.
+
+## 9. The backdrop redrew 24 times a second under every frosted card
+
+`Design/LiquidBackdrop.swift`, `Languages/DesignLanguageGraphics.swift`
+
+Each frosted card samples and blurs what is behind it, so every redraw of the
+backdrop forces a re-blur of every visible card. The liquid moves a couple of
+points a second under a 24–44 pt blur; it is now redrawn 6 times a second, which
+is indistinguishable at that speed and about a quarter of the compositing work.
+
+To confirm: Animation Hitches and the Core Animation instrument on a device,
+scrolling Recipes, before and after.
+
+## 10. A palette was rebuilt for every card in a drawn theme
+
+`Languages/DesignLanguageComponents.swift`, `Languages/DesignLanguage.swift`
+
+`DLRuntime.activeStyle` built a `DLStyle`, and with it a whole palette, on every
+call, and every card and button calls it while building its body. The last style
+is now reused until the theme, palette, brightness, text size or density changes.
+
+## 11. The library bridge re-mapped every film on every read
+
+`Library/LibraryStore.swift`
+
+`StarterLibrary.films` and `.developers` rebuilt hundreds of `Film` values on each
+access, including inside a view initialiser's `@State` default and in `ForEach`.
+They are now built once per document change.
+
+## Not changed on purpose
+
+- Closing Settings still rebuilds the tab stack. Some screens read defaults
+  (fix time, wash time) once when built, so the rebuild is what refreshes them.
+  Making it conditional is a behaviour change and needs a device to check.
+- The variable edge blurs stay on. They are the app's look. If a device trace
+  shows them in the hitch, `ProgressiveBlur` is the one place to scale back.
+- The library is still decoded and merged on the main thread at first use.

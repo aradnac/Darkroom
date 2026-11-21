@@ -118,7 +118,7 @@ struct ToolsView: View {
                     }
 
                     Button {
-                        appearance.isShowingSettings = true
+                        appearance.presentSettings()
                     } label: {
                         ToolCardBody(
                             title: "Settings",

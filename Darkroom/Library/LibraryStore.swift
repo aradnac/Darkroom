@@ -379,6 +379,8 @@ final class LibraryStore: ObservableObject {
     }
 
     private func rebuildIndex() {
+        legacyFilmsCache = nil
+        legacyDevelopersCache = nil
         var built = Index()
 
         // First entry wins, as the linear `first(where:)` lookups did.
@@ -469,8 +471,16 @@ final class LibraryStore: ObservableObject {
 
     /// The session setup still speaks in the app's original `Film` and
     /// `Developer` values; this is the one place the two vocabularies meet.
+    ///
+    /// Both lists are read from view initialisers, `ForEach`s and per-row
+    /// lookups, so they are built once per document change and cached rather
+    /// than re-mapped (hundreds of films) on every read.
+    private var legacyFilmsCache: [Film]?
+    private var legacyDevelopersCache: [Developer]?
+
     var legacyFilms: [Film] {
-        document.films.map { film in
+        if let cached = legacyFilmsCache { return cached }
+        let built = document.films.map { film in
             Film(
                 id: film.key,
                 manufacturer: film.manufacturer,
@@ -480,10 +490,13 @@ final class LibraryStore: ObservableObject {
                 formats: film.formats
             )
         }
+        legacyFilmsCache = built
+        return built
     }
 
     var legacyDevelopers: [Developer] {
-        document.developers.map { developer in
+        if let cached = legacyDevelopersCache { return cached }
+        let built = document.developers.map { developer in
             Developer(
                 id: developer.key,
                 manufacturer: developer.manufacturer,
@@ -498,6 +511,8 @@ final class LibraryStore: ObservableObject {
                 }
             )
         }
+        legacyDevelopersCache = built
+        return built
     }
 
     func legacyFilm(key: String) -> Film? {

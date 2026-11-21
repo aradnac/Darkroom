@@ -62,7 +62,7 @@ struct DLBackgroundView: View {
 
     private var liquidField: some View {
         ZStack {
-            TimelineView(.animation(minimumInterval: 1.0 / 20.0, paused: isStill)) { timeline in
+            TimelineView(.animation(minimumInterval: 1.0 / 6.0, paused: isStill)) { timeline in
                 let t = isStill ? 0 : timeline.date.timeIntervalSinceReferenceDate
 
                 Canvas { context, size in
